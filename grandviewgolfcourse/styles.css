@@ -7,10 +7,10 @@
 
 :root {
   /* Palette — Grandview's real brand colors */
-  --olive:       #5b6729;   /* olive body bg on original site */
-  --olive-light: #728133;   /* secondary olive */
-  --olive-deep:  #475020;   /* hover / darker */
-  --olive-soft:  rgba(114,129,51,0.08);
+  --olive:       #b8924c;   /* warm brass gold accent */
+  --olive-light: #d4b578;   /* light gold */
+  --olive-deep:  #8c6c35;   /* deeper gold / hover */
+  --olive-soft:  rgba(184,146,76,0.1);
   --navy:        #1b2b47;   /* deep navy — primary text + hero overlay */
   --navy-2:      #28375a;
   --navy-soft:   #434b64;   /* body copy */
@@ -771,7 +771,7 @@ h1 em, h2 em, h3 em, h4 em {
 }
 
 .punch-calc {
-  background: rgba(114,129,51,0.15);
+  background: rgba(184,146,76,0.18);
   border: 1px solid var(--olive-light);
   padding: 1.25rem 1.5rem;
   font-size: 1.15rem;
@@ -1295,7 +1295,7 @@ a.info:hover { transform: translateY(-2px); border-color: var(--olive); box-shad
   .foot-grid { grid-template-columns: 1fr; gap: 2.5rem; padding-bottom: 2.5rem; }
   .foot-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
 
-  a, button { -webkit-tap-highlight-color: rgba(114,129,51,0.2); }
+  a, button { -webkit-tap-highlight-color: rgba(184,146,76,0.2); }
   .nav-links a, .mobile-menu a { min-height: 44px; display: flex; align-items: center; }
 }
 
