@@ -1310,3 +1310,7 @@ a.info:hover { transform: translateY(-2px); border-color: var(--olive); box-shad
 .stagger.in-view > *:nth-child(5) { transition-delay: 0.4s; }
 .stagger.in-view > *:nth-child(6) { transition-delay: 0.5s; }
 .stagger.in-view > * { opacity: 1; transform: translateY(0); }
+
+/* Nav CTA phone icon */
+.nav-cta i { font-size: 0.95rem; }
+.mm-cta i { font-size: 1.05rem; margin-right: 0.35rem; }
