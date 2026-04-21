@@ -15,6 +15,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- 3D + scroll stack -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.59/build/spline-viewer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 </head>
 <body class="has-splash">
 
@@ -111,12 +117,27 @@
 
   <main>
     <!-- ============== HERO ============== -->
-    <section class="hero hero-v3">
+    <section class="hero hero-v3" data-hero>
+      <!-- Layer 0: Higgsfield / Seedance cinematic loop.
+           Drop your generated .mp4 at assets/hero-loop.mp4 (5-10s, silent). -->
+      <video class="hero-bg-video" data-hero-video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="assets/hero-loop.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-bg-veil" aria-hidden="true"></div>
+
+      <!-- Layer 1: Spline 3D scene.
+           Create in spline.design, publish, copy the scene.splinecode URL, paste below. -->
+      <spline-viewer class="hero-spline" data-hero-spline
+        url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
+        loading-anim-type="none"
+        events-target="global"
+        aria-hidden="true"></spline-viewer>
+
       <canvas class="hero-canvas" data-hero-canvas></canvas>
       <div class="hero-mesh" aria-hidden="true"></div>
       <div class="hero-scan" aria-hidden="true"></div>
       <div class="container">
-        <div class="hero-copy">
+        <div class="hero-copy" data-hero-copy>
           <span class="eyebrow reveal">
             <span class="live-dot"></span>
             AI BUILT FOR BUSINESSES THAT ACTUALLY SHIP
@@ -819,6 +840,90 @@
         console.warn('Splash WebGL FX failed, falling back to 2D particles.', err);
       }
     }
+  </script>
+
+  <!-- ============== IMMERSIVE HERO: scroll + cursor reactive ============== -->
+  <script defer>
+    window.addEventListener('load', () => {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+
+      // Lenis smooth scroll
+      if (window.Lenis) {
+        const lenis = new window.Lenis({ duration: 1.1, smoothWheel: true });
+        const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+        requestAnimationFrame(raf);
+        if (window.gsap && window.ScrollTrigger) {
+          lenis.on('scroll', window.ScrollTrigger.update);
+          window.gsap.ticker.add((t) => lenis.raf(t * 1000));
+          window.gsap.ticker.lagSmoothing(0);
+        }
+      }
+
+      // Scroll-linked hero depth: as you scroll down, copy drifts up + fades,
+      // 3D scene pushes back, veil darkens. That's the "cinematic push-in" feel.
+      if (window.gsap && window.ScrollTrigger) {
+        window.gsap.registerPlugin(window.ScrollTrigger);
+        const hero = document.querySelector('[data-hero]');
+        const copy = document.querySelector('[data-hero-copy]');
+        const spline = document.querySelector('[data-hero-spline]');
+        const video = document.querySelector('[data-hero-video]');
+
+        if (hero && copy) {
+          window.gsap.to(copy, {
+            y: -120, opacity: 0.15, scale: 0.96,
+            ease: 'none',
+            scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 }
+          });
+        }
+        if (hero && spline) {
+          window.gsap.to(spline, {
+            scale: 1.15, opacity: 0.35,
+            ease: 'none',
+            scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 }
+          });
+        }
+        if (hero && video) {
+          window.gsap.to(video, {
+            scale: 1.08, filter: 'brightness(0.45) saturate(1.2)',
+            ease: 'none',
+            scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 }
+          });
+        }
+      }
+
+      // Cursor parallax — nudges the 3D scene toward the mouse for "it's aware of me" feel
+      const spline = document.querySelector('[data-hero-spline]');
+      const hero = document.querySelector('[data-hero]');
+      if (spline && hero) {
+        let tx = 0, ty = 0, cx = 0, cy = 0;
+        hero.addEventListener('pointermove', (e) => {
+          const r = hero.getBoundingClientRect();
+          tx = ((e.clientX - r.left) / r.width  - 0.5) * 30;
+          ty = ((e.clientY - r.top)  / r.height - 0.5) * 30;
+        });
+        const loop = () => {
+          cx += (tx - cx) * 0.06;
+          cy += (ty - cy) * 0.06;
+          spline.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+          requestAnimationFrame(loop);
+        };
+        loop();
+      }
+
+      // 3D tilt on cards marked [data-tilt]
+      document.querySelectorAll('[data-tilt]').forEach((el) => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          const rx = ((e.clientY - r.top)  / r.height - 0.5) * -8;
+          const ry = ((e.clientX - r.left) / r.width  - 0.5) *  8;
+          el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+        });
+        el.addEventListener('pointerleave', () => {
+          el.style.transform = 'perspective(900px) rotateX(0) rotateY(0)';
+        });
+      });
+    });
   </script>
 
   <!-- ============== VAPI LIVE VOICE DEMO ============== -->
