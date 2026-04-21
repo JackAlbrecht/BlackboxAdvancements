@@ -79,6 +79,7 @@
     set('onlineXB',    fmtInt(p.platforms.xb));
     set('onlineRanked', fmtInt(p.queue.ranked));
     set('onlineQueue', `~${p.queue.avg_wait_seconds}s`);
+    set('statTotal', fmtInt(p.queue.matches_in_progress));
   }
 
   function filtered() {
@@ -177,7 +178,6 @@
     const top50 = players.slice(0, 50);
     const topRP = Math.max(...players.map(p => p.rp));
     const avgKD = (top50.reduce((a, p) => a + p.kd, 0) / top50.length).toFixed(2);
-    document.getElementById('statTotal').textContent = fmtInt(players.length);
     document.getElementById('statTopRP').textContent = fmtInt(topRP);
     document.getElementById('statAvgKD').textContent = avgKD;
     renderStatus();
