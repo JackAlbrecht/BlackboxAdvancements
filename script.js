@@ -65,9 +65,17 @@
     setInterval(updateClock, 1000);
   }
 
-  // ---------- Splash canvas: particle network ----------
+  // ---------- Splash canvas: particle network (fallback when WebGL FX is unavailable) ----------
   const splashCanvas = document.querySelector('[data-splash-canvas]');
-  if (splashCanvas && !prefersReducedMotion) {
+  const splashWebGL = document.querySelector('[data-splash-webgl]');
+  const webGLSupported = (() => {
+    try {
+      const c = document.createElement('canvas');
+      return !!(c.getContext('webgl2') || c.getContext('webgl'));
+    } catch (e) { return false; }
+  })();
+  const webGLWillRun = !!splashWebGL && webGLSupported && !prefersReducedMotion;
+  if (splashCanvas && !prefersReducedMotion && !webGLWillRun) {
     initParticleNetwork(splashCanvas, {
       count: 70,
       maxDist: 140,

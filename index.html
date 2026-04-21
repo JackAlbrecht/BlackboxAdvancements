@@ -21,6 +21,7 @@
   <!-- ============== SPLASH / ENTRY GATE ============== -->
   <div class="splash" data-splash>
     <canvas class="splash-canvas" data-splash-canvas></canvas>
+    <canvas class="splash-webgl" data-splash-webgl></canvas>
     <div class="splash-mesh" aria-hidden="true"></div>
     <div class="splash-grid" aria-hidden="true"></div>
     <div class="splash-noise" aria-hidden="true"></div>
@@ -255,24 +256,6 @@
             <span class="eyebrow"><span class="live-dot"></span>SOUNDS LIKE A HUMAN</span>
             <h2>AI phone callers that actually sound like your best rep.</h2>
             <p>Whisper for ears. Claude Opus 4.7 for the brain. A sub-200ms turn-taking TTS voice for a mouth. Your customers can't tell the difference — and it never has a bad day.</p>
-
-            <!-- LIVE VAPI DEMO -->
-            <div class="nova-demo" id="novaDemo" data-state="idle">
-              <button class="btn btn-primary btn-glow nova-demo-btn" id="novaDemoBtn" type="button" aria-label="Talk to Nova live">
-                <span class="nova-demo-pulse" aria-hidden="true"></span>
-                <span class="nova-demo-label">Talk to Nova · Live Demo</span>
-                <span class="btn-arrow">→</span>
-              </button>
-              <div class="nova-demo-status" id="novaDemoStatus" aria-live="polite">
-                <span class="nova-demo-bars" aria-hidden="true">
-                  <span></span><span></span><span></span><span></span><span></span>
-                </span>
-                <span class="nova-demo-text">Connecting…</span>
-                <button class="nova-demo-end" id="novaDemoEnd" type="button">End Call</button>
-              </div>
-              <p class="nova-demo-note">Uses your mic. One click, no signup — talk to the same AI we deploy for clients.</p>
-            </div>
-
             <div class="feature-use-cases">
               <div class="use-case">
                 <div class="use-case-icon">☏</div>
@@ -290,7 +273,7 @@
                 <span>Confirmations, reschedules, no-show recovery, intake forms — all voice.</span>
               </div>
             </div>
-            <a class="btn btn-secondary btn-shine" href="contact.html"><span>Deploy a Caller</span><span class="btn-arrow">→</span></a>
+            <a class="btn btn-primary btn-glow" href="contact.html"><span>Deploy a Caller</span><span class="btn-arrow">→</span></a>
           </div>
           <div class="feature-visual reveal">
             <div class="phone-frame">
@@ -794,80 +777,30 @@
   </footer>
   <script src="script.js"></script>
 
-  <!-- ============== VAPI LIVE VOICE DEMO ============== -->
+  <!-- Splash WebGL FX (ported from 21st.dev hero-futuristic) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
   <script type="module">
-    import Vapi from "https://esm.sh/@vapi-ai/web@2";
-
-    // 🔑 FILL THESE IN from dashboard.vapi.ai
-    const VAPI_PUBLIC_KEY = "637c1018-8a89-4a87-98a4-46b48ff981d6";
-    const NOVA_ASSISTANT_ID = "16ca4e70-888e-40ba-96f4-2c3c07327cbe";
-
-    const demo   = document.getElementById("novaDemo");
-    const btn    = document.getElementById("novaDemoBtn");
-    const label  = btn?.querySelector(".nova-demo-label");
-    const status = document.getElementById("novaDemoStatus");
-    const endBtn = document.getElementById("novaDemoEnd");
-    const statusText = status?.querySelector(".nova-demo-text");
-    const bars   = status?.querySelectorAll(".nova-demo-bars span") ?? [];
-
-    if (!demo || !btn) {
-      // Section not on this page — bail silently
-    } else if (VAPI_PUBLIC_KEY.startsWith("YOUR_") || NOVA_ASSISTANT_ID.startsWith("YOUR_")) {
-      btn.addEventListener("click", () => {
-        alert("Vapi keys not configured yet. Add your public key and assistant ID in index.html.");
-      });
-    } else {
-      const vapi = new Vapi(VAPI_PUBLIC_KEY);
-      let active = false;
-
-      const setState = (state, text) => {
-        demo.dataset.state = state;
-        if (text && statusText) statusText.textContent = text;
-        if (state === "idle" && label) label.textContent = "Talk to Nova · Live Demo";
-        if (state === "connecting" && label) label.textContent = "Connecting…";
-        if (state === "live" && label) label.textContent = "Live · Nova is listening";
-      };
-
-      btn.addEventListener("click", async () => {
-        if (active) return;
-        setState("connecting", "Connecting…");
-        try {
-          await vapi.start(NOVA_ASSISTANT_ID);
-        } catch (err) {
-          console.error("Vapi start failed", err);
-          setState("idle");
-          alert("Couldn't start the call. Check mic permissions and try again.");
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canvas = document.querySelector('[data-splash-webgl]');
+    const canvas2D = document.querySelector('[data-splash-canvas]');
+    if (canvas && !reduce) {
+      try {
+        const { initSplashFX } = await import('./assets/splash-fx.js');
+        const fx = initSplashFX(canvas);
+        if (fx) {
+          document.body.classList.add('splash-fx-on');
+          if (canvas2D) canvas2D.style.display = 'none';
         }
-      });
-
-      endBtn?.addEventListener("click", () => vapi.stop());
-
-      vapi.on("call-start", () => {
-        active = true;
-        setState("live", "Connected — say hi to Nova");
-      });
-
-      vapi.on("call-end", () => {
-        active = false;
-        setState("idle", "Call ended");
-      });
-
-      vapi.on("error", (e) => {
-        console.error("Vapi error", e);
-        active = false;
-        setState("idle", "Something went wrong");
-      });
-
-      vapi.on("speech-start", () => setState("live", "Nova is speaking…"));
-      vapi.on("speech-end",   () => setState("live", "Listening…"));
-
-      vapi.on("volume-level", (level) => {
-        // level is 0..1 — drive the bars
-        bars.forEach((bar, i) => {
-          const threshold = (i + 1) / (bars.length + 1);
-          bar.style.transform = `scaleY(${Math.max(0.15, Math.min(1, level / threshold))})`;
-        });
-      });
+      } catch (err) {
+        console.warn('Splash WebGL FX failed, falling back to 2D particles.', err);
+      }
     }
   </script>
 </body>
