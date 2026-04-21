@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blackbox Calendar</title>
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230a0a0f'/><rect x='6' y='6' width='20' height='20' rx='4' fill='none' stroke='%238b5cf6' stroke-width='2'/><rect x='11' y='11' width='10' height='10' rx='2' fill='%238b5cf6'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"','ui-sans-serif','system-ui','sans-serif'],
+          mono: ['"JetBrains Mono"','ui-monospace','monospace'],
+        },
+        colors: {
+          bg:   '#08080c',
+          card: '#0e0e14',
+          bord: 'rgba(255,255,255,0.08)',
+          mute: '#9ca3af',
+          primary: '#8b5cf6',
+          secondary: '#3b82f6',
+          danger: '#ef4444',
+        },
+        animation: {
+          'fade-in': 'fadeIn .4s ease-out',
+          'slide-up': 'slideUp .5s ease-out',
+          'glow-pulse': 'glowPulse 4s ease-in-out infinite',
+        },
+        keyframes: {
+          fadeIn: { '0%': {opacity:0,transform:'translateY(4px)'}, '100%': {opacity:1,transform:'translateY(0)'}},
+          slideUp: { '0%': {opacity:0,transform:'translateY(20px)'}, '100%': {opacity:1,transform:'translateY(0)'}},
+          glowPulse: { '0%,100%': {opacity:.4}, '50%': {opacity:.8}},
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html,body{background:#08080c;color:#fff;font-family:'Plus Jakarta Sans',ui-sans-serif,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(139,92,246,.4)}
+
+  .bb-grid{
+    background-size:48px 48px;
+    background-image:
+      linear-gradient(to right,rgba(255,255,255,.035) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(255,255,255,.035) 1px,transparent 1px);
+  }
+  .bb-grid-fade{
+    -webkit-mask-image:radial-gradient(ellipse at center,black 40%,transparent 85%);
+    mask-image:radial-gradient(ellipse at center,black 40%,transparent 85%);
+  }
+  .bb-aurora{
+    background:radial-gradient(circle at 50% 50%, rgba(139,92,246,.22) 0%, rgba(59,130,246,.14) 40%, transparent 70%);
+    filter:blur(80px);
+  }
+  .bb-glass{
+    background:linear-gradient(145deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.015) 100%);
+    box-shadow:0 10px 30px -10px rgba(0,0,0,.5), inset 0 1px 1px rgba(255,255,255,.08), inset 0 -1px 2px rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+  }
+  .bb-glass-hover:hover{
+    background:linear-gradient(145deg, rgba(255,255,255,.07) 0%, rgba(255,255,255,.025) 100%);
+    border-color:rgba(255,255,255,.15);
+  }
+  .bb-text-glow{
+    background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.45) 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    filter:drop-shadow(0 0 24px rgba(139,92,246,.3));
+  }
+  .bb-scroll::-webkit-scrollbar{width:10px;height:10px}
+  .bb-scroll::-webkit-scrollbar-track{background:transparent}
+  .bb-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:999px;border:2px solid transparent;background-clip:padding-box}
+  .bb-scroll::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.16);background-clip:padding-box}
+
+  .bb-event{transition:transform .15s,box-shadow .15s,filter .15s}
+  .bb-event:hover{transform:translateY(-1px);filter:brightness(1.15)}
+
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator{
+    filter:invert(70%);cursor:pointer
+  }
+
+  .spinner{width:40px;height:40px;border:3px solid rgba(255,255,255,.1);border-top-color:#8b5cf6;border-radius:50%;animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="root">
+  <div style="display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:column;gap:16px">
+    <div class="spinner"></div>
+    <div style="color:#9ca3af;font-size:12px;letter-spacing:.2em;text-transform:uppercase">Loading Blackbox</div>
+  </div>
+</div>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useMemo, useRef, useCallback } = React;
+
+// ======================== Helpers ========================
+const uid = (p='') => p + Math.random().toString(36).slice(2,10) + Date.now().toString(36).slice(-4);
+const pad = n => String(n).padStart(2,'0');
+const toISODate = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parseISODate = iso => { const [y,m,d]=iso.split('-').map(Number); return new Date(y,(m||1)-1,d||1); };
+const addDays = (d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
+const startOfWeek = (d,weekStart=1)=>{const x=new Date(d);x.setHours(0,0,0,0);const diff=(x.getDay()-weekStart+7)%7;x.setDate(x.getDate()-diff);return x;};
+const daysOfWeek = s => Array.from({length:7},(_,i)=>addDays(s,i));
+const isSameDay = (a,b) => a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate();
+const timeToMin = hhmm => { const [h,m]=hhmm.split(':').map(Number); return h*60+(m||0); };
+const minToTime = m => `${pad(Math.floor(m/60))}:${pad(m%60)}`;
+const formatTimeLabel = hhmm => {
+  const [h,m] = hhmm.split(':').map(Number);
+  const period = h>=12?'PM':'AM';
+  const h12 = h%12===0?12:h%12;
+  return m===0? `${h12} ${period}` : `${h12}:${pad(m)} ${period}`;
+};
+const formatRange = (s,e) => {
+  const sm = s.getMonth()===e.getMonth();
+  const sy = s.getFullYear()===e.getFullYear();
+  const mo = d => d.toLocaleString('en-US',{month:'short'});
+  if (sm&&sy) return `${mo(s)} ${s.getDate()} – ${e.getDate()}, ${s.getFullYear()}`;
+  if (sy) return `${mo(s)} ${s.getDate()} – ${mo(e)} ${e.getDate()}, ${s.getFullYear()}`;
+  return `${mo(s)} ${s.getDate()}, ${s.getFullYear()} – ${mo(e)} ${e.getDate()}, ${e.getFullYear()}`;
+};
+const deriveInitials = name => {
+  const p = name.trim().split(/\s+/);
+  if (p.length===1) return p[0].slice(0,2).toUpperCase();
+  return (p[0][0]+p[p.length-1][0]).toUpperCase();
+};
+const cn = (...xs) => xs.filter(Boolean).join(' ');
+
+const MEMBER_COLORS = ['#8b5cf6','#3b82f6','#06b6d4','#10b981','#f59e0b','#ef4444','#ec4899','#a855f7','#14b8a6','#f97316'];
+
+// ======================== Storage ========================
+const STORAGE_KEY = 'blackbox_calendar_state_v1';
+const loadState = () => {
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (!raw) return null; const p = JSON.parse(raw); if (!p.members||!p.events) return null; return p; } catch { return null; }
+};
+const saveState = s => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch {} };
+
+const seedState = () => {
+  const me = { id: uid('m_'), name:'Carson Peters', role:'Owner', color:'#8b5cf6', initials:'CP' };
+  const todayISO = toISODate(new Date());
+  return {
+    members: [me],
+    currentUserId: me.id,
+    activeMemberFilter: [],
+    events: [{
+      id: uid('e_'),
+      title: 'Welcome to Blackbox',
+      notes: "This is your workspace. Click any time slot to drop a new event. Every event has its own checklist. Add teammates from the left sidebar.",
+      date: todayISO,
+      startTime: '09:00',
+      endTime: '10:00',
+      assigneeIds: [me.id],
+      checklist: [
+        { id: uid('c_'), text:'Add your teammates', done:false },
+        { id: uid('c_'), text:'Create your first event', done:false },
+        { id: uid('c_'), text:'Check something off this list', done:false },
+      ],
+      status: 'in_progress',
+      location: '',
+    }]
+  };
+};
+
+// ======================== Icons (inline SVGs) ========================
+const Ico = ({ d, size=16, cls='' }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}>
+    {d}
+  </svg>
+);
+const icons = {
+  plus: <Ico d={<><path d="M12 5v14"/><path d="M5 12h14"/></>}/>,
+  chevL: <Ico d={<polyline points="15 18 9 12 15 6"/>}/>,
+  chevR: <Ico d={<polyline points="9 18 15 12 9 6"/>}/>,
+  x: <Ico d={<><path d="M18 6 6 18"/><path d="m6 6 12 12"/></>}/>,
+  check: <Ico d={<polyline points="20 6 9 17 4 12"/>}/>,
+  trash: <Ico d={<><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></>}/>,
+  home: <Ico d={<><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></>}/>,
+  search: <Ico d={<><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></>}/>,
+  users: <Ico d={<><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></>}/>,
+  filter: <Ico d={<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>}/>,
+  mapPin: <Ico d={<><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></>}/>,
+  more: <Ico d={<><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></>}/>,
+  calendar: <Ico d={<><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></>}/>,
+  checksq: <Ico d={<><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></>}/>,
+  layers: <Ico d={<><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></>}/>,
+  zap: <Ico d={<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>}/>,
+  lock: <Ico d={<><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></>}/>,
+  arrowR: <Ico d={<><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></>}/>,
+  alert: <Ico d={<><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></>}/>,
+  circle: <Ico d={<circle cx="12" cy="12" r="10" strokeDasharray="2 4"/>}/>,
+  check2: <Ico d={<><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></>}/>,
+};
+
+// ======================== Small UI ========================
+const Button = ({ variant='default', size='default', className='', children, ...p }) => {
+  const base='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary/60 disabled:pointer-events-none disabled:opacity-50 cursor-pointer';
+  const variants={
+    default:'bg-primary hover:bg-primary/90 text-white shadow-[0_8px_30px_-10px_rgba(139,92,246,.6)]',
+    secondary:'bg-secondary hover:bg-secondary/90 text-white',
+    outline:'border border-bord bg-transparent hover:bg-white/5 hover:border-white/20 text-white',
+    ghost:'hover:bg-white/5 text-white',
+    danger:'bg-danger/10 hover:bg-danger/20 text-danger border border-danger/30',
+  };
+  const sizes={default:'h-10 px-4 text-sm',sm:'h-8 px-3 text-xs',lg:'h-12 px-6 text-base',icon:'h-10 w-10'};
+  return <button className={cn(base, variants[variant], sizes[size], className)} {...p}>{children}</button>;
+};
+
+const Input = ({ className='', ...p }) => (
+  <input
+    className={cn('flex h-10 w-full rounded-md border border-bord bg-black/40 px-3 py-2 text-sm text-white placeholder:text-mute focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent',className)}
+    {...p}
+  />
+);
+
+const Modal = ({ open, onClose, title, description, children, width='max-w-lg' }) => {
+  useEffect(()=>{
+    if (!open) return;
+    const onKey = e => { if (e.key==='Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    const old = document.body.style.overflow;
+    document.body.style.overflow='hidden';
+    return ()=>{ document.removeEventListener('keydown', onKey); document.body.style.overflow=old; };
+  },[open,onClose]);
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in">
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose}/>
+      <div className={cn('relative w-full bb-glass rounded-2xl p-6 animate-slide-up', width)} onClick={e=>e.stopPropagation()}>
+        <button onClick={onClose} className="absolute top-4 right-4 text-mute hover:text-white transition-colors" aria-label="Close">{icons.x}</button>
+        {title && (
+          <div className="mb-4 pr-8">
+            <h2 className="text-xl font-bold tracking-tight">{title}</h2>
+            {description && <p className="text-sm text-mute mt-1">{description}</p>}
+          </div>
+        )}
+        {children}
+      </div>
+    </div>
+  );
+};
+
+// ======================== Landing ========================
+const FEATURES = [
+  { icon:icons.calendar, title:'Shared team calendar', body:"See every person's day on one grid. Filter by teammate with one click." },
+  { icon:icons.checksq, title:'Live checklists per event', body:'Every event carries its own checklist. Check work off as it happens.' },
+  { icon:icons.users, title:'Built for working crews', body:'Assign jobs to people, not just to days. Know who is doing what, where, and when.' },
+  { icon:icons.layers, title:'No missed handoffs', body:'Blocked items and open tasks stay visible until they are closed.' },
+  { icon:icons.zap, title:'Fast by default', body:'Keyboard-friendly. One-click event creation. Your data stays on your device.' },
+  { icon:icons.lock, title:'Your data, your control', body:'Local-first storage out of the box. Add a database whenever you are ready.' },
+];
+
+const MockEvent = ({ color, time, title, done, total }) => (
+  <div className="flex items-center gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/5">
+    <div className="w-1 h-8 rounded-full shrink-0" style={{background:color,boxShadow:`0 0 12px ${color}`}}/>
+    <div className="flex-1 min-w-0">
+      <div className="text-sm font-medium truncate">{title}</div>
+      <div className="text-xs text-mute font-mono">{time}</div>
+    </div>
+    <div className="text-xs font-mono text-mute shrink-0">{done}/{total}</div>
+  </div>
+);
+
+const Landing = ({ onEnter }) => (
+  <div className="relative w-full min-h-screen overflow-x-hidden bg-bg">
+    <header className="fixed top-0 left-0 right-0 z-40 px-6 md:px-10 py-5 flex items-center justify-between bg-bg/70 backdrop-blur-md border-b border-white/5">
+      <div className="flex items-center gap-2.5">
+        <div className="relative w-7 h-7 rounded-md border border-primary/60 flex items-center justify-center">
+          <div className="w-3 h-3 rounded-sm bg-primary shadow-[0_0_12px_rgba(139,92,246,.8)]"/>
+        </div>
+        <span className="font-black tracking-tight text-lg">BLACKBOX<span className="text-mute font-light"> / Calendar</span></span>
+      </div>
+      <nav className="hidden md:flex items-center gap-8 text-sm text-mute">
+        <a href="#features" className="hover:text-white transition-colors">Features</a>
+        <a href="#how" className="hover:text-white transition-colors">How it works</a>
+        <a href="#why" className="hover:text-white transition-colors">Why Blackbox</a>
+      </nav>
+      <Button size="sm" onClick={onEnter} className="gap-2">Launch {icons.arrowR}</Button>
+    </header>
+
+    <main className="relative z-10 w-full bg-bg">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20">
+        <div className="absolute inset-0 bb-grid bb-grid-fade pointer-events-none"/>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[80vw] h-[60vh] bb-aurora opacity-80 animate-glow-pulse pointer-events-none"/>
+
+        <div className="relative z-10 max-w-4xl w-full flex flex-col items-center text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8 text-xs tracking-widest text-mute uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"/>
+            Team scheduling, reimagined
+          </div>
+          <h1 className="bb-text-glow text-6xl md:text-8xl font-black tracking-tighter leading-[0.95] mb-6">
+            One calendar.<br/>The whole crew.
+          </h1>
+          <p className="text-lg md:text-xl text-mute max-w-2xl mb-10 leading-relaxed">
+            Blackbox Calendar is a shared workspace for working teams. See what every person is doing, what they still have to do, and check work off as it gets done.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <Button size="lg" onClick={onEnter} className="gap-2 group">
+              Open Workspace
+              <span className="group-hover:translate-x-1 transition-transform inline-flex">{icons.arrowR}</span>
+            </Button>
+            <a href="#features"><Button size="lg" variant="outline">See features</Button></a>
+          </div>
+
+          <div className="mt-20 w-full max-w-3xl bb-glass rounded-2xl p-6 text-left relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"/>
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-primary"/>
+                <span className="text-xs text-mute font-mono tracking-widest uppercase">Today · Live View</span>
+              </div>
+              <div className="flex -space-x-2">
+                {['C','A','J','S'].map((ch,i)=>(
+                  <div key={ch} className="w-7 h-7 rounded-full border-2 border-bg flex items-center justify-center text-[10px] font-bold text-white" style={{background:['#8b5cf6','#3b82f6','#10b981','#ec4899'][i]}}>{ch}</div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-2">
+              <MockEvent color="#8b5cf6" time="9:00 AM" title="Site walkthrough - Henderson St" done={2} total={3}/>
+              <MockEvent color="#3b82f6" time="10:30 AM" title="Prep and mask - Rutherford job" done={4} total={6}/>
+              <MockEvent color="#10b981" time="1:00 PM" title="Client estimate call" done={1} total={2}/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" className="relative py-32 px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16 text-center">
+            <div className="inline-block text-xs tracking-[0.3em] text-primary font-semibold uppercase mb-4">What it does</div>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight bb-text-glow">
+              Everything your team<br/>needs in one place.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {FEATURES.map(f=>(
+              <div key={f.title} className="bb-glass bb-glass-hover rounded-2xl p-6 transition-all">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 text-primary">
+                  {f.icon}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{f.title}</h3>
+                <p className="text-sm text-mute leading-relaxed">{f.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="how" className="relative py-32 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-16">
+            <div className="text-xs tracking-[0.3em] text-primary font-semibold uppercase mb-4">How it works</div>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight bb-text-glow">Three steps to a<br/>coordinated team.</h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              { n:'01', title:'Add your team', body:"Drop in each person with a role and a color. They show up as filterable chips across the whole calendar." },
+              { n:'02', title:'Schedule the work', body:'Click any time slot to create an event. Assign one or more teammates. Add a checklist of what has to get done.' },
+              { n:'03', title:'Check it off', body:'As work completes, check items. Events flip from In Progress to Done. Everyone sees the same state.' },
+            ].map(s=>(
+              <div key={s.n} className="bb-glass rounded-2xl p-6 md:p-8 flex gap-6 items-start">
+                <div className="text-5xl md:text-6xl font-black text-primary/30 font-mono shrink-0 w-20">{s.n}</div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-2">{s.title}</h3>
+                  <p className="text-mute leading-relaxed">{s.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-16 text-center">
+            <Button size="lg" onClick={onEnter} className="gap-2 group">
+              Launch your workspace
+              <span className="group-hover:translate-x-1 transition-transform inline-flex">{icons.arrowR}</span>
+            </Button>
+            <p className="text-xs text-mute mt-4">No signup required. Your data stays on this device.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="why" className="relative py-32 px-6 border-t border-white/5">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-xs tracking-[0.3em] text-primary font-semibold uppercase mb-4">Why Blackbox</div>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight bb-text-glow mb-6">
+            Calendar apps schedule time.<br/>Blackbox runs the work.
+          </h2>
+          <p className="text-lg text-mute leading-relaxed max-w-2xl mx-auto">
+            Every event has a purpose, a person, and a checklist of what has to happen inside of it. That is the difference. You are not looking at blocks of time. You are looking at the work itself.
+          </p>
+        </div>
+      </section>
+
+      <footer className="relative py-16 px-6 border-t border-white/5 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-3xl md:text-5xl font-black bb-text-glow tracking-tight mb-6">Ready to run the whole crew?</h3>
+          <Button size="lg" onClick={onEnter} className="gap-2 group mb-10">
+            Open Workspace
+            <span className="group-hover:translate-x-1 transition-transform inline-flex">{icons.arrowR}</span>
+          </Button>
+          <div className="text-xs text-mute tracking-widest uppercase font-mono">© 2026 Blackbox Calendar · Built for working teams</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+);
+
+// ======================== Workspace pieces ========================
+const DAY_START=6*60, DAY_END=22*60, HOUR_ROWS=(DAY_END-DAY_START)/60, PX=56;
+
+const NowLine = ({ weekStart })=>{
+  const [now,setNow] = useState(null);
+  useEffect(()=>{ setNow(new Date()); const t=setInterval(()=>setNow(new Date()),60000); return ()=>clearInterval(t); },[]);
+  if (!now) return null;
+  const week = daysOfWeek(weekStart);
+  const idx = week.findIndex(d => isSameDay(d, now));
+  if (idx===-1) return null;
+  const nm = now.getHours()*60+now.getMinutes();
+  if (nm < DAY_START || nm > DAY_END) return null;
+  const top = ((nm - DAY_START)/60)*PX;
+  return (
+    <div className="absolute pointer-events-none z-10"
+      style={{top:`${top}px`,left:`calc(64px + (100% - 64px) / 7 * ${idx})`,width:`calc((100% - 64px) / 7)`,height:2}}>
+      <div className="relative h-[2px] bg-primary/80 shadow-[0_0_12px_rgba(139,92,246,.9)]">
+        <div className="absolute -left-1.5 -top-1.5 w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_rgba(139,92,246,.9)]"/>
+      </div>
+    </div>
+  );
+};
+
+const DayColumn = ({ iso, isToday, events, memberMap, onEmptyClick, onSelectEvent }) => {
+  const positioned = useMemo(()=>{
+    const sorted = [...events].sort((a,b)=>timeToMin(a.startTime)-timeToMin(b.startTime));
+    const cols = [];
+    const asg = new Map();
+    for (const ev of sorted) {
+      const s = timeToMin(ev.startTime);
+      let placed=false;
+      for (let ci=0; ci<cols.length; ci++) {
+        const last = cols[ci][cols[ci].length-1];
+        if (last && timeToMin(last.endTime) <= s) { cols[ci].push(ev); asg.set(ev.id, ci); placed=true; break; }
+      }
+      if (!placed) { cols.push([ev]); asg.set(ev.id, cols.length-1); }
+    }
+    const total = Math.max(cols.length,1);
+    return sorted.map(ev=>({ event:ev, col:asg.get(ev.id)??0, total }));
+  },[events]);
+
+  return (
+    <div className={cn('relative border-l border-white/5', isToday && 'bg-primary/[0.02]')}>
+      {Array.from({length:HOUR_ROWS}).map((_,i)=>(
+        <div key={i} className="absolute left-0 right-0 border-t border-white/[0.04]" style={{top:`${i*PX}px`}}/>
+      ))}
+      <div className="absolute inset-0 cursor-cell"
+        onClick={e=>{
+          if (e.target===e.currentTarget) {
+            const r = e.currentTarget.getBoundingClientRect();
+            const y = e.clientY - r.top;
+            const total = DAY_START + Math.round((y/PX)*60/15)*15;
+            const clamp = Math.max(DAY_START, Math.min(DAY_END-30, total));
+            onEmptyClick(iso, minToTime(clamp));
+          }
+        }}
+        onDoubleClick={e=>{
+          const r = e.currentTarget.getBoundingClientRect();
+          const y = e.clientY - r.top;
+          const total = DAY_START + Math.round((y/PX)*60/15)*15;
+          const clamp = Math.max(DAY_START, Math.min(DAY_END-30, total));
+          onEmptyClick(iso, minToTime(clamp));
+        }}
+      />
+      {positioned.map(({event,col,total})=>{
+        const s = timeToMin(event.startTime), e = timeToMin(event.endTime);
+        const top = ((s-DAY_START)/60)*PX;
+        const h = Math.max(((e-s)/60)*PX, 28);
+        const wp = 100/total, lp = col*wp;
+        const assignees = event.assigneeIds.map(id=>memberMap.get(id)).filter(Boolean);
+        const primary = assignees[0]?.color ?? '#8b5cf6';
+        const done = event.checklist.filter(c=>c.done).length;
+        const tot = event.checklist.length;
+        const isDone = tot>0 && done===tot;
+        return (
+          <button key={event.id} onClick={ev=>{ev.stopPropagation();onSelectEvent(event);}}
+            className="bb-event absolute rounded-md overflow-hidden text-left"
+            style={{top:`${top}px`,height:`${h}px`,left:`calc(${lp}% + 4px)`,width:`calc(${wp}% - 8px)`,
+              background:`linear-gradient(135deg, ${primary}22, ${primary}11)`,
+              borderLeft:`3px solid ${primary}`,
+              boxShadow:`0 6px 20px -10px ${primary}80`,
+              opacity:isDone?0.7:1}}>
+            <div className="p-2 h-full flex flex-col">
+              <div className={cn('text-[11px] font-semibold leading-tight line-clamp-2', isDone && 'line-through text-mute')}>{event.title}</div>
+              {h>44 && (
+                <div className="mt-auto flex items-center justify-between gap-1 pt-1">
+                  <div className="text-[10px] font-mono text-mute truncate">{formatTimeLabel(event.startTime)}</div>
+                  {tot>0 && <div className="text-[10px] font-mono text-mute shrink-0">{done}/{tot}</div>}
+                </div>
+              )}
+              {h>80 && assignees.length>0 && (
+                <div className="flex -space-x-1.5 mt-1">
+                  {assignees.slice(0,4).map(a=>(
+                    <div key={a.id} className="w-5 h-5 rounded-full border-2 border-bg flex items-center justify-center text-[9px] font-bold text-white"
+                      style={{background:a.color}} title={a.name}>{a.initials}</div>
+                  ))}
+                  {assignees.length>4 && <div className="w-5 h-5 rounded-full border-2 border-bg flex items-center justify-center text-[9px] font-bold bg-white/10 text-white">+{assignees.length-4}</div>}
+                </div>
+              )}
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+
+const WeekCalendar = ({ weekStart, events, members, activeFilter, onSelectEvent, onCreateAt }) => {
+  const days = useMemo(()=>daysOfWeek(weekStart),[weekStart]);
+  const today = new Date();
+  const memberMap = useMemo(()=>{ const m=new Map(); members.forEach(x=>m.set(x.id,x)); return m; },[members]);
+  const filtered = useMemo(()=>{
+    if (!activeFilter.length) return events;
+    return events.filter(e => e.assigneeIds.some(id => activeFilter.includes(id)));
+  },[events, activeFilter]);
+  const byDate = useMemo(()=>{ const m=new Map(); for (const e of filtered){ const l=m.get(e.date)??[]; l.push(e); m.set(e.date,l);} return m; },[filtered]);
+
+  return (
+    <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="grid grid-cols-[64px_repeat(7,1fr)] border-b border-white/5 bg-bg/60 backdrop-blur-sm">
+        <div className="h-16"/>
+        {days.map(d=>{
+          const tod = isSameDay(d,today);
+          const dayName = d.toLocaleString('en-US',{weekday:'short'}).toUpperCase();
+          return (
+            <div key={d.toISOString()} className={cn('h-16 flex flex-col items-center justify-center border-l border-white/5', tod && 'bg-primary/5')}>
+              <div className={cn('text-[10px] font-bold tracking-[0.2em] uppercase', tod ? 'text-primary' : 'text-mute')}>{dayName}</div>
+              <div className={cn('mt-1 text-xl font-bold flex items-center justify-center rounded-full w-8 h-8',
+                tod ? 'bg-primary text-white shadow-[0_0_16px_rgba(139,92,246,.6)]' : 'text-white')}>
+                {d.getDate()}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex-1 overflow-y-auto bb-scroll relative">
+        <div className="grid grid-cols-[64px_repeat(7,1fr)] relative" style={{height:`${HOUR_ROWS*PX}px`}}>
+          <div className="relative border-r border-white/5">
+            {Array.from({length:HOUR_ROWS}).map((_,i)=>{
+              const min = DAY_START + i*60;
+              return (
+                <div key={i} className="absolute left-0 right-0 text-[10px] font-mono text-mute/70 tracking-wider pr-2 text-right"
+                  style={{top:`${i*PX - 6}px`}}>
+                  {i===0 ? '' : formatTimeLabel(minToTime(min))}
+                </div>
+              );
+            })}
+          </div>
+          {days.map(d=>{
+            const iso = toISODate(d);
+            const dayEvents = byDate.get(iso) ?? [];
+            const tod = isSameDay(d,today);
+            return <DayColumn key={iso} iso={iso} isToday={tod} events={dayEvents} memberMap={memberMap}
+                      onEmptyClick={onCreateAt} onSelectEvent={onSelectEvent}/>;
+          })}
+          <NowLine weekStart={weekStart}/>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ======================== Sidebar / Task Panel / Top Bar ========================
+const TopBar = ({ weekStart, weekEnd, onPrev, onNext, onToday, onNewEvent, search, onSearch, onHome })=>(
+  <header className="flex items-center justify-between gap-4 px-6 h-16 border-b border-white/5 bg-bg/80 backdrop-blur-md shrink-0">
+    <div className="flex items-center gap-4">
+      <button onClick={onHome} className="flex items-center gap-2.5 hover:opacity-80 transition-opacity" title="Back to landing">
+        <div className="relative w-7 h-7 rounded-md border border-primary/60 flex items-center justify-center">
+          <div className="w-3 h-3 rounded-sm bg-primary shadow-[0_0_12px_rgba(139,92,246,.8)]"/>
+        </div>
+        <span className="font-black tracking-tight text-base hidden md:block">BLACKBOX</span>
+      </button>
+      <div className="w-px h-6 bg-white/10 hidden md:block"/>
+      <div className="flex items-center gap-1">
+        <Button variant="outline" size="sm" onClick={onToday} className="h-9">Today</Button>
+        <Button variant="ghost" size="icon" onClick={onPrev} className="h-9 w-9" aria-label="Previous">{icons.chevL}</Button>
+        <Button variant="ghost" size="icon" onClick={onNext} className="h-9 w-9" aria-label="Next">{icons.chevR}</Button>
+      </div>
+      <div className="font-semibold text-base md:text-lg tracking-tight">{formatRange(weekStart, weekEnd)}</div>
+    </div>
+    <div className="flex items-center gap-3">
+      <div className="relative hidden md:block">
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-mute">{icons.search}</div>
+        <input type="text" placeholder="Search events..." value={search} onChange={e=>onSearch(e.target.value)}
+          className="h-9 w-64 rounded-md pl-9 pr-3 text-sm bg-white/5 border border-white/10 placeholder:text-mute focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent"/>
+      </div>
+      <Button onClick={onNewEvent} size="sm" className="h-9 gap-2">
+        {icons.plus}<span className="hidden sm:inline">New event</span>
+      </Button>
+      <Button variant="ghost" size="icon" onClick={onHome} className="h-9 w-9" title="Home">{icons.home}</Button>
+    </div>
+  </header>
+);
+
+const TeamSidebar = ({ members, events, filter, onToggleFilter, onClearFilter, onAddMember, onEditMember })=>{
+  const isAll = filter.length===0;
+  const cnt = id => events.filter(e=>e.assigneeIds.includes(id)).length;
+  const open = id => events.filter(e=>e.assigneeIds.includes(id)).reduce((a,e)=>a+e.checklist.filter(c=>!c.done).length,0);
+  return (
+    <aside className="w-72 shrink-0 border-r border-white/5 bg-bg/60 flex flex-col">
+      <div className="p-5 border-b border-white/5">
+        <div className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-mute uppercase mb-3">
+          {icons.users} Team
+        </div>
+        <div className="flex items-center justify-between gap-2">
+          <div className="text-2xl font-black tracking-tight">{members.length}</div>
+          <Button size="sm" variant="outline" onClick={onAddMember} className="h-8 gap-1.5">{icons.plus}Add</Button>
+        </div>
+      </div>
+      <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+        <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] text-mute uppercase">
+          {icons.filter} Filter
+        </div>
+        {!isAll && <button onClick={onClearFilter} className="text-[11px] text-primary hover:text-primary/80 font-medium">Clear</button>}
+      </div>
+      <div className="flex-1 overflow-y-auto bb-scroll px-3 py-2">
+        <button onClick={onClearFilter}
+          className={cn('w-full text-left flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 transition-colors',
+            isAll ? 'bg-white/5 border border-white/10' : 'hover:bg-white/5 border border-transparent')}>
+          <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-mute">{icons.users}</div>
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-medium">Everyone</div>
+            <div className="text-[11px] text-mute">{events.length} event{events.length===1?'':'s'}</div>
+          </div>
+          {isAll && <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(139,92,246,.9)]"/>}
+        </button>
+        {members.map(m=>{
+          const sel = filter.includes(m.id);
+          return (
+            <div key={m.id} className={cn('w-full flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 transition-colors group',
+              sel ? 'bg-white/5 border border-white/10' : 'hover:bg-white/5 border border-transparent')}>
+              <button onClick={()=>onToggleFilter(m.id)} className="flex items-center gap-3 flex-1 min-w-0 text-left">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+                  style={{background:m.color,boxShadow: sel?`0 0 12px ${m.color}80`:'none'}}>
+                  {m.initials}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-medium truncate">{m.name}</div>
+                  <div className="text-[11px] text-mute truncate">
+                    {m.role} · {cnt(m.id)} event{cnt(m.id)===1?'':'s'}
+                    {open(m.id)>0 && <span className="text-primary/80 font-semibold"> · {open(m.id)} open</span>}
+                  </div>
+                </div>
+              </button>
+              <button onClick={()=>onEditMember(m)} className="opacity-0 group-hover:opacity-100 text-mute hover:text-white p-1 rounded transition-all" aria-label={`Edit ${m.name}`}>
+                {icons.more}
+              </button>
+            </div>
+          );
+        })}
+        {members.length===0 && <div className="px-3 py-8 text-center text-sm text-mute">No teammates yet. Add one to get started.</div>}
+      </div>
+      <div className="p-4 border-t border-white/5 text-[10px] text-mute tracking-widest uppercase font-mono">
+        v0.1 · Local storage
+      </div>
+    </aside>
+  );
+};
+
+const EventCard = ({ event, memberMap, onToggleItem, onOpenEvent, showDate }) => {
+  const assignees = event.assigneeIds.map(id=>memberMap.get(id)).filter(Boolean);
+  const primary = assignees[0]?.color ?? '#8b5cf6';
+  const done = event.checklist.filter(c=>c.done).length;
+  const tot = event.checklist.length;
+  const openItems = event.checklist.filter(c=>!c.done);
+  const dateLabel = showDate ? parseISODate(event.date).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}) : null;
+  return (
+    <div className="bb-glass rounded-xl p-3">
+      <button onClick={()=>onOpenEvent(event)} className="w-full text-left">
+        <div className="flex items-start gap-2">
+          <div className="w-1 self-stretch rounded-full shrink-0" style={{background:primary,boxShadow:`0 0 8px ${primary}`}}/>
+          <div className="flex-1 min-w-0">
+            <div className="font-semibold text-sm truncate">{event.title}</div>
+            <div className="text-[11px] text-mute font-mono">
+              {dateLabel && <span>{dateLabel} · </span>}
+              {formatTimeLabel(event.startTime)} – {formatTimeLabel(event.endTime)}
+              {tot>0 && <span> · {done}/{tot}</span>}
+            </div>
+          </div>
+          {assignees.length>0 && (
+            <div className="flex -space-x-1.5 shrink-0">
+              {assignees.slice(0,3).map(a=>(
+                <div key={a.id} className="w-5 h-5 rounded-full border-2 border-bg flex items-center justify-center text-[9px] font-bold text-white" style={{background:a.color}} title={a.name}>{a.initials}</div>
+              ))}
+            </div>
+          )}
+        </div>
+      </button>
+      {openItems.length>0 && (
+        <div className="mt-3 pt-2 border-t border-white/5 space-y-1">
+          {openItems.slice(0,4).map(item=>(
+            <button key={item.id} onClick={()=>onToggleItem(event.id,item.id)} className="w-full flex items-center gap-2 py-1 text-left group">
+              <div className="w-4 h-4 rounded border border-white/20 group-hover:border-primary/70 flex items-center justify-center shrink-0 transition-colors">
+                <span className="opacity-0 group-hover:opacity-40 transition-opacity text-primary">{icons.check}</span>
+              </div>
+              <span className="text-xs text-mute group-hover:text-white transition-colors truncate">{item.text}</span>
+            </button>
+          ))}
+          {openItems.length>4 && <div className="text-[10px] text-mute pl-6">+ {openItems.length-4} more</div>}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const Section = ({ title, icon, children, tone }) => (
+  <div className="border-b border-white/5">
+    <div className={cn('flex items-center gap-2 px-5 py-3 text-[10px] font-bold tracking-[0.2em] uppercase', tone==='danger' ? 'text-danger':'text-mute')}>
+      {icon}{title}
+    </div>
+    <div className="px-3 pb-3 space-y-2">{children}</div>
+  </div>
+);
+
+const TaskPanel = ({ events, members, activeFilter, onToggleItem, onOpenEvent }) => {
+  const todayISO = toISODate(new Date());
+  const memberMap = useMemo(()=>{ const m=new Map(); members.forEach(x=>m.set(x.id,x)); return m; },[members]);
+  const filtered = useMemo(()=> !activeFilter.length ? events : events.filter(e=>e.assigneeIds.some(id=>activeFilter.includes(id))),[events,activeFilter]);
+  const todayEvents = filtered.filter(e=>e.date===todayISO).sort((a,b)=>timeToMin(a.startTime)-timeToMin(b.startTime));
+  const upcoming = filtered.filter(e=>{
+    const d = parseISODate(e.date);
+    const diff = Math.round((d - new Date(todayISO))/(24*3600*1000));
+    return diff>0 && diff<=7;
+  }).sort((a,b)=> a.date<b.date?-1 : a.date>b.date?1 : timeToMin(a.startTime)-timeToMin(b.startTime));
+  const overdue = filtered.filter(e=>{
+    const d = parseISODate(e.date);
+    return d < new Date(todayISO) && e.checklist.length>0 && e.checklist.some(c=>!c.done);
+  });
+  const openToday = todayEvents.reduce((a,e)=>a+e.checklist.filter(c=>!c.done).length,0);
+
+  return (
+    <aside className="w-80 shrink-0 border-l border-white/5 bg-bg/60 flex flex-col overflow-hidden">
+      <div className="p-5 border-b border-white/5">
+        <div className="text-[11px] font-bold tracking-[0.2em] text-mute uppercase mb-3">Today's focus</div>
+        <div className="flex items-end gap-3">
+          <div className="text-3xl font-black tracking-tight tabular-nums">{openToday}</div>
+          <div className="text-xs text-mute pb-1.5">
+            open checklist item{openToday===1?'':'s'}<br/>
+            across {todayEvents.length} event{todayEvents.length===1?'':'s'}
+          </div>
+        </div>
+      </div>
+      <div className="flex-1 overflow-y-auto bb-scroll">
+        {overdue.length>0 && (
+          <Section tone="danger" icon={<span className="text-danger">{icons.alert}</span>} title="Overdue">
+            {overdue.map(e=> <EventCard key={e.id} event={e} memberMap={memberMap} onToggleItem={onToggleItem} onOpenEvent={onOpenEvent}/>)}
+          </Section>
+        )}
+        <Section icon={<span className="text-primary">{icons.circle}</span>} title="Today">
+          {todayEvents.length===0
+            ? <div className="px-4 py-6 text-center text-sm text-mute">Nothing scheduled today.</div>
+            : todayEvents.map(e=> <EventCard key={e.id} event={e} memberMap={memberMap} onToggleItem={onToggleItem} onOpenEvent={onOpenEvent}/>)}
+        </Section>
+        {upcoming.length>0 && (
+          <Section icon={<span className="text-secondary">{icons.check2}</span>} title="Next 7 days">
+            {upcoming.map(e=> <EventCard key={e.id} event={e} memberMap={memberMap} onToggleItem={onToggleItem} onOpenEvent={onOpenEvent} showDate/>)}
+          </Section>
+        )}
+      </div>
+    </aside>
+  );
+};
+
+// ======================== Modals ========================
+const STATUSES = [
+  { value:'planned', label:'Planned', cls:'bg-white/10 text-white' },
+  { value:'in_progress', label:'In Progress', cls:'bg-primary/20 text-primary' },
+  { value:'blocked', label:'Blocked', cls:'bg-danger/20 text-danger' },
+  { value:'done', label:'Done', cls:'bg-emerald-500/20 text-emerald-400' },
+];
+
+const EventModal = ({ open, members, event, defaults, onClose, onSave, onDelete }) => {
+  const isNew = !event;
+  const [title,setTitle] = useState('');
+  const [notes,setNotes] = useState('');
+  const [date,setDate] = useState('');
+  const [startTime,setStart] = useState('09:00');
+  const [endTime,setEnd] = useState('10:00');
+  const [location,setLoc] = useState('');
+  const [assigneeIds,setAsg] = useState([]);
+  const [checklist,setCL] = useState([]);
+  const [status,setStatus] = useState('planned');
+  const [newItem,setNI] = useState('');
+
+  useEffect(()=>{
+    if (!open) return;
+    if (event) {
+      setTitle(event.title); setNotes(event.notes||''); setDate(event.date);
+      setStart(event.startTime); setEnd(event.endTime); setLoc(event.location||'');
+      setAsg(event.assigneeIds); setCL(event.checklist); setStatus(event.status);
+    } else {
+      setTitle(''); setNotes(''); setDate(defaults?.date ?? toISODate(new Date()));
+      const st = defaults?.startTime ?? '09:00';
+      setStart(st);
+      const [h,m] = st.split(':').map(Number);
+      setEnd(`${pad((h+1)%24)}:${pad(m)}`);
+      setLoc(''); setAsg(members[0]?[members[0].id]:[]); setCL([]); setStatus('planned');
+    }
+    setNI('');
+  },[open, event, defaults]);
+
+  const pct = checklist.length===0 ? 0 : Math.round(checklist.filter(c=>c.done).length/checklist.length*100);
+
+  const addItem = () => {
+    if (!newItem.trim()) return;
+    setCL(prev=>[...prev, { id: uid('c_'), text: newItem.trim(), done:false }]);
+    setNI('');
+  };
+  const toggleAsg = id => setAsg(prev => prev.includes(id) ? prev.filter(x=>x!==id) : [...prev,id]);
+  const toggleItem = id => setCL(prev => prev.map(c => c.id===id ? {...c,done:!c.done} : c));
+  const removeItem = id => setCL(prev => prev.filter(c=>c.id!==id));
+
+  const handleSave = () => {
+    if (!title.trim()) return;
+    const allDone = checklist.length>0 && checklist.every(c=>c.done);
+    onSave({
+      id: event?.id ?? uid('e_'),
+      title: title.trim(), notes: notes.trim(),
+      date, startTime, endTime,
+      assigneeIds, checklist,
+      status: allDone ? 'done' : status,
+      location: location.trim(),
+    });
+  };
+
+  return (
+    <Modal open={open} onClose={onClose} width="max-w-2xl"
+      title={isNew ? 'New event' : 'Edit event'}
+      description={isNew ? 'Schedule a block of work. Add a checklist of what has to happen inside of it.' : undefined}>
+      <div className="space-y-5 max-h-[70vh] overflow-y-auto bb-scroll -mx-1 px-1">
+        <div>
+          <label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-1.5">Title</label>
+          <Input autoFocus value={title} onChange={e=>setTitle(e.target.value)} placeholder="What needs to get done?" className="text-base font-medium"/>
+        </div>
+        <div className="grid grid-cols-3 gap-3">
+          <div><label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-1.5">Date</label><Input type="date" value={date} onChange={e=>setDate(e.target.value)}/></div>
+          <div><label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-1.5">Start</label><Input type="time" value={startTime} onChange={e=>setStart(e.target.value)}/></div>
+          <div><label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-1.5">End</label><Input type="time" value={endTime} onChange={e=>setEnd(e.target.value)}/></div>
+        </div>
+        <div>
+          <label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-1.5">Location</label>
+          <div className="relative">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-mute">{icons.mapPin}</div>
+            <Input className="pl-9" value={location} onChange={e=>setLoc(e.target.value)} placeholder="Optional address or room"/>
+          </div>
+        </div>
+        <div>
+          <label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-2">Assigned to</label>
+          {members.length===0 ? (
+            <div className="text-sm text-mute py-2">Add teammates from the sidebar first.</div>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {members.map(m=>{
+                const sel = assigneeIds.includes(m.id);
+                return (
+                  <button key={m.id} type="button" onClick={()=>toggleAsg(m.id)}
+                    className={cn('flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all text-sm',
+                      sel ? 'border-primary/60 bg-primary/10 text-white' : 'border-white/10 bg-white/[0.02] text-mute hover:bg-white/5')}>
+                    <div className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white" style={{background:m.color}}>{m.initials}</div>
+                    {m.name}
+                    {sel && <span className="text-primary">{icons.check}</span>}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+        <div>
+          <label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-2">Status</label>
+          <div className="flex flex-wrap gap-2">
+            {STATUSES.map(s=>(
+              <button key={s.value} type="button" onClick={()=>setStatus(s.value)}
+                className={cn('px-3 py-1.5 rounded-full text-xs font-semibold transition-all',
+                  status===s.value ? s.cls+' ring-1 ring-white/20' : 'bg-white/[0.02] text-mute hover:bg-white/5')}>
+                {s.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <label className="text-[11px] tracking-widest font-bold uppercase text-mute">Checklist</label>
+            {checklist.length>0 && <span className="text-[11px] font-mono text-mute">{checklist.filter(c=>c.done).length}/{checklist.length} · {pct}%</span>}
+          </div>
+          <div className="space-y-1.5">
+            {checklist.map(item=>(
+              <div key={item.id} className="flex items-center gap-2 p-2 rounded-lg bg-white/[0.02] border border-white/5 group">
+                <button type="button" onClick={()=>toggleItem(item.id)}
+                  className={cn('w-5 h-5 rounded flex items-center justify-center shrink-0 transition-all border',
+                    item.done ? 'bg-primary border-primary' : 'border-white/20 hover:border-white/40')}
+                  aria-label={item.done?'Mark undone':'Mark done'}>
+                  {item.done && <span className="text-white">{icons.check}</span>}
+                </button>
+                <span className={cn('flex-1 text-sm', item.done && 'line-through text-mute')}>{item.text}</span>
+                <button type="button" onClick={()=>removeItem(item.id)} className="opacity-0 group-hover:opacity-100 text-mute hover:text-danger transition-all">{icons.x}</button>
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-2 mt-2">
+            <Input value={newItem} onChange={e=>setNI(e.target.value)} onKeyDown={e=>{if (e.key==='Enter'){ e.preventDefault(); addItem(); }}} placeholder="Add a checklist item..."/>
+            <Button type="button" variant="outline" onClick={addItem} className="shrink-0">{icons.plus}</Button>
+          </div>
+        </div>
+        <div>
+          <label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-1.5">Notes</label>
+          <textarea value={notes} onChange={e=>setNotes(e.target.value)} rows="3" placeholder="Details, prep, anything worth remembering..."
+            className="w-full rounded-md border border-bord bg-black/40 px-3 py-2 text-sm text-white placeholder:text-mute focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent resize-none"/>
+        </div>
+      </div>
+      <div className="flex items-center justify-between pt-5 mt-5 border-t border-white/5">
+        <div>
+          {!isNew && onDelete && event && (
+            <Button variant="ghost" onClick={()=>{ if (confirm(`Delete "${event.title}"?`)) onDelete(event.id); }} className="text-danger hover:text-danger hover:bg-danger/10 gap-2">
+              {icons.trash} Delete
+            </Button>
+          )}
+        </div>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={onClose}>Cancel</Button>
+          <Button onClick={handleSave} disabled={!title.trim()}>{isNew?'Create event':'Save changes'}</Button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
+const MemberModal = ({ open, member, onClose, onSave, onDelete }) => {
+  const isNew = !member;
+  const [name,setName] = useState('');
+  const [role,setRole] = useState('');
+  const [color,setColor] = useState(MEMBER_COLORS[0]);
+  useEffect(()=>{
+    if (!open) return;
+    if (member) { setName(member.name); setRole(member.role); setColor(member.color); }
+    else { setName(''); setRole(''); setColor(MEMBER_COLORS[Math.floor(Math.random()*MEMBER_COLORS.length)]); }
+  },[open, member]);
+
+  const handleSave = () => {
+    if (!name.trim()) return;
+    onSave({
+      id: member?.id,
+      name: name.trim(),
+      role: role.trim() || 'Teammate',
+      color,
+      initials: deriveInitials(name),
+    });
+  };
+
+  return (
+    <Modal open={open} onClose={onClose} title={isNew?'Add teammate':'Edit teammate'} width="max-w-md">
+      <div className="space-y-4">
+        <div>
+          <label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-1.5">Name</label>
+          <Input autoFocus value={name} onChange={e=>setName(e.target.value)} placeholder="First and last name"/>
+        </div>
+        <div>
+          <label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-1.5">Role</label>
+          <Input value={role} onChange={e=>setRole(e.target.value)} placeholder="e.g. Installer, Project Manager"/>
+        </div>
+        <div>
+          <label className="text-[11px] tracking-widest font-bold uppercase text-mute block mb-2">Color</label>
+          <div className="flex flex-wrap gap-2">
+            {MEMBER_COLORS.map(c=>(
+              <button key={c} type="button" onClick={()=>setColor(c)}
+                className={cn('w-9 h-9 rounded-full transition-all ring-2', color===c ? 'ring-white/60 scale-110' : 'ring-transparent')}
+                style={{background:c, boxShadow:`0 0 12px ${c}80`}} aria-label={`Color ${c}`}/>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-between pt-5 mt-5 border-t border-white/5">
+        <div>
+          {!isNew && onDelete && member && (
+            <Button variant="ghost" onClick={()=>{ if (confirm(`Remove ${member.name}? They'll be unassigned from all events.`)) onDelete(member.id); }} className="text-danger hover:text-danger hover:bg-danger/10 gap-2">
+              {icons.trash} Remove
+            </Button>
+          )}
+        </div>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={onClose}>Cancel</Button>
+          <Button onClick={handleSave} disabled={!name.trim()}>{isNew?'Add teammate':'Save'}</Button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
+// ======================== Workspace ========================
+const Workspace = ({ state, setState, onHome })=>{
+  const [weekStart, setWeekStart] = useState(()=>startOfWeek(new Date(),1));
+  const weekEnd = useMemo(()=>addDays(weekStart,6),[weekStart]);
+  const [search, setSearch] = useState('');
+  const [eventModalOpen, setEMO] = useState(false);
+  const [editingEvent, setEE] = useState(null);
+  const [eventDefaults, setED] = useState(undefined);
+  const [memberModalOpen, setMMO] = useState(false);
+  const [editingMember, setEM] = useState(null);
+
+  const visibleEvents = useMemo(()=>{
+    if (!search.trim()) return state.events;
+    const q = search.toLowerCase();
+    return state.events.filter(e =>
+      e.title.toLowerCase().includes(q) ||
+      (e.notes||'').toLowerCase().includes(q) ||
+      (e.location||'').toLowerCase().includes(q) ||
+      e.checklist.some(c => c.text.toLowerCase().includes(q))
+    );
+  },[state.events, search]);
+
+  const openNewEvent = (date, startTime)=>{
+    setEE(null);
+    setED({ date: date ?? toISODate(new Date()), startTime: startTime ?? '09:00' });
+    setEMO(true);
+  };
+  const openEditEvent = e => { setEE(e); setED(undefined); setEMO(true); };
+  const saveEvent = saved => {
+    setState(prev => {
+      const exists = prev.events.find(x=>x.id===saved.id);
+      return { ...prev, events: exists ? prev.events.map(x=>x.id===saved.id?saved:x) : [...prev.events, saved] };
+    });
+    setEMO(false);
+  };
+  const deleteEvent = id => { setState(prev=>({...prev, events: prev.events.filter(e=>e.id!==id)})); setEMO(false); };
+  const toggleItem = (eventId, itemId) => {
+    setState(prev => ({
+      ...prev,
+      events: prev.events.map(e => {
+        if (e.id!==eventId) return e;
+        const updated = e.checklist.map(c => c.id===itemId ? {...c, done:!c.done} : c);
+        const allDone = updated.length>0 && updated.every(c=>c.done);
+        return { ...e, checklist: updated, status: allDone ? 'done' : e.status==='done' ? 'in_progress' : e.status };
+      })
+    }));
+  };
+  const toggleFilter = id => setState(prev => ({...prev, activeMemberFilter: prev.activeMemberFilter.includes(id) ? prev.activeMemberFilter.filter(x=>x!==id) : [...prev.activeMemberFilter, id]}));
+  const clearFilter = () => setState(prev => ({...prev, activeMemberFilter: []}));
+
+  const openAddMember = () => { setEM(null); setMMO(true); };
+  const openEditMember = m => { setEM(m); setMMO(true); };
+  const saveMember = data => {
+    setState(prev => {
+      if (data.id) {
+        return { ...prev, members: prev.members.map(m => m.id===data.id ? {...m, name:data.name, role:data.role, color:data.color, initials:deriveInitials(data.name)} : m) };
+      }
+      const nm = { id: uid('m_'), name:data.name, role:data.role, color:data.color, initials:deriveInitials(data.name) };
+      return { ...prev, members: [...prev.members, nm] };
+    });
+    setMMO(false);
+  };
+  const deleteMember = id => {
+    setState(prev => ({
+      ...prev,
+      members: prev.members.filter(m=>m.id!==id),
+      activeMemberFilter: prev.activeMemberFilter.filter(x=>x!==id),
+      events: prev.events.map(e => ({ ...e, assigneeIds: e.assigneeIds.filter(x=>x!==id) })),
+    }));
+    setMMO(false);
+  };
+
+  return (
+    <div className="h-screen w-screen flex flex-col bg-bg text-white overflow-hidden">
+      <div className="pointer-events-none fixed inset-0 bb-grid bb-grid-fade opacity-60"/>
+      <div className="pointer-events-none fixed -top-40 left-1/2 -translate-x-1/2 w-[90vw] h-[50vh] bb-aurora opacity-30"/>
+      <div className="relative z-10 flex flex-col h-full">
+        <TopBar weekStart={weekStart} weekEnd={weekEnd}
+          onPrev={()=>setWeekStart(d=>addDays(d,-7))}
+          onNext={()=>setWeekStart(d=>addDays(d,7))}
+          onToday={()=>setWeekStart(startOfWeek(new Date(),1))}
+          onNewEvent={()=>openNewEvent()}
+          search={search} onSearch={setSearch}
+          onHome={onHome}
+        />
+        <div className="flex-1 flex overflow-hidden">
+          <TeamSidebar members={state.members} events={state.events} filter={state.activeMemberFilter}
+            onToggleFilter={toggleFilter} onClearFilter={clearFilter}
+            onAddMember={openAddMember} onEditMember={openEditMember}/>
+          <main className="flex-1 flex flex-col overflow-hidden">
+            <WeekCalendar weekStart={weekStart} events={visibleEvents} members={state.members} activeFilter={state.activeMemberFilter}
+              onSelectEvent={openEditEvent} onCreateAt={(d,t)=>openNewEvent(d,t)}/>
+          </main>
+          <TaskPanel events={visibleEvents} members={state.members} activeFilter={state.activeMemberFilter}
+            onToggleItem={toggleItem} onOpenEvent={openEditEvent}/>
+        </div>
+      </div>
+      <EventModal open={eventModalOpen} members={state.members} event={editingEvent} defaults={eventDefaults}
+        onClose={()=>setEMO(false)} onSave={saveEvent} onDelete={editingEvent?deleteEvent:undefined}/>
+      <MemberModal open={memberModalOpen} member={editingMember}
+        onClose={()=>setMMO(false)} onSave={saveMember} onDelete={editingMember?deleteMember:undefined}/>
+    </div>
+  );
+};
+
+// ======================== App ========================
+const App = () => {
+  const [view, setView] = useState(() => {
+    try { return localStorage.getItem('bb_view') || 'home'; } catch { return 'home'; }
+  });
+  const [state, setState] = useState(() => loadState() || seedState());
+
+  useEffect(()=>{ saveState(state); },[state]);
+  useEffect(()=>{ try { localStorage.setItem('bb_view', view); } catch {} },[view]);
+
+  return view === 'home'
+    ? <Landing onEnter={()=>setView('workspace')}/>
+    : <Workspace state={state} setState={setState} onHome={()=>setView('home')}/>;
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
