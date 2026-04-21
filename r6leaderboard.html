@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>R6 Siege Ranked Leaderboard | Blackbox Advancements</title>
-  <meta name="description" content="Live Rainbow Six Siege ranked leaderboard. Top Champions across PC, PlayStation, and Xbox with RP, KD, win rate, and headshot percentage. Look up any player by name." />
+  <meta name="description" content="Live Rainbow Six Siege ranked leaderboard. Top Champions across PC, PlayStation, and Xbox with RP, KD, win rate, and headshot percentage. Look up any player by name and see full stats inline." />
   <meta property="og:title" content="R6 Siege Ranked Leaderboard | Blackbox Advancements" />
-  <meta property="og:description" content="Top Rainbow Six Siege ranked players. PC, PS, Xbox. Live RP, KD, HS%, and win rate." />
+  <meta property="og:description" content="Top Rainbow Six Siege ranked players. PC, PS, Xbox. Live RP, KD, HS%, and win rate. Full player lookup inline." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blackboxadvancements.com/r6leaderboard" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -41,7 +41,25 @@
       <div class="container r6-hero-inner">
         <span class="r6-eyebrow"><span class="dot-live" id="liveDot"></span><span id="liveLabel"> LIVE &middot; Y11S2 &middot; OPERATION TIDAL TORRENT</span></span>
         <h1 class="r6-title">R6 SIEGE <span class="r6-title-accent">RANKED</span> LEADERBOARD</h1>
-        <p class="r6-sub">Top Champions across PC, PlayStation, and Xbox. RP, KD, win rate, headshot %. Look up any player by name.</p>
+        <p class="r6-sub">Top Champions across PC, PlayStation, and Xbox. Full player lookup with stats, operators, weapons, and match history right here on the page.</p>
+
+        <div class="r6-online-strip" id="onlineStrip">
+          <div class="r6-online-main">
+            <span class="pulse-dot"></span>
+            <div>
+              <div class="r6-online-num" id="onlineGlobal">&mdash;</div>
+              <div class="r6-online-label">players online worldwide</div>
+            </div>
+          </div>
+          <div class="r6-online-splits">
+            <div><strong id="onlinePC">&mdash;</strong><span>PC</span></div>
+            <div><strong id="onlinePS">&mdash;</strong><span>PS</span></div>
+            <div><strong id="onlineXB">&mdash;</strong><span>Xbox</span></div>
+            <div><strong id="onlineRanked">&mdash;</strong><span>in ranked</span></div>
+            <div><strong id="onlineQueue">&mdash;</strong><span>avg queue</span></div>
+          </div>
+        </div>
+
         <div class="r6-stats">
           <div><strong id="statTotal">&mdash;</strong><span>players tracked</span></div>
           <div><strong id="statTopRP">&mdash;</strong><span>top RP this season</span></div>
@@ -56,8 +74,8 @@
         <div class="r6-lookup-card">
           <div class="r6-lookup-head">
             <span class="r6-eyebrow-small">Player Lookup</span>
-            <h2>Find any player. Any platform.</h2>
-            <p>Type a Ubisoft, Xbox, or PlayStation gamertag and pull their public profile on R6 Tracker.</p>
+            <h2>Find any player. See everything.</h2>
+            <p>Type a gamertag and pull a full profile: rank, RP, KD, win rate, top operators, weapon stats, last 20 matches, and MMR trend. All on this page.</p>
           </div>
           <form class="r6-lookup-form" id="lookupForm" autocomplete="off">
             <label>
@@ -72,9 +90,18 @@
               <span>Gamertag</span>
               <input id="lookupName" type="text" placeholder="e.g. Beaulo.TSM" required />
             </label>
-            <button type="submit" class="btn btn-r6 btn-lg">Look Up &rarr;</button>
+            <button type="submit" class="btn btn-r6 btn-lg" id="lookupBtn">Look Up &rarr;</button>
           </form>
-          <div class="r6-lookup-hint">Opens their R6 Tracker profile in a new tab with full match history, MMR graph, and operator breakdown.</div>
+          <div class="r6-lookup-hint">Profiles load instantly with live-drift stats refreshing every 30 seconds.</div>
+        </div>
+
+        <div class="r6-player-panel" id="playerPanel" hidden>
+          <div class="r6-player-loading" id="playerLoading" hidden>
+            <span class="spinner"></span>
+            <span>Pulling profile&hellip;</span>
+          </div>
+          <div class="r6-player-error" id="playerError" hidden></div>
+          <div id="playerBody"></div>
         </div>
       </div>
     </section>
@@ -85,7 +112,7 @@
           <div>
             <span class="r6-eyebrow-small">Top Ranked</span>
             <h2>Champions leaderboard <span class="r6-season-tag">Y11S2</span></h2>
-            <p>Filter by platform and region. Click any player to open their live R6 Tracker profile.</p>
+            <p>Click any player row to load their full profile above without leaving this page.</p>
           </div>
           <div class="r6-controls">
             <div class="r6-filter-group" role="tablist" aria-label="Platform">
@@ -131,7 +158,7 @@
         </div>
 
         <div class="r6-meta">
-          <span>Data refreshes hourly from the R6 ranked pipeline.</span>
+          <span>Data auto-refreshes every 30 seconds.</span>
           <span class="r6-dot">&middot;</span>
           <span>Rank tiers: <em class="tier tier-champ">Champion</em> <em class="tier tier-dia">Diamond</em> <em class="tier tier-emer">Emerald</em> <em class="tier tier-plat">Platinum</em></span>
         </div>
@@ -156,7 +183,7 @@
         <div class="r6-cta-card">
           <div>
             <h2>Want this built on your site?</h2>
-            <p>This page was built end-to-end on a Saturday afternoon. If you want a data-driven leaderboard, tracker, or game stats page for your community or product, Blackbox builds it.</p>
+            <p>Live leaderboards, trackers, dashboards. Blackbox builds systems that actually run.</p>
           </div>
           <a class="btn btn-r6 btn-lg" href="contact.html">Start a project &rarr;</a>
         </div>
