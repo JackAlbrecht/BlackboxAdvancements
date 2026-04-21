@@ -6,6 +6,7 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/sentry", "destination": "/sentry.html" },
+    { "source": "/r6leaderboard", "destination": "/r6leaderboard.html" },
     { "source": "/wallawallaair/:path*", "destination": "/wallawallaair" }
   ],
   "headers": [
