@@ -3,217 +3,704 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blackbox Advancements | AI Systems That Run Your Business</title>
-  <meta name="description" content="Blackbox Advancements builds AI-powered systems that get you more leads, follow up automatically, keep your CRM clean, and give your customers a premium experience — all without hiring more staff." />
-  <meta property="og:title" content="Blackbox Advancements | AI Systems That Run Your Business" />
-  <meta property="og:description" content="More leads. Faster follow-up. Cleaner operations. We install AI systems that actually work." />
+  <title>Blackbox Advancements — AI Systems That Run Your Business</title>
+  <meta name="description" content="Blackbox builds websites, AI agents, phone callers, CRMs, and hybrid local+cloud LLM stacks that cut costs and close more deals for service businesses." />
+  <meta property="og:title" content="Blackbox Advancements — AI Systems That Run Your Business" />
+  <meta property="og:description" content="Websites, landing pages, AI agents, phone callers, CRMs, and hybrid LLM stacks built to make small businesses run like Fortune 500s." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blackboxadvancements.com/" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=630&fit=crop" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
+
+  <!-- ============== MAIN SITE ============== -->
   <header class="site-header">
     <div class="container navbar">
       <a class="brand" href="index.html"><img src="assets/logo.svg" alt="Blackbox Advancements" /></a>
       <nav class="nav-links" data-nav-links>
-        <a class="active" href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="solutions.html">Solutions</a>
-        <a href="systems.html">How It Works</a>
-        <a href="industries.html">Industries</a>
+        <div class="nav-dd">
+          <a href="services.html" class="nav-dd-trigger">Services <span class="caret">▾</span></a>
+          <div class="nav-dd-menu">
+            <div class="dd-col">
+              <div class="dd-head">Build</div>
+              <a href="#services-build">Websites &amp; SEO</a>
+              <a href="#services-build">Landing Pages</a>
+              <a href="#services-build">Estimator Tools</a>
+              <a href="#services-build">Client Portals</a>
+              <a href="#services-build">Mobile Apps</a>
+            </div>
+            <div class="dd-col">
+              <div class="dd-head">Automate</div>
+              <a href="#services-build">AI Agents</a>
+              <a href="#phone-callers">AI Phone Callers</a>
+              <a href="#services-build">CRM Systems</a>
+              <a href="#services-build">Review SMS Bot</a>
+              <a href="#onboarding">Onboarding AI</a>
+            </div>
+            <div class="dd-col dd-col-feature">
+              <div class="dd-head">Scale</div>
+              <a href="#hybrid">Hybrid LLM Stack</a>
+              <a href="#models">Model Intelligence</a>
+              <a href="#hybrid">Cost Optimization</a>
+              <div class="dd-feature">
+                <div class="dd-feature-eyebrow">New</div>
+                <div class="dd-feature-title">Hybrid Local + Cloud</div>
+                <div class="dd-feature-desc">Route cheap tasks to local GPUs. Send hard ones to Opus. Pay for what matters.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#how">How It Works</a>
+        <a href="#n8n">Automation</a>
         <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-primary" href="contact.html">Get Started</a>
+        <a class="btn btn-primary btn-glow" href="contact.html"><span>Get Started</span><span class="btn-arrow">→</span></a>
         <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation">☰</button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
+    <!-- ============== HERO ============== -->
+    <section class="hero hero-v3">
+      <div class="container">
         <div class="hero-copy">
-          <span class="eyebrow">AI that actually runs your business</span>
-          <h1>Stop losing leads. Start closing more.</h1>
-          <p>We build and install AI systems that bring in new customers, follow up instantly, keep your team organized, and make your business look like a Fortune 500 company — even if you're a team of five.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-            <a class="btn btn-secondary" href="services.html">See What We Build</a>
+          <span class="eyebrow reveal">
+            <span class="live-dot"></span>
+            AI BUILT FOR BUSINESSES THAT ACTUALLY SHIP
+          </span>
+          <h1 class="reveal">Stop losing leads.<br><span class="grad-text">Start owning the market.</span></h1>
+          <p class="reveal">We design, build, and deploy the AI systems that turn small businesses into operations that feel like they have a 50-person team. Websites, agents, phone callers, CRMs, and custom LLM stacks — all under one roof.</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary btn-glow" href="contact.html"><span>Book a Free Demo</span><span class="btn-arrow">→</span></a>
+            <a class="btn btn-secondary btn-shine" href="#services-build">See What We Build</a>
           </div>
-          <div class="hero-metrics">
-            <div class="metric"><strong>24/7</strong><span>Your AI answers leads at 2 AM so you don't have to</span></div>
-            <div class="metric"><strong>5 min</strong><span>Average response time drops from hours to minutes</span></div>
-            <div class="metric"><strong>1 system</strong><span>Everything connected — no more juggling 10 tools</span></div>
+          <div class="hero-proofs reveal">
+            <div class="proof"><span class="num" data-count="24">0</span><span class="unit">/7</span><span class="lbl">Agents answering your leads</span></div>
+            <div class="proof"><span class="num" data-count="87">0</span><span class="unit">%</span><span class="lbl">Lower LLM cost with hybrid routing</span></div>
+            <div class="proof"><span class="num" data-count="5">0</span><span class="unit">min</span><span class="lbl">From deploy to first automated call</span></div>
           </div>
-        </div>
-        <div class="hero-visual">
-          <img class="hero-img reveal" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&h=500&fit=crop" alt="Team working with modern technology" loading="eager" />
+          <div class="hero-trust reveal">
+            <span class="trust-head">POWERED BY</span>
+            <div class="trust-row">
+              <span class="trust-chip">Claude Opus 4.7</span>
+              <span class="trust-chip">GPT-5</span>
+              <span class="trust-chip">Gemini 2.5</span>
+              <span class="trust-chip">Llama 3.3</span>
+              <span class="trust-chip">Whisper</span>
+              <span class="trust-chip">Qwen 2.5</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PROBLEM / SOLUTION -->
-    <section class="section">
+    <!-- ============== WHAT WE BUILD ============== -->
+    <section class="section" id="services-build">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">The problem we solve</span>
-          <h2>You're busy running your business. Leads are slipping through the cracks.</h2>
-          <p>Most businesses lose 30-50% of their leads because nobody followed up fast enough. Your CRM is a mess. Your team is doing the same repetitive tasks every day. And customers expect instant responses you can't deliver manually.</p>
+          <span class="eyebrow">What we build</span>
+          <h2>A studio. An automation lab. A cost-cutting machine.</h2>
+          <p>Most agencies sell you a website. We install the systems that make that website print money — and keep it cheap to run.</p>
         </div>
-        <div class="img-text-row">
-          <div class="img-block reveal">
-            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop" alt="Business owner overwhelmed with work" loading="lazy" />
-          </div>
-          <div class="text-block reveal">
-            <h3>What if your business could respond to every lead in under 5 minutes?</h3>
-            <p>That's what Blackbox does. We install AI systems that handle the things your team doesn't have time for — so you can focus on delivering great work instead of chasing admin tasks.</p>
-            <ul class="check-list">
-              <li>Every lead gets an instant response — calls, texts, or emails</li>
-              <li>Your CRM updates itself automatically</li>
-              <li>Appointments get booked without back-and-forth</li>
-              <li>Customers can check their order status without calling you</li>
+        <div class="capabilities-grid">
+          <article class="cap reveal" data-tilt>
+            <div class="cap-icon">◎</div>
+            <h3>Websites</h3>
+            <p>Fast, beautiful sites with SEO, GEO, and Google Business management baked in. Analytics wired from day one.</p>
+            <ul class="cap-list">
+              <li>Unlimited revisions</li>
+              <li>Full SEO + GEO</li>
+              <li>GBP optimization</li>
+              <li>Analytics dashboards</li>
             </ul>
+          </article>
+          <article class="cap reveal" data-tilt>
+            <div class="cap-icon">◈</div>
+            <h3>Landing Pages</h3>
+            <p>Ad-optimized pages for Facebook &amp; Google campaigns. Built for conversions, tested relentlessly.</p>
+            <ul class="cap-list">
+              <li>A/B test infrastructure</li>
+              <li>Pixel + conversion tracking</li>
+              <li>Form → CRM automation</li>
+              <li>Speed-tuned for ad QS</li>
+            </ul>
+          </article>
+          <article class="cap reveal" data-tilt>
+            <div class="cap-icon">⌬</div>
+            <h3>Estimator Tools</h3>
+            <p>Interactive quoting tools that pre-qualify leads before a human ever picks up the phone.</p>
+            <ul class="cap-list">
+              <li>Dynamic pricing logic</li>
+              <li>Instant email + SMS followup</li>
+              <li>Lead scoring</li>
+              <li>Embed anywhere</li>
+            </ul>
+          </article>
+          <article class="cap reveal" data-tilt>
+            <div class="cap-icon">▦</div>
+            <h3>Client Portals</h3>
+            <p>White-label portals where customers track jobs, invoices, project status, and support — self-serve.</p>
+            <ul class="cap-list">
+              <li>Single sign-on</li>
+              <li>Real-time job status</li>
+              <li>Document exchange</li>
+              <li>Payment + invoicing</li>
+            </ul>
+          </article>
+          <article class="cap reveal" data-tilt>
+            <div class="cap-icon">⟁</div>
+            <h3>CRM Systems</h3>
+            <p>Custom CRMs or supercharged Go High Level / HubSpot setups. Every lead, every touch, one source of truth.</p>
+            <ul class="cap-list">
+              <li>Pipeline automation</li>
+              <li>AI lead scoring</li>
+              <li>SMS / email sequences</li>
+              <li>Calendar + routing</li>
+            </ul>
+          </article>
+          <article class="cap reveal" data-tilt>
+            <div class="cap-icon">✦</div>
+            <h3>Review SMS Bot</h3>
+            <p>Text-based review collection that fires at the perfect moment after job completion. 5× your Google reviews.</p>
+            <ul class="cap-list">
+              <li>Smart timing triggers</li>
+              <li>Negative-review intercept</li>
+              <li>Google + Yelp + Facebook</li>
+              <li>Reporting dashboard</li>
+            </ul>
+          </article>
+          <article class="cap reveal" data-tilt>
+            <div class="cap-icon">◑</div>
+            <h3>Mobile Apps</h3>
+            <p>iOS + Android apps for customers, crews, or ops teams — with offline support and push notifications.</p>
+            <ul class="cap-list">
+              <li>Native iOS + Android</li>
+              <li>Offline-first</li>
+              <li>Push + deep links</li>
+              <li>App store submission</li>
+            </ul>
+          </article>
+          <article class="cap reveal cap-highlight" data-tilt>
+            <div class="cap-icon">⎈</div>
+            <h3>AI Agents</h3>
+            <p>Autonomous agents that do the work your team hates. Powered by Claude, Codex, Gemini, and local models.</p>
+            <ul class="cap-list">
+              <li>Claude Opus 4.7 orchestration</li>
+              <li>Tool use + browser control</li>
+              <li>Multi-agent workflows</li>
+              <li>Self-hosted option</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== AI PHONE CALLERS ============== -->
+    <section class="section section-dark" id="phone-callers">
+      <div class="container">
+        <div class="feature-row">
+          <div class="feature-copy reveal">
+            <span class="eyebrow"><span class="live-dot"></span>SOUNDS LIKE A HUMAN</span>
+            <h2>AI phone callers that actually sound like your best rep.</h2>
+            <p>Whisper for ears. Claude Opus 4.7 for the brain. A sub-200ms turn-taking TTS voice for a mouth. Your customers can't tell the difference — and it never has a bad day.</p>
+            <div class="feature-use-cases">
+              <div class="use-case">
+                <div class="use-case-icon">☏</div>
+                <strong>Inbound reception</strong>
+                <span>Answers every call, qualifies leads, books on your calendar.</span>
+              </div>
+              <div class="use-case">
+                <div class="use-case-icon">⇄</div>
+                <strong>Cold calling</strong>
+                <span>Real-estate dials, B2B outreach, lead reactivation — at human quality, not robocall.</span>
+              </div>
+              <div class="use-case">
+                <div class="use-case-icon">✓</div>
+                <strong>Appointment setting</strong>
+                <span>Confirmations, reschedules, no-show recovery, intake forms — all voice.</span>
+              </div>
+            </div>
+            <!-- LIVE VAPI DEMO -->
+            <div class="nova-demo" id="novaDemo" data-state="idle">
+              <button class="btn btn-primary btn-glow nova-demo-btn" id="novaDemoBtn" type="button" aria-label="Talk to Nova live">
+                <span class="nova-demo-pulse" aria-hidden="true"></span>
+                <span class="nova-demo-label">Talk to Nova · Live Demo</span>
+                <span class="btn-arrow">→</span>
+              </button>
+              <div class="nova-demo-status" id="novaDemoStatus" aria-live="polite">
+                <span class="nova-demo-bars" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+                <span class="nova-demo-text">Connecting…</span>
+                <button class="nova-demo-end" id="novaDemoEnd" type="button">End Call</button>
+              </div>
+              <p class="nova-demo-note">Uses your mic. One click, no signup — talk to the same AI we deploy for clients.</p>
+            </div>
+
+            <a class="btn btn-secondary btn-shine" href="contact.html"><span>Deploy a Caller</span><span class="btn-arrow">→</span></a>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="phone-frame">
+              <div class="phone-waveform">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="phone-transcript">
+                <div class="tmsg tmsg-ai"><span class="tmsg-tag">AGENT · 0.18s</span>Hey, this is Sarah from Valley View HVAC. I saw you reached out about a furnace quote?</div>
+                <div class="tmsg tmsg-user"><span class="tmsg-tag">CALLER</span>Yeah, I've been getting ripped off by Able's.</div>
+                <div class="tmsg tmsg-ai"><span class="tmsg-tag">AGENT · 0.21s</span>Totally hear you — what's the square footage of the place, and how old is the current unit?</div>
+                <div class="tmsg tmsg-user"><span class="tmsg-tag">CALLER</span>About 1,800. Unit's probably 20 years old.</div>
+                <div class="tmsg tmsg-ai"><span class="tmsg-tag">AGENT · 0.17s</span>Got it. I'll have Dan out tomorrow at 2 PM for a free quote — does that work?</div>
+              </div>
+              <div class="phone-stack">
+                <div class="stack-pill"><span class="pill-dot"></span>Whisper v3 — STT</div>
+                <div class="stack-pill"><span class="pill-dot"></span>Claude Opus 4.7 — Brain</div>
+                <div class="stack-pill"><span class="pill-dot"></span>Sub-200ms TTS — Voice</div>
+                <div class="stack-pill"><span class="pill-dot"></span>Twilio — Carrier</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT WE DO (SIMPLE) -->
-    <section class="section-tight">
+    <!-- ============== ONBOARDING AI ============== -->
+    <section class="section" id="onboarding">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">What we actually do</span>
-          <h2>We build three things that make businesses run better.</h2>
-        </div>
-        <div class="card-grid">
-          <article class="card card-with-img reveal">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Marketing analytics dashboard" loading="lazy" />
-            <div class="card-body">
-              <h3>🎯 Get More Customers</h3>
-              <p>We set up ads, outreach campaigns, landing pages, and social media systems that bring a steady stream of leads into your business — not random traffic, but people ready to buy.</p>
+        <div class="feature-row reverse">
+          <div class="feature-copy reveal">
+            <span class="eyebrow">ONBOARDING AUTOMATION</span>
+            <h2>Every new hire gets a 10-out-of-10 first week. Zero manager time.</h2>
+            <p>We build onboarding flows that feel handmade but run themselves. The AI tailors docs, tasks, intros, and trainings to each new hire's role, level, and background — and adjusts on the fly.</p>
+            <ul class="check-list">
+              <li>Personalized day-1 through day-90 roadmap</li>
+              <li>Auto-generated intros to the right people</li>
+              <li>Daily async check-ins + blocker surfacing</li>
+              <li>Role-specific training drawn from your actual docs</li>
+              <li>Feedback loop: improves with every new hire</li>
+            </ul>
+            <a class="btn btn-secondary btn-shine" href="contact.html">Automate Your Onboarding</a>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="onboard-card">
+              <div class="onboard-head">
+                <div class="onboard-avatar">JR</div>
+                <div>
+                  <strong>Jordan R. — Ops Associate</strong>
+                  <span class="onboard-meta">Day 3 · 7 of 24 tasks complete</span>
+                </div>
+              </div>
+              <div class="onboard-task done"><span class="tcheck">✓</span>Read the Ops handbook (AI-summarized to 6 min)</div>
+              <div class="onboard-task done"><span class="tcheck">✓</span>1:1 scheduled with Dana (direct manager)</div>
+              <div class="onboard-task done"><span class="tcheck">✓</span>Slack, GHL, QuickBooks access provisioned</div>
+              <div class="onboard-task"><span class="tcheck">◯</span>Complete the dispatch simulator (role-matched)</div>
+              <div class="onboard-task"><span class="tcheck">◯</span>Shadow 3 calls with Tyler (auto-booked)</div>
+              <div class="onboard-task"><span class="tcheck">◯</span>AI check-in: "Anything blocking you?"</div>
+              <div class="onboard-foot">
+                <span class="pill-dot"></span>Adapting in real time
+              </div>
             </div>
-          </article>
-          <article class="card card-with-img reveal">
-            <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=400&h=250&fit=crop" alt="Automated workflow on screen" loading="lazy" />
-            <div class="card-body">
-              <h3>🤖 Automate the Follow-Up</h3>
-              <p>Our AI assistants respond to leads instantly, book appointments, update your CRM, and send follow-up messages — so nothing falls through the cracks, even at midnight.</p>
-            </div>
-          </article>
-          <article class="card card-with-img reveal">
-            <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=400&h=250&fit=crop" alt="Customer portal on laptop" loading="lazy" />
-            <div class="card-body">
-              <h3>📊 Give Your Customers Visibility</h3>
-              <p>We build client portals where customers can see their order status, delivery times, project updates — making your business look professional and cutting support calls in half.</p>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- ============== MODEL INTELLIGENCE CHART ============== -->
+    <section class="section section-dark" id="models">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">MODEL INTELLIGENCE</span>
+          <h2>We harness every model that matters. And we know when to use which.</h2>
+          <p>Parameter count isn't everything — but it's a reasonable proxy for raw capability. We route your tasks to the model that fits the job, not the one that pays the highest margin.</p>
+        </div>
+        <div class="chart-card reveal">
+          <div class="chart-header">
+            <span>Parameter counts (log scale) · est. public figures</span>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot legend-frontier"></span>Frontier cloud</span>
+              <span class="legend-item"><span class="legend-dot legend-open"></span>Open-weight</span>
+            </div>
+          </div>
+          <div class="chart" data-chart>
+            <div class="bar" data-params="2000" data-type="frontier" style="--target:100%">
+              <div class="bar-label">Claude Opus 4.7 <span class="bar-tag">our orchestrator</span></div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">~2T params · est.</div>
+            </div>
+            <div class="bar" data-params="1800" data-type="frontier" style="--target:96%">
+              <div class="bar-label">GPT-5</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">~1.8T params · est.</div>
+            </div>
+            <div class="bar" data-params="1500" data-type="frontier" style="--target:92%">
+              <div class="bar-label">Gemini 2.5 Pro</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">~1.5T params · est.</div>
+            </div>
+            <div class="bar" data-params="400" data-type="frontier" style="--target:78%">
+              <div class="bar-label">Claude Sonnet 4.6</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">~400B params · est.</div>
+            </div>
+            <div class="bar" data-params="405" data-type="open" style="--target:78%">
+              <div class="bar-label">Llama 3.3 405B</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">405B params</div>
+            </div>
+            <div class="bar" data-params="236" data-type="open" style="--target:72%">
+              <div class="bar-label">DeepSeek V3</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">236B (MoE, 37B active)</div>
+            </div>
+            <div class="bar" data-params="100" data-type="frontier" style="--target:64%">
+              <div class="bar-label">Claude Haiku 4.5</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">~100B params · est.</div>
+            </div>
+            <div class="bar" data-params="70" data-type="open" style="--target:60%">
+              <div class="bar-label">Llama 3.3 70B</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">70B params</div>
+            </div>
+            <div class="bar" data-params="72" data-type="open" style="--target:60%">
+              <div class="bar-label">Qwen 2.5 72B</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">72B params</div>
+            </div>
+            <div class="bar" data-params="24" data-type="open" style="--target:48%">
+              <div class="bar-label">Mistral Small 3</div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">24B params</div>
+            </div>
+            <div class="bar" data-params="8" data-type="open" style="--target:36%">
+              <div class="bar-label">Llama 3.1 8B <span class="bar-tag">runs on your laptop</span></div>
+              <div class="bar-track"><div class="bar-fill"></div></div>
+              <div class="bar-value">8B params</div>
+            </div>
+          </div>
+          <div class="chart-foot">
+            <div class="chart-note">Parameter counts for closed frontier models are estimates from public reporting; actual figures are proprietary. MoE models (like DeepSeek, Mixtral) have total vs. active parameters that differ — active count is what fires per token.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== LOCAL VS CLOUD ============== -->
+    <section class="section" id="hybrid">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">LOCAL VS CLOUD</span>
+          <h2>Why frontier AI lives in GPU farms — and why your simple tasks shouldn't.</h2>
+          <p>A single Claude Opus 4.7 inference pass touches hundreds of GB of weights spread across dozens of H100s. That's why frontier AI is cloud-first. But 70% of your automation work doesn't need that kind of firepower.</p>
+        </div>
+        <div class="hybrid-grid">
+          <div class="hybrid-card hybrid-cloud reveal">
+            <div class="hybrid-tag">CLOUD</div>
+            <h3>GPU farms</h3>
+            <p>Frontier models (Opus, GPT-5, Gemini) run on clusters of H100s and B200s. You rent capacity per-token. Smart for hard reasoning, tool use, and anything customer-facing.</p>
+            <div class="spec-row"><span>Hardware</span><strong>8× H100 / B200 nodes</strong></div>
+            <div class="spec-row"><span>Inference cost</span><strong>$$$ per M tokens</strong></div>
+            <div class="spec-row"><span>Latency</span><strong>150–400ms first token</strong></div>
+            <div class="spec-row"><span>Best for</span><strong>Reasoning, agents, writing</strong></div>
+          </div>
+          <div class="hybrid-arrow reveal">
+            <div class="arrow-pulse">⇆</div>
+            <span>Smart router</span>
+          </div>
+          <div class="hybrid-card hybrid-local reveal">
+            <div class="hybrid-tag">LOCAL</div>
+            <h3>Your hardware</h3>
+            <p>Open-weight models (Llama, Mistral, Qwen) run on a single machine in your office. Zero per-token cost. Perfect for classification, extraction, summarization, routing.</p>
+            <div class="spec-row"><span>Hardware</span><strong>1× RTX 4090 or Mac Studio</strong></div>
+            <div class="spec-row"><span>Inference cost</span><strong>$0 per token · electricity only</strong></div>
+            <div class="spec-row"><span>Latency</span><strong>30–80ms first token</strong></div>
+            <div class="spec-row"><span>Best for</span><strong>Routing, tagging, extraction</strong></div>
+          </div>
+        </div>
+        <div class="hardware-grid reveal">
+          <h3 class="hardware-head">What you can actually run locally</h3>
+          <div class="hw-row">
+            <div class="hw-cell hw-model">Llama 3.1 8B <span class="hw-tag">8B</span></div>
+            <div class="hw-cell">16GB RAM laptop · CPU</div>
+            <div class="hw-cell hw-good">✓ Smooth</div>
+          </div>
+          <div class="hw-row">
+            <div class="hw-cell hw-model">Mistral Small 3 <span class="hw-tag">24B</span></div>
+            <div class="hw-cell">RTX 3090 / 4090 · 24GB VRAM</div>
+            <div class="hw-cell hw-good">✓ Fast</div>
+          </div>
+          <div class="hw-row">
+            <div class="hw-cell hw-model">Llama 3.3 70B (4-bit) <span class="hw-tag">70B</span></div>
+            <div class="hw-cell">Dual 4090 or Mac Studio M4 Max 128GB</div>
+            <div class="hw-cell hw-good">✓ Workable</div>
+          </div>
+          <div class="hw-row">
+            <div class="hw-cell hw-model">Qwen 2.5 72B <span class="hw-tag">72B</span></div>
+            <div class="hw-cell">Mac Studio M3 Ultra 192GB</div>
+            <div class="hw-cell hw-good">✓ Great value</div>
+          </div>
+          <div class="hw-row">
+            <div class="hw-cell hw-model">DeepSeek V3 <span class="hw-tag">236B MoE</span></div>
+            <div class="hw-cell">2× Mac Studio 192GB clustered</div>
+            <div class="hw-cell hw-ok">~ Possible</div>
+          </div>
+          <div class="hw-row">
+            <div class="hw-cell hw-model">Llama 3.1 405B <span class="hw-tag">405B</span></div>
+            <div class="hw-cell">8× H100 · $250k+ hardware</div>
+            <div class="hw-cell hw-bad">✗ Needs a cluster</div>
+          </div>
+          <div class="hw-row">
+            <div class="hw-cell hw-model">Claude Opus 4.7 <span class="hw-tag">~2T</span></div>
+            <div class="hw-cell">Dedicated datacenter · Anthropic only</div>
+            <div class="hw-cell hw-bad">✗ Cloud only</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== HYBRID COST SAVINGS ============== -->
+    <section class="section section-dark" id="hybrid-savings">
+      <div class="container">
+        <div class="feature-row">
+          <div class="feature-copy reveal">
+            <span class="eyebrow">HYBRID COST SAVINGS</span>
+            <h2>Route the easy tasks to free local models. Save the expensive ones for the brain.</h2>
+            <p>80% of your AI workload is boring: classifying emails, extracting data, routing tickets, scoring leads. There's no reason to pay Opus pricing for that.</p>
+            <p>We deploy a tiny local model on your hardware for the easy 80%, and only escalate to Claude Opus 4.7 when the task actually needs a frontier brain. For a large operation, that's <strong>five figures a month in saved inference spend</strong> — and faster response times to boot.</p>
+            <div class="flow-viz">
+              <div class="flow-step">
+                <div class="flow-icon">📥</div>
+                <strong>Incoming task</strong>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step flow-local">
+                <div class="flow-icon">⚡</div>
+                <strong>Local router</strong>
+                <span>8B model, 30ms</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-branch">
+                <div class="flow-step flow-local">
+                  <div class="flow-icon">⚙</div>
+                  <strong>Easy: solved locally</strong>
+                  <span>$0 · 80% of traffic</span>
+                </div>
+                <div class="flow-step flow-cloud">
+                  <div class="flow-icon">◈</div>
+                  <strong>Hard: → Opus 4.7</strong>
+                  <span>premium · 20% of traffic</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="savings-card">
+              <div class="savings-head">Estimated monthly cost</div>
+              <div class="savings-row">
+                <span>100% frontier (no routing)</span>
+                <strong class="cost-high">$18,400</strong>
+              </div>
+              <div class="savings-bar">
+                <div class="savings-bar-frontier" style="--w: 100%"></div>
+              </div>
+              <div class="savings-row">
+                <span>Hybrid (Blackbox setup)</span>
+                <strong class="cost-low">$2,380</strong>
+              </div>
+              <div class="savings-bar">
+                <div class="savings-bar-hybrid" style="--w: 13%"></div>
+              </div>
+              <div class="savings-delta">
+                <span>MONTHLY SAVINGS</span>
+                <strong>−$16,020</strong>
+              </div>
+              <div class="savings-foot">Illustrative for ~40M tokens/month. Actual numbers modeled per client.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== N8N / ORCHESTRATION ============== -->
+    <section class="section" id="n8n">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="n8n-mark">n</span>8n ORCHESTRATION</span>
+          <h2>Every automation, visible. Every integration, yours.</h2>
+          <p>We build your automations on n8n — the open-source workflow engine. It runs on your hardware, connects to 400+ tools, and lets you (or us) see exactly what's firing, when, and why. No Zapier tax. No black boxes. No per-task fees.</p>
+        </div>
+        <div class="n8n-grid">
+          <div class="n8n-copy reveal">
+            <div class="n8n-points">
+              <div class="n8n-point">
+                <div class="n8n-point-icon">⌂</div>
+                <div>
+                  <strong>Self-hosted on your infra</strong>
+                  <span>Runs on your server or ours. Your data never leaves without permission. No SaaS platform rent.</span>
+                </div>
+              </div>
+              <div class="n8n-point">
+                <div class="n8n-point-icon">∞</div>
+                <div>
+                  <strong>Unlimited executions</strong>
+                  <span>Unlike Zapier or Make, you're not billed per task. Fire 100 or 100,000 workflows a day — same cost.</span>
+                </div>
+              </div>
+              <div class="n8n-point">
+                <div class="n8n-point-icon">⚒</div>
+                <div>
+                  <strong>400+ integrations</strong>
+                  <span>GHL, HubSpot, Twilio, Gmail, Slack, QuickBooks, Stripe, Claude, OpenAI, Whisper, SMS, and every webhook in between.</span>
+                </div>
+              </div>
+              <div class="n8n-point">
+                <div class="n8n-point-icon">◎</div>
+                <div>
+                  <strong>Visual &amp; auditable</strong>
+                  <span>Every node, every branch, every run logged. When something breaks, we see it instantly — and so can you.</span>
+                </div>
+              </div>
+              <div class="n8n-point">
+                <div class="n8n-point-icon">⟲</div>
+                <div>
+                  <strong>AI-native nodes</strong>
+                  <span>Drop Claude, GPT, Gemini, or your local Llama into any step. Hybrid routing is just another branch in the graph.</span>
+                </div>
+              </div>
+            </div>
+            <div class="n8n-cta-row">
+              <a class="btn btn-primary btn-glow" href="contact.html"><span>See a Live Workflow</span><span class="btn-arrow">→</span></a>
+              <a class="btn btn-secondary btn-shine" href="https://n8n.io" target="_blank" rel="noopener">About n8n</a>
+            </div>
+          </div>
+          <div class="n8n-visual reveal">
+            <div class="n8n-canvas">
+              <div class="n8n-canvas-head">
+                <span class="n8n-canvas-dots"><span></span><span></span><span></span></span>
+                <span class="n8n-canvas-title">new-lead.workflow.json</span>
+                <span class="n8n-canvas-status"><span class="pill-dot"></span>LIVE</span>
+              </div>
+              <div class="n8n-canvas-body">
+                <svg class="n8n-wires" viewBox="0 0 400 520" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 80 60 Q 140 60 200 120" stroke="url(#wire)" stroke-width="2" fill="none"/>
+                  <path d="M 200 160 Q 200 190 200 220" stroke="url(#wire)" stroke-width="2" fill="none"/>
+                  <path d="M 200 260 Q 140 290 80 320" stroke="url(#wire)" stroke-width="2" fill="none"/>
+                  <path d="M 200 260 Q 260 290 320 320" stroke="url(#wire)" stroke-width="2" fill="none"/>
+                  <path d="M 80 360 Q 140 400 200 440" stroke="url(#wire)" stroke-width="2" fill="none"/>
+                  <path d="M 320 360 Q 260 400 200 440" stroke="url(#wire)" stroke-width="2" fill="none"/>
+                  <defs>
+                    <linearGradient id="wire" x1="0" x2="1">
+                      <stop offset="0%" stop-color="#a855f7"/>
+                      <stop offset="100%" stop-color="#22d3ee"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="n8n-node n8n-node-trigger" style="top: 30px; left: 20px">
+                  <div class="node-ic">⚡</div>
+                  <div class="node-meta">
+                    <span class="node-type">WEBHOOK</span>
+                    <strong>New Lead</strong>
+                  </div>
+                </div>
+                <div class="n8n-node" style="top: 120px; left: 50%; transform: translateX(-50%)">
+                  <div class="node-ic node-ic-ai">◈</div>
+                  <div class="node-meta">
+                    <span class="node-type">CLAUDE OPUS 4.7</span>
+                    <strong>Qualify &amp; Score</strong>
+                  </div>
+                </div>
+                <div class="n8n-node n8n-node-branch" style="top: 220px; left: 50%; transform: translateX(-50%)">
+                  <div class="node-ic">⤴</div>
+                  <div class="node-meta">
+                    <span class="node-type">IF / ELSE</span>
+                    <strong>Hot lead?</strong>
+                  </div>
+                </div>
+                <div class="n8n-node n8n-node-hot" style="top: 320px; left: 20px">
+                  <div class="node-ic">☏</div>
+                  <div class="node-meta">
+                    <span class="node-type">TWILIO + TTS</span>
+                    <strong>AI Caller</strong>
+                  </div>
+                </div>
+                <div class="n8n-node" style="top: 320px; right: 20px">
+                  <div class="node-ic">✉</div>
+                  <div class="node-meta">
+                    <span class="node-type">GMAIL</span>
+                    <strong>Nurture Sequence</strong>
+                  </div>
+                </div>
+                <div class="n8n-node n8n-node-sink" style="top: 440px; left: 50%; transform: translateX(-50%)">
+                  <div class="node-ic">▤</div>
+                  <div class="node-meta">
+                    <span class="node-type">GHL / HUBSPOT</span>
+                    <strong>Update CRM</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="n8n-canvas-foot">
+                <span>6 nodes · 3 branches</span>
+                <span><span class="pill-dot"></span>avg run · 1.2s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== HOW IT WORKS ============== -->
+    <section class="section section-dark" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">HOW IT WORKS</span>
+          <h2>From first call to live system in under 30 days.</h2>
+          <p>No discovery phase that drags on for months. We audit, design, build, and ship — then we keep improving it.</p>
+        </div>
+        <div class="steps-grid-v2">
+          <div class="step-v2 reveal">
+            <div class="step-num-v2"><span>01</span></div>
+            <h3>Audit</h3>
+            <p>We map your lead flow, tool stack, and biggest bleed-points. 60 minutes, no deck required.</p>
+          </div>
+          <div class="step-v2 reveal">
+            <div class="step-num-v2"><span>02</span></div>
+            <h3>Design</h3>
+            <p>We propose the system: which models, which workflows, which integrations, what it costs to run.</p>
+          </div>
+          <div class="step-v2 reveal">
+            <div class="step-num-v2"><span>03</span></div>
+            <h3>Build</h3>
+            <p>2–4 weeks. We build, connect, QA, and hand off training. You watch it happen on a shared channel.</p>
+          </div>
+          <div class="step-v2 reveal">
+            <div class="step-num-v2"><span>04</span></div>
+            <h3>Operate</h3>
+            <p>We run it. You get monthly reports, weekly improvements, and a Slack channel with on-call engineers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CTA ============== -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">How it works</span>
-          <h2>Four steps from "I need help" to "this thing runs itself."</h2>
-        </div>
-        <div class="steps-grid">
-          <div class="step reveal">
-            <div class="step-num">01</div>
-            <h3>We audit your business</h3>
-            <p>We look at how leads come in, where they get lost, what your team spends time on, and where the biggest opportunity is hiding.</p>
+        <div class="final-cta reveal">
+          <div class="final-cta-glow"></div>
+          <span class="eyebrow"><span class="live-dot"></span>ACCEPTING A FEW CLIENTS THIS QUARTER</span>
+          <h2>Book a free system audit.<br>We'll show you the exact stack we'd build.</h2>
+          <p>No commitment. 60 minutes. You walk away with a map of where your business is leaking money and the plan to fix it — whether you hire us or not.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-glow btn-lg" href="contact.html"><span>Book Your Audit</span><span class="btn-arrow">→</span></a>
+            <a class="btn btn-secondary btn-shine btn-lg" href="mailto:jack@blackboxadvancements.com">Email Jack</a>
           </div>
-          <div class="step reveal">
-            <div class="step-num">02</div>
-            <h3>We design your system</h3>
-            <p>We build a custom plan covering which AI tools to install, which workflows to automate, and how everything connects to your existing tools.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step-num">03</div>
-            <h3>We install everything</h3>
-            <p>We set up the AI assistants, connect your CRM, launch your ads, build your portals, and make sure your team knows how to use it all.</p>
-          </div>
-          <div class="step reveal">
-            <div class="step-num">04</div>
-            <h3>We keep it running</h3>
-            <p>This isn't a one-time project. We provide 24/7 support, make improvements, and keep optimizing your system as your business grows.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOCIAL PROOF / RESULTS -->
-    <section class="section-tight">
-      <div class="container">
-        <div class="img-text-row reverse">
-          <div class="text-block reveal">
-            <span class="eyebrow">Real results</span>
-            <h2>What business owners notice after install</h2>
-            <div class="result-list">
-              <div class="result-item">
-                <strong>"We stopped losing leads overnight"</strong>
-                <p>AI responds to every inquiry within minutes, even on weekends and holidays.</p>
-              </div>
-              <div class="result-item">
-                <strong>"Our team stopped doing data entry"</strong>
-                <p>CRM updates happen automatically when calls end, appointments are booked, or deals move forward.</p>
-              </div>
-              <div class="result-item">
-                <strong>"Customers think we hired 10 more people"</strong>
-                <p>Client portals and instant updates make small businesses feel like enterprise operations.</p>
-              </div>
-            </div>
-          </div>
-          <div class="img-block reveal">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=450&fit=crop" alt="Happy business team reviewing results" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHO IT'S FOR -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Who this is for</span>
-          <h2>Built for business owners who are tired of leaving money on the table.</h2>
-        </div>
-        <div class="card-grid">
-          <article class="card reveal">
-            <h3>🏠 Service Businesses</h3>
-            <p>Plumbers, contractors, cleaning companies, landscapers — anyone who needs faster lead response and better scheduling.</p>
-          </article>
-          <article class="card reveal">
-            <h3>📈 Growing Companies</h3>
-            <p>Businesses doing $500K-$10M that have outgrown manual processes but aren't ready for a huge enterprise software bill.</p>
-          </article>
-          <article class="card reveal">
-            <h3>🏢 Multi-Location Teams</h3>
-            <p>Franchise operators, regional businesses, and companies with multiple offices that need consistent systems everywhere.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section-tight">
-      <div class="container page-hero-card reveal" style="text-align:center;">
-        <span class="eyebrow">Ready to stop losing leads?</span>
-        <h2 style="font-size:clamp(2rem,4vw,3.2rem);margin:1rem 0;">Get a free system audit. See exactly what we'd build for you.</h2>
-        <p class="muted" style="max-width:580px;margin:0 auto 1.5rem;">No commitment. We'll map out where your business is losing money and show you the exact system that would fix it.</p>
-        <div class="cta-row" style="justify-content:center;">
-          <a class="btn btn-primary" href="contact.html">Book a Free Demo</a>
-          <a class="btn btn-secondary" href="faq.html">Read the FAQ First</a>
         </div>
       </div>
     </section>
@@ -226,24 +713,34 @@
         <p>AI systems that get you more customers, automate your operations, and make your business run like a machine.</p>
       </div>
       <div>
-        <h4>Pages</h4>
+        <h4>Build</h4>
         <div class="footer-links">
-          <a href="services.html">Services</a>
-          <a href="solutions.html">Solutions</a>
-          <a href="systems.html">How It Works</a>
-          <a href="industries.html">Industries</a>
-          <a href="about.html">About</a>
-          <a href="faq.html">FAQ</a>
-          <a href="contact.html">Contact</a>
+          <a href="#services-build">Websites</a>
+          <a href="#services-build">Landing Pages</a>
+          <a href="#services-build">Estimator Tools</a>
+          <a href="#services-build">Client Portals</a>
+          <a href="#services-build">Mobile Apps</a>
         </div>
       </div>
       <div>
-        <h4>Get started</h4>
-        <ul class="footer-list">
-          <li><a href="contact.html">Free system audit</a></li>
-          <li><a href="contact.html">Book a demo</a></li>
-          <li><a href="mailto:hello@blackboxadvancements.com">hello@blackboxadvancements.com</a></li>
-        </ul>
+        <h4>Automate</h4>
+        <div class="footer-links">
+          <a href="#services-build">AI Agents</a>
+          <a href="#phone-callers">Phone Callers</a>
+          <a href="#services-build">CRM Systems</a>
+          <a href="#onboarding">Onboarding AI</a>
+          <a href="#hybrid">Hybrid LLM</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="#n8n">Automation</a>
+          <a href="contact.html">Contact</a>
+          <a href="faq.html">FAQ</a>
+          <a href="mailto:jack@blackboxadvancements.com">jack@blackboxadvancements.com</a>
+        </div>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -252,5 +749,74 @@
     </div>
   </footer>
   <script src="script.js"></script>
+
+  <!-- ============== VAPI LIVE VOICE DEMO ============== -->
+  <script type="module">
+    import Vapi from "https://esm.sh/@vapi-ai/web@2";
+
+    const VAPI_PUBLIC_KEY   = "637c1018-8a89-4a87-98a4-46b48ff981d6";
+    const NOVA_ASSISTANT_ID = "16ca4e70-888e-40ba-96f4-2c3c07327cbe";
+
+    const demo   = document.getElementById("novaDemo");
+    const btn    = document.getElementById("novaDemoBtn");
+    const label  = btn?.querySelector(".nova-demo-label");
+    const status = document.getElementById("novaDemoStatus");
+    const endBtn = document.getElementById("novaDemoEnd");
+    const statusText = status?.querySelector(".nova-demo-text");
+    const bars   = status?.querySelectorAll(".nova-demo-bars span") ?? [];
+
+    if (demo && btn) {
+      const vapi = new Vapi(VAPI_PUBLIC_KEY);
+      let active = false;
+
+      const setState = (state, text) => {
+        demo.dataset.state = state;
+        if (text && statusText) statusText.textContent = text;
+        if (state === "idle" && label) label.textContent = "Talk to Nova · Live Demo";
+        if (state === "connecting" && label) label.textContent = "Connecting…";
+        if (state === "live" && label) label.textContent = "Live · Nova is listening";
+      };
+
+      btn.addEventListener("click", async () => {
+        if (active) return;
+        setState("connecting", "Connecting…");
+        try {
+          await vapi.start(NOVA_ASSISTANT_ID);
+        } catch (err) {
+          console.error("Vapi start failed", err);
+          setState("idle");
+          alert("Couldn't start the call. Check mic permissions and try again.");
+        }
+      });
+
+      endBtn?.addEventListener("click", () => vapi.stop());
+
+      vapi.on("call-start", () => {
+        active = true;
+        setState("live", "Connected — say hi to Nova");
+      });
+
+      vapi.on("call-end", () => {
+        active = false;
+        setState("idle", "Call ended");
+      });
+
+      vapi.on("error", (e) => {
+        console.error("Vapi error", e);
+        active = false;
+        setState("idle", "Something went wrong");
+      });
+
+      vapi.on("speech-start", () => setState("live", "Nova is speaking…"));
+      vapi.on("speech-end",   () => setState("live", "Listening…"));
+
+      vapi.on("volume-level", (level) => {
+        bars.forEach((bar, i) => {
+          const threshold = (i + 1) / (bars.length + 1);
+          bar.style.transform = `scaleY(${Math.max(0.15, Math.min(1, level / threshold))})`;
+        });
+      });
+    }
+  </script>
 </body>
 </html>
