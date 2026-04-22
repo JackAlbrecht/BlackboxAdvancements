@@ -587,37 +587,30 @@ body.splash-gone { overflow: auto; }
 .splash-title .word:nth-child(4) { animation-delay: 0.74s; }
 .splash-title .word:nth-child(5) { animation-delay: 0.82s; }
 .splash-title .glow {
-  /* All-bright neon purple ramp — no dark stops that can read as dimmed */
+  /* Balanced neon purple — bright enough to read, not blinding */
   background: linear-gradient(
     100deg,
-    #ffb0ff 0%,
-    #f0abfc 22%,
-    #e879f9 45%,
-    #d8b4fe 65%,
-    #f0abfc 85%,
-    #ffb0ff 100%
+    #e879f9 0%,
+    #c084fc 30%,
+    #a855f7 50%,
+    #c084fc 70%,
+    #e879f9 100%
   );
-  background-size: 260% 100%;
+  background-size: 240% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* Override the dark text-shadow from .splash-fx-on with a neon halo */
-  text-shadow:
-    0 0 18px rgba(232, 121, 249, 0.85),
-    0 0 34px rgba(192, 132, 252, 0.55);
-  filter: drop-shadow(0 0 24px rgba(232, 121, 249, 0.75));
+  /* Subtle halo — replaces the dark text-shadow from .splash-fx-on */
+  text-shadow: 0 0 14px rgba(192, 132, 252, 0.35);
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.3));
   animation: wordIn 0.7s 0.82s cubic-bezier(0.2, 0.9, 0.3, 1) forwards,
              gradShift 7s linear infinite 2s;
 }
 
-/* Override the splash-fx dark text-shadow when the WebGL layer is on,
-   otherwise it paints three layers of near-black behind the glyphs and
-   the gradient reads as darkened. */
+/* When the WebGL layer is on, replace its stacked dark text-shadows
+   with a single soft purple halo on the glow word. Subtle, not heavy. */
 .splash-fx-on .splash-title .glow {
-  text-shadow:
-    0 0 18px rgba(232, 121, 249, 0.9),
-    0 0 36px rgba(192, 132, 252, 0.6),
-    0 0 60px rgba(168, 85, 247, 0.35);
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.4);
 }
 @keyframes wordIn {
   to { opacity: 1; transform: translateY(0); }
