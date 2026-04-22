@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.blackboxadvancements.com/srsroofing
+Sitemap: https://www.blackboxadvancements.com/srsroofing/sitemap.xml
