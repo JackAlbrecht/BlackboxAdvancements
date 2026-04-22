@@ -168,6 +168,36 @@
       </div>
     </section>
 
+    <!-- ============== SCROLL-SCRUBBED CINEMATIC ============== -->
+    <section class="scrub-hero" data-scrub-hero aria-label="Scroll to explore">
+      <div class="scrub-hero-track">
+        <div class="scrub-hero-stage">
+          <canvas class="scrub-hero-canvas" data-scrub-canvas></canvas>
+          <div class="scrub-hero-veil" aria-hidden="true"></div>
+          <div class="scrub-hero-copy">
+            <div class="scrub-beat" data-beat-start="0" data-beat-end="0.22">
+              <span class="eyebrow"><span class="live-dot"></span>KEEP SCROLLING</span>
+              <h2>This is what<br><span class="grad-text">Blackbox installs.</span></h2>
+            </div>
+            <div class="scrub-beat" data-beat-start="0.22" data-beat-end="0.48">
+              <h2>Systems that answer your phones,<br>qualify your leads,<br>and book your calendar.</h2>
+            </div>
+            <div class="scrub-beat" data-beat-start="0.48" data-beat-end="0.74">
+              <h2>Running 24/7.<br>Without you lifting a finger.</h2>
+            </div>
+            <div class="scrub-beat" data-beat-start="0.74" data-beat-end="1">
+              <h2>Built in a week.<br><span class="grad-text">Runs forever.</span></h2>
+              <a class="btn btn-primary btn-glow" href="contact.html"><span>Let's Build Yours</span><span class="btn-arrow">→</span></a>
+            </div>
+          </div>
+          <div class="scrub-hero-scroll-hint" aria-hidden="true">
+            <span class="scroll-label">SCROLL</span>
+            <span class="scroll-line"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============== WHAT WE BUILD ============== -->
     <section class="section" id="services-build">
       <div class="container">
@@ -840,6 +870,109 @@
         console.warn('Splash WebGL FX failed, falling back to 2D particles.', err);
       }
     }
+  </script>
+
+  <!-- ============== SCROLL-SCRUBBED CINEMATIC ============== -->
+  <script defer>
+    window.addEventListener('load', () => {
+      const section = document.querySelector('[data-scrub-hero]');
+      const canvas  = document.querySelector('[data-scrub-canvas]');
+      if (!section || !canvas || !window.gsap || !window.ScrollTrigger) return;
+
+      const ctx = canvas.getContext('2d', { alpha: false });
+      const FRAME_COUNT = 193;
+      const FRAME_PATH  = (i) => `assets/hero-frames/frame_${String(i).padStart(4, '0')}.jpg`;
+      const frames = new Array(FRAME_COUNT);
+      let currentFrame = -1;
+      let ready = false;
+      let firstFrameLoaded = false;
+
+      // Match canvas to display size × DPR for crisp rendering
+      const fitCanvas = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const { clientWidth: w, clientHeight: h } = canvas;
+        canvas.width  = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        if (firstFrameLoaded) drawFrame(currentFrame < 0 ? 0 : currentFrame);
+      };
+
+      // object-fit: cover behavior inside the canvas
+      const drawFrame = (idx) => {
+        const img = frames[idx];
+        if (!img || !img.complete || img.naturalWidth === 0) return;
+        const { clientWidth: cw, clientHeight: ch } = canvas;
+        const iw = img.naturalWidth, ih = img.naturalHeight;
+        const scale = Math.max(cw / iw, ch / ih);
+        const dw = iw * scale, dh = ih * scale;
+        const dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+        ctx.fillStyle = '#06050e';
+        ctx.fillRect(0, 0, cw, ch);
+        ctx.drawImage(img, dx, dy, dw, dh);
+      };
+
+      // Preload strategy: first 30 frames eagerly, reveal canvas once frame 0 is ready,
+      // then lazy-load the rest in the background so the section is interactive ASAP.
+      const loadFrame = (i) => new Promise((resolve) => {
+        const img = new Image();
+        img.decoding = 'async';
+        img.onload = img.onerror = () => resolve(img);
+        img.src = FRAME_PATH(i + 1); // files are 1-indexed
+        frames[i] = img;
+      });
+
+      const EAGER = Math.min(30, FRAME_COUNT);
+      const eagerLoad = async () => {
+        const batch = [];
+        for (let i = 0; i < EAGER; i++) batch.push(loadFrame(i));
+        await batch[0];
+        firstFrameLoaded = true;
+        fitCanvas();
+        drawFrame(0);
+        canvas.classList.add('is-ready');
+        await Promise.all(batch);
+        // Background load the rest
+        const trickle = async () => {
+          for (let i = EAGER; i < FRAME_COUNT; i++) {
+            await loadFrame(i);
+            if (i === FRAME_COUNT - 1) ready = true;
+          }
+        };
+        trickle();
+      };
+      eagerLoad();
+
+      window.addEventListener('resize', fitCanvas, { passive: true });
+
+      // Scroll → frame index
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      const obj = { f: 0 };
+      window.gsap.to(obj, {
+        f: FRAME_COUNT - 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end:   'bottom bottom',
+          scrub: 0.3,
+          onUpdate: (self) => {
+            const idx = Math.round(obj.f);
+            if (idx !== currentFrame) {
+              currentFrame = idx;
+              drawFrame(idx);
+            }
+            // Beat switcher: drive scrub-beat visibility from scroll progress (0..1)
+            const p = self.progress;
+            section.dataset.progress = p > 0.08 ? 'past' : 'top';
+            document.querySelectorAll('[data-scrub-hero] .scrub-beat').forEach((b) => {
+              const s = parseFloat(b.dataset.beatStart);
+              const e = parseFloat(b.dataset.beatEnd);
+              b.classList.toggle('is-active', p >= s && p < e);
+            });
+          }
+        }
+      });
+    });
   </script>
 
   <!-- ============== IMMERSIVE HERO: scroll + cursor reactive ============== -->

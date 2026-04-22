@@ -1771,6 +1771,155 @@ body.splash-gone { overflow: auto; }
   .n8n-node[style*="right: 20px"] { width: 42%; }
 }
 
+/* ============== SCROLL-SCRUBBED CINEMATIC HERO ============== */
+.scrub-hero {
+  position: relative;
+  width: 100%;
+  /* 400vh = 4 viewports of scroll distance drive 193 frames.
+     Higher = slower/more controlled scrub. Lower = faster. */
+  height: 400vh;
+  background: #06050e;
+}
+
+.scrub-hero-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.scrub-hero-stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrub-hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  will-change: contents;
+}
+
+.scrub-hero-canvas.is-ready {
+  opacity: 1;
+}
+
+.scrub-hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 0%, rgba(6, 5, 14, 0.35) 60%, rgba(6, 5, 14, 0.85) 100%),
+    linear-gradient(180deg, rgba(6, 5, 14, 0.45) 0%, rgba(6, 5, 14, 0.1) 50%, rgba(6, 5, 14, 0.55) 100%);
+}
+
+.scrub-hero-copy {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.scrub-hero-copy .btn {
+  pointer-events: auto;
+}
+
+.scrub-beat {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+  pointer-events: none;
+}
+
+.scrub-beat.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scrub-beat h2 {
+  font-size: clamp(2.2rem, 5.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 0 40px rgba(168, 85, 247, 0.35), 0 2px 24px rgba(0, 0, 0, 0.6);
+}
+
+.scrub-beat .eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.scrub-hero-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+  pointer-events: none;
+  animation: scrubHintFade 3.5s ease-in-out infinite;
+}
+
+.scroll-label {
+  font-family: var(--ff-mono, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), transparent);
+  animation: scrubLineDrop 1.6s ease-in-out infinite;
+}
+
+@keyframes scrubHintFade {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) translateY(0); }
+  50%      { opacity: 1;   transform: translateX(-50%) translateY(6px); }
+}
+
+@keyframes scrubLineDrop {
+  0%   { transform: scaleY(0);   transform-origin: top; }
+  50%  { transform: scaleY(1);   transform-origin: top; }
+  51%  { transform: scaleY(1);   transform-origin: bottom; }
+  100% { transform: scaleY(0);   transform-origin: bottom; }
+}
+
+/* Hide the hint once user has scrolled past the first beat */
+.scrub-hero[data-progress="past"] .scrub-hero-scroll-hint {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+@media (max-width: 640px) {
+  .scrub-hero { height: 300vh; } /* less scroll distance on mobile */
+}
+
 /* ============== NOVA LIVE VOICE DEMO ============== */
 .nova-demo {
   margin: 28px 0 20px;
