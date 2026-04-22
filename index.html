@@ -17,7 +17,49 @@
   <link rel="stylesheet" href="style.css" />
 
 </head>
-<body>
+<body class="has-splash">
+
+  <!-- ============== SPLASH / ENTRY GATE ============== -->
+  <div class="splash" data-splash>
+    <canvas class="splash-canvas" data-splash-canvas></canvas>
+    <canvas class="splash-webgl" data-splash-webgl></canvas>
+    <div class="splash-mesh" aria-hidden="true"></div>
+    <div class="splash-grid" aria-hidden="true"></div>
+    <div class="splash-noise" aria-hidden="true"></div>
+    <div class="splash-inner">
+      <div class="splash-badge">
+        <span class="live-dot"></span>
+        <span>SYSTEM ONLINE · v4.7</span>
+      </div>
+      <div class="splash-logo">
+        <img src="assets/logo.svg" alt="Blackbox Advancements" />
+      </div>
+      <h1 class="splash-title">
+        <span class="word">AI</span>
+        <span class="word">that</span>
+        <span class="word">runs</span>
+        <span class="word">your</span>
+        <span class="word glow">business.</span>
+      </h1>
+      <p class="splash-sub">Websites, agents, phone callers, CRMs, automations. Built with the best models in the world, tuned for businesses that don't have time to lose.</p>
+      <button class="splash-enter" data-splash-enter type="button" aria-label="Enter site">
+        <span class="enter-bg"></span>
+        <span class="enter-ring"></span>
+        <span class="enter-text">
+          <span class="enter-label">ENTER</span>
+          <span class="enter-arrow">→</span>
+        </span>
+      </button>
+      <div class="splash-hint">
+        <kbd>Enter</kbd> or <kbd>Space</kbd>
+      </div>
+    </div>
+    <div class="splash-foot">
+      <span>BLACKBOX ADVANCEMENTS</span>
+      <span data-time>—</span>
+      <span>SECURE CHANNEL</span>
+    </div>
+  </div>
 
   <!-- ============== MAIN SITE ============== -->
   <header class="site-header">
@@ -816,6 +858,33 @@
           bar.style.transform = `scaleY(${Math.max(0.15, Math.min(1, level / threshold))})`;
         });
       });
+    }
+  </script>
+
+  <!-- ============== SPLASH WEBGL FX (Three.js) ============== -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module">
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canvas = document.querySelector('[data-splash-webgl]');
+    const canvas2D = document.querySelector('[data-splash-canvas]');
+    if (canvas && !reduce) {
+      try {
+        const { initSplashFX } = await import('./assets/splash-fx.js');
+        const fx = initSplashFX(canvas);
+        if (fx) {
+          document.body.classList.add('splash-fx-on');
+          if (canvas2D) canvas2D.style.display = 'none';
+        }
+      } catch (err) {
+        console.warn('Splash WebGL FX failed, falling back to 2D particles.', err);
+      }
     }
   </script>
 </body>
