@@ -33,7 +33,8 @@
     { "source": "/srsroofing/clevelandoh", "destination": "/srsroofing/locations/", "permanent": true },
     { "source": "/srsroofing/cincinnatioh", "destination": "/srsroofing/locations/", "permanent": true },
     { "source": "/srsroofing/copy-of-mount-vernon-2", "destination": "/srsroofing/locations/mount-vernon/", "permanent": true },
-    { "source": "/srsroofing/copy-of-cincinnati-oh", "destination": "/srsroofing/locations/", "permanent": true }
+    { "source": "/srsroofing/copy-of-cincinnati-oh", "destination": "/srsroofing/locations/", "permanent": true },
+    { "source": "/srsroofing/post/:slug", "destination": "/srsroofing/blog/:slug/", "permanent": true }
   ],
   "headers": [
     {
