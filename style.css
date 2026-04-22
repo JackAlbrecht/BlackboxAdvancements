@@ -587,13 +587,21 @@ body.splash-gone { overflow: auto; }
 .splash-title .word:nth-child(4) { animation-delay: 0.74s; }
 .splash-title .word:nth-child(5) { animation-delay: 0.82s; }
 .splash-title .glow {
-  background: linear-gradient(90deg, #a855f7 0%, #22d3ee 60%, #a855f7 100%);
-  background-size: 200% 100%;
+  background: linear-gradient(
+    100deg,
+    #f0abfc 0%,
+    #e879f9 25%,
+    #a855f7 50%,
+    #c026d3 75%,
+    #7c3aed 100%
+  );
+  background-size: 240% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.55));
   animation: wordIn 0.7s 0.82s cubic-bezier(0.2, 0.9, 0.3, 1) forwards,
-             gradShift 6s linear infinite 2s;
+             gradShift 7s linear infinite 2s;
 }
 @keyframes wordIn {
   to { opacity: 1; transform: translateY(0); }
@@ -899,11 +907,19 @@ body.splash-gone { overflow: auto; }
 .hero-v3 .hero-copy { max-width: 980px; margin: 0 auto; }
 .hero-v3 h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); }
 .grad-text {
-  background: linear-gradient(100deg, #a855f7 0%, #22d3ee 55%, #a855f7 100%);
-  background-size: 220% 100%;
+  background: linear-gradient(
+    100deg,
+    #f0abfc 0%,
+    #e879f9 25%,
+    #a855f7 50%,
+    #c026d3 75%,
+    #7c3aed 100%
+  );
+  background-size: 240% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.45));
   animation: gradShift 8s linear infinite;
 }
 .hero-proofs {
