@@ -1,7 +1,7 @@
-:HL["/srsroofing/_next/static/chunks/18bg_-4_3e66_.css","style"]
+:HL["/srsroofing/_next/static/chunks/0h-ra6l3m8.y1.css","style"]
 :HL["/srsroofing/_next/static/media/0c89a48fa5027cee-s.p.0rd3rjvnnhw7n.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/srsroofing/_next/static/media/caa3a2e1cccd8315-s.p.16t1db8_9y2o~.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/srsroofing/images/img-15.webp","image"]
 :HL["/srsroofing/images/srs-logo.png","image"]
 :HL["https://static.wixstatic.com/media/754119_b227975bd5b34829acec8970b6a9bd78~mv2.png/v1/fill/w_568,h_564,al_c,lg_1,q_85/754119_b227975bd5b34829acec8970b6a9bd78~mv2.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"roof-replacement-near-me-how-to-choose-the-right-roofing-contractor-and-why-srs-roofing-is-the-best","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"8nDJfr__1uqKcclTwgNja"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"roof-replacement-near-me-how-to-choose-the-right-roofing-contractor-and-why-srs-roofing-is-the-best","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"-rYnKg7kbskCEtI6QqUq5"}
