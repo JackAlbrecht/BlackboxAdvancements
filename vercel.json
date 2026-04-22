@@ -5,17 +5,39 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/sentry", "destination": "/sentry.html" },
-    { "source": "/r6leaderboard", "destination": "/r6leaderboard.html" },
-    { "source": "/wallawallaair/:path*", "destination": "/wallawallaair" }
+    {
+      "source": "/sentry",
+      "destination": "/sentry.html"
+    },
+    {
+      "source": "/r6leaderboard",
+      "destination": "/r6leaderboard.html"
+    },
+    {
+      "source": "/wallawallaair/:path*",
+      "destination": "/wallawallaair"
+    }
   ],
   "headers": [
     {
       "source": "/assets/SentryInstaller.hta",
       "headers": [
-        { "key": "Content-Type", "value": "application/hta" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"SentryInstaller.hta\"" }
+        {
+          "key": "Content-Type",
+          "value": "application/hta"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"SentryInstaller.hta\""
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/jekkcards",
+      "destination": "/jekkcards/",
+      "permanent": true
     }
   ]
 }
