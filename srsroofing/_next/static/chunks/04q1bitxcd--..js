@@ -52,17 +52,19 @@
       void main() {
         vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) /
                   min(u_resolution.x, u_resolution.y);
-        float t = u_time * u_speed * 0.1;
+        float t = u_time * u_speed * 0.15;
         float mouseDist = distance(uv, u_mouse);
-        float warp = smoothstep(0.6, 0.0, mouseDist) * 0.45;
-        vec2 p = uv * 2.0 + vec2(t, t * 0.5) + warp;
+        float warp = smoothstep(0.6, 0.0, mouseDist) * 0.6;
+        vec2 p = uv * 1.6 + vec2(t, t * 0.5) + warp;
         float n = fbm(p);
-        float vignette = 1.0 - smoothstep(0.85, 1.7, length(uv));
-        // Blend deep red core into the darks so the canvas reads as
-        // ambient red haze rather than washed-out magenta
-        float sat = 0.75 + n * 0.25;
-        float val = 0.05 + (n * 0.55) * u_intensity * vignette;
+        float vignette = 1.0 - smoothstep(0.9, 1.9, length(uv));
+        // Push luminance hard so red is actually visible, not a whisper
+        float sat = 0.85 + n * 0.15;
+        float val = 0.12 + (n * 1.0) * u_intensity * vignette;
         vec3 color = hsv2rgb(vec3(u_hue / 360.0, sat, val));
+        // Dark floor so the canvas itself still reads as "mostly black
+        // with red flow" instead of hot pink everywhere
+        color = mix(vec3(0.02, 0.01, 0.01), color, 0.85);
         gl_FragColor = vec4(color, 1.0);
       }
     `,r=(e,a)=>{let r=t.createShader(a);return r?(t.shaderSource(r,e),t.compileShader(r),t.getShaderParameter(r,t.COMPILE_STATUS))?r:(t.deleteShader(r),null):null},n=r(`
