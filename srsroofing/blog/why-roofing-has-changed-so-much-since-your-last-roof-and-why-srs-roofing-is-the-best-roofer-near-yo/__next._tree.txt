@@ -1,6 +1,7 @@
-:HL["/srsroofing/_next/static/chunks/0aap0j.eetm9f.css","style"]
+:HL["/srsroofing/_next/static/chunks/0-xdslg6cant7.css","style"]
 :HL["/srsroofing/_next/static/media/0c89a48fa5027cee-s.p.0rd3rjvnnhw7n.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/srsroofing/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/srsroofing/images/img-15.webp","image"]
+:HL["/srsroofing/images/srs-logo.png","image"]
 :HL["https://static.wixstatic.com/media/754119_5f45207a6b204efba9b5c3e86032e501~mv2.jpg/v1/fill/w_518,h_559,al_c,lg_1,q_80/754119_5f45207a6b204efba9b5c3e86032e501~mv2.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"why-roofing-has-changed-so-much-since-your-last-roof-and-why-srs-roofing-is-the-best-roofer-near-yo","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"xSLZEziuPEc7BliuaLpKW"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"why-roofing-has-changed-so-much-since-your-last-roof-and-why-srs-roofing-is-the-best-roofer-near-yo","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"SP4gqhKO6cIRK8Jzyz2sf"}
