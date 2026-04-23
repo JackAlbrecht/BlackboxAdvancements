@@ -15,7 +15,7 @@
 <link rel="canonical" href="https://blackboxadvancements.com/bdpainting/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="icon" href="/bdpainting/images/bd-logo.png" />
+<link rel="icon" type="image/svg+xml" href="/bdpainting/images/bd-logo.svg" />
 <link rel="stylesheet" href="/bdpainting/style.css" />
 <script type="application/ld+json">
 {
@@ -66,7 +66,6 @@
 </head>
 <body>
 
-<!-- Top contact bar -->
 <div class="topbar">
   <div class="row">
     <div class="tb-left">
@@ -78,7 +77,6 @@
   </div>
 </div>
 
-<!-- Announcement marquee -->
 <div class="anno">
   <div class="anno-track">
     <span>Free estimates across the <b>Yakima Valley</b></span><i class="anno-dot"></i>
@@ -89,11 +87,10 @@
   </div>
 </div>
 
-<!-- Header -->
 <header class="site">
   <div class="nav-row">
     <a href="/bdpainting/" class="brand" aria-label="B&amp;D Painting home">
-      <span class="brand-mark"><img src="/bdpainting/images/bd-logo.png" alt="B&amp;D Painting logo" /></span>
+      <span class="brand-mark"><img src="/bdpainting/images/bd-logo.svg" alt="B&amp;D Painting logo" /></span>
       <span class="brand-type">
         <span class="big">B&amp;D Painting</span>
         <span class="small">Yakima · Since 2005</span>
@@ -113,11 +110,9 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-scrim"></div>
-  <!-- Animated brush stroke overlay -->
   <svg class="hero-stroke" viewBox="0 0 1600 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="brushG" x1="0" y1="0" x2="1" y2="0">
@@ -166,7 +161,6 @@
   </div>
 </section>
 
-<!-- Stripe marquee -->
 <div class="stripe" aria-hidden="true">
   <div class="stripe-track">
     <span>Interior Painting <i>·</i></span>
@@ -179,7 +173,6 @@
   </div>
 </div>
 
-<!-- SERVICES -->
 <section class="section" id="services">
   <div class="wrap-wide">
     <div class="section-head" data-reveal>
@@ -250,7 +243,6 @@
   </div>
 </section>
 
-<!-- ESTIMATOR -->
 <section class="section section-cream" id="estimator">
   <div class="wrap">
     <div class="section-head" data-reveal>
@@ -271,128 +263,54 @@
         </div>
       </div>
 
-      <!-- STEP 1: Project -->
       <div class="est-step active" data-step="1">
         <div class="est-question">What kind of project?</div>
         <div class="est-options">
-          <div class="est-opt" data-val="interior">
-            <span class="em">🛋️</span>
-            <span class="ttl">Interior</span>
-            <span class="desc">Rooms, walls, trim</span>
-          </div>
-          <div class="est-opt" data-val="exterior">
-            <span class="em">🏡</span>
-            <span class="ttl">Exterior</span>
-            <span class="desc">Siding, trim, whole home</span>
-          </div>
-          <div class="est-opt" data-val="cabinets">
-            <span class="em">🗄️</span>
-            <span class="ttl">Cabinets</span>
-            <span class="desc">Kitchen or bath refinish</span>
-          </div>
-          <div class="est-opt" data-val="commercial">
-            <span class="em">🏢</span>
-            <span class="ttl">Commercial</span>
-            <span class="desc">Office, retail, warehouse</span>
-          </div>
-          <div class="est-opt" data-val="drywall">
-            <span class="em">🧱</span>
-            <span class="ttl">Drywall + Paint</span>
-            <span class="desc">Repair plus refinish</span>
-          </div>
+          <div class="est-opt" data-val="interior"><span class="em">🛋️</span><span class="ttl">Interior</span><span class="desc">Rooms, walls, trim</span></div>
+          <div class="est-opt" data-val="exterior"><span class="em">🏡</span><span class="ttl">Exterior</span><span class="desc">Siding, trim, whole home</span></div>
+          <div class="est-opt" data-val="cabinets"><span class="em">🗄️</span><span class="ttl">Cabinets</span><span class="desc">Kitchen or bath refinish</span></div>
+          <div class="est-opt" data-val="commercial"><span class="em">🏢</span><span class="ttl">Commercial</span><span class="desc">Office, retail, warehouse</span></div>
+          <div class="est-opt" data-val="drywall"><span class="em">🧱</span><span class="ttl">Drywall + Paint</span><span class="desc">Repair plus refinish</span></div>
         </div>
       </div>
 
-      <!-- STEP 2: Size (populated dynamically by JS) -->
       <div class="est-step" data-step="2">
         <div class="est-question">How big?</div>
         <div class="est-options"></div>
-        <div class="est-nav">
-          <button class="est-back" type="button">← Back</button>
-        </div>
+        <div class="est-nav"><button class="est-back" type="button">← Back</button></div>
       </div>
 
-      <!-- STEP 3: Scope -->
       <div class="est-step" data-step="3">
         <div class="est-question">What's included?</div>
         <div class="est-options">
-          <div class="est-opt" data-val="walls">
-            <span class="em">🧻</span>
-            <span class="ttl">Walls only</span>
-            <span class="desc">No ceiling, no trim</span>
-          </div>
-          <div class="est-opt" data-val="walls-ceil">
-            <span class="em">⬜</span>
-            <span class="ttl">Walls + Ceilings</span>
-            <span class="desc">Full room refresh</span>
-          </div>
-          <div class="est-opt" data-val="full-trim">
-            <span class="em">🪟</span>
-            <span class="ttl">Walls + Ceilings + Trim</span>
-            <span class="desc">Top-to-bottom</span>
-          </div>
+          <div class="est-opt" data-val="walls"><span class="em">🧻</span><span class="ttl">Walls only</span><span class="desc">No ceiling, no trim</span></div>
+          <div class="est-opt" data-val="walls-ceil"><span class="em">⬜</span><span class="ttl">Walls + Ceilings</span><span class="desc">Full room refresh</span></div>
+          <div class="est-opt" data-val="full-trim"><span class="em">🪟</span><span class="ttl">Walls + Ceilings + Trim</span><span class="desc">Top-to-bottom</span></div>
         </div>
-        <div class="est-nav">
-          <button class="est-back" type="button">← Back</button>
-        </div>
+        <div class="est-nav"><button class="est-back" type="button">← Back</button></div>
       </div>
 
-      <!-- STEP 4: Condition -->
       <div class="est-step" data-step="4">
         <div class="est-question">Surface condition?</div>
         <div class="est-options">
-          <div class="est-opt" data-val="new">
-            <span class="em">✨</span>
-            <span class="ttl">New</span>
-            <span class="desc">Construction / fresh drywall</span>
-          </div>
-          <div class="est-opt" data-val="good">
-            <span class="em">👍</span>
-            <span class="ttl">Good</span>
-            <span class="desc">Minor cleaning only</span>
-          </div>
-          <div class="est-opt" data-val="repairs">
-            <span class="em">🔧</span>
-            <span class="ttl">Some repairs</span>
-            <span class="desc">Patching / sanding needed</span>
-          </div>
-          <div class="est-opt" data-val="major">
-            <span class="em">🚧</span>
-            <span class="ttl">Major prep</span>
-            <span class="desc">Heavy repair / peeling</span>
-          </div>
+          <div class="est-opt" data-val="new"><span class="em">✨</span><span class="ttl">New</span><span class="desc">Construction / fresh drywall</span></div>
+          <div class="est-opt" data-val="good"><span class="em">👍</span><span class="ttl">Good</span><span class="desc">Minor cleaning only</span></div>
+          <div class="est-opt" data-val="repairs"><span class="em">🔧</span><span class="ttl">Some repairs</span><span class="desc">Patching / sanding needed</span></div>
+          <div class="est-opt" data-val="major"><span class="em">🚧</span><span class="ttl">Major prep</span><span class="desc">Heavy repair / peeling</span></div>
         </div>
-        <div class="est-nav">
-          <button class="est-back" type="button">← Back</button>
-        </div>
+        <div class="est-nav"><button class="est-back" type="button">← Back</button></div>
       </div>
 
-      <!-- STEP 5: Colors -->
       <div class="est-step" data-step="5">
         <div class="est-question">How many colors?</div>
         <div class="est-options">
-          <div class="est-opt" data-val="one">
-            <span class="em">🎨</span>
-            <span class="ttl">1 color</span>
-            <span class="desc">Same throughout</span>
-          </div>
-          <div class="est-opt" data-val="two">
-            <span class="em">🎨🎨</span>
-            <span class="ttl">2–3 colors</span>
-            <span class="desc">Accent walls / trim</span>
-          </div>
-          <div class="est-opt" data-val="multi">
-            <span class="em">🌈</span>
-            <span class="ttl">Multiple</span>
-            <span class="desc">Room-by-room different</span>
-          </div>
+          <div class="est-opt" data-val="one"><span class="em">🎨</span><span class="ttl">1 color</span><span class="desc">Same throughout</span></div>
+          <div class="est-opt" data-val="two"><span class="em">🎨🎨</span><span class="ttl">2–3 colors</span><span class="desc">Accent walls / trim</span></div>
+          <div class="est-opt" data-val="multi"><span class="em">🌈</span><span class="ttl">Multiple</span><span class="desc">Room-by-room different</span></div>
         </div>
-        <div class="est-nav">
-          <button class="est-back" type="button">← Back</button>
-        </div>
+        <div class="est-nav"><button class="est-back" type="button">← Back</button></div>
       </div>
 
-      <!-- STEP 6: Contact form → reveals price -->
       <div class="est-step" data-step="6">
         <div data-est-intro>
           <div class="est-question">Almost there — where should we send your quote?</div>
@@ -424,7 +342,6 @@
           </div>
         </form>
 
-        <!-- Result block (hidden until submit) -->
         <div class="est-result" data-est-result style="display:none">
           <div class="rang-label">Your Ballpark Range</div>
           <div class="range">
@@ -449,7 +366,6 @@
   </div>
 </section>
 
-<!-- HOW WE WORK / PROCESS -->
 <section class="section" id="process">
   <div class="wrap-wide">
     <div class="section-head" data-reveal>
@@ -481,7 +397,6 @@
   </div>
 </section>
 
-<!-- REAL JOBS STRIP -->
 <section class="section section-dark tight">
   <div class="wrap-wide">
     <div class="section-head" data-reveal>
@@ -497,7 +412,6 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section class="section" id="reviews">
   <div class="wrap">
     <div class="section-head" data-reveal>
@@ -529,7 +443,6 @@
   </div>
 </section>
 
-<!-- SERVICE AREAS -->
 <section class="section section-dark">
   <div class="wrap-wide">
     <div class="section-head" data-reveal>
@@ -549,7 +462,6 @@
   </div>
 </section>
 
-<!-- VISIT / CONTACT -->
 <section class="section section-cream" id="visit">
   <div class="wrap">
     <div class="visit">
@@ -579,7 +491,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap-wide">
     <div class="foot-grid">
@@ -608,4 +519,36 @@
           <li><a href="/bdpainting/union-gap.html">Union Gap</a></li>
           <li><a href="/bdpainting/west-valley.html">West Valley</a></li>
           <li><a href="/bdpainting/moxee.html">Moxee</a></li>
-          <li><a 
+          <li><a href="/bdpainting/ellensburg.html">Ellensburg</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/bdpainting/about.html">About</a></li>
+          <li><a href="/bdpainting/gallery.html">Gallery</a></li>
+          <li><a href="/bdpainting/contact.html">Contact</a></li>
+          <li><a href="tel:+15093073138">509-307-3138</a></li>
+          <li><a href="mailto:bndpainting@yahoo.com">bndpainting@yahoo.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <div>© <span data-year>2026</span> B&amp;D Painting · Yakima, WA · All rights reserved</div>
+      <div>Licensed &amp; Insured · Services · Integrity · Simplify</div>
+    </div>
+    <div class="foot-credit">
+      Website designed &amp; built by <a href="https://blackboxadvancements.com" target="_blank" rel="noopener">Blackbox Advancements</a>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <span>Free estimate today?</span>
+  <a href="tel:+15093073138" class="m-phone">📞 Call</a>
+</div>
+
+<script src="/bdpainting/script.js" defer></script>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                            

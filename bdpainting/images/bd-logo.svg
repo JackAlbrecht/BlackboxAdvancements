@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-label="B&amp;D Painting logo">
+  <!-- Cream backing circle -->
+  <circle cx="60" cy="60" r="58" fill="#F4EFE5"/>
+  <!-- Navy inner ring -->
+  <circle cx="60" cy="60" r="52" fill="#0E1F3A"/>
+  <!-- Terracotta brush stroke arc -->
+  <path d="M 22 78 Q 60 92 98 78" fill="none" stroke="#C85A2B" stroke-width="5" stroke-linecap="round"/>
+  <!-- Paint drip accent -->
+  <circle cx="98" cy="86" r="3" fill="#C85A2B"/>
+  <!-- Monogram -->
+  <text x="60" y="64" text-anchor="middle"
+        font-family="'Fraunces', 'Playfair Display', Georgia, serif"
+        font-weight="900" font-size="42" fill="#F4EFE5"
+        letter-spacing="-1.5">
+    <tspan>B</tspan><tspan dx="-2" font-weight="300" font-style="italic" fill="#C85A2B">&amp;</tspan><tspan dx="-2">D</tspan>
+  </text>
+  <!-- Tiny tagline arc at top -->
+  <defs>
+    <path id="top-arc" d="M 22 40 Q 60 14 98 40"/>
+  </defs>
+  <text font-family="'JetBrains Mono', 'Courier New', monospace" font-size="7" fill="#F4EFE5" letter-spacing="2.5" opacity="0.85">
+    <textPath href="#top-arc" startOffset="50%" text-anchor="middle">EST · YAKIMA · 2005</textPath>
+  </text>
+  <!-- Bottom tiny caps -->
+  <text x="60" y="96" text-anchor="middle"
+        font-family="'JetBrains Mono', 'Courier New', monospace"
+        font-size="6" fill="#C85A2B" letter-spacing="2" font-weight="700">
+    PAINTING
+  </text>
+</svg>
