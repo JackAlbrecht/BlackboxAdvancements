@@ -563,13 +563,27 @@ section{ position: relative; z-index: 2; }
 }
 
 @media (max-width: 640px){
-  .estimator{ padding: 36px 22px 28px; }
-  .est-options{ grid-template-columns: 1fr 1fr; gap: 10px; }
-  .est-opt{ padding: 16px 12px; }
-  .est-opt .em{ font-size: 24px; }
-  .est-opt .ttl{ font-size: 15px; }
-  .est-nav{ flex-direction: row-reverse; }
-  .est-next{ flex: 1; }
+  .estimator{ padding: 30px 18px 24px; }
+  .estimator::before{ inset: 6px; }
+  .est-header{ margin-bottom: 24px; }
+  .est-header h3{ font-size: 28px; }
+  .est-header .eyebrow{ font-size: 10px; letter-spacing: 0.22em; }
+  .est-progress{ margin-top: 14px; }
+  .est-progress .dot{ width: 22px; height: 3px; }
+  .est-question{ font-size: 20px; margin-bottom: 20px; }
+  .est-options{ grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+  .est-opt{ padding: 14px 10px; gap: 4px; }
+  .est-opt .em{ font-size: 22px; }
+  .est-opt .ttl{ font-size: 14px; }
+  .est-opt .desc{ font-size: 10px; }
+  .est-field{ margin-bottom: 14px; }
+  .est-field label{ font-size: 10px; letter-spacing: 0.18em; }
+  .est-field input, .est-field select, .est-field textarea{ padding: 12px 14px; font-size: 15px; }
+  .est-nav{ flex-direction: row-reverse; gap: 10px; }
+  .est-next{ flex: 1; padding: 14px 16px; font-size: 13px; }
+  .est-result .range{ font-size: 44px; }
+  .est-result .range .dash{ margin: 0 6px; }
+  .est-result .note{ font-size: 13px; }
 }
 
 /* ---------- Shop IRL / real jobs strip ---------- */
@@ -997,25 +1011,4 @@ footer::before{
   .visit-photo .stamp small{ font-size: 9px; }
 
   footer{ padding: 54px 0 26px; }
-  .foot-brand{ font-size: 44px; }
-  .foot-blurb{ font-size: 14px; }
-
-  .page-head{ padding: 54px 0 40px; border-bottom-width: 4px; }
-  .page-head h1{ font-size: clamp(42px, 12vw, 72px); margin: 12px 0 16px; }
-
-  .prose{ font-size: 16px; line-height: 1.65; }
-  .prose h2{ font-size: clamp(28px, 8vw, 42px); margin: 40px 0 16px; }
-  .callout{ padding: 22px 24px; margin: 26px 0; }
-
-  .faq summary{ font-size: 17px; }
-  .faq summary::after{ width: 30px; height: 30px; font-size: 18px; }
-}
-
-@media (max-width: 380px){
-  .wrap, .wrap-wide{ padding: 0 14px; }
-  .hero h1{ font-size: 42px; }
-  .brand-type .big{ font-size: 19px; }
-  .brand-mark{ width: 40px; height: 40px; }
-  .stripe-track{ font-size: 18px; gap: 24px; padding-right: 24px; }
-  .est-options{ grid-template-columns: 1fr; }
-}
+  .foot-brand{ font-si

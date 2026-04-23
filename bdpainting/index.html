@@ -392,43 +392,57 @@
         </div>
       </div>
 
-      <!-- STEP 6: Result + Contact -->
+      <!-- STEP 6: Contact form → reveals price -->
       <div class="est-step" data-step="6">
-        <div class="est-result">
+        <div data-est-intro>
+          <div class="est-question">Almost there — where should we send your quote?</div>
+          <p style="text-align:center;font-family:var(--font-body);font-size:14px;color:var(--bd-ink);opacity:.75;max-width:460px;margin:-16px auto 22px;line-height:1.5">
+            Enter your info to reveal your ballpark range. We'll also email you a detailed quote within 24 hours — no pressure, no spam.
+          </p>
+        </div>
+
+        <form class="contact-form" data-est-contact>
+          <div class="est-field">
+            <label for="est-name">Your name</label>
+            <input id="est-name" name="name" type="text" required autocomplete="name" placeholder="First &amp; last name" />
+          </div>
+          <div class="est-field">
+            <label for="est-phone">Phone</label>
+            <input id="est-phone" name="phone" type="tel" required autocomplete="tel" placeholder="509-555-0123" />
+          </div>
+          <div class="est-field">
+            <label for="est-email">Email</label>
+            <input id="est-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+          </div>
+          <div class="est-field">
+            <label for="est-addr">Project address</label>
+            <input id="est-addr" name="address" type="text" required autocomplete="street-address" placeholder="Street, city — so we know you're in our service area" />
+          </div>
+          <div class="est-nav">
+            <button class="est-back" type="button">← Back</button>
+            <button class="est-next" type="submit" style="background:var(--bd-terracotta)">Reveal My Price Range →</button>
+          </div>
+        </form>
+
+        <!-- Result block (hidden until submit) -->
+        <div class="est-result" data-est-result style="display:none">
           <div class="rang-label">Your Ballpark Range</div>
           <div class="range">
             <span data-result-low>$—</span><span class="dash">—</span><span data-result-high>$—</span>
           </div>
           <div class="note">
-            Ballpark estimate based on your answers. Final pricing depends on an on-site walkthrough — free &amp; no obligation.
+            Ballpark based on your answers. Final pricing depends on an on-site walkthrough — free &amp; no obligation.
             <br><em data-result-summary></em>
           </div>
-        </div>
-        <form class="contact-form" data-est-contact>
-          <div class="est-field">
-            <label for="est-name">Your name</label>
-            <input id="est-name" name="name" type="text" required autocomplete="name" />
+          <div data-est-thanks style="margin-top:26px;padding:22px;background:var(--bd-navy);color:var(--bd-cream);border-radius:2px;text-align:center">
+            <div style="font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:-.01em;margin-bottom:6px">
+              Thanks, <span data-thanks-name>friend</span> — your estimate is on the way.
+            </div>
+            <p style="font-family:var(--font-body);font-size:14px;opacity:.9;margin-bottom:14px">
+              We'll call within 24 business hours to schedule your free on-site walkthrough.
+            </p>
+            <a href="tel:+15093073138" class="btn btn-terra" style="padding:12px 22px;font-size:13px">📞 Or call now: 509-307-3138</a>
           </div>
-          <div class="est-field">
-            <label for="est-phone">Phone</label>
-            <input id="est-phone" name="phone" type="tel" required autocomplete="tel" placeholder="e.g. 509-555-0123" />
-          </div>
-          <div class="est-field">
-            <label for="est-email">Email</label>
-            <input id="est-email" name="email" type="email" required autocomplete="email" />
-          </div>
-          <div class="est-field">
-            <label for="est-addr">Project address (optional)</label>
-            <input id="est-addr" name="address" type="text" autocomplete="street-address" />
-          </div>
-          <div class="est-nav">
-            <button class="est-back" type="button">← Back</button>
-            <button class="est-next" type="submit" style="background:var(--bd-terracotta)">Schedule Free Estimate →</button>
-          </div>
-        </form>
-        <div data-est-thanks style="display:none;text-align:center;padding:20px 0">
-          <div style="font-family:var(--font-display);font-weight:800;font-size:28px;color:var(--bd-navy);letter-spacing:-.02em">Thanks — we'll be in touch within 24 hours.</div>
-          <p style="margin-top:10px;font-family:var(--font-body);opacity:.8">Or call now: <a href="tel:+15093073138" style="color:var(--bd-terracotta);font-weight:600">509-307-3138</a></p>
         </div>
       </div>
     </div>
@@ -476,9 +490,9 @@
     </div>
     <div class="irl-strip">
       <div class="slot" style="background-image:url('/bdpainting/images/bd-real-1.jpg')" data-label="Yakima · 2023"></div>
-      <div class="slot" style="background-image:url('/bdpainting/images/gallery-04.jpg')" data-label="Union Gap · Kitchen"></div>
+      <div class="slot" style="background-image:url('/bdpainting/images/cab-sample.jpg')" data-label="Union Gap · Kitchen"></div>
       <div class="slot" style="background-image:url('/bdpainting/images/bd-real-2.jpg')" data-label="Selah · Exterior"></div>
-      <div class="slot" style="background-image:url('/bdpainting/images/gallery-07.jpg')" data-label="West Valley · Interior"></div>
+      <div class="slot" style="background-image:url('/bdpainting/images/hero-interior.jpg')" data-label="West Valley · Interior"></div>
     </div>
   </div>
 </section>
@@ -594,33 +608,4 @@
           <li><a href="/bdpainting/union-gap.html">Union Gap</a></li>
           <li><a href="/bdpainting/west-valley.html">West Valley</a></li>
           <li><a href="/bdpainting/moxee.html">Moxee</a></li>
-          <li><a href="/bdpainting/ellensburg.html">Ellensburg</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <ul>
-          <li><a href="/bdpainting/about.html">About</a></li>
-          <li><a href="/bdpainting/gallery.html">Gallery</a></li>
-          <li><a href="/bdpainting/contact.html">Contact</a></li>
-          <li><a href="tel:+15093073138">509-307-3138</a></li>
-          <li><a href="mailto:bndpainting@yahoo.com">bndpainting@yahoo.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-legal">
-      <div>© <span data-year>2026</span> B&amp;D Painting · Yakima, WA · All rights reserved</div>
-      <div>Licensed &amp; Insured · Services · Integrity · Simplify</div>
-    </div>
-  </div>
-</footer>
-
-<!-- Mobile sticky CTA -->
-<div class="mobile-cta">
-  <span>Free estimate today?</span>
-  <a href="tel:+15093073138" class="m-phone">📞 Call</a>
-</div>
-
-<script src="/bdpainting/script.js" defer></script>
-</body>
-</html>
+          <li><a 

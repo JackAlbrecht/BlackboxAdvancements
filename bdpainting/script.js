@@ -43,27 +43,25 @@
 
   // =============================================================
   // ESTIMATOR — multi-step painting price calculator
+  // Flow: 1.project 2.size 3.scope 4.condition 5.colors 6.contact → reveal price
   // =============================================================
   const est = document.querySelector('[data-estimator]');
   if (!est) return;
 
-  // Pricing model (Yakima market ranges)
-  // Values are per-unit ranges [low, high] that get summed/multiplied per answer.
+  // Pricing model (Yakima market ballparks — tuned so option changes move the number visibly)
   const PRICING = {
     project: {
       interior: {
         base: 0,
-        unit: 'room',
         sizes: {
-          '1':   [400, 800],
-          '2-3': [1200, 2400],
-          '4-6': [2400, 4800],
+          '1':     [400, 800],
+          '2-3':   [1200, 2400],
+          '4-6':   [2400, 4800],
           'whole': [4500, 9500]
         }
       },
       exterior: {
         base: 0,
-        unit: 'home',
         sizes: {
           'small':  [2800, 5200],
           'medium': [4500, 8500],
@@ -73,7 +71,6 @@
       },
       cabinets: {
         base: 600,
-        unit: 'door',
         sizes: {
           '10':  [900, 1600],
           '20':  [1700, 3000],
@@ -83,7 +80,6 @@
       },
       commercial: {
         base: 0,
-        unit: 'sqft',
         sizes: {
           '2000':  [2500, 5000],
           '5000':  [6000, 12000],
@@ -93,7 +89,6 @@
       },
       drywall: {
         base: 0,
-        unit: 'scope',
         sizes: {
           'patch': [200, 500],
           'room':  [550, 1200],
@@ -102,21 +97,24 @@
         }
       }
     },
+    // Scope multipliers — visible spread
     scope: {
-      'walls':       1.00,
-      'walls-ceil':  1.22,
-      'full-trim':   1.45
+      'walls':      1.00,
+      'walls-ceil': 1.25,
+      'full-trim':  1.55
     },
+    // Condition multipliers — prep drives cost
     condition: {
-      'new':     0.90,
+      'new':     0.88,
       'good':    1.00,
-      'repairs': 1.15,
-      'major':   1.32
+      'repairs': 1.20,
+      'major':   1.42
     },
+    // Color-count multipliers
     colors: {
       'one':   1.00,
-      'two':   1.06,
-      'multi': 1.12
+      'two':   1.10,
+      'multi': 1.22
     }
   };
 
@@ -133,16 +131,18 @@
 
   const stepEls = est.querySelectorAll('.est-step');
   const progressDots = est.querySelectorAll('.est-progress .dot');
-  const TOTAL_STEPS = stepEls.length;
+  const TOTAL_STEPS = stepEls.length;  // 6
 
   function showStep(n) {
     state.step = n;
     stepEls.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step, 10) === n));
     progressDots.forEach((d, i) => d.classList.toggle('active', i < n));
-    // Update size step label based on project
     if (n === 2) updateSizeStep();
-    // Update result on final step
-    if (n === 6) renderResult();
+    // Scroll user to top of estimator for context on each step (mobile esp.)
+    const estTop = est.getBoundingClientRect().top + window.scrollY - 80;
+    if (Math.abs(window.scrollY - estTop) > 120) {
+      window.scrollTo({ top: estTop, behavior: 'smooth' });
+    }
   }
 
   function updateSizeStep() {
@@ -165,7 +165,7 @@
       exterior: {
         q: 'How big is the home?',
         options: [
-          { v: 'small',  ttl: 'Small',   desc: '1 story, <1500 sqft', em: '🏠' },
+          { v: 'small',  ttl: 'Small',   desc: '1 story, <1500 sqft',  em: '🏠' },
           { v: 'medium', ttl: 'Medium',  desc: '1–2 story, 1500–2500', em: '🏡' },
           { v: 'large',  ttl: 'Large',   desc: '2 story, 2500–4000',   em: '🏘️' },
           { v: 'xl',     ttl: 'X-Large', desc: '4000+ sqft',           em: '🏛️' }
@@ -183,9 +183,9 @@
       commercial: {
         q: 'How much square footage?',
         options: [
-          { v: '2000',  ttl: 'Up to 2k',   desc: 'Small office/retail', em: '🏢' },
-          { v: '5000',  ttl: '2k–5k',     desc: 'Mid-size space',      em: '🏬' },
-          { v: '10000', ttl: '5k–10k',    desc: 'Large facility',      em: '🏭' },
+          { v: '2000',  ttl: 'Up to 2k',   desc: 'Small office/retail',     em: '🏢' },
+          { v: '5000',  ttl: '2k–5k',     desc: 'Mid-size space',           em: '🏬' },
+          { v: '10000', ttl: '5k–10k',    desc: 'Large facility',           em: '🏭' },
           { v: '25000', ttl: '10k+',      desc: 'Warehouse / multi-tenant', em: '🏗️' }
         ]
       },
@@ -219,21 +219,19 @@
         container.querySelectorAll('.est-opt').forEach(o => o.classList.remove('selected'));
         opt.classList.add('selected');
         state[field] = opt.dataset.val;
-        // auto-advance after short delay
-        const nextBtn = est.querySelector(`[data-step="${state.step}"] .est-next`);
-        if (nextBtn) nextBtn.disabled = false;
+        // Auto-advance after brief delay — steps 1–5 all advance to the next
         setTimeout(() => {
-          if (state.step < TOTAL_STEPS - 1) showStep(state.step + 1);
+          if (state.step < TOTAL_STEPS) showStep(state.step + 1);
         }, 320);
       });
     });
   }
 
-  // Attach step 1 options (static)
+  // Step 1 options
   const step1Opts = est.querySelector('[data-step="1"] .est-options');
   if (step1Opts) attachOptionHandlers(step1Opts, 'project');
 
-  // Attach static steps (3, 4, 5) options
+  // Static option steps 3, 4, 5
   ['3', '4', '5'].forEach(n => {
     const s = est.querySelector(`[data-step="${n}"] .est-options`);
     if (!s) return;
@@ -241,102 +239,91 @@
     attachOptionHandlers(s, field);
   });
 
-  // Back / Next buttons
+  // Back buttons
   est.querySelectorAll('.est-back').forEach(b => {
     b.addEventListener('click', () => {
       if (state.step > 1) showStep(state.step - 1);
     });
   });
-  est.querySelectorAll('.est-next').forEach(b => {
-    b.addEventListener('click', () => {
-      if (state.step < TOTAL_STEPS) showStep(state.step + 1);
-    });
-  });
 
-  // Final step: compute result + contact capture
-  function renderResult() {
+  // Price calculation
+  function computePrice() {
     const { project, size, scope, condition, colors } = state;
-    if (!project || !size) return;
+    if (!project || !size) return null;
     const proj = PRICING.project[project];
+    if (!proj) return null;
     const sizeRange = proj.sizes[size];
-    if (!sizeRange) return;
+    if (!sizeRange) return null;
     let [low, high] = sizeRange;
     low  += proj.base;
     high += proj.base;
-    const scopeMult = PRICING.scope[scope] || 1;
-    const condMult  = PRICING.condition[condition] || 1;
-    const colorMult = PRICING.colors[colors] || 1;
-    const mult = scopeMult * condMult * colorMult;
-    low  = Math.round(low  * mult / 50) * 50;   // round to nearest $50
+    const mult = (PRICING.scope[scope] || 1)
+               * (PRICING.condition[condition] || 1)
+               * (PRICING.colors[colors] || 1);
+    low  = Math.round(low  * mult / 50) * 50;
     high = Math.round(high * mult / 50) * 50;
-
-    const lowEl  = est.querySelector('[data-result-low]');
-    const highEl = est.querySelector('[data-result-high]');
-    const summaryEl = est.querySelector('[data-result-summary]');
-    if (lowEl)  lowEl.textContent  = '$' + low.toLocaleString();
-    if (highEl) highEl.textContent = '$' + high.toLocaleString();
-    if (summaryEl) {
-      const projLabel = {
-        interior: 'Interior painting',
-        exterior: 'Exterior painting',
-        cabinets: 'Cabinet refinishing',
-        commercial: 'Commercial painting',
-        drywall: 'Drywall + repair'
-      }[project];
-      const scopeLabel = {
-        'walls': 'walls only',
-        'walls-ceil': 'walls + ceilings',
-        'full-trim': 'walls + ceilings + trim'
-      }[scope];
-      summaryEl.textContent = `${projLabel} · ${scopeLabel} · ${size} · ${condition} prep`;
-    }
+    return { low, high, mult };
   }
 
-  // Contact form submit (step 6) — opens an email prefilled with the estimate
+  function projectSummary() {
+    const projLabel = {
+      interior:   'Interior painting',
+      exterior:   'Exterior painting',
+      cabinets:   'Cabinet refinishing',
+      commercial: 'Commercial painting',
+      drywall:    'Drywall + repair'
+    }[state.project] || 'Painting';
+    const scopeLabel = {
+      'walls':      'walls only',
+      'walls-ceil': 'walls + ceilings',
+      'full-trim':  'walls + ceilings + trim'
+    }[state.scope] || '';
+    const parts = [projLabel];
+    if (state.size)  parts.push(state.size);
+    if (scopeLabel)  parts.push(scopeLabel);
+    if (state.condition) parts.push(state.condition + ' prep');
+    return parts.join(' · ');
+  }
+
+  // Step 6: contact form → reveals price
   const contactForm = est.querySelector('[data-est-contact]');
+  const resultBlock = est.querySelector('[data-est-result]');
+  const formIntro   = est.querySelector('[data-est-intro]');
+  const thanksBlock = est.querySelector('[data-est-thanks]');
+
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const fd = new FormData(contactForm);
-      state.contact.name    = fd.get('name')    || '';
-      state.contact.email   = fd.get('email')   || '';
-      state.contact.phone   = fd.get('phone')   || '';
-      state.contact.address = fd.get('address') || '';
+      state.contact.name    = (fd.get('name')    || '').toString();
+      state.contact.email   = (fd.get('email')   || '').toString();
+      state.contact.phone   = (fd.get('phone')   || '').toString();
+      state.contact.address = (fd.get('address') || '').toString();
 
-      const lowEl  = est.querySelector('[data-result-low]');
-      const highEl = est.querySelector('[data-result-high]');
-      const range  = (lowEl ? lowEl.textContent : '') + ' – ' + (highEl ? highEl.textContent : '');
+      // Compute & render price
+      const result = computePrice();
+      if (result) {
+        const lowEl  = est.querySelector('[data-result-low]');
+        const highEl = est.querySelector('[data-result-high]');
+        const sumEl  = est.querySelector('[data-result-summary]');
+        if (lowEl)  lowEl.textContent  = '$' + result.low.toLocaleString();
+        if (highEl) highEl.textContent = '$' + result.high.toLocaleString();
+        if (sumEl)  sumEl.textContent  = projectSummary();
+      }
 
-      const body = encodeURIComponent(
-`Hi B&D Painting team,
-
-I just used the online estimator and wanted to schedule a free estimate.
-
-Name: ${state.contact.name}
-Phone: ${state.contact.phone}
-Email: ${state.contact.email}
-Address: ${state.contact.address}
-
-Project: ${state.project}
-Size: ${state.size}
-Scope: ${state.scope}
-Condition: ${state.condition}
-Colors: ${state.colors}
-
-Online ballpark range: ${range}
-
-Please reach out to schedule a free on-site estimate. Thanks!`
-      );
-      const subject = encodeURIComponent(`Free Estimate Request — ${state.contact.name}`);
-      window.location.href = `mailto:bndpainting@yahoo.com?subject=${subject}&body=${body}`;
-
-      // Also show a "thanks" message
-      const thanks = est.querySelector('[data-est-thanks]');
-      if (thanks) thanks.style.display = 'block';
+      // Swap: hide form + intro, show result
+      if (formIntro)   formIntro.style.display   = 'none';
       contactForm.style.display = 'none';
-    });
-  }
+      if (resultBlock) resultBlock.style.display = 'block';
 
-  // Initial
-  showStep(1);
-})();
+      // Personalize thanks block
+      if (thanksBlock && state.contact.name) {
+        const nameSpan = thanksBlock.querySelector('[data-thanks-name]');
+        if (nameSpan) nameSpan.textContent = state.contact.name.split(' ')[0];
+      }
+
+      // Open mailto with lead details (fires email client, page stays put)
+      const range = result
+        ? `$${result.low.toLocaleString()} – $${result.high.toLocaleString()}`
+        : 'unknown';
+      const body = encodeURICompone
