@@ -1,0 +1,17 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Palmer's Concrete Coatings">
+  <title>Palmer's Concrete Coatings</title>
+  <!-- Charcoal rounded base -->
+  <rect x="0" y="0" width="120" height="120" rx="16" fill="#181C22"/>
+  <!-- Copper accent corner (top-right) -->
+  <path d="M84 0 L120 0 L120 36 Z" fill="#B86842"/>
+  <!-- Subtle inner frame -->
+  <rect x="8" y="8" width="104" height="104" rx="10" fill="none" stroke="#B86842" stroke-width="1" opacity="0.28"/>
+  <!-- Italic P (serif, display) -->
+  <text x="60" y="86" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-weight="900" font-size="92" font-style="italic" fill="#F2EFE8" letter-spacing="-3">P</text>
+  <!-- Apostrophe-like copper dot near P -->
+  <circle cx="86" cy="36" r="3" fill="#B86842"/>
+  <!-- Small wordmark at bottom -->
+  <text x="60" y="106" text-anchor="middle" font-family="'Courier New', monospace"
+        font-weight="700" font-size="8" fill="#B86842" letter-spacing="2.5">COATINGS</text>
+</svg>
