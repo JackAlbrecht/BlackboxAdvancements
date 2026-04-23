@@ -578,11 +578,66 @@ section { padding: clamp(80px, 12vh, 160px) 0; }
 
 ::selection { background: var(--brass); color: var(--obsidian); }
 
-/* ---------- Grain overlay ---------- */
+/* ---------- Grain overlay (desktop only) ---------- */
 .grain {
   position: fixed; inset: 0;
   pointer-events: none; z-index: 9999;
-  opacity: .06;
+  opacity: .05;
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   mix-blend-mode: overlay;
+}
+@media (max-width: 900px) { .grain { display: none; } }
+
+/* ---------- Mobile polish ---------- */
+@media (max-width: 900px) {
+  :root { --gutter: 20px; }
+  .hero { min-height: 88vh; padding: 0 var(--gutter) 40px; }
+  .hero__grid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 30px; }
+  .hero__meta { align-items: flex-start; }
+  .hero__meta-text { text-align: left; max-width: 100%; }
+  .hero__chrome { display: none; }
+  .hero__title { font-size: clamp(48px, 12vw, 80px); line-height: 1; }
+  .hero__scroll { display: none; }
+
+  section { padding: 70px 0; }
+  .page-head { padding: 140px var(--gutter) 70px; }
+  .page-head h1 { font-size: clamp(40px, 10vw, 64px); }
+  .section-head { margin-bottom: 40px; }
+
+  .cta-strip__inner { padding: 80px var(--gutter); }
+  .cta-strip h2 { font-size: clamp(36px, 10vw, 56px); }
+
+  .marquee__item { font-size: 20px; }
+  .marquee__item::before { margin-right: 40px; }
+
+  .nav { padding: 14px var(--gutter); }
+  .nav__brand { font-size: 17px; letter-spacing: .22em; }
+  .nav__brand .mark { width: 24px; height: 24px; font-size: 10px; }
+
+  .footer { padding: 60px var(--gutter) 30px; }
+  .footer__grid { gap: 36px; }
+
+  .btn { padding: 18px 28px; font-size: 11px; width: 100%; max-width: 360px; }
+  .btn + .btn, .arrow-link { width: auto; }
+  .pillar__link, .arrow-link { width: auto; }
+
+  .tier { padding: 36px 26px; }
+  .tier__price { font-size: 54px; }
+
+  .trainer { gap: 18px; }
+  .trainer__img { aspect-ratio: 4/4; }
+
+  .stats__grid { gap: 40px 20px; }
+  .list-row { gap: 6px; padding: 24px 0; }
+
+  .nav.scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(8,8,10,.96); }
+
+  .reveal, .reveal-stagger > * { transition-duration: .6s; }
+}
+
+@media (max-width: 480px) {
+  :root { --gutter: 18px; }
+  .nav__links.open { inset: 58px 0 0 0; padding: 28px var(--gutter); }
+  .tiers, .pillars__grid, .wellness__grid { gap: 14px; }
+  .tier__badge { font-size: 9px; padding: 5px 12px; }
 }
