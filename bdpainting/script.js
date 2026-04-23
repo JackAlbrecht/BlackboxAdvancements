@@ -62,15 +62,17 @@
   var progressDots = est.querySelectorAll('.est-progress .dot');
   var TOTAL_STEPS = stepEls.length;
 
-  function showStep(n) {
+  function showStep(n, opts) {
     state.step = n;
     stepEls.forEach(function (s) { s.classList.toggle('active', parseInt(s.dataset.step, 10) === n); });
     progressDots.forEach(function (d, i) { d.classList.toggle('active', i < n); });
     if (n === 2) updateSizeStep();
-    try {
-      var estTop = est.getBoundingClientRect().top + window.scrollY - 80;
-      if (Math.abs(window.scrollY - estTop) > 120) window.scrollTo({ top: estTop, behavior: 'smooth' });
-    } catch (e) {}
+    if (opts && opts.scroll) {
+      try {
+        var estTop = est.getBoundingClientRect().top + window.scrollY - 80;
+        if (Math.abs(window.scrollY - estTop) > 120) window.scrollTo({ top: estTop, behavior: 'smooth' });
+      } catch (e) {}
+    }
   }
 
   function updateSizeStep() {
@@ -127,7 +129,7 @@
         opt.classList.add('selected');
         state[field] = opt.dataset.val;
         setTimeout(function () {
-          if (state.step < TOTAL_STEPS) showStep(state.step + 1);
+          if (state.step < TOTAL_STEPS) showStep(state.step + 1, {scroll:true});
         }, 320);
       });
     });
@@ -143,7 +145,7 @@
   });
 
   est.querySelectorAll('.est-back').forEach(function (b) {
-    b.addEventListener('click', function () { if (state.step > 1) showStep(state.step - 1); });
+    b.addEventListener('click', function () { if (state.step > 1) showStep(state.step - 1, {scroll:true}); });
   });
 
   function computePrice() {
@@ -224,5 +226,5 @@
     });
   }
 
-  showStep(1);
+  showStep(1); // initial render, no scroll
 })();
