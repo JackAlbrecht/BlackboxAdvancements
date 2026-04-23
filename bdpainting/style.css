@@ -175,7 +175,8 @@ header.site{
 .hero-scrim{
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background:
-    linear-gradient(135deg, rgba(14,31,58,.92) 0%, rgba(14,31,58,.55) 55%, rgba(10,10,10,.85) 100%);
+    linear-gradient(135deg, rgba(7,18,41,.95) 0%, rgba(10,20,43,.82) 45%, rgba(10,10,10,.92) 100%),
+    radial-gradient(ellipse at 25% 50%, rgba(7,18,41,.55) 0%, transparent 60%);
 }
 .hero-stroke{
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
@@ -202,11 +203,18 @@ header.site{
   font-variation-settings: "opsz" 144, "SOFT" 50;
   font-size: clamp(58px, 9.5vw, 148px);
   line-height: 0.94; letter-spacing: -0.025em;
-  color: var(--bd-cream);
+  color: #FDF9EF;
+  text-shadow:
+    0 2px 28px rgba(7,18,41,.55),
+    0 1px 2px rgba(10,10,10,.35);
 }
 .hero h1 .italic{
-  font-style: italic; font-weight: 400;
-  color: var(--bd-terra-soft); font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-style: italic; font-weight: 500;
+  color: #F0A87A;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  text-shadow:
+    0 2px 24px rgba(10,10,10,.6),
+    0 1px 2px rgba(10,10,10,.4);
 }
 .hero h1 .stroke{
   position: relative; display: inline-block;
@@ -220,10 +228,11 @@ header.site{
 
 .hero-sub{
   font-family: var(--font-display);
-  font-style: italic; font-weight: 300;
+  font-style: italic; font-weight: 400;
   font-size: clamp(18px, 1.7vw, 22px);
-  line-height: 1.5; margin-top: 26px; max-width: 540px;
-  color: #EEE4CC; opacity: .95;
+  line-height: 1.5; margin-top: 26px; max-width: 560px;
+  color: #F5ECD7;
+  text-shadow: 0 1px 12px rgba(7,18,41,.7);
 }
 
 .hero-cta-row{ display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
@@ -1007,10 +1016,4 @@ footer::before{
   .proc-num{ font-size: 44px; }
 
   .irl-strip{ gap: 8px; margin-top: 32px; }
-  .irl-strip .slot:nth-child(2n){ transform: translateY(8px); }
-
-  .quote-grid{ gap: 18px; }
-  .q-card{ padding: 34px 26px 26px; box-shadow: 5px 5px 0 var(--bd-terracotta); }
-  .q-card::before{ font-size: 80px; top: -4px; left: 16px; }
-
-  .visit-meta{ grid-template-columns: 1fr; g
+  .irl-strip .slot:nth-chi
