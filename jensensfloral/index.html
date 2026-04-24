@@ -72,9 +72,20 @@
   .nav-toggle{display:none;background:transparent;border:1.5px solid var(--ink);padding:8px 14px;border-radius:8px;font-weight:600}
 
   /* Hero */
-  .hero{position:relative;overflow:hidden;padding:72px 0 96px;background:linear-gradient(180deg,#F7F0E3 0%,var(--paper) 100%)}
+  .hero{position:relative;overflow:hidden;padding:92px 0 96px;background:linear-gradient(180deg,#F7F0E3 0%,var(--paper) 100%)}
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 85% 20%,rgba(249,184,194,.35),transparent 60%),radial-gradient(ellipse 40% 50% at 10% 80%,rgba(110,161,117,.2),transparent 60%)}
   .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;position:relative;z-index:1}
+
+  /* Floral banner / garland across the top of hero */
+  .floral-banner{position:absolute;top:0;left:0;right:0;height:120px;z-index:2;pointer-events:none;overflow:visible}
+  .floral-banner svg{width:100%;height:100%;display:block}
+  .floral-banner .bloom{transform-origin:center;animation:sway 7s ease-in-out infinite}
+  .floral-banner .bloom.b2{animation-duration:9s;animation-delay:-2s}
+  .floral-banner .bloom.b3{animation-duration:8s;animation-delay:-4s}
+  .floral-banner .bloom.b4{animation-duration:10s;animation-delay:-1s}
+  @keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+  @media(max-width:720px){.floral-banner{height:70px} .hero{padding-top:72px}}
+  @media(prefers-reduced-motion:reduce){.floral-banner .bloom{animation:none}}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--leaf);padding:8px 14px;background:rgba(63,107,74,.09);border-radius:999px;margin-bottom:20px}
   .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--petal)}
   .hero-sub{font-size:19px;color:var(--ink-soft);max-width:520px;margin-bottom:28px}
@@ -272,6 +283,152 @@
 </header>
 
 <section class="hero">
+  <!-- Decorative floral banner / garland -->
+  <div class="floral-banner" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin slice">
+      <defs>
+        <radialGradient id="fb-rose" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#FCE4E9"/>
+          <stop offset="50%" stop-color="#F28EA3"/>
+          <stop offset="100%" stop-color="#C04A68"/>
+        </radialGradient>
+        <radialGradient id="fb-peony" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#FBEFE3"/>
+          <stop offset="55%" stop-color="#F9B8C2"/>
+          <stop offset="100%" stop-color="#D86585"/>
+        </radialGradient>
+        <linearGradient id="fb-leaf" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stop-color="#6EA175"/>
+          <stop offset="100%" stop-color="#2E4E36"/>
+        </linearGradient>
+        <linearGradient id="fb-leaf-light" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#A6C9A8"/>
+          <stop offset="100%" stop-color="#6EA175"/>
+        </linearGradient>
+        <!-- Reusable blossom symbols -->
+        <symbol id="daisy" viewBox="-14 -14 28 28">
+          <g fill="#FFF8F0" stroke="#EBD4B8" stroke-width=".5">
+            <ellipse cx="0" cy="-8" rx="4" ry="8"/>
+            <ellipse cx="0" cy="-8" rx="4" ry="8" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-8" rx="4" ry="8" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-8" rx="4" ry="8" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-8" rx="4" ry="8" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-8" rx="4" ry="8" transform="rotate(300)"/>
+          </g>
+          <circle r="4" fill="#F5C340"/>
+          <circle r="2" fill="#C79839"/>
+        </symbol>
+        <symbol id="bud" viewBox="-8 -10 16 20">
+          <path d="M0 8 Q-6 4 -4 -4 Q0 -10 4 -4 Q6 4 0 8 Z" fill="url(#fb-peony)"/>
+          <path d="M-4 4 Q-8 8 -2 10 M4 4 Q8 8 2 10" fill="none" stroke="url(#fb-leaf)" stroke-width="1.5" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="leaf" viewBox="-20 -6 40 12">
+          <path d="M-20 0 Q-10 -6 0 -4 Q10 -6 20 0 Q10 6 0 4 Q-10 6 -20 0 Z" fill="url(#fb-leaf)"/>
+          <path d="M-18 0 L18 0" stroke="#1E3A24" stroke-width=".4" fill="none"/>
+        </symbol>
+        <symbol id="leaf-light" viewBox="-16 -5 32 10">
+          <path d="M-16 0 Q-8 -5 0 -3 Q8 -5 16 0 Q8 5 0 3 Q-8 5 -16 0 Z" fill="url(#fb-leaf-light)"/>
+        </symbol>
+        <symbol id="rose" viewBox="-20 -20 40 40">
+          <g>
+            <!-- outer petals -->
+            <ellipse cx="0" cy="-10" rx="9" ry="13" fill="url(#fb-rose)" transform="rotate(-30)"/>
+            <ellipse cx="0" cy="-10" rx="9" ry="13" fill="url(#fb-rose)" transform="rotate(30)"/>
+            <ellipse cx="0" cy="-10" rx="9" ry="13" fill="url(#fb-rose)" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-10" rx="9" ry="13" fill="url(#fb-rose)" transform="rotate(150)"/>
+            <ellipse cx="0" cy="-10" rx="9" ry="13" fill="url(#fb-rose)" transform="rotate(210)"/>
+            <ellipse cx="0" cy="-10" rx="9" ry="13" fill="url(#fb-rose)" transform="rotate(270)"/>
+            <!-- inner layer -->
+            <circle r="8" fill="#E58B9E"/>
+            <path d="M-4 -3 Q0 -7 4 -3 Q6 1 3 4 Q0 6 -3 4 Q-6 1 -4 -3 Z" fill="#C04A68"/>
+            <path d="M-2 -1 Q0 -3 2 -1 Q3 1 0 2 Q-3 1 -2 -1 Z" fill="#8C2F4A"/>
+          </g>
+        </symbol>
+        <symbol id="peony" viewBox="-24 -24 48 48">
+          <g>
+            <!-- outermost ring -->
+            <g opacity=".85">
+              <ellipse cx="0" cy="-14" rx="10" ry="16" fill="url(#fb-peony)" transform="rotate(0)"/>
+              <ellipse cx="0" cy="-14" rx="10" ry="16" fill="url(#fb-peony)" transform="rotate(45)"/>
+              <ellipse cx="0" cy="-14" rx="10" ry="16" fill="url(#fb-peony)" transform="rotate(90)"/>
+              <ellipse cx="0" cy="-14" rx="10" ry="16" fill="url(#fb-peony)" transform="rotate(135)"/>
+              <ellipse cx="0" cy="-14" rx="10" ry="16" fill="url(#fb-peony)" transform="rotate(180)"/>
+              <ellipse cx="0" cy="-14" rx="10" ry="16" fill="url(#fb-peony)" transform="rotate(225)"/>
+              <ellipse cx="0" cy="-14" rx="10" ry="16" fill="url(#fb-peony)" transform="rotate(270)"/>
+              <ellipse cx="0" cy="-14" rx="10" ry="16" fill="url(#fb-peony)" transform="rotate(315)"/>
+            </g>
+            <!-- middle ring -->
+            <g>
+              <ellipse cx="0" cy="-9" rx="7" ry="11" fill="#F9B8C2" transform="rotate(22)"/>
+              <ellipse cx="0" cy="-9" rx="7" ry="11" fill="#F9B8C2" transform="rotate(67)"/>
+              <ellipse cx="0" cy="-9" rx="7" ry="11" fill="#F9B8C2" transform="rotate(112)"/>
+              <ellipse cx="0" cy="-9" rx="7" ry="11" fill="#F9B8C2" transform="rotate(157)"/>
+              <ellipse cx="0" cy="-9" rx="7" ry="11" fill="#F9B8C2" transform="rotate(202)"/>
+              <ellipse cx="0" cy="-9" rx="7" ry="11" fill="#F9B8C2" transform="rotate(247)"/>
+              <ellipse cx="0" cy="-9" rx="7" ry="11" fill="#F9B8C2" transform="rotate(292)"/>
+              <ellipse cx="0" cy="-9" rx="7" ry="11" fill="#F9B8C2" transform="rotate(337)"/>
+            </g>
+            <!-- center cluster -->
+            <circle r="7" fill="#F28EA3"/>
+            <circle r="4" fill="#C04A68"/>
+            <circle r="1.6" fill="#F5C340"/>
+          </g>
+        </symbol>
+      </defs>
+
+      <!-- Left vine -->
+      <g>
+        <!-- leaves arcing in -->
+        <use href="#leaf" x="40" y="55" transform="rotate(-20 40 55) scale(1.1)"/>
+        <use href="#leaf-light" x="110" y="40" transform="rotate(-10 110 40)"/>
+        <use href="#leaf" x="180" y="70" transform="rotate(15 180 70) scale(.9)"/>
+        <use href="#leaf-light" x="235" y="35" transform="rotate(-18 235 35)"/>
+        <!-- flowers -->
+        <use href="#bud" x="85" y="64" class="bloom b3"/>
+        <use href="#daisy" x="150" y="48" class="bloom"/>
+        <use href="#rose" x="210" y="58" class="bloom b2" transform="scale(.85) translate(37 10)"/>
+        <use href="#bud" x="260" y="52" class="bloom b4"/>
+        <use href="#leaf" x="290" y="64" transform="rotate(12 290 64) scale(.8)"/>
+      </g>
+
+      <!-- Central composition -->
+      <g transform="translate(720 60)">
+        <!-- back leaves -->
+        <use href="#leaf" x="-70" y="10" transform="rotate(-25 -70 10) scale(1.4)"/>
+        <use href="#leaf" x="70" y="10" transform="rotate(25 70 10) scale(1.4)"/>
+        <use href="#leaf-light" x="-40" y="-20" transform="rotate(-40 -40 -20) scale(1.1)"/>
+        <use href="#leaf-light" x="40" y="-20" transform="rotate(40 40 -20) scale(1.1)"/>
+        <!-- side blooms -->
+        <use href="#rose" x="-55" y="10" class="bloom b2"/>
+        <use href="#rose" x="55" y="10" class="bloom b3"/>
+        <use href="#daisy" x="-90" y="-5" class="bloom b4"/>
+        <use href="#daisy" x="90" y="-5" class="bloom"/>
+        <!-- center peony -->
+        <use href="#peony" x="0" y="4" class="bloom"/>
+        <!-- tiny buds -->
+        <use href="#bud" x="-30" y="-28" class="bloom b3" transform="rotate(-15 -30 -28) scale(.8)"/>
+        <use href="#bud" x="30" y="-28" class="bloom b2" transform="rotate(15 30 -28) scale(.8)"/>
+      </g>
+
+      <!-- Right vine -->
+      <g>
+        <use href="#leaf" x="1150" y="64" transform="rotate(-12 1150 64) scale(.8)"/>
+        <use href="#bud" x="1180" y="52" class="bloom"/>
+        <use href="#rose" x="1230" y="58" class="bloom b3" transform="scale(.85) translate(217 10)"/>
+        <use href="#daisy" x="1290" y="48" class="bloom b2"/>
+        <use href="#bud" x="1355" y="64" class="bloom b4"/>
+        <use href="#leaf-light" x="1205" y="35" transform="rotate(18 1205 35)"/>
+        <use href="#leaf" x="1260" y="70" transform="rotate(-15 1260 70) scale(.9)"/>
+        <use href="#leaf-light" x="1330" y="40" transform="rotate(10 1330 40)"/>
+        <use href="#leaf" x="1400" y="55" transform="rotate(20 1400 55) scale(1.1)"/>
+      </g>
+
+      <!-- Connecting vine lines -->
+      <path d="M0 70 Q180 85 340 70" stroke="url(#fb-leaf)" stroke-width="2" fill="none" opacity=".35" stroke-linecap="round"/>
+      <path d="M1100 70 Q1260 85 1440 70" stroke="url(#fb-leaf)" stroke-width="2" fill="none" opacity=".35" stroke-linecap="round"/>
+    </svg>
+  </div>
+
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Ferndale's florist since 1957</span>
@@ -535,163 +692,4 @@
 
 <script>
   // -------- Product catalog (inlined, no fetch needed) --------
-  const PRODUCTS = [{"slug": "bright-bold-designer-choice", "name": "Bright & Bold Designer Choice", "price": 74.99, "desc": "An arrangement of seasonal Bright & Bold blooms arranged in a vase.", "cats": ["Designer's Choice"], "local_img": "bright-bold-designer-choice.png"}, {"slug": "darling-clementine", "name": "Darling Clementine", "price": 79.99, "desc": "Warm and colorful, this arrangement of roses, gerberas, and asiatic lilies is perfect for showing your thanks or congratulations.", "cats": ["Summer"], "local_img": "darling-clementine.jpg"}, {"slug": "designer-s-choice-mother-s-day-wraps", "name": "Designer's Choice - Mother's Day Wraps", "price": 69.99, "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.", "cats": ["Wrapped bouquet", "Designer's Choice", "Mother's Day"], "local_img": "designer-s-choice-mother-s-day-wraps.jpg"}, {"slug": "designer-s-choice-spring-lush", "name": "Designer's Choice - Spring Lush", "price": 79.99, "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.", "cats": ["Spring", "Designer's Choice"], "local_img": "designer-s-choice-spring-lush.jpg"}, {"slug": "designers-choice", "name": "Designer's Choice", "price": 59.99, "desc": "", "cats": ["Designer's Choice"], "local_img": "designers-choice.jpg"}, {"slug": "florist-choice-spring-bouquet", "name": "Florist Choice Spring Bouquet", "price": 79.99, "desc": "", "cats": ["Spring", "Designer's Choice"], "local_img": "florist-choice-spring-bouquet.jpg"}, {"slug": "mixed-bouquet-for-mom", "name": "Mixed bouquet for mom", "price": 60.98, "desc": "", "cats": ["Mother's Day"], "local_img": "mixed-bouquet-for-mom.jpg"}, {"slug": "new-fontana-candle-co", "name": "*NEW Fontana Candle Co.", "price": 29.95, "desc": "", "cats": ["Gifts"], "local_img": "new-fontana-candle-co.webp"}, {"slug": "premium-bouquet-for-mom", "name": "PREMIUM bouquet for Mom", "price": 150.0, "desc": "", "cats": ["Mother's Day"], "local_img": "premium-bouquet-for-mom.jpg"}, {"slug": "premium-hanging-basket", "name": "Premium Hanging Basket", "price": 54.99, "desc": "", "cats": ["Plants"], "local_img": "premium-hanging-basket.jpg"}, {"slug": "sangria-nights", "name": "Sangria Nights", "price": 64.99, "desc": "Surprise a loved one with the rich beauty of these roses, lisianthus, and carnations.", "cats": ["Summer"], "local_img": "sangria-nights.jpg"}, {"slug": "serenity", "name": "Serenity", "price": 99.99, "desc": "This arrangement of iris, delphinium, freesia, and asiatic lilies evokes a tranquil summer day at the cabin.", "cats": ["Summer"], "local_img": "serenity.jpg"}, {"slug": "spring-chocolate-animals", "name": "Spring Chocolate Animals", "price": 15.95, "desc": "", "cats": ["Spring", "Gifts"], "local_img": "spring-chocolate-animals.jpg"}, {"slug": "spring-has-sprung", "name": "Spring has Sprung", "price": 69.95, "desc": "", "cats": ["Spring"], "local_img": "spring-has-sprung.jpg"}, {"slug": "sprinkle-of-sunshine-greeting-card", "name": "Sprinkle of Sunshine Greeting Card", "price": 12.95, "desc": "", "cats": ["Gifts"], "local_img": "sprinkle-of-sunshine-greeting-card.webp"}, {"slug": "spun-sugar", "name": "Spun Sugar", "price": 85.99, "desc": "Enjoy this elegant and sentimental arrangement of roses, astilbe, lisianthus.", "cats": ["Summer"], "local_img": "spun-sugar.jpg"}, {"slug": "summer-bliss", "name": "Summer Bliss", "price": 79.99, "desc": "Enjoy this arrangement of anemones, carnations, lisianthus, and other blooms that's perfect for summer!", "cats": ["Summer"], "local_img": "summer-bliss.jpg"}, {"slug": "summer-vibes-designer-choice", "name": "Summer Vibes Designer Choice", "price": 74.99, "desc": "An arrangement of summer seasonal blooms arranged in a vase.", "cats": ["Designer's Choice", "Summer"], "local_img": "summer-vibes-designer-choice.png"}, {"slug": "tangerine-twist", "name": "Tangerine Twist", "price": 79.99, "desc": "Brighten someone's day with this arrangement featuring roses, mini Calla lilies, gerbera daisies.", "cats": ["Summer"], "local_img": "tangerine-twist.jpg"}, {"slug": "wrapped-sunflowers-fields", "name": "Wrapped Sunflowers Fields", "price": 59.99, "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.", "cats": ["Wrapped bouquet", "Summer"], "local_img": "wrapped-sunflowers-fields.jpg"}, {"slug": "wrapped-with-love", "name": "Wrapped with Love", "price": 69.99, "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.", "cats": ["Wrapped bouquet"], "local_img": "wrapped-with-love.jpg"}];
-
-  // Render cards
-  function imgFor(p){ return `/jensensfloral/images/products/${p.local_img}`; }
-  function catLabel(p){ return (p.cats && p.cats[0]) || 'Flowers'; }
-  function fmtPrice(n){ return n ? '$' + n.toFixed(2) : '—'; }
-
-  function cleanDesc(d){
-    if (!d) return '';
-    d = d.replace(/&amp;/g,'&').replace(/&#039;/g,"'").replace(/\s+/g,' ').trim();
-    return d;
-  }
-
-  function renderGrid(filter){
-    const grid = document.getElementById('product-grid');
-    const items = !filter ? PRODUCTS : PRODUCTS.filter(p => (p.cats||[]).includes(filter));
-    grid.innerHTML = items.map((p,i) => `
-      <article class="card" data-slug="${p.slug}" style="animation-delay:${i*40}ms">
-        <div class="card-img">
-          <img src="${imgFor(p)}" alt="${p.name}" loading="lazy" />
-          ${p.price && p.price >= 100 ? '<div class="card-badge">Premium</div>' : ''}
-        </div>
-        <div class="card-body">
-          <div class="card-cat">${catLabel(p)}</div>
-          <h3 class="card-name">${p.name}</h3>
-          <p class="card-desc">${cleanDesc(p.desc) || 'Seasonal hand-arranged design from our Ferndale florist.'}</p>
-          <div class="card-foot">
-            <div class="card-price">${fmtPrice(p.price)}</div>
-            <div class="card-arrow">→</div>
-          </div>
-        </div>
-      </article>
-    `).join('');
-    // hook clicks
-    grid.querySelectorAll('.card').forEach(el => {
-      el.addEventListener('click', () => openModal(el.dataset.slug));
-    });
-  }
-
-  function openModal(slug){
-    const p = PRODUCTS.find(x => x.slug === slug);
-    if (!p) return;
-    document.getElementById('modalImg').src = imgFor(p);
-    document.getElementById('modalImg').alt = p.name;
-    document.getElementById('modalCat').textContent = catLabel(p);
-    document.getElementById('modalName').textContent = p.name;
-    document.getElementById('modalPrice').textContent = fmtPrice(p.price);
-    document.getElementById('modalDesc').textContent = cleanDesc(p.desc) || 'A seasonal hand-arranged design. Call the shop or use the form below to customize colors, size, or style for your occasion.';
-    document.getElementById('productModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(){
-    document.getElementById('productModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', closeModal));
-  document.getElementById('productModal').addEventListener('click', e => {
-    if (e.target.id === 'productModal') closeModal();
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-  // Chips + occasion tiles
-  document.querySelectorAll('.chip').forEach(c => {
-    c.addEventListener('click', () => {
-      document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
-      c.classList.add('active');
-      renderGrid(c.dataset.filter);
-      if (c.dataset.filter) document.getElementById('shop').scrollIntoView({behavior:'smooth', block:'start'});
-    });
-  });
-  document.querySelectorAll('[data-cat-filter]').forEach(c => {
-    c.addEventListener('click', () => {
-      const f = c.dataset.catFilter;
-      document.querySelectorAll('.chip').forEach(ch => {
-        ch.classList.toggle('active', (ch.dataset.filter || '') === (f || ''));
-      });
-      renderGrid(f);
-      document.getElementById('shop').scrollIntoView({behavior:'smooth', block:'start'});
-    });
-  });
-
-  // Mobile menu
-  const navToggle = document.querySelector('[data-menu-toggle]');
-  const navLinks = document.querySelector('[data-nav-links]');
-  if (navToggle) navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open);
-  });
-  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-  // Year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Order form
-  const form = document.getElementById('orderForm');
-  const status = document.getElementById('formStatus');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const fd = new FormData(form);
-    if (fd.get('_website')) { status.textContent = 'Thanks!'; return; }
-    if (!fd.get('name') || !fd.get('phone')) {
-      status.textContent = 'Please include your name and phone.';
-      status.style.color = 'var(--petal)';
-      return;
-    }
-    status.textContent = 'Sending…';
-    status.style.color = 'var(--ink-soft)';
-    const payload = Object.fromEntries(fd.entries());
-    payload.source = 'jensens-website';
-    try {
-      const r = await fetch('https://crm.blackboxadvancements.com/api/public/quote?tenant=jensens-ferndale-floral', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify(payload)
-      });
-      if (!r.ok) throw new Error('server ' + r.status);
-      status.textContent = "Got it! Jensen's will call you back shortly. Thank you!";
-      status.style.color = 'var(--leaf)';
-      form.reset();
-    } catch(err) {
-      // Mailto fallback
-      const subject = encodeURIComponent(`Arrangement request — ${payload.name || ''}`);
-      const body = encodeURIComponent(
-        Object.entries(payload).filter(([k,v])=>v && k!=='_website').map(([k,v])=>`${k}: ${v}`).join('\n')
-      );
-      window.location.href = `mailto:jensensfloral@gmail.com?subject=${subject}&body=${body}`;
-      status.textContent = 'Opening your email app to send the request…';
-    }
-  });
-
-  // Initial render
-  renderGrid('');
-
-  // Reveal-on-scroll for cards (CSS animation)
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'none';
-          io.unobserve(e.target);
-        }
-      });
-    }, {threshold:.08});
-    // Observe grid items on every render
-    const origRender = renderGrid;
-    window.renderGrid = function(f){
-      origRender(f);
-      document.querySelectorAll('.card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(18px)';
-        el.style.transition = 'opacity .4s ease, transform .4s ease';
-        io.observe(el);
-      });
-    };
-    window.renderGrid('');
-  }
-</script>
-</body>
-</html>
+  const PRODUCTS = [{"slug": "bright-bold-designer-choice", "name": "Bright & Bold Designer Choice", "price": 74.99, "desc": "An arrangement of seasonal Bright & Bold blooms arranged in a vase.", "cats": ["Designer's Choice"], "local_img": "bright-bold-designer-choice.png"}, {"slug": "darling-clementine", "name": "Darling Clementine", "price": 79.99, "desc": "Warm and colorful, this arrangement of roses, gerberas, and asiatic lilies is perfect for showing your thanks or congratulations.", "cats": ["Summer"], "local_img": "darling-clementine.jpg"}, {"slug": "designer-s-choice-mother-s-day-wraps", "name": "Designer's Choice - Mother's Day Wraps", "price": 69.99, "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.", "cats": ["Wrapped bouquet", "Designer's Choice", "Mother's Day"], "local_img": "designer-s-choice-mother-s-day-wraps.jpg"}, {"slug": "designer-s-choice-spring-lush", "name": "Designer's Choice - Spring Lush", "price": 79.99, "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.", "cats": ["Spring", "Designer's Choice"], "local_img": "designer-s-choice-spring-lush.jpg"}, {"slug": "designers-choice", "name": "Designer's Choice", "price": 59.99, "desc": "", "cats": ["Designer's Choice"], "local_img": "designers-choice.jpg"}, {"slug": "florist-choice-spring-bouquet", "name": "Florist Choice Spring Bouquet", "price": 79.99, "desc": "", "cats": ["Spring", "Designer's Choice"], "local_img": "florist-choice-spring-bouquet.jpg"}, {"slug": "mixed-bouquet-for-mom", "name": "Mixed bouquet for mom", "price": 60.98, "desc": "", "cats": ["Mother's Day"], "local_img": "mixed-bouquet-for-mom.jpg"}, {"slug": "new-fontana-candle-co", "name": "*NEW Fontana Candle Co.", "price": 29.95, "desc": "", "cats": ["Gifts"], "local_img": "new-fontana-candle-co.webp"}, {"slug": "premium-bouquet-for-mom", "name": "PREMIUM bouqu
