@@ -92,7 +92,7 @@
     var el = e.currentTarget, r = el.getBoundingClientRect();
     var rip = document.createElement('span'); rip.className = 'ripple';
     var size = Math.max(r.width, r.height) * 2;
-    rip.style.cssText = 'position:absolute;left:'+((e.clientX-r.left)-size/2)+'px;top:'+((e.clientY-r.top)-size/2)+'px;width:'+size+'px;height:'+size+'px;border-radius:50%;background:radial-gradient(circle,rgba(0,240,255,.55),transparent 60%);pointer-events:none;transform:scale(0);animation:ripple-go .65s ease-out forwards;z-index:20;mix-blend-mode:screen';
+    rip.style.cssText = 'position:absolute;left:'+((e.clientX-r.left)-size/2)+'px;top:'+((e.clientY-r.top)-size/2)+'px;width:'+size+'px;height:'+size+'px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,26,.55),transparent 60%);pointer-events:none;transform:scale(0);animation:ripple-go .65s ease-out forwards;z-index:20;mix-blend-mode:screen';
     if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
     var prevOverflow = el.style.overflow; el.style.overflow = 'hidden';
     el.appendChild(rip);

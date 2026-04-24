@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-label="Armor Tech Resurfacing logo">
   <!-- Shield outer -->
   <path d="M60 6 L108 22 L108 60 Q108 92 60 114 Q12 92 12 60 L12 22 Z"
-        fill="#131A24" stroke="#E35B2D" stroke-width="3"/>
+        fill="#05070C" stroke="#FF6B1A" stroke-width="3"/>
   <!-- Inner shield -->
   <path d="M60 16 L98 29 L98 60 Q98 86 60 104 Q22 86 22 60 L22 29 Z"
-        fill="#0A1018"/>
+        fill="#0A0E14"/>
   <!-- Diagonal sheen -->
-  <path d="M22 40 L60 64 L98 40" fill="none" stroke="#E35B2D" stroke-width="2" opacity="0.55"/>
+  <path d="M22 40 L60 64 L98 40" fill="none" stroke="#FF6B1A" stroke-width="2" opacity="0.55"/>
   <!-- Monogram -->
   <text x="60" y="66" text-anchor="middle"
         font-family="'Fraunces', 'Playfair Display', Georgia, serif"
-        font-weight="900" font-size="36" fill="#F2EEE4"
+        font-weight="900" font-size="36" fill="#F5F4EF"
         letter-spacing="-2">AT</text>
   <!-- Bottom caps -->
   <text x="60" y="90" text-anchor="middle"
         font-family="'JetBrains Mono', 'Courier New', monospace"
-        font-size="7" fill="#F5A653" letter-spacing="2" font-weight="700">RESURFACING</text>
+        font-size="7" fill="#F4A226" letter-spacing="2" font-weight="700">RESURFACING</text>
 </svg>
