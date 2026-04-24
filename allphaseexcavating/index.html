@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>All Phase Excavating — Dig. Haul. Grade. Build.</title>
+<meta name="description" content="Full-service excavating contractor. Site prep, grading, trenching, land clearing, drainage, demolition, utilities, and final grade. Licensed, insured, and family owned." />
+<meta property="og:title" content="All Phase Excavating — Site Prep, Grading, Trenching, Demolition" />
+<meta property="og:description" content="Every phase from clearing to final grade. Residential, commercial, civil. Free estimates — call today." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://blackboxadvancements.com/allphaseexcavating/" />
+<link rel="canonical" href="https://blackboxadvancements.com/allphaseexcavating/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="icon" type="image/svg+xml" href="/allphaseexcavating/images/ape-logo.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --font-display:'Playfair Display', Georgia, serif;
+    --font-body:'Inter', system-ui, -apple-system, sans-serif;
+    --ink-900:#0F1511;     /* near-black */
+    --ink-700:#243028;     /* deep earth */
+    --ink-500:#5C6A5E;     /* muted moss */
+    --ink-300:#A4AEA6;
+    --paper:#F4EFE4;       /* warm bone */
+    --paper-2:#ECE4D1;     /* sand */
+    --brand:#1B3A2F;       /* forest green (heavy-equipment livery) */
+    --accent:#D4A017;      /* caterpillar gold */
+    --hot:#C43A1F;         /* hazard red */
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:var(--font-body);color:var(--ink-900);background:var(--paper);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .wrap-wide{max-width:1320px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;letter-spacing:-0.01em;color:var(--ink-900);margin:0}
+  .italic{font-style:italic;font-weight:500}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:6px;font-weight:600;font-size:14px;letter-spacing:.02em;border:1.5px solid transparent;transition:transform .15s, box-shadow .15s, background .2s}
+  .btn .arrow{transition:transform .2s}
+  .btn:hover .arrow{transform:translateX(4px)}
+  .btn-gold{background:var(--accent);color:var(--ink-900);border-color:var(--accent);box-shadow:0 10px 30px -10px rgba(212,160,23,.5)}
+  .btn-gold:hover{transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .btn-big{padding:18px 28px;font-size:15px}
+  /* Top ribbon */
+  .topbar{background:var(--ink-900);color:#DDD;font-size:12.5px}
+  .topbar .row{max-width:1320px;margin:0 auto;padding:10px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .topbar .tb-left{display:flex;gap:18px;flex-wrap:wrap;opacity:.85}
+  .topbar .tb-dot{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:middle}
+  .topbar .tb-phone{color:var(--accent);font-weight:600}
+  /* Scrolling announcement */
+  .anno{background:var(--accent);color:var(--ink-900);overflow:hidden;white-space:nowrap;font-size:13px;font-weight:600;letter-spacing:.03em}
+  .anno-track{display:inline-block;padding:8px 0;animation:scroll 38s linear infinite}
+  .anno-track span{display:inline-block;padding:0 24px}
+  .anno-dot{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--ink-900);vertical-align:middle;opacity:.5}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* Header */
+  header.site{background:var(--paper);position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(15,21,17,.08)}
+  .nav-row{max-width:1320px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-mark img{width:48px;height:48px}
+  .brand-type .big{font-family:var(--font-display);font-weight:700;font-size:22px;display:block;line-height:1}
+  .brand-type .small{font-size:12px;opacity:.6;letter-spacing:.08em;text-transform:uppercase;margin-top:2px;display:block}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:500}
+  .nav-links a{opacity:.78;transition:opacity .2s}
+  .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--brand)}
+  .nav-links .nav-cta{padding:11px 18px;border-radius:6px;background:var(--brand);color:var(--paper);opacity:1}
+  .nav-links .nav-cta:hover{background:var(--ink-900);color:var(--accent)}
+  .nav-toggle{display:none;background:transparent;border:1.5px solid var(--ink-900);color:var(--ink-900);padding:8px 14px;border-radius:6px;font-weight:600;cursor:pointer}
+  /* Hero */
+  .hero{position:relative;overflow:hidden;background:var(--ink-900);color:var(--paper);min-height:640px;display:flex;align-items:center}
+  .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=80') center/cover;opacity:.35;filter:saturate(.9) contrast(1.1)}
+  .hero-scrim{position:absolute;inset:0;background:linear-gradient(to right, rgba(15,21,17,.9) 0%, rgba(15,21,17,.6) 60%, rgba(15,21,17,.8) 100%)}
+  .hero-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center;width:100%}
+  .hero-eyebrow{display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-bottom:24px}
+  .hero-eyebrow .line{width:34px;height:1px;background:var(--accent)}
+  .hero-eyebrow .dot{width:3px;height:3px;border-radius:50%;background:var(--accent)}
+  .hero h1{font-size:clamp(44px, 7vw, 84px);color:var(--paper);line-height:1.02;letter-spacing:-0.025em}
+  .hero h1 .stroke{background:linear-gradient(90deg,var(--accent),#F5D261);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;font-weight:500}
+  .hero-sub{font-size:19px;line-height:1.55;margin:28px 0 36px;opacity:.85;max-width:560px}
+  .hero-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:28px;backdrop-filter:blur(10px);position:relative}
+  .hc-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .hero-card h3{color:var(--paper);margin-top:10px;font-size:26px;line-height:1.15}
+  .hc-stats{margin-top:22px;display:grid;grid-template-columns:1fr auto;gap:12px 24px;font-size:15px;opacity:.9}
+  .hc-stats dt{opacity:.7}.hc-stats dd{margin:0;font-weight:600}
+  .seal{position:absolute;top:-22px;right:-22px;width:86px;height:86px;border-radius:50%;background:var(--accent);color:var(--ink-900);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:18px;line-height:.9;border:3px solid var(--paper);transform:rotate(6deg)}
+  .seal small{font-size:9px;letter-spacing:.12em;opacity:.85;margin-top:4px;font-weight:600;font-family:var(--font-body)}
+  /* Stripe */
+  .stripe{background:var(--brand);color:var(--paper);font-size:14px;font-weight:600;letter-spacing:.06em;overflow:hidden;white-space:nowrap;padding:16px 0}
+  .stripe-track{display:inline-block;animation:scroll 42s linear infinite}
+  .stripe-track span{display:inline-block;padding:0 18px}
+  .stripe-track i{opacity:.4;padding:0 8px;font-style:normal;color:var(--accent)}
+  /* Sections */
+  .section{padding:100px 0}
+  .section-head{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;margin-bottom:56px;align-items:end}
+  .section-head h2{font-size:clamp(36px,4.5vw,60px);line-height:1.05;letter-spacing:-0.02em}
+  .section-head .meta{color:var(--ink-500);font-size:15px;line-height:1.65;padding-left:24px;border-left:1.5px solid var(--accent)}
+  /* Services grid */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .svc.wide{grid-column:span 2}
+  .svc{position:relative;min-height:320px;border-radius:12px;overflow:hidden;display:block;background:var(--ink-700);color:#fff;isolation:isolate;transition:transform .3s}
+  .svc:hover{transform:translateY(-4px)}
+  .svc-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s;filter:saturate(.85)}
+  .svc:hover .svc-img{transform:scale(1.04)}
+  .svc::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,21,17,0) 0%, rgba(15,21,17,.85) 85%, rgba(15,21,17,.95) 100%);z-index:1}
+  .svc-body{position:relative;z-index:2;padding:26px;display:flex;justify-content:space-between;align-items:flex-end;height:100%;min-height:320px}
+  .svc-num{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:600}
+  .svc-title{font-family:var(--font-display);font-size:26px;font-weight:700;line-height:1.15}
+  .svc.wide .svc-title{font-size:34px}
+  .svc-sub{font-size:14px;opacity:.82;margin-top:6px;max-width:420px;line-height:1.5}
+  .svc-arrow{font-size:28px;color:var(--accent);transition:transform .2s}
+  .svc:hover .svc-arrow{transform:translateX(6px)}
+  /* Split / Why */
+  .split{background:var(--paper-2)}
+  .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .split-copy h2{font-size:clamp(32px,4vw,52px);line-height:1.08;margin-bottom:18px}
+  .split-copy p{font-size:16px;line-height:1.7;color:var(--ink-700);margin-bottom:18px}
+  .pill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .pill-list span{border:1px solid var(--ink-500);padding:8px 14px;border-radius:30px;font-size:13px;font-weight:500;color:var(--ink-700);background:#fff}
+  .split-media{position:relative;border-radius:14px;overflow:hidden;min-height:440px;background:url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1400&q=80') center/cover}
+  .split-media::after{content:'';position:absolute;inset:0;background:linear-gradient(140deg, rgba(27,58,47,.2), rgba(27,58,47,0))}
+  /* Process */
+  .proc{background:var(--ink-900);color:var(--paper)}
+  .proc h2{color:var(--paper)}
+  .proc .section-head .meta{color:rgba(255,255,255,.75);border-color:var(--accent)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:26px}
+  .step-n{font-family:var(--font-display);font-size:46px;line-height:1;color:var(--accent);margin-bottom:10px}
+  .step h4{color:var(--paper);font-size:20px;margin-bottom:8px}
+  .step p{color:rgba(255,255,255,.72);font-size:14px;line-height:1.6;margin:0}
+  /* Gallery strip */
+  .gal-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:40px}
+  .gal-cell{aspect-ratio:4/5;background-size:cover;background-position:center;border-radius:4px}
+  /* Testimonials */
+  .testi{background:var(--paper-2)}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .quote{background:#fff;padding:30px;border-radius:12px;border:1px solid rgba(15,21,17,.06);position:relative}
+  .quote::before{content:'"';position:absolute;top:-10px;left:20px;font-family:var(--font-display);font-size:110px;color:var(--accent);line-height:1}
+  .quote p{font-family:var(--font-display);font-style:italic;font-weight:500;font-size:18px;line-height:1.5;color:var(--ink-700);margin:20px 0 18px;position:relative;z-index:1}
+  .quote cite{display:flex;align-items:center;gap:12px;font-style:normal;font-size:13px;color:var(--ink-500)}
+  .quote cite strong{color:var(--ink-900);display:block;font-size:14px;margin-bottom:1px}
+  .av{width:36px;height:36px;border-radius:50%;background:var(--brand);color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700}
+  /* Final CTA */
+  .cta{background:var(--brand);color:var(--paper);padding:90px 0;text-align:center;position:relative;overflow:hidden}
+  .cta::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=70') center/cover;opacity:.12}
+  .cta-inner{position:relative;max-width:820px;margin:0 auto;padding:0 24px}
+  .cta h2{color:var(--paper);font-size:clamp(36px,5vw,62px);line-height:1.05}
+  .cta p{font-size:18px;opacity:.9;margin:20px 0 34px}
+  /* Footer */
+  footer{background:var(--ink-900);color:#BBB;padding:56px 0 24px;font-size:14px}
+  .foot{max-width:1320px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  footer h4{color:var(--paper);font-family:var(--font-body);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;font-weight:700}
+  footer a{display:block;color:#BBB;padding:6px 0;opacity:.7;transition:opacity .2s}
+  footer a:hover{opacity:1;color:var(--accent)}
+  .fine{max-width:1320px;margin:40px auto 0;padding:20px 24px 0;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;opacity:.6}
+  /* Reveal */
+  [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:translateY(0)}
+  /* Responsive */
+  @media(max-width:960px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;padding:24px;gap:14px;border-bottom:1px solid rgba(0,0,0,.1)}
+    .nav-links.open{display:flex}
+    .nav-toggle{display:block}
+    .hero-inner{grid-template-columns:1fr;padding:56px 24px}
+    .hero-card{margin-top:32px}
+    .section-head{grid-template-columns:1fr;gap:12px}
+    .section-head .meta{padding-left:0;border-left:0;border-top:1.5px solid var(--accent);padding-top:16px}
+    .svc-grid{grid-template-columns:1fr}.svc.wide{grid-column:span 1}
+    .split-grid{grid-template-columns:1fr;gap:28px}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .testi-grid{grid-template-columns:1fr}
+    .gal-strip{grid-template-columns:repeat(2,1fr)}
+    .foot{grid-template-columns:1fr 1fr;gap:28px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="row">
+    <div class="tb-left">
+      <span><span class="tb-dot"></span>Serving the Pacific Northwest</span>
+      <span><span class="tb-dot"></span>Mon–Sat 6a–6p</span>
+      <span><span class="tb-dot"></span>Licensed · Bonded · Insured</span>
+    </div>
+    <a href="tel:+15005551234" class="tb-phone">📞 (509) 555-1234</a>
+  </div>
+</div>
+
+<div class="anno">
+  <div class="anno-track">
+    <span>Free on-site estimates</span><i class="anno-dot"></i>
+    <span>30+ years moving dirt across the region</span><i class="anno-dot"></i>
+    <span>Site prep · Grading · Trenching · Land clearing · Demolition · Utilities</span><i class="anno-dot"></i>
+    <span>Residential · Commercial · Civil</span><i class="anno-dot"></i>
+    <span>Call <b>(509) 555-1234</b></span><i class="anno-dot"></i>
+  </div>
+</div>
+
+<header class="site">
+  <div class="nav-row">
+    <a href="/allphaseexcavating/" class="brand" aria-label="All Phase Excavating home">
+      <span class="brand-mark"><img src="/allphaseexcavating/images/ape-logo.svg" alt="All Phase Excavating logo" /></span>
+      <span class="brand-type">
+        <span class="big">All Phase Excavating</span>
+        <span class="small">Dig · Haul · Grade · Build</span>
+      </span>
+    </a>
+    <button class="nav-toggle" data-menu-toggle aria-expanded="false">Menu</button>
+    <nav class="nav-links" data-nav-links>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact" class="nav-cta">Free Estimate <span class="arrow">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="hero-left" data-reveal>
+      <div class="hero-eyebrow">
+        <span class="line"></span>
+        <span>Pacific Northwest · Est. 1994</span>
+        <span class="dot"></span>
+        <span>Family owned &amp; operated</span>
+      </div>
+      <h1>
+        Every <span class="stroke">phase</span><br>
+        of the <span class="italic">job.</span>
+      </h1>
+      <p class="hero-sub">
+        From first cut to final grade — site prep, grading, trenching, land clearing, demolition, utilities, and drainage. Heavy iron, honest crews, and a finish that's ready for the next trade.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn btn-gold btn-big">Get a Free Estimate <span class="arrow">→</span></a>
+        <a href="tel:+15005551234" class="btn btn-ghost btn-big">📞 (509) 555-1234</a>
+      </div>
+    </div>
+
+    <aside class="hero-card" data-reveal>
+      <span class="hc-eyebrow">The Yard · By the Numbers</span>
+      <h3>Built on the dirt we've moved.</h3>
+      <p style="font-family:var(--font-display);font-style:italic;font-weight:300;font-size:15px;opacity:.8;margin-top:-4px">Three decades of clean jobs, square corners, and crews the GCs keep inviting back.</p>
+      <dl class="hc-stats">
+        <dt>Experience</dt><dd>30+ yrs</dd>
+        <dt>Jobs completed</dt><dd>2,400+</dd>
+        <dt>Cubic yards moved</dt><dd>1.2M+</dd>
+        <dt>Average rating</dt><dd>★ 4.9 / 5</dd>
+      </dl>
+      <div class="seal">FREE<br><small>ESTIMATES<br>ALWAYS</small></div>
+    </aside>
+  </div>
+</section>
+
+<div class="stripe" aria-hidden="true">
+  <div class="stripe-track">
+    <span>Site Preparation <i>·</i></span>
+    <span>Grading &amp; Finish Grade <i>·</i></span>
+    <span>Land Clearing <i>·</i></span>
+    <span>Trenching &amp; Utilities <i>·</i></span>
+    <span>Demolition <i>·</i></span>
+    <span>Drainage &amp; Drywells <i>·</i></span>
+    <span>Driveways &amp; Road Building <i>·</i></span>
+    <span>Septic Installs <i>·</i></span>
+    <span>Pond &amp; Basin Work <i>·</i></span>
+    <span>Hauling &amp; Rock <i>·</i></span>
+    <span>Site Preparation <i>·</i></span>
+    <span>Grading &amp; Finish Grade <i>·</i></span>
+    <span>Land Clearing <i>·</i></span>
+    <span>Trenching &amp; Utilities <i>·</i></span>
+    <span>Demolition <i>·</i></span>
+    <span>Drainage &amp; Drywells <i>·</i></span>
+    <span>Driveways &amp; Road Building <i>·</i></span>
+    <span>Septic Installs <i>·</i></span>
+    <span>Pond &amp; Basin Work <i>·</i></span>
+    <span>Hauling &amp; Rock <i>·</i></span>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="wrap-wide">
+    <div class="section-head" data-reveal>
+      <h2>What we <span class="italic">move,</span><br>build, clear &amp; grade.</h2>
+      <div class="meta">
+        Every project fully prepped,<br>
+        benched, stubbed &amp; finished<br>
+        for the next trade on deck.
+      </div>
+    </div>
+    <div class="svc-grid">
+      <a class="svc wide" href="#contact" data-reveal>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1400&q=80')"></div>
+        <div class="svc-body">
+          <div>
+            <div class="svc-num">01 · Most Requested</div>
+            <div class="svc-title">Site Prep &amp; Grading</div>
+            <div class="svc-sub">Strip topsoil, cut building pads, compact and certify. Finish grades to spec with GPS and laser, ready for footings or asphalt.</div>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </a>
+      <a class="svc" href="#contact" data-reveal>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1519575417283-1d1d9d9f72bd?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="svc-body">
+          <div>
+            <div class="svc-num">02</div>
+            <div class="svc-title">Land Clearing</div>
+            <div class="svc-sub">Brush, trees, stumps, old structures. Mulched or hauled — you pick.</div>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </a>
+      <a class="svc" href="#contact" data-reveal>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="svc-body">
+          <div>
+            <div class="svc-num">03</div>
+            <div class="svc-title">Trenching &amp; Utilities</div>
+            <div class="svc-sub">Water, sewer, gas, power, fiber. Safe, shored, and to-code.</div>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </a>
+      <a class="svc" href="#contact" data-reveal>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="svc-body">
+          <div>
+            <div class="svc-num">04</div>
+            <div class="svc-title">Demolition</div>
+            <div class="svc-sub">Homes, outbuildings, slabs, pools. Sort, recycle, haul, done.</div>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </a>
+      <a class="svc" href="#contact" data-reveal>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="svc-body">
+          <div>
+            <div class="svc-num">05</div>
+            <div class="svc-title">Driveways &amp; Drainage</div>
+            <div class="svc-sub">Gravel driveways, culverts, french drains, drywells, dry creek swales.</div>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </a>
+      <a class="svc wide" href="#contact" data-reveal>
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1530819568329-97653eafbbfa?auto=format&fit=crop&w=1400&q=80')"></div>
+        <div class="svc-body">
+          <div>
+            <div class="svc-num">06 · Heavy Work</div>
+            <div class="svc-title">Commercial &amp; Civil Sitework</div>
+            <div class="svc-sub">Pad sites, rough grade, mass excavation, retaining structures, storm &amp; sewer tie-ins. Crews that have worked alongside every major GC in the region.</div>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section split" id="why">
+  <div class="wrap-wide">
+    <div class="split-grid">
+      <div class="split-copy" data-reveal>
+        <div class="hero-eyebrow" style="color:var(--ink-700)"><span class="line" style="background:var(--brand)"></span><span>Why All Phase</span></div>
+        <h2>Real iron.<br><span class="italic">Real crews.</span> Real follow-through.</h2>
+        <p>When GCs call us, they're not calling for a bid — they're calling for the one sub they don't have to babysit. We show up with the right equipment for the phase, on the day we said we'd show, with operators who can read a grade stake and a print.</p>
+        <p>Residential homeowners get the same thing: straight pricing, real scheduling, a crew that leaves the site cleaner than the lot next door.</p>
+        <div class="pill-list">
+          <span>CAT &amp; Deere fleet</span>
+          <span>GPS-equipped machines</span>
+          <span>UDIG certified</span>
+          <span>$5M liability</span>
+          <span>L&amp;I compliant</span>
+          <span>Pre-job walks</span>
+          <span>Certified compaction</span>
+          <span>Drone progress reports</span>
+        </div>
+      </div>
+      <div class="split-media" data-reveal></div>
+    </div>
+  </div>
+</section>
+
+<section class="section proc" id="process">
+  <div class="wrap-wide">
+    <div class="section-head" data-reveal>
+      <h2>How a job<br><span class="italic">actually</span> runs.</h2>
+      <div class="meta">
+        Four phases. No surprises.<br>
+        You'll know exactly what happens<br>
+        and when — before we ever dig.
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step" data-reveal>
+        <div class="step-n">01</div>
+        <h4>Walk &amp; Quote</h4>
+        <p>We come to the site, walk it with you, measure what matters, and follow up with a line-item estimate within 48 hours. No high-pressure close, no vague numbers.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-n">02</div>
+        <h4>Plan &amp; Permit</h4>
+        <p>Utility locates, erosion control, SWPPP if required, permits pulled. Your schedule gets locked before a tire hits dirt.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-n">03</div>
+        <h4>Dig &amp; Grade</h4>
+        <p>Iron rolls in at sunrise. Daily photos, clean staging, tracked hours. Concrete, framers, and utility crews get a site that's ready to receive them.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-n">04</div>
+        <h4>Clean &amp; Close</h4>
+        <p>Final grade to tolerance, certifications signed, site swept, equipment trucked out. You get a closeout packet and a one-year callback on our work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap-wide">
+    <div class="section-head" data-reveal>
+      <h2>Recent <span class="italic">dirt.</span></h2>
+      <div class="meta">
+        Pull samples from the last 90 days.<br>
+        Residential, commercial, civil.<br>
+        More on request.
+      </div>
+    </div>
+    <div class="gal-strip" data-reveal>
+      <div class="gal-cell" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gal-cell" style="background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gal-cell" style="background-image:url('https://images.unsplash.com/photo-1519575417283-1d1d9d9f72bd?auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gal-cell" style="background-image:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gal-cell" style="background-image:url('https://images.unsplash.com/photo-1517089596392-fb9a9033e05b?auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gal-cell" style="background-image:url('https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gal-cell" style="background-image:url('https://images.unsplash.com/photo-1530819568329-97653eafbbfa?auto=format&fit=crop&w=800&q=80')"></div>
+      <div class="gal-cell" style="background-image:url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80')"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section testi" id="testimonials">
+  <div class="wrap-wide">
+    <div class="section-head" data-reveal>
+      <h2>What GCs and homeowners<br><span class="italic">keep telling us.</span></h2>
+      <div class="meta">
+        Nothing pulled off a marketing page.<br>
+        Real jobs, real names, real phones<br>
+        if you want a reference.
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="quote" data-reveal>
+        <p>We've had All Phase on every custom build for six years running. They show up, the site's ready, and I never have to chase a finish grade.</p>
+        <cite><span class="av">M</span><span><strong>Matt R.</strong>GC · Northpoint Builders</span></cite>
+      </div>
+      <div class="quote" data-reveal>
+        <p>Took down the old barn, pulled the slab, trenched for new utilities, and finish-graded the whole lot in eight days. Cleanest job site I've ever had.</p>
+        <cite><span class="av">J</span><span><strong>Julie D.</strong>Homeowner · Ellensburg</span></cite>
+      </div>
+      <div class="quote" data-reveal>
+        <p>Quote matched the final invoice to the dollar. Hard to find that in this trade. They're my first call on any earthwork now.</p>
+        <cite><span class="av">C</span><span><strong>Chris L.</strong>Developer · Cascade Holdings</span></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <h2>Got dirt to move?</h2>
+    <p>Tell us about the site. You'll get a real person on the phone and a free on-site estimate within 48 hours. No pressure, no games.</p>
+    <div class="hero-cta-row" style="justify-content:center">
+      <a href="tel:+15005551234" class="btn btn-gold btn-big">📞 (509) 555-1234</a>
+      <a href="mailto:hello@allphaseexcavating.com" class="btn btn-ghost btn-big">hello@allphaseexcavating.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <a href="/allphaseexcavating/" class="brand" style="color:var(--paper)">
+        <span class="brand-mark"><img src="/allphaseexcavating/images/ape-logo.svg" alt="" /></span>
+        <span class="brand-type">
+          <span class="big" style="color:var(--paper);font-size:20px">All Phase Excavating</span>
+          <span class="small" style="color:#BBB">Dig · Haul · Grade · Build</span>
+        </span>
+      </a>
+      <p style="margin-top:16px;opacity:.65;max-width:320px;line-height:1.6">Family owned since 1994. Licensed, bonded, and insured across Washington, Oregon &amp; Idaho.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="#services">Site Prep</a>
+      <a href="#services">Grading</a>
+      <a href="#services">Trenching</a>
+      <a href="#services">Demolition</a>
+      <a href="#services">Drainage</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#why">Why Us</a>
+      <a href="#process">Process</a>
+      <a href="#work">Recent Work</a>
+      <a href="#testimonials">Reviews</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+15005551234">(509) 555-1234</a>
+      <a href="mailto:hello@allphaseexcavating.com">hello@allphaseexcavating.com</a>
+      <a href="#">Facebook</a>
+      <a href="#">Google Reviews</a>
+    </div>
+  </div>
+  <div class="fine">
+    <span>© All Phase Excavating · Licensed · Bonded · Insured</span>
+    <span>Built by <a href="https://blackboxadvancements.com" style="color:var(--accent);opacity:.85">Black Box Advancements</a></span>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const tog = document.querySelector('[data-menu-toggle]');
+  const nav = document.querySelector('[data-nav-links]');
+  tog?.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    tog.setAttribute('aria-expanded', open);
+  });
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
