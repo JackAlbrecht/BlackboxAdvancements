@@ -1,0 +1,261 @@
+[
+  {
+    "slug": "bright-bold-designer-choice",
+    "name": "Bright & Bold Designer Choice",
+    "sku": "FLNXT-DC-02",
+    "price": 74.99,
+    "img": "https://image.floranext.com/shared/catalog/product/B/B/BB-DC-1.png.webp",
+    "desc": "An arrangement of seasonal Bright & Bold blooms arranged in a vase.",
+    "cats": [
+      "Designer's Choice"
+    ],
+    "local_img": "bright-bold-designer-choice.png"
+  },
+  {
+    "slug": "darling-clementine",
+    "name": "Darling Clementine",
+    "sku": "FLNXT-40",
+    "price": 79.99,
+    "img": "https://image.floranext.com/shared/catalog/product/F/L/FLNXT-40.jpg.webp",
+    "desc": "Warm and colorful, this arrangement of roses, gerberas, and asiatic lilies is perfect for showing your thanks or congratulations.",
+    "cats": [
+      "Summer"
+    ],
+    "local_img": "darling-clementine.jpg"
+  },
+  {
+    "slug": "designer-s-choice-mother-s-day-wraps",
+    "name": "Designer's Choice - Mother's Day Wraps",
+    "sku": "FLNXT-SM24-02",
+    "price": 69.99,
+    "img": "https://image.floranext.com/shared/catalog/product/d/e/designers-choice-mothers-day-wraps.jpg.webp",
+    "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.",
+    "cats": [
+      "Wrapped bouquet",
+      "Designer's Choice",
+      "Mother's Day"
+    ],
+    "local_img": "designer-s-choice-mother-s-day-wraps.jpg"
+  },
+  {
+    "slug": "designer-s-choice-spring-lush",
+    "name": "Designer's Choice - Spring Lush",
+    "sku": "FLNXT-SM24-03",
+    "price": 79.99,
+    "img": "https://image.floranext.com/shared/catalog/product/d/e/designers-choice-spring-lush.jpg.webp",
+    "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.",
+    "cats": [
+      "Spring",
+      "Designer's Choice"
+    ],
+    "local_img": "designer-s-choice-spring-lush.jpg"
+  },
+  {
+    "slug": "designers-choice",
+    "name": "Designer's Choice",
+    "sku": null,
+    "price": 59.99,
+    "img": null,
+    "desc": "",
+    "cats": [
+      "Designer's Choice"
+    ],
+    "local_img": "designers-choice.jpg"
+  },
+  {
+    "slug": "florist-choice-spring-bouquet",
+    "name": "Florist Choice Spring Bouquet",
+    "sku": null,
+    "price": 79.99,
+    "img": "https://image.floranext.com/instances/ferndalefloral_com/catalog/product/s/p/spirngmix_67c788843f7f7.jpg.webp",
+    "desc": "",
+    "cats": [
+      "Spring",
+      "Designer's Choice"
+    ],
+    "local_img": "florist-choice-spring-bouquet.jpg"
+  },
+  {
+    "slug": "mixed-bouquet-for-mom",
+    "name": "Mixed bouquet for mom",
+    "sku": "Mom3758",
+    "price": 60.98,
+    "img": "https://image.floranext.com/instances/ferndalefloral_com/catalog/product/i/m/img_7648_6815872ecf51f.jpg.webp",
+    "desc": "",
+    "cats": [
+      "Mother's Day"
+    ],
+    "local_img": "mixed-bouquet-for-mom.jpg"
+  },
+  {
+    "slug": "new-fontana-candle-co",
+    "name": "*NEW Fontana Candle Co.",
+    "sku": null,
+    "price": 29.95,
+    "img": "https://image.floranext.com/instances/ferndalefloral_com/catalog/product/w/e/web-ec-fontana_candle_company_r2_9762_69d54cf64c137.webp.webp",
+    "desc": "",
+    "cats": [
+      "Gifts"
+    ],
+    "local_img": "new-fontana-candle-co.webp"
+  },
+  {
+    "slug": "premium-bouquet-for-mom",
+    "name": "PREMIUM bouquet for Mom",
+    "sku": "mompremm",
+    "price": 150.0,
+    "img": "https://image.floranext.com/instances/ferndalefloral_com/catalog/product/m/i/mixed-wedding-flower-multi-colored-floral-background-photo_69ebb4c508713.jpg.webp",
+    "desc": "",
+    "cats": [
+      "Mother's Day"
+    ],
+    "local_img": "premium-bouquet-for-mom.jpg"
+  },
+  {
+    "slug": "premium-hanging-basket",
+    "name": "Premium Hanging Basket",
+    "sku": null,
+    "price": 54.99,
+    "img": "https://image.floranext.com/instances/ferndalefloral_com/catalog/product/h/a/hangign_68150951043c3.jpg.webp",
+    "desc": "",
+    "cats": [
+      "Plants"
+    ],
+    "local_img": "premium-hanging-basket.jpg"
+  },
+  {
+    "slug": "sangria-nights",
+    "name": "Sangria Nights",
+    "sku": "FLNXT-39",
+    "price": 64.99,
+    "img": "https://image.floranext.com/shared/catalog/product/F/L/FLNXT-39.jpg.webp",
+    "desc": "Surprise a loved one with the rich beauty of these roses, lisianthus, and carnations.",
+    "cats": [
+      "Summer"
+    ],
+    "local_img": "sangria-nights.jpg"
+  },
+  {
+    "slug": "serenity",
+    "name": "Serenity",
+    "sku": "FLNXT-47",
+    "price": 99.99,
+    "img": "https://image.floranext.com/shared/catalog/product/F/L/FLNXT-47.jpg.webp",
+    "desc": "This arrangement of iris, delphinium, freesia, and asiatic lilies evokes a tranquil summer day at the cabin.",
+    "cats": [
+      "Summer"
+    ],
+    "local_img": "serenity.jpg"
+  },
+  {
+    "slug": "spring-chocolate-animals",
+    "name": "Spring Chocolate Animals",
+    "sku": "chocoami",
+    "price": 15.95,
+    "img": "https://image.floranext.com/instances/ferndalefloral_com/catalog/product/u/n/unnamed_69bc522ef3c8c.jpg.webp",
+    "desc": "",
+    "cats": [
+      "Spring",
+      "Gifts"
+    ],
+    "local_img": "spring-chocolate-animals.jpg"
+  },
+  {
+    "slug": "spring-has-sprung",
+    "name": "Spring has Sprung",
+    "sku": "spr477",
+    "price": 69.95,
+    "img": "https://image.floranext.com/instances/ferndalefloral_com/catalog/product/t/9/t93-1a_679942413dc7c.jpg.webp",
+    "desc": "",
+    "cats": [
+      "Spring"
+    ],
+    "local_img": "spring-has-sprung.jpg"
+  },
+  {
+    "slug": "sprinkle-of-sunshine-greeting-card",
+    "name": "Sprinkle of Sunshine Greeting Card",
+    "sku": "sprinkle",
+    "price": 12.95,
+    "img": "https://image.floranext.com/instances/ferndalefloral_com/catalog/product/9/0/901a0f68af2b6ef127ca19f2a37b71b61f72a52d6e3b167d04861501f1c2289d_69bda5d57c807.webp.webp",
+    "desc": "",
+    "cats": [
+      "Gifts"
+    ],
+    "local_img": "sprinkle-of-sunshine-greeting-card.webp"
+  },
+  {
+    "slug": "spun-sugar",
+    "name": "Spun Sugar",
+    "sku": "FLNXT-25",
+    "price": 85.99,
+    "img": "https://image.floranext.com/shared/catalog/product/F/L/FLNXT-25.jpg.webp",
+    "desc": "Enjoy this elegant and sentimental arrangement of roses, astilbe, lisianthus.",
+    "cats": [
+      "Summer"
+    ],
+    "local_img": "spun-sugar.jpg"
+  },
+  {
+    "slug": "summer-bliss",
+    "name": "Summer Bliss",
+    "sku": "FLNXT-9",
+    "price": 79.99,
+    "img": "https://image.floranext.com/shared/catalog/product/F/L/FLNXT-9.jpg.webp",
+    "desc": "Enjoy this arrangement of anemones, carnations, lisianthus, and other blooms that's perfect for summer!",
+    "cats": [
+      "Summer"
+    ],
+    "local_img": "summer-bliss.jpg"
+  },
+  {
+    "slug": "summer-vibes-designer-choice",
+    "name": "Summer Vibes Designer Choice",
+    "sku": "FLNXT-DC-10",
+    "price": 74.99,
+    "img": "https://image.floranext.com/shared/catalog/product/S/V/SV-DC-1.png.webp",
+    "desc": "An arrangement of summer seasonal blooms arranged in a vase.",
+    "cats": [
+      "Designer's Choice",
+      "Summer"
+    ],
+    "local_img": "summer-vibes-designer-choice.png"
+  },
+  {
+    "slug": "tangerine-twist",
+    "name": "Tangerine Twist",
+    "sku": "FLNXT-27",
+    "price": 79.99,
+    "img": "https://image.floranext.com/shared/catalog/product/F/L/FLNXT-27.jpg.webp",
+    "desc": "Brighten someone's day with this arrangement featuring roses, mini Calla lilies, gerbera daisies.",
+    "cats": [
+      "Summer"
+    ],
+    "local_img": "tangerine-twist.jpg"
+  },
+  {
+    "slug": "wrapped-sunflowers-fields",
+    "name": "Wrapped Sunflowers Fields",
+    "sku": "FLNXT-SR24-04",
+    "price": 59.99,
+    "img": "https://image.floranext.com/shared/catalog/product/w/r/wrapped-sunflowers-fields.jpg.webp",
+    "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.",
+    "cats": [
+      "Wrapped bouquet",
+      "Summer"
+    ],
+    "local_img": "wrapped-sunflowers-fields.jpg"
+  },
+  {
+    "slug": "wrapped-with-love",
+    "name": "Wrapped with Love",
+    "sku": "FLNXT-SM24-04",
+    "price": 69.99,
+    "img": "https://image.floranext.com/shared/catalog/product/w/r/wrapped-with-love.jpg.webp",
+    "desc": "Spread love with this stunning bouquet, full of heartwarming seasonal blooms.",
+    "cats": [
+      "Wrapped bouquet"
+    ],
+    "local_img": "wrapped-with-love.jpg"
+  }
+]

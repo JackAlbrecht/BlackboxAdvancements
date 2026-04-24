@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" aria-label="Jensen's Ferndale Floral">
+  <defs>
+    <linearGradient id="jf-petal" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#F9B8C2"/>
+      <stop offset="100%" stop-color="#D86585"/>
+    </linearGradient>
+    <linearGradient id="jf-leaf" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0%" stop-color="#3F6B4A"/>
+      <stop offset="100%" stop-color="#6EA175"/>
+    </linearGradient>
+  </defs>
+  <!-- floral mark -->
+  <g transform="translate(6 8)">
+    <!-- leaves -->
+    <path d="M6 52 Q20 34 38 40 Q28 54 10 58 Z" fill="url(#jf-leaf)" opacity="0.9"/>
+    <path d="M60 58 Q52 38 42 40 Q50 56 62 62 Z" fill="#2E4E36" opacity="0.85"/>
+    <!-- back petals -->
+    <ellipse cx="34" cy="22" rx="10" ry="15" fill="url(#jf-petal)" transform="rotate(-35 34 22)"/>
+    <ellipse cx="42" cy="20" rx="10" ry="15" fill="url(#jf-petal)" transform="rotate(15 42 20)"/>
+    <ellipse cx="22" cy="30" rx="10" ry="15" fill="url(#jf-petal)" transform="rotate(-70 22 30)"/>
+    <ellipse cx="48" cy="34" rx="10" ry="15" fill="url(#jf-petal)" transform="rotate(55 48 34)"/>
+    <!-- front petals -->
+    <ellipse cx="30" cy="34" rx="9" ry="13" fill="#F28EA3" transform="rotate(-15 30 34)"/>
+    <ellipse cx="42" cy="34" rx="9" ry="13" fill="#F28EA3" transform="rotate(25 42 34)"/>
+    <!-- center -->
+    <circle cx="36" cy="32" r="5" fill="#F5C340"/>
+    <circle cx="36" cy="32" r="2" fill="#7B3210"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g font-family="'Playfair Display', Georgia, serif" fill="#1F2A24">
+    <text x="86" y="36" font-size="26" font-style="italic" font-weight="700">Jensen's</text>
+    <text x="86" y="58" font-size="14" font-weight="500" letter-spacing="3.5" fill="#3F6B4A" font-family="Inter, sans-serif" font-style="normal">FERNDALE · FLORAL</text>
+  </g>
+</svg>
