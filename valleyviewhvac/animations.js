@@ -195,3 +195,87 @@
     });
   }
 })();
+
+/* ============================================================
+   VV TESTIMONIAL CAROUSEL
+   ============================================================ */
+(function(){
+  document.querySelectorAll('[data-vv-carousel]').forEach(function(car){
+    var track = car.querySelector('.vv-car-track');
+    var prev = car.querySelector('.vv-car-prev');
+    var next = car.querySelector('.vv-car-next');
+    var dotsHost = car.querySelector('[data-vv-dots]');
+    var slides = track ? track.querySelectorAll('.vv-car-slide') : [];
+    if (!track || !slides.length) return;
+
+    function slideStep(){
+      var first = slides[0];
+      if (!first) return 420;
+      var rect = first.getBoundingClientRect();
+      var gap = parseFloat(getComputedStyle(track).gap) || 24;
+      return rect.width + gap;
+    }
+
+    function go(dir){
+      var step = slideStep();
+      track.scrollBy({ left: dir * step, behavior: 'smooth' });
+    }
+
+    if (prev) prev.addEventListener('click', function(){ go(-1); });
+    if (next) next.addEventListener('click', function(){ go(1); });
+
+    // Dots
+    if (dotsHost){
+      slides.forEach(function(_, i){
+        var d = document.createElement('button');
+        d.type = 'button';
+        d.className = 'vv-car-dot';
+        d.setAttribute('aria-label', 'Go to review ' + (i+1));
+        d.addEventListener('click', function(){
+          track.scrollTo({ left: i * slideStep(), behavior: 'smooth' });
+        });
+        dotsHost.appendChild(d);
+      });
+      var dots = dotsHost.querySelectorAll('.vv-car-dot');
+      function syncDots(){
+        var step = slideStep();
+        var idx = Math.round(track.scrollLeft / step);
+        dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+      }
+      track.addEventListener('scroll', function(){
+        clearTimeout(track._sd);
+        track._sd = setTimeout(syncDots, 60);
+      }, { passive: true });
+      syncDots();
+    }
+
+    // Keyboard
+    car.setAttribute('tabindex', '0');
+    car.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft') go(-1);
+      if (e.key === 'ArrowRight') go(1);
+    });
+
+    // Auto-advance every 6s, pause on hover/touch
+    var autoplay = setInterval(function(){
+      var step = slideStep();
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft + step > maxScroll - 4) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        go(1);
+      }
+    }, 6000);
+    car.addEventListener('mouseenter', function(){ clearInterval(autoplay); });
+    car.addEventListener('mouseleave', function(){
+      clearInterval(autoplay);
+      autoplay = setInterval(function(){
+        var step = slideStep();
+        var maxScroll = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft + step > maxScroll - 4) {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+        } else { go(1); }
+      }, 6000);
+    });
+  });
+})();
