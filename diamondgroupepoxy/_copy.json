@@ -1,0 +1,647 @@
+{
+  "brand": {
+    "name": "Diamond Group Epoxy Floors",
+    "phone": "503-501-7295",
+    "city": "Beaverton, OR",
+    "tagline": "Portland's premium epoxy floor installers. One-day install, 10-year warranty.",
+    "hero_h1": "Premium Epoxy Floors Built for Portland Weather",
+    "hero_sub": "Garage, shop, and commercial coatings installed in a single day. Moisture-resistant, hot-tire proof, and backed by a 10-year warranty across Beaverton and the greater Portland metro.",
+    "value_props": [
+      "One-day install with same-night walk-on",
+      "Moisture-resistant system engineered for Pacific Northwest slabs",
+      "10-year written warranty on every residential floor"
+    ],
+    "about_paragraph": "Diamond Group Epoxy Floors is a locally owned coating contractor based in Beaverton, serving homeowners, shop owners, and facility managers across the Portland metro. We install industrial-grade flake, metallic, quartz, and polyaspartic systems built to survive wet winters, road salt, hot tires, and busy commercial traffic. Every slab is diamond-ground (never acid-etched), every floor is installed by our own crews (never subbed out), and every residential project is backed by a 10-year warranty. We show up on time, quote honestly, and finish when we said we would.",
+    "why_us_bullets": [
+      "Diamond-ground prep on every floor — the only method that guarantees adhesion on Oregon concrete",
+      "100% polyaspartic topcoat: UV-stable, hot-tire resistant, four times stronger than standard epoxy",
+      "Installed in one day — drop the car off in the morning, park on it that night",
+      "10-year residential warranty, 5-year commercial warranty, in writing",
+      "Locally owned in Beaverton — our crews, our trucks, our reputation"
+    ]
+  },
+  "services": {
+    "flake-floors": {
+      "title": "Flake Epoxy Floors",
+      "meta_description": "Full-broadcast flake epoxy floors installed in one day across Portland. Slip-resistant, hot-tire proof, 10-year warranty. Call 503-501-7295.",
+      "h1": "Full-Broadcast Flake Epoxy Floors in Portland, OR",
+      "sub": "The toughest, best-looking garage floor you can buy — installed in a single day.",
+      "body_paragraphs": [
+        "Flake floors are our most-requested residential system, and for good reason. We diamond-grind your slab down to clean, open concrete, roll a 100%-solids epoxy basecoat, and broadcast colored vinyl flake to rejection — meaning we keep throwing chips until the floor literally can't hold any more. That dense flake layer is what gives the finished floor its texture, its slip resistance, and its signature look. Once the basecoat cures, we scrape the floor flat, vacuum the excess, and seal everything under two coats of UV-stable polyaspartic. The result is a seamless, sanitary, showroom-grade surface that laughs off hot tires, dropped wrenches, jack stands, and Oregon road salt.",
+        "Flake is the right call for almost any Portland garage. It hides dust, road grit, and the occasional oil drip. The texture gives you real traction when you walk in from a rainy driveway. And because we install the entire system in a single day, you drop your cars off in the morning and park them back inside that night — no week-long displacement, no sleeping with the garage door cracked. We stock over a dozen standard flake blends (from classic domino to custom PNW earth tones) and can match almost any palette you bring us.",
+        "Every flake floor we install includes full moisture mitigation on the slab edges, a cove-base option where the floor meets the wall, and a written 10-year warranty. We don't cut corners on prep, we don't use box-store kits, and we don't disappear after the check clears. If you want a garage floor that still looks new in 2036, this is the system."
+      ],
+      "features": [
+        "100%-solids epoxy basecoat with full-broadcast vinyl flake",
+        "Two-coat UV-stable polyaspartic topcoat",
+        "Diamond-ground prep — no acid etching, ever",
+        "Slip-resistant texture rated for wet garage entries",
+        "10-year residential warranty in writing"
+      ],
+      "ideal_for": [
+        "Residential garages (1, 2, 3, and 4-car)",
+        "Shop floors and home hobby spaces",
+        "Basements and mudrooms",
+        "Light commercial showrooms"
+      ],
+      "faq": [
+        {
+          "q": "How long does a flake floor last?",
+          "a": "Installed properly over a diamond-ground slab, a flake system will last 20-plus years in a residential garage. Our warranty covers the first ten, but the floor itself is built to outlive the warranty by a wide margin."
+        },
+        {
+          "q": "Can you do it in one day?",
+          "a": "Yes. We grind, coat, broadcast, scrape, and topcoat in a single day. You can walk on it that evening and park a vehicle on it within 24 hours."
+        }
+      ]
+    },
+    "metallic-epoxy": {
+      "title": "Metallic Epoxy Floors",
+      "meta_description": "Custom metallic epoxy floors for Portland homes and showrooms. 3D depth, mirror gloss, 10-year warranty. Free quote at 503-501-7295.",
+      "h1": "Metallic Epoxy Floors in Portland & Beaverton",
+      "sub": "Showroom-grade 3D floors that look like polished stone, liquid metal, or flowing water.",
+      "body_paragraphs": [
+        "Metallic epoxy is a statement floor. We blend reflective mica pigments into a clear 100%-solids epoxy, pour it onto your prepared slab, and hand-work the material with solvent, torches, and rollers to create swirls, lenses, and three-dimensional depth that no two floors ever share. Every metallic we install is one of a kind. Homeowners in the West Hills use it in wine cellars and basement bars. Beaverton dealerships use it on showroom floors. Tigard med-spas use it in lobbies. Anywhere the floor is part of the experience, metallic earns its keep.",
+        "The system is more than eye candy. Underneath the artistic topcoat is a full epoxy build — diamond-ground concrete, a pigmented basecoat, the metallic pour, and two coats of high-gloss polyaspartic on top. That stack is fully waterproof, chemically resistant, easy to mop, and rated for showroom and light commercial traffic. It handles dropped glassware, spilled wine, and a decade of foot traffic without yellowing, chalking, or losing its mirror gloss. Because polyaspartic is UV-stable, the floor holds its color even under big south-facing windows — a real concern in Portland homes with modern glass walls.",
+        "Metallic is a craft install. We spend time with you picking pigments, mocking up sample boards, and walking through the space so the finished floor matches the light, the cabinetry, and the vibe you're after. Lead times run slightly longer than a flake install because of the sample process, but the floor itself still goes in over a single working day. Pricing varies with color count and square footage — call us for a quick in-home quote."
+      ],
+      "features": [
+        "Custom-blended metallic pigments, sampled to your space",
+        "100%-solids epoxy pour with hand-worked 3D effects",
+        "High-gloss, UV-stable polyaspartic topcoat",
+        "Fully waterproof and chemical-resistant",
+        "10-year residential warranty"
+      ],
+      "ideal_for": [
+        "Basement bars, wine cellars, and home theaters",
+        "Auto and motorcycle showrooms",
+        "Med-spa, salon, and boutique lobbies",
+        "Modern residential great rooms"
+      ],
+      "faq": [
+        {
+          "q": "Will the gloss dull over time?",
+          "a": "Not for a long time. Our polyaspartic topcoat is engineered for showroom use and holds its gloss for 10-plus years under normal interior traffic. A simple mop-up is all the maintenance most floors ever need."
+        },
+        {
+          "q": "Can I pick the colors?",
+          "a": "Absolutely. We carry dozens of mica pigments and will build sample boards in your home or shop before we install. You sign off on the exact palette before we pour a drop."
+        }
+      ]
+    },
+    "quartz-floors": {
+      "title": "Quartz Epoxy Floors",
+      "meta_description": "Double-broadcast quartz floors for Portland restaurants, kitchens, and wet rooms. USDA-grade, slip-resistant, sanitary. Call 503-501-7295.",
+      "h1": "Quartz Epoxy Floors in the Portland Metro",
+      "sub": "USDA-friendly, slip-resistant, sanitary floors built for kitchens, locker rooms, and wet-process spaces.",
+      "body_paragraphs": [
+        "Quartz systems are the workhorse of commercial flooring. We install a double-broadcast of colored quartz aggregate into two separate epoxy basecoats, then seal the stack under a chemical-resistant urethane or polyaspartic topcoat. The finished floor is thick — typically 3/16-inch built up — completely seamless, and extremely slip-resistant even when wet. That combination is why you'll find our quartz installs in commercial kitchens from Beaverton to Gresham, craft breweries in inner Southeast Portland, dog daycares in Tualatin, and lab spaces along the Hillsboro tech corridor.",
+        "The advantage of quartz over flake in a commercial setting comes down to thickness, aggregate hardness, and cleanability. Colored quartz is a mined mineral with a Mohs hardness of 7 — harder than most things that will ever roll across it. The double broadcast builds up a dense, puncture-resistant wear layer that shrugs off dropped tools, pallet corners, and heavy rolling loads. And because the entire system is monolithic and cove-able up the wall, there are no grout lines, no seams, and nowhere for bacteria, grease, or standing water to hide. Health inspectors love it. So do the people who have to mop at 2 a.m.",
+        "We install quartz in both standard colors and custom blends. For wet kitchens we recommend a textured urethane topcoat that holds an R10-plus slip rating even under grease. For clean rooms and lab spaces we run a smoother polyaspartic that still cleans aggressively but doesn't grab debris. Either way, we finish in phases so your business can keep operating, and we back the install with a 5-year commercial warranty."
+      ],
+      "features": [
+        "Double-broadcast colored quartz aggregate",
+        "Chemical-resistant urethane or polyaspartic topcoat",
+        "Seamless monolithic install with integral cove base",
+        "USDA / FDA-compatible for food-service environments",
+        "5-year commercial warranty"
+      ],
+      "ideal_for": [
+        "Commercial kitchens and restaurants",
+        "Breweries, cideries, and wineries",
+        "Locker rooms, showers, and wet-process rooms",
+        "Veterinary clinics and animal daycares",
+        "Labs and clean spaces"
+      ],
+      "faq": [
+        {
+          "q": "Is quartz slippery when wet?",
+          "a": "No. The broadcast aggregate creates built-in texture that stays grippy even under grease and water. We can dial the aggressiveness up or down depending on your space — kitchen floors get more bite, lab floors get less."
+        },
+        {
+          "q": "How long do I need to close?",
+          "a": "Most quartz installs take two to three working days. We can work overnight or phase the install room-by-room so you stay open during business hours."
+        }
+      ]
+    },
+    "concrete-coatings": {
+      "title": "Concrete Coatings Portland",
+      "meta_description": "Polyaspartic concrete coatings for Portland garages, patios, and shops. One-day install, UV-stable, 10-year warranty. Call 503-501-7295.",
+      "h1": "Polyaspartic Concrete Coatings in Portland, OR",
+      "sub": "Faster cure, UV-stable, and four times stronger than standard epoxy — the modern way to coat concrete.",
+      "body_paragraphs": [
+        "Concrete coating is a catch-all phrase for any high-performance system that seals and protects a slab. At Diamond Group we specialize in polyaspartic coatings — a next-generation chemistry that cures faster than epoxy, resists UV yellowing, and comes out roughly four times stronger in abrasion tests. That combination is why we use polyaspartic as the topcoat on nearly every floor we install, and why we recommend it as a standalone system for covered patios, sunrooms, back porches, and any other slab that sees direct sunlight.",
+        "A typical concrete coating project starts with a full diamond grind. We open the pores of the slab with industrial grinders and HEPA-filtered vacuums — no dust plume in your house, no acid wash running down the driveway. We chase every crack and spall with a polyurea repair compound, re-grind the patches flat, and prime the whole slab. From there we either broadcast flake, pour a solid color, or run a neat two-coat polyaspartic depending on the look you want. Because polyaspartic recoats in about two hours, the entire system finishes in a single working day and is ready for foot traffic that evening.",
+        "Polyaspartic outperforms old-school epoxy in almost every way that matters in Oregon. It won't yellow under the long summer sun. It stays flexible through winter freeze-thaw cycles. It shrugs off road salt, de-icer, gasoline, and brake fluid. And because it bonds chemically to the primed slab, it won't peel, bubble, or delaminate the way DIY kits from the big-box stores always eventually do. If you've been burned by a cheap coating in the past, this is the fix."
+      ],
+      "features": [
+        "100% polyaspartic topcoat chemistry",
+        "UV-stable — no yellowing, no chalking",
+        "4x the abrasion resistance of standard epoxy",
+        "Full diamond-grind prep with HEPA vacuum",
+        "One-day install, same-evening walk-on"
+      ],
+      "ideal_for": [
+        "Residential garages and driveways",
+        "Covered patios and sunrooms",
+        "Workshops and hobby spaces",
+        "Light commercial storefronts"
+      ],
+      "faq": [
+        {
+          "q": "How is this different from epoxy?",
+          "a": "Epoxy is an older chemistry that cures slowly and yellows under UV. Polyaspartic cures in hours, stays color-stable in sunlight, and tests about four times stronger in abrasion. It costs a little more per gallon but lasts significantly longer."
+        },
+        {
+          "q": "Will it peel?",
+          "a": "Not when it's installed correctly. Peeling happens when a coating is applied over a dirty or acid-etched slab. We diamond-grind every floor to clean, porous concrete — which is the only prep method that guarantees a permanent mechanical bond."
+        }
+      ]
+    },
+    "grind-seal": {
+      "title": "Grind and Seal Concrete Floors",
+      "meta_description": "Grind-and-seal concrete floors for Portland warehouses, garages, and retail. Budget-friendly, durable, fast install. Call 503-501-7295.",
+      "h1": "Grind-and-Seal Concrete Floors in Portland",
+      "sub": "The industrial-look, budget-smart option — your existing slab, ground smooth and sealed for decades.",
+      "body_paragraphs": [
+        "Grind-and-seal is the most cost-effective way to turn a rough, dusty, or stained concrete slab into a clean, durable, easy-to-maintain floor. We run a multi-pass diamond grind to flatten the surface, open the capillaries, and expose the natural aggregate in the slab. Then we seal the whole floor with a two-coat densifier and topcoat system — either a low-sheen urethane for a matte industrial look or a higher-build polyaspartic for a semi-gloss finish. The existing concrete becomes the finished floor. No flake, no color, no resurfacing — just your slab, made permanent.",
+        "This system makes sense when the concrete is already in decent shape and the owner wants durability without the price tag of a full resinous buildup. We install it in Vancouver distribution warehouses, Sherwood machine shops, Portland loft conversions, and showroom spaces where the raw-concrete aesthetic is the point. It's also our go-to recommendation for garages where the homeowner wants dust control and stain resistance but doesn't care about color or pattern. Monthly maintenance is a dust mop and the occasional wet mop — that's it.",
+        "Where grind-and-seal shines is lifespan per dollar. Because there's no resinous wear layer to wear through, the topcoat can be refreshed every 5 to 7 years for a fraction of the original install cost, extending the life of the floor almost indefinitely. We densify the slab with a lithium silicate hardener during prep, which chemically strengthens the top quarter-inch of concrete and reduces future cracking. Combined with a high-solids topcoat, it's an incredibly low-maintenance floor."
+      ],
+      "features": [
+        "Multi-pass diamond grind with HEPA vacuum",
+        "Lithium silicate densifier for long-term hardness",
+        "Choice of matte urethane or semi-gloss polyaspartic sealer",
+        "Dust-free, stain-resistant, easy to mop",
+        "Most budget-friendly system we offer"
+      ],
+      "ideal_for": [
+        "Warehouses and distribution spaces",
+        "Retail and showroom floors",
+        "Garages where an industrial look is wanted",
+        "Converted loft and live-work spaces"
+      ],
+      "faq": [
+        {
+          "q": "Will it hide cracks?",
+          "a": "Hairline cracks get filled and ground flat, but grind-and-seal isn't meant to hide major damage — it celebrates the existing slab. If your concrete has serious issues we'll recommend a resinous buildup instead and tell you straight up during the quote."
+        },
+        {
+          "q": "Can it be done on old stained concrete?",
+          "a": "Usually yes. Diamond grinding removes years of oil, paint, and surface staining. In cases of deep oil saturation we pre-treat with an industrial degreaser, but most slabs clean up beautifully."
+        }
+      ]
+    },
+    "solid-color": {
+      "title": "Solid Color Epoxy Floors",
+      "meta_description": "Solid color epoxy floors for Portland garages and shops. Clean, simple, durable. One-day install with 10-year warranty. Call 503-501-7295.",
+      "h1": "Solid Color Epoxy Floors in Portland & Beaverton",
+      "sub": "Clean lines, uniform color, industrial-grade durability — the classic garage and shop floor, done right.",
+      "body_paragraphs": [
+        "Sometimes you don't want flake, you don't want metallic swirls, and you don't want the raw concrete look. You want a clean, uniform, solid-color floor — battleship gray, tile red, safety yellow, or a custom-matched shade that ties into your cabinets or brand palette. We install solid-color systems in exactly the same way we install our premium flake floors: full diamond grind, 100%-solids pigmented epoxy basecoat, and a two-coat polyaspartic topcoat. The only difference is what goes in the middle.",
+        "Solid-color epoxy is the right call for several specific use cases. It's the traditional finish for industrial and commercial shop floors where line striping matters and high contrast helps with safety. It's popular in home gyms where a consistent color backdrop makes the space feel more like a professional facility. And it's increasingly requested in modern-build Portland garages where homeowners want the minimalist look of a continuous monochrome floor instead of a textured flake pattern. We can mix to any standard color code — OSHA safety colors, Pantone, Sherwin-Williams, whatever you need.",
+        "Durability is identical to our flake system. The finished floor is fully waterproof, chemical-resistant, hot-tire proof, and backed by the same 10-year residential or 5-year commercial warranty. The one tradeoff to know: solid colors show dust and scratches slightly more than flake does, because there's no pattern to break up the eye. For high-traffic homes we recommend a satin or matte polyaspartic finish — it hides normal wear without sacrificing performance. For showrooms and shops we go high-gloss. Either way, the floor goes in during a single working day."
+      ],
+      "features": [
+        "Custom-matched solid pigmented epoxy",
+        "100%-solids basecoat with two-coat polyaspartic top",
+        "Available in gloss, satin, or matte finish",
+        "Waterproof, chemical-resistant, hot-tire proof",
+        "Same one-day install and 10-year warranty"
+      ],
+      "ideal_for": [
+        "Industrial and mechanical shop floors",
+        "Home gyms and training rooms",
+        "Minimalist modern garages",
+        "Warehouse spaces needing line striping"
+      ],
+      "faq": [
+        {
+          "q": "Will the color fade in sunlight?",
+          "a": "No. Our polyaspartic topcoat is UV-stable, which keeps the pigment below from breaking down even under direct sun. Solid colors hold their hue for the full life of the floor — a real concern with cheaper epoxy-only systems that tend to yellow and fade."
+        },
+        {
+          "q": "Can you match a specific brand color?",
+          "a": "Yes. Bring us a swatch, a paint code, or even a product sample and we'll color-match the pigment. We routinely match Sherwin-Williams, Benjamin Moore, and brand-specific safety colors for commercial clients."
+        }
+      ]
+    },
+    "commercial-industrial": {
+      "title": "Commercial & Industrial Epoxy Floors",
+      "meta_description": "Heavy-duty epoxy floors for Portland warehouses, shops, breweries, and manufacturing. Phased installs, 5-year warranty. Call 503-501-7295.",
+      "h1": "Commercial & Industrial Epoxy Floors in Portland",
+      "sub": "Heavy-duty resinous systems engineered for warehouses, breweries, manufacturing, and distribution.",
+      "body_paragraphs": [
+        "Commercial and industrial flooring isn't a bigger version of a residential garage job — it's a different discipline. We've spent years installing resinous systems in warehouses, production lines, breweries, auto shops, distribution centers, and light-manufacturing spaces across the Portland metro and Southwest Washington. Every commercial project starts with a site walk, a moisture test, a service-load discussion, and a written spec that ties the right system to the right use case. A brewery needs thermal-shock-rated urethane. A forklift-heavy warehouse needs a thick quartz buildup. A machine shop needs chemical resistance. We won't sell you a floor that's wrong for the job, and we won't undersell one that won't survive.",
+        "Operationally, we install around your schedule, not ours. We run weekend crews, overnight shifts, and phased room-by-room installs so production never fully stops. We set up HEPA-filtered negative-pressure containment so dust doesn't migrate into clean areas or adjacent tenants. We coordinate with facility managers, GCs, and food-safety auditors. And every commercial install is documented with thickness measurements, slab moisture readings, batch records of every material applied, and a final walk-through punch list signed by your operations lead. That documentation matters at audit time.",
+        "Systems we install commercially include full quartz broadcast, double-broadcast flake, metallic showroom floors, solid-color industrial coatings, cement urethane, trench-drain integration, and slip-rated textured topcoats. We carry $2M in liability coverage, full workers comp, and every certification required to work in food-service and regulated environments. References on request — we'd rather have you call three of our past commercial clients than read another webpage of marketing copy."
+      ],
+      "features": [
+        "Full-service resinous systems (quartz, flake, metallic, cement urethane)",
+        "Phased and after-hours installs to protect production",
+        "HEPA-filtered dust containment",
+        "Thickness and moisture documentation for audits",
+        "5-year written commercial warranty"
+      ],
+      "ideal_for": [
+        "Warehouses and distribution centers",
+        "Breweries, cideries, and food production",
+        "Auto dealerships and repair shops",
+        "Light manufacturing and assembly",
+        "Retail, showroom, and big-box spaces"
+      ],
+      "faq": [
+        {
+          "q": "Can you install while we stay open?",
+          "a": "Almost always. We run overnight and weekend crews, phase the install room-by-room, and use fast-curing polyaspartic or cement urethane systems that let you walk on the new floor within hours. We'll build a schedule around your production calendar."
+        },
+        {
+          "q": "Do you handle the disposal and environmental side?",
+          "a": "Yes. We capture grind dust with HEPA-filtered vacuums, contain any surface contaminants, and dispose of waste through licensed channels. For regulated facilities we provide full material data sheets and install documentation for your records."
+        }
+      ]
+    }
+  },
+  "areas": {
+    "beaverton": {
+      "city": "Beaverton",
+      "county": "Washington County",
+      "meta_title": "Epoxy Floors Beaverton OR | Diamond Group | 503-501-7295",
+      "meta_description": "Premium epoxy garage and shop floors in Beaverton, OR. One-day install, 10-year warranty, locally owned. Free quote at 503-501-7295.",
+      "h1": "Epoxy Floors in Beaverton, Oregon",
+      "intro_paragraph": "Beaverton is our home base, and it's where we've installed more epoxy floors than anywhere else in Oregon. From the 1960s ranch homes south of Allen Boulevard to the new construction around South Cooper Mountain and the busy commercial bays off Canyon Road, Beaverton garages see everything the Pacific Northwest can throw at them — wet winters, pollen-heavy springs, and the kind of freeze-thaw cycles that eat cheap coatings alive. Our polyaspartic systems are engineered specifically for Beaverton slabs, and because we're based right off Murray Boulevard we can usually get a crew to your property faster than any other epoxy contractor in Washington County. Beaverton homeowners deserve a floor built for Beaverton weather.",
+      "local_callouts": [
+        "Cooper Mountain and South Beaverton new-construction garages",
+        "Older Beaverton ranch homes with moisture-heavy slabs",
+        "Canyon Road and Murray Boulevard commercial bays"
+      ],
+      "service_list_blurb": "Flake, metallic, quartz, solid-color, grind-and-seal, and full commercial systems — all installed by our Beaverton-based crews in a single working day.",
+      "cta": "Call 503-501-7295 for a free in-home quote anywhere in Beaverton."
+    },
+    "aloha": {
+      "city": "Aloha",
+      "county": "Washington County",
+      "meta_title": "Epoxy Floors Aloha OR | Diamond Group | 503-501-7295",
+      "meta_description": "One-day epoxy garage floors in Aloha, OR. Polyaspartic coatings, 10-year warranty. Local crews, fast scheduling. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Aloha, Oregon",
+      "intro_paragraph": "Aloha sits right between Beaverton and Hillsboro and has one of the most varied housing stocks in Washington County — everything from 1950s rambler garages off TV Highway to newer subdivisions near Aloha High School and the big three-car bays going up around 185th. That variety is exactly why a cookie-cutter epoxy kit doesn't work in Aloha. Every slab is a different age, a different mix, a different moisture profile. We diamond-grind and moisture-test every Aloha floor before we ever open a pail of resin, so the finished coating bonds permanently no matter what era your concrete is from. We install in Aloha every week and know the neighborhood well.",
+      "local_callouts": [
+        "TV Highway corridor shops and older rambler garages",
+        "185th Avenue new-construction three-car bays",
+        "Aloha's mix of 50s, 80s, and new-build slabs"
+      ],
+      "service_list_blurb": "Flake, metallic, solid-color, quartz, and grind-and-seal systems — fully installed in a single day anywhere in Aloha.",
+      "cta": "Call 503-501-7295 for a free Aloha in-home quote this week."
+    },
+    "tigard": {
+      "city": "Tigard",
+      "county": "Washington County",
+      "meta_title": "Epoxy Floors Tigard OR | Diamond Group | 503-501-7295",
+      "meta_description": "Premium epoxy garage floors in Tigard, OR. Moisture-resistant polyaspartic, one-day install, 10-year warranty. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Tigard, Oregon",
+      "intro_paragraph": "Tigard homes don't mess around. The mix of upscale Bull Mountain properties, established Summerfield garages, and the busy commercial bays along Pacific Highway means we're installing almost every system we offer somewhere in Tigard in any given month. Bull Mountain in particular has some of the largest residential garages in the metro — three and four-car bays with workshop annexes — and those owners tend to want floors that match the rest of the house. We routinely install full-broadcast flake and custom metallic systems for Tigard homeowners who want a garage that photographs as well as their kitchen. If you're in Tigard and shopping for serious epoxy, you're in our backyard.",
+      "local_callouts": [
+        "Bull Mountain four-car garages and workshop annexes",
+        "Summerfield 55-plus community garages",
+        "Pacific Highway commercial and auto-service bays"
+      ],
+      "service_list_blurb": "Flake, metallic, quartz, solid-color, and commercial systems — installed one day, warrantied ten years.",
+      "cta": "Call 503-501-7295 for a same-week quote in Tigard."
+    },
+    "gresham": {
+      "city": "Gresham",
+      "county": "Multnomah County",
+      "meta_title": "Epoxy Floors Gresham OR | Diamond Group | 503-501-7295",
+      "meta_description": "Durable epoxy garage and shop floors in Gresham, OR. Built for PDX-adjacent contractor fleets and homeowners. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Gresham, Oregon",
+      "intro_paragraph": "Gresham is one of our favorite markets because the floors actually get used. Gresham is where a lot of the Portland-area trades live — plumbing, electrical, HVAC, and landscaping outfits running fleets out of residential shop garages — and those floors need to survive truck tires, dropped tools, spilled fluids, and weekly pressure-washing. Gresham also sits close enough to PDX and the Columbia Gorge that we see a lot of weekend-warrior garages outfitted for overlanding rigs, boats, and motorcycles. Whether you're a working contractor or a weekend off-roader, Gresham asks more of a garage floor than most cities in the metro. Our polyaspartic system is built to deliver it.",
+      "local_callouts": [
+        "Contractor fleet garages on the PDX-adjacent east side",
+        "Overlanding and Gorge weekend-rig garages",
+        "Older Gresham mid-century shop homes"
+      ],
+      "service_list_blurb": "Heavy-duty flake, quartz, and solid-color systems built for contractor and weekend-warrior garages.",
+      "cta": "Call 503-501-7295 to schedule a Gresham in-home quote."
+    },
+    "sherwood": {
+      "city": "Sherwood",
+      "county": "Washington County",
+      "meta_title": "Epoxy Floors Sherwood OR | Diamond Group | 503-501-7295",
+      "meta_description": "Custom epoxy garage floors in Sherwood, OR. Flake, metallic, and solid-color systems. One-day install, 10-year warranty. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Sherwood, Oregon",
+      "intro_paragraph": "Sherwood has quietly become one of the highest-demand markets in Washington County, and the garages reflect it. Between Old Town Sherwood's historic homes, the newer neighborhoods around Snyder Park, and the big estate garages up toward the wine country boundary, Sherwood homeowners tend to ask for premium finishes — custom flake blends, metallic basement bars, workshop-grade solid colors with drain integration. We've also done a number of small commercial projects along Tualatin-Sherwood Road for auto shops and specialty retailers. Sherwood's housing stock skews newer, which means clean slabs, fast prep, and some of the best-looking finished floors we install anywhere in the metro.",
+      "local_callouts": [
+        "Estate garages near the wine-country boundary",
+        "Snyder Park and Old Town Sherwood residences",
+        "Tualatin-Sherwood Road auto and specialty shops"
+      ],
+      "service_list_blurb": "Flake, metallic, quartz, and solid-color installs with same-day completion anywhere in Sherwood.",
+      "cta": "Call 503-501-7295 to book a Sherwood quote."
+    },
+    "tualatin": {
+      "city": "Tualatin",
+      "county": "Washington County",
+      "meta_title": "Epoxy Floors Tualatin OR | Diamond Group | 503-501-7295",
+      "meta_description": "One-day epoxy floors in Tualatin, OR. Garage, shop, and light commercial. Polyaspartic, UV-stable, 10-year warranty. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Tualatin, Oregon",
+      "intro_paragraph": "Tualatin sits right at the intersection of residential demand and commercial volume, which is why we install so many different systems in Tualatin every year. The neighborhoods around the Tualatin Country Club and Byrom Elementary tend toward large-garage residential flake and metallic installs. The industrial corridor along Tualatin-Sherwood Road and out toward I-5 sees heavy commercial quartz and cement urethane systems in food-production and logistics facilities. And the Bridgeport-adjacent retail strip has generated more than a few showroom-grade metallic installs. Tualatin keeps our crews busy year-round, and our familiarity with the city means we can schedule most Tualatin quotes within a few days of your call.",
+      "local_callouts": [
+        "Tualatin Country Club-area residential garages",
+        "Tualatin-Sherwood Road industrial and food-production corridor",
+        "Bridgeport-adjacent retail and showroom spaces"
+      ],
+      "service_list_blurb": "Residential flake and metallic plus full commercial quartz and cement urethane — all installed by Tualatin-familiar crews.",
+      "cta": "Call 503-501-7295 for a Tualatin quote this week."
+    },
+    "clackamas": {
+      "city": "Clackamas",
+      "county": "Clackamas County",
+      "meta_title": "Epoxy Floors Clackamas OR | Diamond Group | 503-501-7295",
+      "meta_description": "Heavy-duty epoxy floors in Clackamas, OR. Residential, industrial, and auto-service systems. One-day install. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Clackamas, Oregon",
+      "intro_paragraph": "Clackamas has a dual identity that shapes the kind of flooring work we do here. On the residential side, neighborhoods around Mount Scott and Sunrise Corridor have aging garages with moisture-heavy slabs that benefit from a proper diamond-ground polyaspartic rebuild. On the commercial side, Clackamas is home to a dense cluster of auto-service shops, fleet-maintenance facilities, and distribution warehouses off Sunnyside Road and 82nd Avenue — exactly the kind of high-abuse environments our quartz and cement urethane systems were built for. Whether Clackamas means a family garage or a forty-thousand-square-foot distribution floor, we've probably installed something similar within a mile of your address.",
+      "local_callouts": [
+        "Mount Scott and Sunrise Corridor residential garages",
+        "Sunnyside Road auto-service and fleet facilities",
+        "82nd Avenue distribution and warehouse spaces"
+      ],
+      "service_list_blurb": "Polyaspartic residential systems plus heavy-duty commercial quartz, cement urethane, and industrial coatings.",
+      "cta": "Call 503-501-7295 for a Clackamas quote — residential or commercial."
+    },
+    "hillsboro": {
+      "city": "Hillsboro",
+      "county": "Washington County",
+      "meta_title": "Epoxy Floors Hillsboro OR | Diamond Group | 503-501-7295",
+      "meta_description": "Premium epoxy floors for Hillsboro homes and tech-corridor businesses. One-day install, 10-year warranty. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Hillsboro, Oregon",
+      "intro_paragraph": "Hillsboro's tech corridor has reshaped the flooring demand in Washington County over the last decade. The Silicon Forest campuses along Cornell and Evergreen Parkway have driven a wave of high-spec commercial installs — clean-room-adjacent epoxy, static-dissipative floors, showroom-grade metallic lobbies. At the same time, Hillsboro's residential growth out toward Orenco Station and South Hillsboro has generated a steady stream of big new-construction garages that practically beg for a full-broadcast flake floor on move-in day. Hillsboro homeowners and facility managers both tend to ask smart, technical questions — we like that. It lets us spec the exact right system instead of selling the same floor to everyone.",
+      "local_callouts": [
+        "Silicon Forest tech-corridor commercial and office spaces",
+        "Orenco Station and South Hillsboro new-build garages",
+        "Older Hillsboro residential near Downtown and Jackson Bottom"
+      ],
+      "service_list_blurb": "Residential flake and metallic, plus specialty commercial including static-dissipative and clean-adjacent systems.",
+      "cta": "Call 503-501-7295 for a Hillsboro quote."
+    },
+    "vancouver-wa": {
+      "city": "Vancouver",
+      "county": "Clark County, WA",
+      "meta_title": "Epoxy Floors Vancouver WA | Diamond Group | 503-501-7295",
+      "meta_description": "Durable epoxy and polyaspartic floors in Vancouver, WA. Garage, shop, and industrial systems. Free quote at 503-501-7295.",
+      "h1": "Epoxy Floors in Vancouver, Washington",
+      "intro_paragraph": "Vancouver is right across the Columbia and easy for our Beaverton-based crews to reach, which is why we've installed hundreds of floors throughout Clark County. The I-5 corridor between downtown Vancouver and Ridgefield is packed with light-industrial and distribution spaces that need aggressive quartz or cement-urethane systems to handle forklift traffic and spilled product. On the residential side, neighborhoods around Fisher's Landing, Cascade Park, and Felida feature big three-car garages that are perfect candidates for full-broadcast flake. Vancouver's slightly drier, sunnier climate versus Portland actually makes polyaspartic even more important — UV stability matters when your garage door faces south without much tree cover.",
+      "local_callouts": [
+        "I-5 corridor industrial and distribution spaces",
+        "Fisher's Landing and Cascade Park residential garages",
+        "Felida and Salmon Creek three-car new builds"
+      ],
+      "service_list_blurb": "Residential flake and metallic plus full commercial quartz and cement-urethane systems throughout Clark County.",
+      "cta": "Call 503-501-7295 for a Vancouver WA quote — we cross the river weekly."
+    },
+    "west-linn": {
+      "city": "West Linn",
+      "county": "Clackamas County",
+      "meta_title": "Epoxy Floors West Linn OR | Diamond Group | 503-501-7295",
+      "meta_description": "Custom epoxy and metallic floors for West Linn, OR homes. One-day install, 10-year warranty, premium finishes. Call 503-501-7295.",
+      "h1": "Epoxy Floors in West Linn, Oregon",
+      "intro_paragraph": "West Linn is a premium market with premium expectations, and we treat it that way. The hillside homes above the Willamette, the estate properties in Stafford, and the larger garages throughout the Tanner Basin area tend to request our best systems — custom metallic floors in finished basements, full-broadcast flake in oversized garages, solid-color polyaspartic in home gyms and workshop wings. West Linn homeowners often come to us after being burned by a discount coating or a DIY kit that failed within a year or two, and they want an installer who will diamond-grind the slab, show up on time, and warranty the work in writing. That's exactly how we operate in West Linn and everywhere else.",
+      "local_callouts": [
+        "Willamette hillside homes with finished basements",
+        "Stafford estate properties and oversized garages",
+        "Tanner Basin workshop and hobby garages"
+      ],
+      "service_list_blurb": "Premium flake, custom metallic, and full-system solid-color installs with white-glove scheduling in West Linn.",
+      "cta": "Call 503-501-7295 for a West Linn in-home consultation."
+    },
+    "canby": {
+      "city": "Canby",
+      "county": "Clackamas County",
+      "meta_title": "Epoxy Floors Canby OR | Diamond Group | 503-501-7295",
+      "meta_description": "Tough epoxy garage and shop floors in Canby, OR. Built for farm, fleet, and home shop use. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Canby, Oregon",
+      "intro_paragraph": "Canby is farm country with teeth, and the floors we install here reflect it. Canby garages are often attached to serious shop buildings — hobby farms, classic-car projects, small-ag operations off 99E, landscaping outfits running equipment out of outbuildings. Those floors see mud, fuel, fertilizer, and hydraulic fluid. A thin acrylic sealer from the hardware store will not survive a single Oregon winter under those conditions. Our polyaspartic and cement-urethane systems will. We also do a lot of residential work in the newer Canby subdivisions south of Territorial Road where owners want a clean, finished look for their primary garage. Canby is a 40-minute drive from our Beaverton shop and worth every mile.",
+      "local_callouts": [
+        "Hobby-farm shop buildings and outbuildings off 99E",
+        "Territorial Road residential subdivisions",
+        "Small-ag and landscaping fleet garages"
+      ],
+      "service_list_blurb": "Heavy-duty shop-floor systems plus residential flake and metallic throughout Canby and the southern metro.",
+      "cta": "Call 503-501-7295 to schedule a Canby quote — we cover rural Clackamas County weekly."
+    },
+    "lake-oswego": {
+      "city": "Lake Oswego",
+      "county": "Clackamas County",
+      "meta_title": "Epoxy Floors Lake Oswego OR | Diamond Group | 503-501-7295",
+      "meta_description": "Designer epoxy and metallic floors in Lake Oswego, OR. Custom colors, basement bars, premium garages. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Lake Oswego, Oregon",
+      "intro_paragraph": "Lake Oswego is where we do some of our best design work. The lakefront homes around Oswego Lake, the estate properties in First Addition, and the mid-century moderns up in Mountain Park tend to have finished basements, wine cellars, home theaters, and boat-dock adjacent storage spaces that call for custom metallic and designer flake installs. Lake Oswego homeowners care about palette, about pattern, about how the floor photographs under the pendant lighting in their finished garage. We spend extra time on sample boards here, and it shows. Every Lake Oswego install we finish tends to generate two more referrals from neighbors who saw it at a dinner party.",
+      "local_callouts": [
+        "Lakefront boat-dock adjacent storage and finished basements",
+        "First Addition historic homes and estate garages",
+        "Mountain Park mid-century modern remodels"
+      ],
+      "service_list_blurb": "Designer metallic, custom flake blends, and full-service premium systems with detailed sample boards.",
+      "cta": "Call 503-501-7295 for a Lake Oswego in-home design consultation."
+    },
+    "wilsonville": {
+      "city": "Wilsonville",
+      "county": "Clackamas County",
+      "meta_title": "Epoxy Floors Wilsonville OR | Diamond Group | 503-501-7295",
+      "meta_description": "Epoxy floors for Wilsonville, OR homes and businesses. Residential and industrial. One-day install, 10-year warranty. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Wilsonville, Oregon",
+      "intro_paragraph": "Wilsonville sits at the southern edge of the metro and carries a mix of suburban-residential and heavy-industrial work that keeps our schedule interesting. The big logistics and manufacturing campuses along Grahams Ferry and Boones Ferry — including some of the largest warehouse floors in the region — are built for the kind of quartz and cement-urethane systems we specialize in. At the same time, Charbonneau and the Villebois neighborhood have generated a steady stream of premium residential flake and metallic installs from owners who want their garage to match the rest of a well-built home. Wilsonville is a 25-minute straight shot down I-5 from our shop and one of our most reliable markets.",
+      "local_callouts": [
+        "Grahams Ferry and Boones Ferry industrial campuses",
+        "Charbonneau and Villebois residential neighborhoods",
+        "I-5 corridor logistics and distribution floors"
+      ],
+      "service_list_blurb": "Heavy-duty commercial quartz and cement urethane plus premium residential flake and metallic in Wilsonville.",
+      "cta": "Call 503-501-7295 for a Wilsonville quote — residential or industrial."
+    },
+    "dundee": {
+      "city": "Dundee",
+      "county": "Yamhill County",
+      "meta_title": "Epoxy Floors Dundee OR | Diamond Group | 503-501-7295",
+      "meta_description": "Epoxy floors for Dundee, OR wineries, tasting rooms, and home garages. Chemical-resistant, stain-proof, custom finishes. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Dundee, Oregon",
+      "intro_paragraph": "Dundee is Oregon wine country, and the flooring work here has a distinct flavor. We install chemically-resistant urethane and quartz systems in working wineries and barrel rooms off Highway 99W where spilled wine, yeast, and wash-down water attack everything they touch. We install metallic and designer flake floors in tasting rooms and hospitality spaces where the floor is part of the customer experience. And we install straightforward premium flake systems in the residential garages scattered through Dundee's hillside neighborhoods and the newer developments near the Dundee Bypass. Dundee is a little further out than most of our regular markets, but the work here is some of the most rewarding we do.",
+      "local_callouts": [
+        "Working winery barrel rooms and production floors",
+        "Highway 99W tasting rooms and hospitality spaces",
+        "Dundee Hills and Bypass-adjacent residential garages"
+      ],
+      "service_list_blurb": "Chemical-resistant winery quartz and urethane, designer tasting-room metallic, and premium residential flake.",
+      "cta": "Call 503-501-7295 for a Dundee quote — wine-country work is a specialty."
+    },
+    "happy-valley": {
+      "city": "Happy Valley",
+      "county": "Clackamas County",
+      "meta_title": "Epoxy Floors Happy Valley OR | Diamond Group | 503-501-7295",
+      "meta_description": "Premium epoxy garage floors in Happy Valley, OR. Large new-build bays, custom colors, 10-year warranty. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Happy Valley, Oregon",
+      "intro_paragraph": "Happy Valley has some of the largest residential garages in the Portland metro, and it's one of our most consistent markets for full-broadcast flake installs. The new-construction neighborhoods up off Scouters Mountain, the estate-scale homes in Altamont, and the big three and four-car garages throughout the Pleasant Valley corridor tend to come with oversized slabs that were poured yesterday — meaning clean, tight concrete that takes a polyaspartic topcoat beautifully. Happy Valley homeowners move in, live with bare concrete for a year or two, then call us to make the garage match the rest of the house. We do dozens of these installs a year and know the Happy Valley slab mix well.",
+      "local_callouts": [
+        "Scouters Mountain new-construction estate garages",
+        "Altamont and Pleasant Valley three and four-car bays",
+        "Fresh-poured slabs across Happy Valley new builds"
+      ],
+      "service_list_blurb": "Full-broadcast flake, custom metallic, and premium solid-color installs sized for Happy Valley's oversized garages.",
+      "cta": "Call 503-501-7295 for a Happy Valley quote — we install here weekly."
+    },
+    "bethany": {
+      "city": "Bethany",
+      "county": "Washington County",
+      "meta_title": "Epoxy Floors Bethany OR | Diamond Group | 503-501-7295",
+      "meta_description": "Custom epoxy floors in Bethany, OR. Premium flake and metallic for new-build garages. One-day install. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Bethany, Oregon",
+      "intro_paragraph": "Bethany is a Washington County market that has exploded with new construction over the last decade, which means a lot of clean, newly-poured slabs sitting under garage doors just waiting for a proper coating. The neighborhoods around Bethany Village and north toward Rock Creek have generated a steady stream of premium flake and metallic installs from homeowners who moved in, lived with grey concrete for a year, and decided the garage deserved the same level of finish as the rest of the house. Bethany's proximity to our Beaverton shop — fifteen minutes on a good day — means we can usually schedule an in-home estimate within a few days of your call.",
+      "local_callouts": [
+        "Bethany Village new-construction residential",
+        "Rock Creek-adjacent three-car garages",
+        "Northwest Washington County master-planned communities"
+      ],
+      "service_list_blurb": "Premium flake, custom metallic, and solid-color systems tailored to Bethany new-build garages.",
+      "cta": "Call 503-501-7295 to book a same-week Bethany quote."
+    },
+    "newberg": {
+      "city": "Newberg",
+      "county": "Yamhill County",
+      "meta_title": "Epoxy Floors Newberg OR | Diamond Group | 503-501-7295",
+      "meta_description": "Epoxy floors for Newberg, OR homes, wineries, and shops. Durable polyaspartic systems. 10-year warranty. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Newberg, Oregon",
+      "intro_paragraph": "Newberg sits at the gateway to wine country and has a housing and commercial mix that keeps our crews versatile. We install polyaspartic garage floors in the established neighborhoods off Villa Road and the newer developments on Newberg's north side. We do chemical-resistant quartz and urethane work in small-production wineries and barrel rooms in and around Newberg. And we handle commercial installs for the auto-service, ag-equipment, and specialty-retail shops along Highway 99W. Newberg is a little outside the core Portland metro, but it's a regular stop on our schedule and one we genuinely enjoy — the clients here are straightforward, the projects are substantial, and the work sticks around.",
+      "local_callouts": [
+        "Villa Road and north-side residential garages",
+        "Small-production wineries and barrel rooms",
+        "Highway 99W auto, ag-equipment, and specialty shops"
+      ],
+      "service_list_blurb": "Polyaspartic residential systems, winery quartz and urethane, and specialty commercial coatings throughout Newberg.",
+      "cta": "Call 503-501-7295 for a Newberg quote — residential or commercial."
+    },
+    "oregon-city": {
+      "city": "Oregon City",
+      "county": "Clackamas County",
+      "meta_title": "Epoxy Floors Oregon City OR | Diamond Group | 503-501-7295",
+      "meta_description": "Epoxy garage and shop floors in Oregon City, OR. Moisture-resistant systems built for older slabs. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Oregon City, Oregon",
+      "intro_paragraph": "Oregon City has some of the most interesting slabs we encounter anywhere in the metro. Between the historic homes on the bluff above the Willamette, the mid-century stock throughout Gaffney Lane, and the newer construction out toward Beavercreek, we see garages from almost every era of Oregon construction history. Older Oregon City slabs in particular often have moisture issues and hairline cracking that a diamond-grind-and-rebuild system is uniquely suited to fix. We've turned plenty of 1960s Oregon City garages from cracked, oil-stained, hopeless-looking concrete into seamless, warrantied floors in a single working day. Oregon City is roughly 30 minutes from our shop and a regular part of our weekly route.",
+      "local_callouts": [
+        "Historic bluff-top homes above the Willamette",
+        "Gaffney Lane mid-century residential garages",
+        "Beavercreek-corridor newer construction"
+      ],
+      "service_list_blurb": "Moisture-remediation polyaspartic systems plus premium flake and metallic throughout Oregon City.",
+      "cta": "Call 503-501-7295 for an Oregon City quote — we handle older slabs routinely."
+    },
+    "portland": {
+      "city": "Portland",
+      "county": "Multnomah County",
+      "meta_title": "Epoxy Floors Portland OR | Diamond Group | 503-501-7295",
+      "meta_description": "Premium epoxy floors across Portland, OR. Garage, basement, brewery, and commercial systems. One-day install. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Portland, Oregon",
+      "intro_paragraph": "Portland is the heart of our service area, and we install more systems inside the Portland city limits than anywhere else. The West Hills craftsman garages get custom metallic and premium flake installs that match their architectural pedigree. The inner-Southeast neighborhoods around Division and Hawthorne generate a steady flow of brewery, coffee-roaster, and restaurant kitchen work. North and Northeast Portland — Alberta, Mississippi, Kenton — bring us a mix of creative-industrial conversions and older-home garage rebuilds. Portland's housing stock is old, its climate is wet, and its slabs often need real prep. That's exactly what we do. Every Portland install gets a full diamond-grind, full moisture mitigation, and a written 10-year warranty.",
+      "local_callouts": [
+        "West Hills craftsman garages and finished basements",
+        "Inner-Southeast breweries, roasters, and restaurants",
+        "North and Northeast Portland creative-industrial conversions"
+      ],
+      "service_list_blurb": "Every system we install — flake, metallic, quartz, cement urethane, grind-and-seal — available throughout Portland proper.",
+      "cta": "Call 503-501-7295 for a Portland quote, anywhere inside the city limits."
+    },
+    "milwaukie": {
+      "city": "Milwaukie",
+      "county": "Clackamas County",
+      "meta_title": "Epoxy Floors Milwaukie OR | Diamond Group | 503-501-7295",
+      "meta_description": "One-day epoxy floors in Milwaukie, OR. Garage, shop, and light commercial. Polyaspartic 10-year warranty. Call 503-501-7295.",
+      "h1": "Epoxy Floors in Milwaukie, Oregon",
+      "intro_paragraph": "Milwaukie is an easy city to love if you install epoxy for a living. The older neighborhoods around downtown Milwaukie and Ardenwald are full of charming mid-century homes with small, tight garages that benefit enormously from a proper coating — suddenly a dim, dusty 1950s garage becomes a usable, bright, mop-able workspace. The newer construction in Island Station and the commercial strips along McLoughlin Boulevard bring us a different set of projects, from large new-build residential floors to auto-service and light-industrial installs. Milwaukie is 15 minutes from our shop via Highway 224, which means fast quotes, fast scheduling, and tight communication throughout the project.",
+      "local_callouts": [
+        "Ardenwald and downtown Milwaukie mid-century garages",
+        "Island Station new-construction residential",
+        "McLoughlin Boulevard auto-service and light-industrial"
+      ],
+      "service_list_blurb": "Residential flake, solid-color, and metallic plus light commercial quartz throughout Milwaukie.",
+      "cta": "Call 503-501-7295 to schedule a Milwaukie quote this week."
+    }
+  },
+  "testimonials": [
+    {
+      "name": "Mark D.",
+      "city": "Beaverton, OR",
+      "stars": 5,
+      "quote": "Three-car garage done in a day. I watched them grind the slab and you could see every crack and old oil stain come off. The floor looked better than the kitchen when they were done. A year in and it still looks new."
+    },
+    {
+      "name": "Priya S.",
+      "city": "Tigard, OR",
+      "stars": 5,
+      "quote": "We did a metallic floor in our basement bar and it completely changed the room. They built sample boards before we committed, which I appreciated. The finished floor has this depth to it that photos don't do justice. Worth every penny."
+    },
+    {
+      "name": "Tony R.",
+      "city": "Gresham, OR",
+      "stars": 5,
+      "quote": "I run an HVAC outfit and my garage floor takes a beating — fluid, tools, truck tires. Had another company coat it two years ago and it peeled up in patches. These guys ground it all off and did it right. Two winters later it hasn't budged."
+    },
+    {
+      "name": "Jenna L.",
+      "city": "Portland, OR",
+      "stars": 5,
+      "quote": "We needed a quartz floor in our taproom before a health inspection and they worked overnight to make it happen. Seamless, no grout lines, passes the mop test at 1am. Crew was professional, cleaned up every night, done in three days. Could not recommend more."
+    },
+    {
+      "name": "Dave M.",
+      "city": "Lake Oswego, OR",
+      "stars": 5,
+      "quote": "I've owned this house for 22 years and the garage was an embarrassment. Called these guys based on a neighbor's referral. They were on time, the quote matched the invoice, and the floor is honestly the nicest thing about the house now. Already had two neighbors ask for their card."
+    },
+    {
+      "name": "Rachel K.",
+      "city": "Vancouver, WA",
+      "stars": 5,
+      "quote": "Got three quotes for a flake floor in our new garage. Diamond Group wasn't the cheapest but they were the only ones who actually explained the prep process and showed up with the right equipment. Install took one day exactly. Floor is flawless."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How long does an epoxy floor take to install?",
+      "a": "Most residential garage floors are finished in a single working day. We arrive early, diamond-grind the slab, apply the basecoat and any flake or metallic layer, and finish with a polyaspartic topcoat by late afternoon. You can walk on the floor that evening and park a vehicle on it within 24 hours."
+    },
+    {
+      "q": "Do you use epoxy or polyaspartic?",
+      "a": "Both — as a system. We use a 100%-solids epoxy basecoat for its bond strength, then finish with a two-coat polyaspartic topcoat for UV stability, chemical resistance, and abrasion performance. The combination outlasts either chemistry used alone, which is why it's our standard system on every residential floor."
+    },
+    {
+      "q": "Will hot tires damage the floor?",
+      "a": "No. Our polyaspartic topcoat is specifically engineered to resist hot-tire pickup, which is the single most common failure point on cheap garage floors. You can pull a car straight off the freeway into a hot garage and park on our coating without leaving a mark."
+    },
+    {
+      "q": "Do you grind or acid-etch the concrete?",
+      "a": "We diamond-grind every floor. Acid etching was a shortcut popular with DIY kits and low-end contractors, and it simply does not create a reliable bond on Oregon concrete. Diamond grinding opens the capillaries mechanically, removes surface contaminants, and guarantees the coating adheres for the life of the slab."
+    },
+    {
+      "q": "What's your warranty?",
+      "a": "Every residential floor we install comes with a 10-year written warranty covering delamination, peeling, and hot-tire pickup. Commercial floors carry a 5-year written warranty. We've been installing long enough to stand behind our work — the warranty is there because we believe in it, not because we expect to use it."
+    },
+    {
+      "q": "Can you install over cracked or oil-stained concrete?",
+      "a": "Almost always, yes. Diamond grinding removes years of oil and surface damage, and we fill cracks with a polyurea repair compound that's stronger than the surrounding concrete. In extreme cases we may recommend partial slab work, but we're straight with you during the quote — no surprises."
+    },
+    {
+      "q": "How much does an epoxy floor cost?",
+      "a": "Most residential garages run between $6 and $11 per square foot depending on size, system, and condition of the existing slab. A typical two-car garage lands around $3,500 to $5,000 installed. We quote every project in person and our written estimates are good for 30 days."
+    },
+    {
+      "q": "Do I need to move everything out of the garage?",
+      "a": "Yes, the garage needs to be empty on install day so we can grind the entire slab corner to corner. We're happy to coordinate scheduling around your move-out, and we've had clients rent a PODS container for a day or two. Once the floor cures overnight, you can move everything back in."
+    },
+    {
+      "q": "Will the floor be slippery when wet?",
+      "a": "No. The flake in our standard system creates enough surface texture to stay grippy even when water is tracked in from a rainy driveway. For extra-slippery-prone environments — commercial kitchens, wet rooms — we can add aluminum-oxide grit to increase traction further."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes. We carry full Oregon CCB licensing, $2M in general liability coverage, and workers comp on every crew member. Our WA license covers work across the river. Certificates of insurance are available on request before any commercial project."
+    }
+  ]
+}
