@@ -402,3 +402,158 @@
 
   showStep(1);
 })();
+
+/* =============================================================
+   Palmer's — 21st.dev-style enhancements
+   Dropdown nav · animated counters · magnetic buttons · spotlight
+   · scale/stagger reveals · area-card mouse-follow
+   ============================================================= */
+(function() {
+  'use strict';
+
+  var $  = function(s, r){ return (r||document).querySelector(s); };
+  var $$ = function(s, r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+
+  /* ---------- Dropdown nav (Service Areas) ---------- */
+  $$('[data-dd]').forEach(function(dd) {
+    var btn = dd.querySelector('[data-dd-toggle]');
+    var panel = dd.querySelector('[data-dd-panel]');
+    if (!btn || !panel) return;
+
+    var isMobile = function() { return window.matchMedia('(max-width: 1080px)').matches; };
+    var openTimer, closeTimer;
+
+    function open() {
+      dd.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    function close() {
+      dd.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    // Click toggle (required for mobile + touch)
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (dd.classList.contains('is-open')) close(); else open();
+    });
+
+    // Desktop hover
+    dd.addEventListener('mouseenter', function() {
+      if (isMobile()) return;
+      clearTimeout(closeTimer);
+      openTimer = setTimeout(open, 60);
+    });
+    dd.addEventListener('mouseleave', function() {
+      if (isMobile()) return;
+      clearTimeout(openTimer);
+      closeTimer = setTimeout(close, 120);
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!dd.contains(e.target) && dd.classList.contains('is-open')) close();
+    });
+    // Close on escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && dd.classList.contains('is-open')) { close(); btn.focus(); }
+    });
+  });
+
+  /* ---------- Reveal observers for new data-reveal-scale / data-reveal-stagger ---------- */
+  if ('IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io2.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '-8% 0px -6% 0px', threshold: 0.1 });
+    $$('[data-reveal-scale],[data-reveal-stagger]').forEach(function(el) { io2.observe(el); });
+  } else {
+    $$('[data-reveal-scale],[data-reveal-stagger]').forEach(function(el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Animated number counters ---------- */
+  function countUp(el) {
+    var target = parseFloat(el.dataset.count || el.textContent);
+    if (!target || isNaN(target)) return;
+    var suffix = el.dataset.suffix || '';
+    var duration = 1600;
+    var start = null;
+    function tick(ts) {
+      if (!start) start = ts;
+      var p = Math.min(1, (ts - start) / duration);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = target * eased;
+      el.textContent = (target >= 100 ? Math.round(val).toLocaleString() : val.toFixed(1).replace(/\.0$/, ''));
+      if (suffix) el.innerHTML += '<span class="plus">' + suffix + '</span>';
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window) {
+    var ioCount = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          countUp(e.target);
+          ioCount.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    $$('[data-count]').forEach(function(el) { ioCount.observe(el); });
+  }
+
+  /* ---------- Magnetic buttons ---------- */
+  $$('.magnet').forEach(function(btn) {
+    var strength = parseFloat(btn.dataset.magnet || 0.35);
+    btn.addEventListener('mousemove', function(e) {
+      var r = btn.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width / 2;
+      var y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = 'translate(' + (x * strength) + 'px, ' + (y * strength) + 'px)';
+    });
+    btn.addEventListener('mouseleave', function() { btn.style.transform = ''; });
+  });
+
+  /* ---------- Area card radial mouse-follow ---------- */
+  $$('.area-card, .bento-item').forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
+
+  /* ---------- Cursor spotlight (desktop only) ---------- */
+  if (window.matchMedia('(pointer:fine)').matches && !$('.pc-spot')) {
+    var spot = document.createElement('div');
+    spot.className = 'pc-spot';
+    document.body.appendChild(spot);
+    var raf, tx = 0, ty = 0, cx = 0, cy = 0;
+    var render = function() {
+      cx += (tx - cx) * 0.14; cy += (ty - cy) * 0.14;
+      spot.style.transform = 'translate(' + cx + 'px, ' + cy + 'px) translate(-50%, -50%)';
+      raf = requestAnimationFrame(render);
+    };
+    window.addEventListener('mousemove', function(e) {
+      tx = e.clientX; ty = e.clientY;
+      spot.style.opacity = '1';
+      if (!raf) render();
+    });
+    window.addEventListener('mouseleave', function() { spot.style.opacity = '0'; });
+  }
+
+  /* ---------- Testimonial marquee: duplicate children for seamless loop ---------- */
+  $$('.tm-track').forEach(function(track) {
+    if (track.dataset.duped) return;
+    Array.prototype.slice.call(track.children).forEach(function(node) {
+      var clone = node.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+    track.dataset.duped = '1';
+  });
+
+})();
