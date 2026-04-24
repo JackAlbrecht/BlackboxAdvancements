@@ -1,5 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect x="4" y="4" width="56" height="56" rx="10" fill="#1B3A2F"/>
-  <path d="M14 44 L20 32 L28 40 L38 24 L50 44 Z" fill="#D4A017"/>
-  <circle cx="18" cy="20" r="3" fill="#D4A017"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 68" aria-label="All Phase Excavating">
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#F5C74B" />
+      <stop offset="55%" stop-color="#D4A017" />
+      <stop offset="100%" stop-color="#A4790B" />
+    </linearGradient>
+    <linearGradient id="gold-rim" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#FDE28F" />
+      <stop offset="100%" stop-color="#8B6508" />
+    </linearGradient>
+  </defs>
+
+  <!-- Emblem: hex shield with stylized excavator -->
+  <g transform="translate(6 6)">
+    <!-- Outer shield -->
+    <path d="M28 0 L55 14 V42 L28 56 L1 42 V14 Z"
+          fill="url(#gold)" stroke="url(#gold-rim)" stroke-width="1.5"/>
+    <!-- Inner dark face -->
+    <path d="M28 5 L50 16 V40 L28 51 L6 40 V16 Z"
+          fill="#0D1F18" />
+
+    <!-- Excavator silhouette -->
+    <g fill="#F5C74B" stroke="#F5C74B" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Ground line -->
+      <rect x="9" y="41" width="38" height="1.2" />
+      <!-- Tracks -->
+      <rect x="14" y="35" width="20" height="5" rx="2" fill="#F5C74B"/>
+      <circle cx="17" cy="40" r="1.6" fill="#0D1F18"/>
+      <circle cx="24" cy="40" r="1.6" fill="#0D1F18"/>
+      <circle cx="31" cy="40" r="1.6" fill="#0D1F18"/>
+      <!-- Cab -->
+      <path d="M18 35 L18 28 L28 28 L32 32 L32 35 Z" />
+      <rect x="20" y="29" width="7" height="4" fill="#0D1F18"/>
+      <!-- Boom -->
+      <path d="M30 32 L40 20 L44 22 L34 34 Z" />
+      <!-- Stick -->
+      <path d="M40 20 L46 28 L44 30 L38 22 Z" />
+      <!-- Bucket -->
+      <path d="M44 28 L50 30 L49 34 L43 32 Z" />
+      <!-- Dirt mound -->
+      <path d="M9 42 Q14 37 19 42 Z" fill="#F5C74B" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <g font-family="Oswald, 'Arial Black', Impact, sans-serif" fill="#F5F1E6">
+    <text x="78" y="29" font-size="22" font-weight="700" letter-spacing="1.5">ALL PHASE</text>
+    <text x="78" y="50" font-size="14" font-weight="500" letter-spacing="3.8" fill="#D4A017">EXCAVATING</text>
+  </g>
 </svg>
