@@ -597,10 +597,92 @@
   <div class="cta-inner">
     <h2>Got dirt to move?</h2>
     <p>Tell us about the site. You'll get a real person on the phone and a free on-site estimate within 48 hours. No pressure, no games.</p>
-    <div class="hero-cta-row" style="justify-content:center">
-      <a href="tel:+15005551234" class="btn btn-gold btn-big">📞 (509) 555-1234</a>
-      <a href="mailto:hello@allphaseexcavating.com" class="btn btn-ghost btn-big">hello@allphaseexcavating.com</a>
-    </div>
+
+    <form id="quoteForm" class="qf" novalidate>
+      <div class="qf-row">
+        <label><span>Name *</span><input name="name" required autocomplete="name" placeholder="Your name" /></label>
+        <label><span>Phone *</span><input name="phone" type="tel" required autocomplete="tel" placeholder="(555) 555-5555" /></label>
+      </div>
+      <div class="qf-row">
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="you@example.com" /></label>
+        <label><span>City / Area</span><input name="city" autocomplete="address-level2" placeholder="Bellingham, Mount Vernon…" /></label>
+      </div>
+      <label class="qf-full"><span>What kind of work? *</span>
+        <select name="service" required>
+          <option value="">— Pick a service —</option>
+          <option>Site preparation &amp; grading</option>
+          <option>Land clearing</option>
+          <option>Trenching &amp; utilities</option>
+          <option>Demolition</option>
+          <option>Driveways &amp; drainage</option>
+          <option>Septic install</option>
+          <option>Commercial / civil</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label class="qf-full"><span>Tell us about the job (sqft, timing, access, etc.)</span>
+        <textarea name="message" rows="4" placeholder="Rough size of the site, when you'd like to start, any access limits…"></textarea>
+      </label>
+      <input name="_website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="qf-hp" />
+
+      <div class="qf-submit">
+        <button type="submit" class="btn btn-gold btn-big" id="qfBtn">Request Free Estimate <span class="arrow">→</span></button>
+        <a href="tel:+15005551234" class="btn btn-ghost btn-big">Or call (509) 555-1234</a>
+      </div>
+      <div id="qfStatus" class="qf-status" aria-live="polite"></div>
+    </form>
+
+    <style>
+      .qf{max-width:760px;margin:40px auto 0;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:28px;text-align:left}
+      .qf label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.85;margin-bottom:14px}
+      .qf label.qf-full{grid-column:span 2}
+      .qf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+      .qf input,.qf select,.qf textarea{font-family:inherit;font-size:15px;padding:12px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:var(--paper);outline:none;transition:border-color .15s,background .15s;text-transform:none;letter-spacing:normal;font-weight:400}
+      .qf input:focus,.qf select:focus,.qf textarea:focus{border-color:var(--accent);background:rgba(255,255,255,.08)}
+      .qf textarea{resize:vertical;min-height:100px;font-family:inherit}
+      .qf select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--accent) 50%),linear-gradient(135deg,var(--accent) 50%,transparent 50%);background-position:calc(100% - 20px) center, calc(100% - 14px) center;background-size:6px 6px;background-repeat:no-repeat;padding-right:36px}
+      .qf select option{color:#111;background:#fff}
+      .qf-hp{position:absolute !important;left:-9999px !important;width:1px !important;height:1px !important;opacity:0}
+      .qf-submit{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+      .qf-status{margin-top:14px;font-size:14px;min-height:22px;text-align:left}
+      .qf-status.ok{color:#8ee8a4}
+      .qf-status.err{color:#ff9a8a}
+      @media(max-width:640px){
+        .qf{padding:20px}
+        .qf-row{grid-template-columns:1fr}
+        .qf label.qf-full{grid-column:span 1}
+      }
+    </style>
+
+    <script>
+      (function(){
+        var f=document.getElementById('quoteForm'); if(!f) return;
+        var btn=document.getElementById('qfBtn'); var st=document.getElementById('qfStatus');
+        f.addEventListener('submit', async function(e){
+          e.preventDefault();
+          st.className='qf-status'; st.textContent='';
+          var fd=new FormData(f); var o={};
+          fd.forEach(function(v,k){ o[k]=String(v||'').trim(); });
+          if(o._website){ return; } // honeypot
+          if(!o.name||!o.phone||!o.service){ st.className='qf-status err'; st.textContent='Please fill in your name, phone, and the type of work.'; return; }
+          btn.disabled=true; var old=btn.innerHTML; btn.innerHTML='Sending…';
+          try{
+            var res=await fetch('https://crm.blackboxadvancements.com/api/public/quote?tenant=all-phase-excavating',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...o, source:'allphaseexcavating.com', ts: Date.now() })});
+            if(res.ok){
+              st.className='qf-status ok';
+              st.textContent='Got it — we\'ll call you within 24 hours. Talk soon.';
+              f.reset();
+            } else { throw new Error('submit failed'); }
+          } catch(err){
+            // Fallback: open mailto so the lead still reaches us even if the API is unreachable
+            var body=encodeURIComponent('Name: '+o.name+'\nPhone: '+o.phone+'\nEmail: '+(o.email||'')+'\nCity: '+(o.city||'')+'\nService: '+o.service+'\n\n'+(o.message||''));
+            var subject=encodeURIComponent('Quote request — '+o.name);
+            window.location.href='mailto:hello@allphaseexcavating.com?subject='+subject+'&body='+body;
+            st.className='qf-status'; st.textContent='Opening your email — please click Send to reach us.';
+          } finally { btn.disabled=false; btn.innerHTML=old; }
+        });
+      })();
+    </script>
   </div>
 </section>
 
