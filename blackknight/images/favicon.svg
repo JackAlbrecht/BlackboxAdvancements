@@ -1,7 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-label="Black Knight Auto Body & Painting">
-  <circle cx="60" cy="60" r="58" fill="#0A0A0A" stroke="#D4AF37" stroke-width="3"/>
-  <circle cx="60" cy="60" r="52" fill="#1A1A1A"/>
-  <path d="M30 42 L60 30 L90 42 L90 62 Q90 85 60 100 Q30 85 30 62 Z" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.35"/>
-  <text x="60" y="68" text-anchor="middle" font-family="'Fraunces','Playfair Display',Georgia,serif" font-weight="900" font-size="34" fill="#D4AF37" letter-spacing="-1">BK</text>
-  <text x="60" y="92" text-anchor="middle" font-family="'JetBrains Mono','Courier New',monospace" font-size="6" fill="#F5EFE0" letter-spacing="2" font-weight="700">AUTO BODY</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-label="Black Knight">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5D77A"/>
+      <stop offset="100%" stop-color="#9F7E1E"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 4 L114 20 L114 64 Q114 100 60 116 Q6 100 6 64 L6 20 Z" fill="url(#g1)"/>
+  <path d="M60 12 L106 26 L106 64 Q106 92 60 106 Q14 92 14 64 L14 26 Z" fill="#0A0A0A"/>
+  <!-- BK monogram -->
+  <text x="60" y="74" text-anchor="middle"
+        font-family="'Fraunces','Playfair Display',Georgia,serif"
+        font-weight="900" font-size="46" fill="url(#g1)" letter-spacing="-2">BK</text>
+  <!-- Bottom dash -->
+  <rect x="36" y="92" width="48" height="2" fill="url(#g1)"/>
+  <text x="60" y="103" text-anchor="middle"
+        font-family="'JetBrains Mono','Courier New',monospace"
+        font-size="6" fill="#F5EFE0" letter-spacing="2" font-weight="700">AUTO PAINT</text>
 </svg>
