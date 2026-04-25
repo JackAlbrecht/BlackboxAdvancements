@@ -3,7 +3,7 @@
    Yakima, WA • 509-307-3138 • bndpainting@yahoo.com
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Bebas+Neue&display=swap');
 
 :root{
   --bk-navy:       #000000;
@@ -19,9 +19,9 @@
   --bk-stone:      #8A7A44;
   --bk-sage:       #B89A3F;
 
-  --font-display: 'Fraunces', 'Playfair Display', 'Georgia', serif;
-  --font-body:    'Inter', 'Helvetica Neue', system-ui, sans-serif;
-  --font-mono:    'JetBrains Mono', 'Menlo', monospace;
+  --font-display: 'Saira Condensed', 'Bebas Neue', 'Oswald', Impact, sans-serif;
+  --font-body:    'Manrope', 'Inter', system-ui, sans-serif;
+  --font-mono:    'IBM Plex Mono', 'JetBrains Mono', 'Menlo', monospace;
 
   --shadow-card:  0 2px 0 var(--bk-ink), 0 14px 34px rgba(10,10,10,.18);
   --shadow-heavy: 0 4px 0 var(--bk-ink), 0 24px 60px rgba(10,10,10,.28);
@@ -1017,3 +1017,241 @@ footer::before{
 
   .irl-strip{ gap: 8px; margin-top: 32px; }
   .irl-strip .slot:nth-chi
+
+/* ============================================================
+   BLACK KNIGHT — premium auto painting polish
+   ============================================================ */
+
+/* Display type: tight, tall, bold + subtle gold underglow */
+h1, h2, h3, .hero h1, .section-head h2, .page-head h1, .prose h2, .svc-title, .hs-title, .est-header h3{
+  font-family: var(--font-display) !important;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  line-height: 1.02;
+}
+.hero h1{
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  text-shadow: 0 4px 30px rgba(212,175,55,.2), 0 2px 4px rgba(0,0,0,.6);
+}
+.hero h1 .italic{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(135deg, #F0C755 0%, #D4AF37 50%, #9C7B1A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero h1 .stroke::after{
+  background: linear-gradient(90deg, #9C7B1A, #D4AF37, #F0C755, #D4AF37, #9C7B1A);
+  height: 22%;
+  opacity: 0.95;
+}
+
+/* Body type stays Manrope — lighter, clean */
+body, p, li, blockquote, label, input, textarea, select{
+  font-family: var(--font-body);
+}
+
+/* Mono tiny caps */
+.eyebrow, .section-head .eyebrow, .hc-eyebrow, .svc-num, .topbar, .anno, .stripe-track i,
+.proc-num, .visit-meta dt, .foot-grid h5, .foot-legal, .foot-credit, .crumb, .small-caps{
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.18em;
+}
+
+/* Proc numbers: racing-number style */
+.proc-num{
+  font-family: var(--font-display) !important;
+  font-weight: 900;
+  font-size: 72px;
+  line-height: 1;
+  background: linear-gradient(180deg, #F0C755 0%, #D4AF37 50%, #9C7B1A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.01em;
+}
+
+/* Primary buttons: metallic gold gradient with chrome hover */
+.btn-terra, .btn-cop{
+  background: linear-gradient(135deg, #F0C755 0%, #D4AF37 45%, #9C7B1A 100%) !important;
+  color: #0A0A0A !important;
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
+  box-shadow: 0 3px 0 #000, 0 12px 28px rgba(212,175,55,.35), inset 0 1px 0 rgba(255,255,255,.4);
+  border: 1px solid rgba(255,255,255,.15);
+}
+.btn-terra:hover, .btn-cop:hover{
+  background: linear-gradient(135deg, #F8D470 0%, #E6BE45 45%, #AE8B20 100%) !important;
+  box-shadow: 0 5px 0 #000, 0 16px 36px rgba(212,175,55,.5), inset 0 1px 0 rgba(255,255,255,.5);
+  transform: translateY(-2px);
+}
+.btn-ghost{
+  color: #F5EFE0;
+  border: 2px solid #D4AF37;
+  font-family: var(--font-display) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.btn-ghost:hover{
+  background: rgba(212,175,55,.12);
+  color: #F0C755;
+}
+
+/* Service tiles: darker overlay + gold hover border */
+.svc{
+  border: 1px solid rgba(212,175,55,.18);
+}
+.svc:hover{
+  border-color: #D4AF37;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5), 0 0 30px rgba(212,175,55,.25);
+}
+.svc-title{
+  font-family: var(--font-display) !important;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.svc-num{
+  color: #D4AF37;
+}
+
+/* Stripe (marquee band) — gold on black with chrome text */
+.stripe{
+  background: #000;
+  border-top: 1px solid #D4AF37;
+  border-bottom: 1px solid #D4AF37;
+}
+.stripe-track{
+  color: #D4AF37;
+  font-family: var(--font-display) !important;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.stripe-track i{
+  color: rgba(212,175,55,.5);
+}
+
+/* Topbar / Anno — richer blacks */
+.topbar, .anno{
+  background: #000;
+  border-bottom: 1px solid rgba(212,175,55,.3);
+}
+.topbar .tb-dot, .anno-dot{
+  background: #D4AF37;
+  box-shadow: 0 0 10px rgba(212,175,55,.6);
+}
+.topbar .tb-phone, .anno-track b{
+  color: #F0C755;
+}
+
+/* Nav CTA — premium chrome button */
+.nav-cta{
+  background: linear-gradient(135deg, #F0C755 0%, #D4AF37 50%, #9C7B1A 100%) !important;
+  color: #0A0A0A !important;
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  box-shadow: 0 2px 0 #000, 0 0 20px rgba(212,175,55,.4);
+}
+
+/* Hero card / stat card — blackened with gold frame */
+.hero-card, .stat-card{
+  background: linear-gradient(160deg, #1F1F1F 0%, #0A0A0A 100%) !important;
+  color: #F5EFE0 !important;
+  border: 1px solid rgba(212,175,55,.35);
+  box-shadow: 0 4px 0 #000, 0 24px 60px rgba(0,0,0,.6), inset 0 1px 0 rgba(212,175,55,.2);
+}
+.hero-card h3, .stat-card h3, .hero-card .hc-title{
+  color: #F5EFE0 !important;
+}
+.hero-card .hc-eyebrow{
+  color: #D4AF37 !important;
+}
+.hero-card .seal{
+  background: linear-gradient(135deg, #F0C755 0%, #D4AF37 50%, #9C7B1A 100%) !important;
+  color: #0A0A0A !important;
+  border: 3px solid #0A0A0A;
+  box-shadow: 0 6px 16px rgba(0,0,0,.5), inset 0 2px 0 rgba(255,255,255,.3);
+}
+
+/* Quote cards — luxury black */
+.q-card{
+  background: linear-gradient(160deg, #1F1F1F 0%, #0A0A0A 100%);
+  color: #F5EFE0;
+  border: 1px solid rgba(212,175,55,.2);
+  box-shadow: 8px 8px 0 #D4AF37;
+}
+.q-card blockquote{
+  color: #F5EFE0 !important;
+  font-family: var(--font-body) !important;
+  font-style: italic;
+  font-weight: 300;
+}
+.q-card cite{
+  color: #D4AF37 !important;
+}
+.q-card .stars{
+  color: #F0C755;
+}
+
+/* Area chips — gold outline */
+.area-chip{
+  background: transparent;
+  color: #F5EFE0;
+  border: 1px solid rgba(212,175,55,.5);
+  font-family: var(--font-display) !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.area-chip::before{background: #D4AF37;}
+.area-chip:hover{
+  background: linear-gradient(135deg, #F0C755 0%, #D4AF37 100%);
+  color: #0A0A0A;
+  border-color: #D4AF37;
+  box-shadow: 0 0 24px rgba(212,175,55,.4);
+}
+
+/* Body background slight tint */
+body{
+  background: #0F0F0F;
+  color: #F5EFE0;
+}
+.section{background: transparent}
+.section-cream{background: #1A1A1A}
+.section-dark{background: #000}
+
+/* Section heads on dark bg */
+.section-head h2{color: #F5EFE0}
+.section-head .meta{color: rgba(245,239,224,.65)}
+.section-head .eyebrow{color: #D4AF37}
+
+/* Footer gold accents */
+footer{
+  background: #000;
+  border-top: 3px solid #D4AF37;
+}
+.foot-brand, .foot-brand .italic{
+  color: #F5EFE0 !important;
+  font-family: var(--font-display) !important;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.foot-grid h5{color: #D4AF37}
+.foot-credit a{color: #D4AF37}
+
+/* Mobile */
+@media (max-width: 640px){
+  .proc-num{font-size: 52px}
+  .hero h1{letter-spacing: -0.01em}
+}
