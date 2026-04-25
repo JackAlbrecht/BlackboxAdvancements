@@ -168,7 +168,7 @@ header.site{
 }
 .hero-bg{
   position: absolute; inset: 0; z-index: 0;
-  background-image: url('/blackknight/images/hero-interior.jpg');
+  background-image: url('/blackknight/images/hero-booth.jpg');
   background-size: cover; background-position: center;
   filter: saturate(1.05) contrast(1.05);
 }
