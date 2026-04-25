@@ -46,11 +46,11 @@
   var PRICING = {
     project: {
       repaint:    { base: 0, sizes:{ 'small':[2500,4500], 'mid':[4500,7500], 'full':[7500,12000], 'premium':[12000,18000] } },
-      collision:  { base: 0, sizes:{ 'minor':[800,2000], 'mid':[2000,5000], 'major':[5000,10000], 'severe':[10000,18000] } },
+      colorchange:{ base: 0, sizes:{ 'partial':[1500,3000], 'exterior':[3500,6500], 'full':[6500,11000], 'premium':[11000,17000] } },
       correction: { base: 0, sizes:{ 'single':[300,600], 'full':[800,1800], 'premium':[1800,3500], 'showroom':[3500,6000] } },
       motorcycle: { base: 0, sizes:{ 'tank':[400,800], 'fairings':[800,1800], 'full':[1500,3500], 'custom':[3500,7500] } },
       fleet:      { base: 0, sizes:{ '1':[1500,3500], '3':[4000,9000], '5':[7500,15000], '10':[15000,30000] } },
-      bumper:     { base: 0, sizes:{ 'touchup':[150,400], 'single':[400,900], 'full':[900,1800], 'both':[1600,3000] } }
+      touchup:    { base: 0, sizes:{ 'chip':[80,200], 'spot':[200,500], 'panel':[500,1200], 'multi':[1200,2500] } }
     },
     scope:     { 'walls': 1.00, 'walls-ceil': 1.08, 'full-trim': 1.18 },
     condition: { 'new': 0.92, 'good': 1.00, 'repairs': 1.15, 'major': 1.35 },
@@ -87,13 +87,13 @@
         {v:'mid',ttl:'Mid-size',desc:'SUV / crossover',em:'\u{1F698}'},
         {v:'full',ttl:'Full size',desc:'Truck / van',em:'\u{1F69A}'},
         {v:'premium',ttl:'Premium',desc:'Luxury / exotic',em:'\u{1F3CE}'}]},
-      collision:{q:'Damage scope?',options:[
-        {v:'minor',ttl:'Minor',desc:'Dings / small scratches',em:'\u{1F528}'},
-        {v:'mid',ttl:'Moderate',desc:'Dents, one panel',em:'\u{1F527}'},
-        {v:'major',ttl:'Major',desc:'Multi-panel damage',em:'\u{1F6E0}'},
-        {v:'severe',ttl:'Severe',desc:'Frame / structural',em:'\u{26A0}'}]},
+      colorchange:{q:'Scope?',options:[
+        {v:'partial',ttl:'Partial',desc:'Panels / accents',em:'\u{1F3A8}'},
+        {v:'exterior',ttl:'Exterior only',desc:'Skip jambs / engine',em:'\u{1F697}'},
+        {v:'full',ttl:'Full exterior',desc:'Including jambs',em:'\u{1F680}'},
+        {v:'premium',ttl:'Premium',desc:'Candy / metallic / pearl',em:'\u{1F48E}'}]},
       correction:{q:'Condition?',options:[
-        {v:'single',ttl:'Single panel',desc:'Spot fix',em:'\u{2728}'},
+        {v:'single',ttl:'Single panel',desc:'Spot polish',em:'\u{2728}'},
         {v:'full',ttl:'Full car',desc:'1-stage polish',em:'\u{1F697}'},
         {v:'premium',ttl:'Premium',desc:'2-stage + sealant',em:'\u{1F31F}'},
         {v:'showroom',ttl:'Showroom',desc:'3-stage + ceramic',em:'\u{1F48E}'}]},
@@ -107,11 +107,11 @@
         {v:'3',ttl:'2-3 vehicles',desc:'Small fleet',em:'\u{1F69A}'},
         {v:'5',ttl:'4-5 vehicles',desc:'Mid fleet',em:'\u{1F69B}'},
         {v:'10',ttl:'6+ vehicles',desc:'Large fleet',em:'\u{1F69B}'}]},
-      bumper:{q:'Scope?',options:[
-        {v:'touchup',ttl:'Touch-up',desc:'Small area',em:'\u{1F527}'},
-        {v:'single',ttl:'Front OR rear',desc:'One bumper',em:'\u{1F697}'},
-        {v:'full',ttl:'Full bumper',desc:'Complete refinish',em:'\u{1F6E0}'},
-        {v:'both',ttl:'Both bumpers',desc:'Front + rear',em:'\u{1F697}'}]}
+      touchup:{q:'Scope?',options:[
+        {v:'chip',ttl:'Rock chip',desc:'Small area',em:'\u{1F4CD}'},
+        {v:'spot',ttl:'Spot repair',desc:'Scratch / scuff',em:'\u{1F527}'},
+        {v:'panel',ttl:'Single panel',desc:'Door / fender',em:'\u{1F697}'},
+        {v:'multi',ttl:'Multiple spots',desc:'Several areas',em:'\u{1F3A8}'}]}
     };
     var cfg = labels[state.project];
     if (!cfg) return;
