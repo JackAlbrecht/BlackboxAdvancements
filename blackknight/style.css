@@ -6,18 +6,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root{
-  --bk-navy:       #0E1F3A;
-  --bk-navy-2:     #071229;
-  --bk-navy-hair:  #1B2D4C;
-  --bk-cream:      #F4EFE5;
-  --bk-cream-2:    #EDE5D0;
-  --bk-off:        #FBF7EE;
-  --bk-terracotta: #C85A2B;
-  --bk-terra-ink:  #9A3E17;
-  --bk-terra-soft: #E08858;
-  --bk-ink:        #0A0A0A;
-  --bk-stone:      #8F8779;
-  --bk-sage:       #6B7A5A;
+  --bk-navy:       #000000;
+  --bk-navy-2:     #050505;
+  --bk-navy-hair:  #1F1F1F;
+  --bk-cream:      #F5EFE0;
+  --bk-cream-2:    #EAE2CD;
+  --bk-off:        #FAF5E8;
+  --bk-terracotta: #D4AF37;
+  --bk-terra-ink:  #9C7B1A;
+  --bk-terra-soft: #F0C755;
+  --bk-ink:        #000000;
+  --bk-stone:      #8A7A44;
+  --bk-sage:       #B89A3F;
 
   --font-display: 'Fraunces', 'Playfair Display', 'Georgia', serif;
   --font-body:    'Inter', 'Helvetica Neue', system-ui, sans-serif;
@@ -246,12 +246,12 @@ header.site{
 }
 .btn-terra{
   background: var(--bk-terracotta); color: var(--bk-cream);
-  box-shadow: 0 3px 0 var(--bk-ink), 0 12px 28px rgba(200,90,43,.35);
+  box-shadow: 0 3px 0 var(--bk-ink), 0 12px 28px rgba(212,175,55,.35);
 }
 .btn-terra:hover{
   background: var(--bk-terra-ink);
   transform: translateY(-2px);
-  box-shadow: 0 5px 0 var(--bk-ink), 0 16px 32px rgba(200,90,43,.45);
+  box-shadow: 0 5px 0 var(--bk-ink), 0 16px 32px rgba(212,175,55,.45);
 }
 .btn-ghost{
   background: transparent; color: var(--bk-cream);
@@ -402,7 +402,7 @@ section{ position: relative; z-index: 2; }
 .svc:hover .svc-img{ transform: scale(1.06); }
 .svc::before{
   content:""; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(14,31,58,.15) 0%, rgba(10,10,10,.88) 85%);
+  background: linear-gradient(180deg, rgba(10,10,10,.15) 0%, rgba(10,10,10,.88) 85%);
 }
 .svc-body{
   position: absolute; inset: 0; z-index: 2;
@@ -464,7 +464,7 @@ section{ position: relative; z-index: 2; }
   display: flex; gap: 6px; margin-top: 22px; justify-content: center;
 }
 .est-progress .dot{
-  width: 28px; height: 4px; background: rgba(14,31,58,.15);
+  width: 28px; height: 4px; background: rgba(10,10,10,.15);
   border-radius: 4px; transition: background .25s;
 }
 .est-progress .dot.active{ background: var(--bk-terracotta); }
