@@ -1178,3 +1178,232 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:36px;bac
   }
   [data-reveal-scale], [data-reveal-stagger] > *{ opacity: 1; transform: none; }
 }
+
+/* ============================================================
+   MOBILE OPTIMIZATION PASS
+   - bigger touch targets (44px min)
+   - tighter padding
+   - readable type at small sizes
+   - swipe-friendly carousels
+   ============================================================ */
+@media (max-width: 720px){
+  /* Touch target minimums */
+  .nav-cta, .btn, .est-opt, .area-chip, .t-arrow, .est-back, .est-next,
+  .nav-links a, .topbar .tb-phone, .mobile-cta a, .lead-form button,
+  .contact-form button, .svc-arrow, .t-dots .td{
+    min-height: 44px;
+  }
+  .nav-links a{ padding: 14px 28px; }
+  /* Increase tap area on small dots */
+  .t-dots .td{ width: 14px; height: 14px; padding: 0; }
+
+  /* Hero - tighter padding, ensure h1 doesn't overflow */
+  .hero{ min-height: auto; }
+  .hero-inner{ padding: 60px 18px 50px; gap: 28px; }
+  .hero h1{ font-size: clamp(40px, 11vw, 64px); line-height: 0.96; word-break: break-word; }
+  .hero-sub{ font-size: 15px; line-height: 1.55; margin-top: 20px; }
+  .hero-eyebrow{ font-size: 10px; letter-spacing: 0.2em; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .hero-eyebrow .line{ width: 24px; }
+  .hero-cta-row{ gap: 10px; margin-top: 24px; flex-direction: column; align-items: stretch; }
+  .hero-cta-row .btn{ justify-content: center; width: 100%; }
+  .btn{ padding: 14px 22px; font-size: 14px; min-height: 48px; }
+  .btn-big{ padding: 16px 24px; font-size: 14px; min-height: 50px; }
+
+  /* Hero card */
+  .hero-card{ padding: 24px 22px; transform: rotate(0); margin: 0; }
+  .hero-card h3{ font-size: 26px; }
+  .hero-card .seal{
+    width: 78px; height: 78px;
+    top: -16px; right: -10px;
+    font-size: 14px; padding: 6px;
+  }
+  .hero-card .seal small{ font-size: 8px; }
+  .hero-card .hc-stats{ font-size: 12px; gap: 8px 12px; }
+
+  /* Sections - tighter vertical padding */
+  .section{ padding: 56px 0; }
+  .section.tight{ padding: 40px 0; }
+  .section-head{ margin-bottom: 30px; gap: 12px; }
+  .section-head h2{ font-size: clamp(34px, 8.4vw, 52px); }
+  .section-head .meta{ font-size: 11px; }
+
+  /* Service grid */
+  .svc-grid{ gap: 12px; }
+  .svc{ min-height: 280px; }
+  .svc.wide{ min-height: 320px; }
+  .svc-body{ padding: 18px; }
+  .svc-title{ font-size: 24px; }
+  .svc-sub{ font-size: 13px; }
+  .svc-arrow{ width: 36px; height: 36px; min-height: 36px; }
+
+  /* Estimator */
+  .estimator{ padding: 24px 16px 22px; max-width: 100%; }
+  .estimator::before{ inset: 5px; }
+  .est-header h3{ font-size: 26px; }
+  .est-question{ font-size: 18px; margin-bottom: 16px; line-height: 1.3; }
+  .est-options{ grid-template-columns: 1fr 1fr; gap: 8px; }
+  .est-opt{ padding: 14px 8px; min-height: 78px; }
+  .est-opt .em{ font-size: 22px; }
+  .est-opt .ttl{ font-size: 13px; }
+  .est-opt .desc{ font-size: 9px; }
+  .est-field input, .est-field select, .est-field textarea{
+    padding: 14px 12px; font-size: 16px; /* prevents iOS zoom */
+  }
+  .est-nav{ gap: 8px; flex-direction: row; }
+  .est-back{ flex: 0 0 auto; padding: 10px 12px; font-size: 11px; }
+  .est-next{ flex: 1 1 auto; padding: 14px 16px; font-size: 13px; }
+  .est-result .range{ font-size: clamp(36px, 10vw, 48px); }
+
+  /* Process cards */
+  .process{ grid-template-columns: 1fr; gap: 12px; }
+  .proc-item{ padding: 22px 18px; box-shadow: 3px 3px 0 var(--pe-ink); }
+  .proc-num{ font-size: 38px; }
+  .proc-item h4{ font-size: 20px; }
+  .proc-item p{ font-size: 14px; }
+
+  /* Why grid - keep 1 col on phones for readability */
+  .why-grid{ grid-template-columns: 1fr; gap: 12px; }
+  .why-card{ padding: 24px 22px; box-shadow: 3px 3px 0 var(--pe-blue); }
+  .why-card .icon{ width: 48px; height: 48px; font-size: 20px; margin-bottom: 14px; }
+
+  /* Real Floors / portfolio cards */
+  .portfolio-grid{ grid-template-columns: 1fr; gap: 14px; }
+  .port-card{ box-shadow: 3px 3px 0 var(--pe-ink); }
+  .port-img{ aspect-ratio: 16/10; }
+  .port-body{ padding: 16px 18px 18px; }
+  .port-service{ font-size: 20px; }
+  .port-meta{ font-size: 13px; }
+
+  /* Lead form */
+  .lead-form-wrap{ padding: 24px 18px 22px; }
+  .lead-form-wrap::before{ inset: 5px; }
+  .lead-form{ grid-template-columns: 1fr; gap: 12px; }
+  .lead-form .full, .lead-form .submit-row{ grid-column: span 1; }
+  .lead-form .submit-row{ flex-direction: column-reverse; align-items: stretch; gap: 12px; text-align: center; }
+  .lead-form .submit-row button{ width: 100%; }
+  .lead-form input, .lead-form textarea{ font-size: 16px; padding: 13px 12px; min-height: 48px; }
+  .lead-form-head h3{ font-size: 26px; }
+
+  /* Testimonial carousel */
+  .t-carousel{ padding: 0 4px; }
+  .q-card{ padding: 32px 20px 24px; box-shadow: 5px 5px 0 var(--pe-blue); }
+  .q-card::before{ font-size: 70px; left: 14px; top: -4px; }
+  .q-card blockquote{ font-size: 16px; line-height: 1.45; }
+  .q-card cite{ font-size: 10px; }
+  .t-arrow{ width: 44px; height: 44px; min-height: 44px; font-size: 16px; }
+  .t-controls{ gap: 10px; margin-top: 18px; }
+
+  /* Gallery carousel */
+  .g-slide{ flex: 0 0 100%; aspect-ratio: 4/3; }
+  .g-slide::after{ font-size: 9px; padding: 5px 10px; left: 10px; bottom: 10px; }
+
+  /* Service area chips */
+  .area-grid{ gap: 8px; }
+  .area-chip{ padding: 10px 16px; font-size: 11px; min-height: 42px; }
+
+  /* Contact form */
+  .contact-form input, .contact-form textarea, .contact-form select{
+    font-size: 16px; padding: 14px 12px; min-height: 48px;
+  }
+
+  /* Visit / contact block */
+  .visit{ grid-template-columns: 1fr; gap: 30px; }
+  .visit-photo{ aspect-ratio: 16/10; }
+  .visit-photo .stamp{ width: 84px; height: 84px; top: -16px; right: -8px; font-size: 14px; padding: 8px; }
+  .visit-photo .stamp small{ font-size: 8px; }
+  .visit-meta{ font-size: 13px; gap: 10px 18px; }
+  .visit-meta dt{ font-size: 10px; }
+
+  /* Page heads on sub-pages */
+  .page-head{ padding: 70px 0 56px; }
+  .page-head h1{ font-size: clamp(40px, 10vw, 64px); }
+  .page-head p.lead{ font-size: 15px; line-height: 1.5; }
+  .crumb{ font-size: 10px; }
+
+  /* Prose body on sub-pages */
+  .prose{ font-size: 16px; line-height: 1.65; }
+  .prose h2{ font-size: clamp(28px, 7vw, 36px); margin-top: 36px; margin-bottom: 14px; }
+  .prose h3{ font-size: 18px; }
+  .prose ul{ margin-left: 18px; }
+  .callout{ padding: 22px 22px; }
+  .callout p{ font-size: 16px; }
+
+  /* Footer */
+  .foot-grid{ grid-template-columns: 1fr; gap: 26px; padding-bottom: 32px; }
+  .foot-brand{ font-size: 38px; }
+  .foot-grid h5{ margin-bottom: 14px; }
+  .foot-grid ul li{ font-size: 14px; margin-bottom: 8px; }
+  .foot-legal{ flex-direction: column; align-items: flex-start; gap: 8px; padding-top: 20px; font-size: 10px; }
+  .foot-credit{ font-size: 11px; padding: 18px 0 4px; line-height: 1.5; letter-spacing: .14em; }
+
+  /* Topbar - hide some pieces, simplify */
+  .topbar{ font-size: 10px; padding: 8px 0; }
+  .topbar .row{ padding: 0 16px; gap: 10px; }
+  .topbar .tb-left span:nth-child(n+2){ display: none; }
+  .topbar .tb-phone{ font-size: 11px; padding: 6px 10px; }
+
+  /* Anno marquee smaller text */
+  .anno{ font-size: 10px; padding: 8px 0; letter-spacing: .12em; }
+  .anno-track{ gap: 32px; padding-right: 32px; }
+
+  /* Header / nav */
+  header.site{ position: sticky; top: 0; }
+  .nav-row{ padding: 12px 16px; }
+  .brand-mark{ width: 44px; height: 44px; }
+  .brand-type .big{ font-size: 18px; }
+  .brand-type .small{ font-size: 8px; letter-spacing: 0.18em; margin-top: 3px; }
+  .nav-toggle{ font-size: 11px; padding: 8px 12px; }
+
+  /* Stripe marquee */
+  .stripe{ padding: 10px 0; }
+  .stripe-track{ font-size: 18px; gap: 24px; padding-right: 24px; }
+  .stripe-track i{ font-size: 14px; }
+
+  /* Bonus badge size */
+  .bonus-badge{ font-size: 9px; padding: 4px 10px; letter-spacing: .18em; }
+
+  /* Sticky mobile CTA - prevent overlap with content */
+  .mobile-cta{ font-size: 12px; padding: 10px 14px; }
+  .mobile-cta .m-phone{ padding: 9px 14px; min-height: 38px; }
+  body{ padding-bottom: 76px; }
+
+  /* Wrap padding */
+  .wrap, .wrap-wide{ padding: 0 16px; }
+}
+
+/* Even smaller phones (iPhone SE, narrow Androids) */
+@media (max-width: 380px){
+  .est-options{ grid-template-columns: 1fr; }
+  .hero h1{ font-size: clamp(34px, 11vw, 48px); }
+  .section-head h2{ font-size: clamp(30px, 9vw, 42px); }
+  .brand-type .big{ font-size: 16px; }
+  .brand-type .small{ font-size: 7px; }
+}
+
+/* Tablet portrait optimizations */
+@media (min-width: 721px) and (max-width: 980px){
+  .hero-inner{ grid-template-columns: 1fr; gap: 36px; padding: 80px 28px 70px; }
+  .hero-card{ max-width: 460px; }
+  .portfolio-grid{ grid-template-columns: 1fr 1fr; }
+  .why-grid{ grid-template-columns: 1fr 1fr; }
+  .process{ grid-template-columns: 1fr 1fr; }
+  .visit{ grid-template-columns: 1fr; }
+}
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce){
+  .hero-bg, .anno-track, .stripe-track, .orb, .hero-card .seal{
+    animation: none !important;
+  }
+  [data-reveal], [data-reveal-fade]{ opacity: 1 !important; transform: none !important; }
+  .svc:hover, .why-card:hover, .port-card:hover{ transform: none !important; }
+}
+
+/* Touch device tweaks - remove hover effects that don't translate */
+@media (hover: none){
+  .svc:hover{ transform: none; box-shadow: none; }
+  .svc:hover .svc-img{ transform: none; }
+  .port-card:hover{ transform: none; box-shadow: 4px 4px 0 var(--pe-ink); }
+  .why-card:hover{ transform: none; }
+  .area-chip:hover{ transform: none; }
+}
