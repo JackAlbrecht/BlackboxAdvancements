@@ -263,9 +263,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:36px;bac
 .foot-brand .italic{font-style:italic;font-weight:400;color:var(--pe-blue)}
 .foot-blurb{font-family:var(--font-display);font-style:italic;font-weight:300;max-width:420px;opacity:.8;font-size:16px;line-height:1.5}
 .foot-legal{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.6;flex-wrap:wrap;gap:10px}
-.foot-credit{text-align:center;padding:20px 0 0;font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.5}
-.foot-credit a{color:var(--pe-blue);font-weight:600;border-bottom:1px dashed currentColor;transition:opacity .2s}
-.foot-credit a:hover{opacity:.85}
+.foot-credit{text-align:center;padding:24px 0 4px;font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:1;color:var(--pe-cream);font-weight:600}
+.foot-credit a{color:var(--pe-blue);font-weight:700;border-bottom:1px solid var(--pe-blue);padding-bottom:1px;transition:color .2s,border-color .2s}
+.foot-credit a:hover{color:var(--pe-blue-soft);border-bottom-color:var(--pe-blue-soft)}
 @media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:36px}}
 @media (max-width:600px){.foot-grid{grid-template-columns:1fr;gap:30px}}
 
