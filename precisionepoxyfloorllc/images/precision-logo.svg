@@ -1,18 +1,18 @@
 <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Precision Epoxy Floor">
   <title>Precision Epoxy Floor LLC</title>
-  <!-- Deep blue rounded base -->
-  <rect x="0" y="0" width="120" height="120" rx="16" fill="#1A3F6B"/>
-  <!-- Light blue accent corner -->
-  <path d="M0 0 L22 0 L0 22 Z" fill="#3B82C4"/>
-  <path d="M120 120 L98 120 L120 98 Z" fill="#3B82C4"/>
-  <!-- Soft inner frame -->
-  <rect x="8" y="8" width="104" height="104" rx="12" fill="none" stroke="#3B82C4" stroke-width="1" opacity="0.32"/>
-  <!-- Italic P (display serif) -->
+  <!-- Black rounded base -->
+  <rect x="0" y="0" width="120" height="120" rx="16" fill="#0A0A0A"/>
+  <!-- Bright blue notched corners -->
+  <path d="M0 0 L22 0 L0 22 Z" fill="#2E7BD8"/>
+  <path d="M120 120 L98 120 L120 98 Z" fill="#2E7BD8"/>
+  <!-- Subtle inner frame -->
+  <rect x="8" y="8" width="104" height="104" rx="12" fill="none" stroke="#2E7BD8" stroke-width="1" opacity="0.32"/>
+  <!-- Italic P (display serif, clean white) -->
   <text x="60" y="80" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
-        font-weight="900" font-size="78" font-style="italic" fill="#F4EFE5" letter-spacing="-2">P</text>
-  <!-- Light blue accent underline (suggests coating layer) -->
-  <rect x="38" y="86" width="44" height="3" fill="#3B82C4" rx="1"/>
+        font-weight="900" font-size="78" font-style="italic" fill="#FFFFFF" letter-spacing="-2">P</text>
+  <!-- Bright blue accent underline -->
+  <rect x="38" y="86" width="44" height="3" fill="#2E7BD8" rx="1"/>
   <!-- Wordmark -->
   <text x="60" y="104" text-anchor="middle" font-family="'Courier New', monospace"
-        font-weight="700" font-size="7.5" fill="#7DAEDA" letter-spacing="2.5">EPOXY</text>
+        font-weight="700" font-size="7.5" fill="#9EC5EE" letter-spacing="2.5">EPOXY</text>
 </svg>
