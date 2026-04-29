@@ -1,7 +1,8 @@
 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0" y="0" width="32" height="32" rx="4" fill="#14223D"/>
-  <path d="M0 0 L7 0 L0 7 Z" fill="#D9A14A"/>
-  <path d="M32 32 L25 32 L32 25 Z" fill="#D9A14A"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif"
-        font-weight="900" font-size="14" letter-spacing="-1" fill="#F4EFE5">PE</text>
+  <rect x="0" y="0" width="32" height="32" rx="5" fill="#1A3F6B"/>
+  <path d="M0 0 L8 0 L0 8 Z" fill="#3B82C4"/>
+  <path d="M32 32 L24 32 L32 24 Z" fill="#3B82C4"/>
+  <text x="16" y="23" text-anchor="middle" font-family="Georgia, serif"
+        font-weight="900" font-size="22" font-style="italic" fill="#F4EFE5" letter-spacing="-1">P</text>
+  <rect x="9" y="25" width="14" height="1.5" fill="#3B82C4"/>
 </svg>
