@@ -1,0 +1,19 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Precision Epoxy Floor">
+  <title>Precision Epoxy Floor LLC</title>
+  <!-- Deep navy rounded base -->
+  <rect x="0" y="0" width="120" height="120" rx="14" fill="#14223D"/>
+  <!-- Amber notched corners (precision feel) -->
+  <path d="M0 0 L18 0 L0 18 Z" fill="#D9A14A"/>
+  <path d="M120 120 L102 120 L120 102 Z" fill="#D9A14A"/>
+  <!-- Crosshair grid (precision) -->
+  <line x1="60" y1="14" x2="60" y2="22" stroke="#D9A14A" stroke-width="1" opacity="0.5"/>
+  <line x1="60" y1="98" x2="60" y2="106" stroke="#D9A14A" stroke-width="1" opacity="0.5"/>
+  <line x1="14" y1="60" x2="22" y2="60" stroke="#D9A14A" stroke-width="1" opacity="0.5"/>
+  <line x1="98" y1="60" x2="106" y2="60" stroke="#D9A14A" stroke-width="1" opacity="0.5"/>
+  <!-- "PE" monogram (precision serif) -->
+  <text x="60" y="78" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-weight="900" font-size="48" letter-spacing="-2" fill="#F4EFE5">PE</text>
+  <!-- Bottom wordmark -->
+  <text x="60" y="100" text-anchor="middle" font-family="'Courier New', monospace"
+        font-weight="700" font-size="7" fill="#D9A14A" letter-spacing="2">PRECISION</text>
+</svg>

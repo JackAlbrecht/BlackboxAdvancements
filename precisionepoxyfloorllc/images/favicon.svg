@@ -1,0 +1,7 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="32" height="32" rx="4" fill="#14223D"/>
+  <path d="M0 0 L7 0 L0 7 Z" fill="#D9A14A"/>
+  <path d="M32 32 L25 32 L32 25 Z" fill="#D9A14A"/>
+  <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif"
+        font-weight="900" font-size="14" letter-spacing="-1" fill="#F4EFE5">PE</text>
+</svg>
