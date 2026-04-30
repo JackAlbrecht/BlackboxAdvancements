@@ -258,7 +258,7 @@ a.arrow-link:hover::after { transform: translateX(4px); }
   z-index: 3;
 }
 @media (max-width: 1100px){
-  .hero__chrome { left: 8px; font-size: 10px; }
+  .hero__chrome { left: 18px; font-size: 10px; }
 }
 .hero__scroll {
   position: absolute; bottom: 32px; left: 50%;
