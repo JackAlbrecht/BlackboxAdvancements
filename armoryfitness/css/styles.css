@@ -435,15 +435,35 @@ section { padding: clamp(80px, 12vh, 160px) 0; }
   display: flex; flex-direction: column; justify-content: space-between;
 }
 .w-card:hover { transform: translateY(-4px); border-color: var(--brass); }
-.w-card__title { font-family: var(--serif); font-size: 24px; font-weight: 300; }
-.w-card__meta { font-family: var(--mono); font-size: 10px; letter-spacing: .22em; color: var(--brass); text-transform: uppercase; }
+.w-card__title {
+  font-family: var(--serif); font-size: 24px; font-weight: 400; color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,.55);
+  line-height: 1.2;
+}
+.w-card__meta {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .22em;
+  color: #F5C97A; text-transform: uppercase; font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,.85);
+  align-self: flex-start;
+}
 .w-card--lg { grid-column: span 3; grid-row: span 2; }
 .w-card--md { grid-column: span 2; grid-row: span 2; }
 .w-card--sm { grid-column: span 2; }
 .w-card--bg { background-size: cover; background-position: center; color: var(--bone); }
 .w-card--bg::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(8,8,10,.3), rgba(8,8,10,.9));
+  background:
+    linear-gradient(180deg, rgba(8,8,10,.55) 0%, rgba(8,8,10,.35) 40%, rgba(8,8,10,.92) 100%),
+    linear-gradient(0deg, rgba(8,8,10,.0), rgba(8,8,10,.0));
+}
+.w-card--bg .w-card__meta{
+  background: rgba(8,8,10,.65);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(245,201,122,.4);
+}
+.w-card--bg .w-card__title{
+  text-shadow: 0 2px 12px rgba(0,0,0,.85);
 }
 .w-card--bg > * { position: relative; z-index: 1; }
 
@@ -665,19 +685,22 @@ section { padding: clamp(80px, 12vh, 160px) 0; }
 .gym-card:hover{ transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,.5); }
 .gym-card::before{
   content:""; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.85) 100%);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.0) 30%, rgba(0,0,0,.0) 55%, rgba(0,0,0,.92) 100%);
 }
 .gym-card.gym-card--lg{ grid-column: span 2; aspect-ratio: 16/10; }
 .gym-card__label{
   position: absolute; left: 18px; bottom: 38px; z-index: 2;
-  font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400;
+  font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500;
   letter-spacing: -0.01em; color: #fff; line-height: 1.05;
+  text-shadow: 0 2px 8px rgba(0,0,0,.85);
 }
 .gym-card__caption{
   position: absolute; left: 18px; bottom: 16px; z-index: 2;
   font-family: 'JetBrains Mono', monospace; font-size: 10px;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(255,255,255,.7);
+  color: #F5C97A; font-weight: 600;
+  text-shadow: 0 1px 6px rgba(0,0,0,.85);
 }
 .gym-card--placeholder{
   background-color: #14181d;
