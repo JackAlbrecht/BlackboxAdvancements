@@ -730,3 +730,29 @@ section { padding: clamp(80px, 12vh, 160px) 0; }
   .gym-card__label{ font-size: 19px; bottom: 36px; }
   .gym-card__caption{ font-size: 9px; }
 }
+
+/* Blackbox credit footer line */
+.footer__credit{
+  text-align: center;
+  padding: 18px 0 6px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  font-weight: 600;
+  border-top: 1px solid var(--graphite);
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer__credit a{
+  color: var(--brass);
+  font-weight: 700;
+  border-bottom: 1px solid var(--brass);
+  padding-bottom: 1px;
+  text-decoration: none;
+  transition: color .2s;
+}
+.footer__credit a:hover{ color: #F5C97A; border-bottom-color: #F5C97A; }
