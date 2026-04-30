@@ -641,3 +641,67 @@ section { padding: clamp(80px, 12vh, 160px) 0; }
   .tiers, .pillars__grid, .wellness__grid { gap: 14px; }
   .tier__badge { font-size: 9px; padding: 5px 12px; }
 }
+
+
+/* ============================================================
+   Inside the Armory - photo grid (placeholder-friendly)
+   ============================================================ */
+.gym-grid{
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  margin-top: 28px;
+}
+.gym-card{
+  position: relative; aspect-ratio: 4/3;
+  background-size: cover; background-position: center;
+  background-color: #14181d;
+  border: 1px solid rgba(255,255,255,.08);
+  overflow: hidden; cursor: pointer; display: block;
+  text-decoration: none; color: #fff;
+  transition: transform .25s ease, box-shadow .25s ease;
+  isolation: isolate;
+}
+.gym-card:hover{ transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,.5); }
+.gym-card::before{
+  content:""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.85) 100%);
+}
+.gym-card.gym-card--lg{ grid-column: span 2; aspect-ratio: 16/10; }
+.gym-card__label{
+  position: absolute; left: 18px; bottom: 38px; z-index: 2;
+  font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400;
+  letter-spacing: -0.01em; color: #fff; line-height: 1.05;
+}
+.gym-card__caption{
+  position: absolute; left: 18px; bottom: 16px; z-index: 2;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+}
+.gym-card--placeholder{
+  background-color: #14181d;
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,.04) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.04) 50%, rgba(255,255,255,.04) 75%, transparent 75%, transparent);
+  background-size: 14px 14px;
+  border: 1px dashed rgba(255,255,255,.18);
+  display: grid; place-items: center;
+}
+.gym-card--placeholder::before{ display: none; }
+.gym-card--placeholder .gym-card__placeholder-icon{
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -90%);
+  font-family: 'Fraunces', serif; font-size: 48px; font-weight: 200;
+  color: rgba(255,255,255,.22);
+}
+.gym-card--placeholder .gym-card__label{
+  bottom: 38px; color: rgba(255,255,255,.7);
+}
+.gym-card--placeholder .gym-card__caption{ color: rgba(255,255,255,.4); }
+@media (max-width: 900px){
+  .gym-grid{ grid-template-columns: 1fr 1fr; }
+  .gym-card.gym-card--lg{ grid-column: span 2; }
+}
+@media (max-width: 540px){
+  .gym-grid{ grid-template-columns: 1fr; gap: 12px; }
+  .gym-card, .gym-card.gym-card--lg{ grid-column: span 1; aspect-ratio: 4/3; }
+  .gym-card__label{ font-size: 19px; bottom: 36px; }
+  .gym-card__caption{ font-size: 9px; }
+}
