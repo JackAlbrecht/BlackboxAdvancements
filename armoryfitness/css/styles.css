@@ -248,7 +248,7 @@ a.arrow-link:hover::after { transform: translateX(4px); }
 }
 
 .hero__chrome {
-  position: absolute; top: 50%; left: 14px;
+  position: absolute; top: 50%; left: 32px;
   transform: translateY(-50%) rotate(180deg);
   pointer-events: none;
   font-family: var(--mono);
