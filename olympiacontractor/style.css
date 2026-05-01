@@ -69,20 +69,20 @@ header.site{
   display: flex; justify-content: space-between; align-items: center; gap: 24px;
 }
 .brand{ display: flex; align-items: center; gap: 14px; }
-.brand img{ height: 50px; width: auto; }
 .brand .brand-text{
-  font-family: var(--font-display); font-weight: 800; font-size: 20px;
-  color: var(--ink); letter-spacing: -0.01em;
-  display: none;
+  font-family: var(--font-display); font-weight: 800; font-size: 22px;
+  color: var(--ink); letter-spacing: -0.015em;
+  display: block; line-height: 1;
 }
 .brand .brand-sub{
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--wood); font-weight: 600;
-  display: none;
-  margin-top: 4px;
+  display: block;
+  margin-top: 5px;
 }
-@media (min-width: 720px){
-  .brand .brand-text, .brand .brand-sub{ display: block; }
+@media (max-width: 480px){
+  .brand .brand-text{ font-size: 17px; }
+  .brand .brand-sub{ font-size: 9.5px; letter-spacing: 0.14em; }
 }
 
 .nav-links{ display: flex; gap: 6px; align-items: center; list-style: none; }
