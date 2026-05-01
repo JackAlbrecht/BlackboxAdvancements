@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project Gallery | Mike Winter Contractor — Olympia, WA</title>
+<meta name="description" content="Project gallery — recent decks, framing, carpentry, garages, sheds &amp; RV barns built by Mike Winter Contractor across the South Puget Sound." />
+<meta property="og:title" content="Project Gallery | Mike Winter Contractor" />
+<meta property="og:description" content="Recent builds across the South Puget Sound." />
+<link rel="canonical" href="https://blackboxadvancements.com/olympiacontractor/gallery.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,400;0,800;0,900;1,400&family=JetBrains+Mono:wght@500;600&display=swap" />
+<link rel="stylesheet" href="/olympiacontractor/style.css" />
+<style>
+  .gallery-hero{
+    padding: 80px 28px 50px; text-align: center;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .gallery-hero .eyebrow{
+    color: var(--wood); border: 1px solid var(--line-soft);
+    padding: 8px 18px; border-radius: 999px; display: inline-block;
+    margin-bottom: 18px;
+  }
+  .gallery-hero h1{
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(48px, 7vw, 88px); line-height: 0.96;
+    letter-spacing: -0.025em; margin-bottom: 18px;
+  }
+  .gallery-hero h1 em{ font-style: italic; font-weight: 400; color: var(--wood); }
+  .gallery-hero p{ color: var(--muted); font-size: 17px; max-width: 600px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="row">
+    <span><span class="dot"></span>Olympia, WA &amp; South Puget Sound<span class="dot"></span>WA Lic. M-201874<span class="dot"></span>Since 2008</span>
+    <a href="tel:+13606286716">📞 (360) 628-6716</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="nav-row">
+    <a href="/olympiacontractor/" class="brand">
+      <img src="/olympiacontractor/images/logo.png" alt="Mike Winter Contractor" />
+      <div>
+        <span class="brand-text">Mike Winter Contractor</span>
+        <span class="brand-sub">General Contracting · Olympia, WA</span>
+      </div>
+    </a>
+    <button class="nav-toggle" data-menu-toggle aria-expanded="false">Menu</button>
+    <nav class="nav-links" data-nav-links>
+      <a href="/olympiacontractor/">Home</a>
+      <a href="/olympiacontractor/#services">Services</a>
+      <a href="/olympiacontractor/gallery.html" class="active">Gallery</a>
+      <a href="/olympiacontractor/#about">About</a>
+      <a href="/olympiacontractor/#reviews">Reviews</a>
+      <a href="/olympiacontractor/contact.html" class="nav-cta">Free Estimate →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="gallery-hero">
+  <span class="eyebrow">Project Gallery</span>
+  <h1>Real builds.<br><em>Real craftsmanship.</em></h1>
+  <p>A look at decks, frames, carpentry, garages &amp; RV barns recently completed across the South Puget Sound.</p>
+</section>
+
+<section class="gallery-section">
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <h2>Like what you see?<br><span class="italic">Let's build yours.</span></h2>
+    <p>Free on-site estimate, full project scope, written quote. No pressure, no surprises.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="/olympiacontractor/contact.html" class="btn btn-primary btn-big">Get Your Free Estimate <span class="arrow">→</span></a>
+      <a href="tel:+13606286716" class="btn btn-ghost btn-big">📞 (360) 628-6716</a>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Mike Winter<br><span class="accent">Contractor.</span></div>
+      <p class="foot-blurb">Quality general contracting in Olympia &amp; the South Puget Sound. Decks, framing, carpentry, garages &mdash; built right since 2008.</p>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/olympiacontractor/#services">Decks &amp; Railings</a></li>
+        <li><a href="/olympiacontractor/#services">Framing</a></li>
+        <li><a href="/olympiacontractor/#services">Carpentry</a></li>
+        <li><a href="/olympiacontractor/#services">Garages &amp; RV Barns</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Service Areas</h5>
+      <ul>
+        <li><a href="/olympiacontractor/#areas">Olympia</a></li>
+        <li><a href="/olympiacontractor/#areas">Lacey</a></li>
+        <li><a href="/olympiacontractor/#areas">Tumwater</a></li>
+        <li><a href="/olympiacontractor/#areas">Yelm</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Reach Us</h5>
+      <ul>
+        <li><a href="tel:+13606286716">(360) 628-6716</a></li>
+        <li><a href="/olympiacontractor/contact.html">Free Estimate Form</a></li>
+        <li>Olympia, WA</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <div>© <span id="yr"></span> Mike Winter Contractor LLC · All rights reserved · WA Lic. M-201874</div>
+    <div>Olympia, WA · South Puget Sound</div>
+  </div>
+  <div class="foot-credit">
+    Website designed &amp; built by <a href="https://blackboxadvancements.com" target="_blank" rel="noopener">Blackbox Advancements</a>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <span>Free estimate?</span>
+  <a href="tel:+13606286716">📞 Call (360) 628-6716</a>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// All photos in order — distributed into 3 columns
+const PHOTOS = [
+  'image00097-1.jpg','image00029.jpg','image00050.jpg','image00098.jpg',
+  'image00026.jpg','image00104.jpg','image00086.jpg','image00074.jpg',
+  'image00073.jpg','image00124.jpg','image00018.jpg','image00006.jpg',
+  'image00013.jpg','image00014.jpg','image00020.jpg','image00027.jpg',
+  'image00028.jpg','image00030.jpg','image00031.jpg','image00036-1.jpg',
+  'image00048.jpg','image00049.jpg','image00051.jpg','image00055.jpg',
+  'image00056.jpg','image00069.jpg','image00069-1.jpg','image00075.jpg',
+  'image00076.jpg','image00082.jpg','image00084.jpg','image00095.jpg',
+  'image00096.jpg','image00099.jpg','image00101-1.jpg','image00107.jpg',
+  'image00110.jpg','image00111.jpg','image00118.jpg','image00130-1.jpg',
+  'image00131.jpg','image00132.jpg','image00134.jpg','image00135.jpg'
+];
+
+// Distribute into 3 columns round-robin
+const grid = document.getElementById('galleryGrid');
+const cols = [document.createElement('div'), document.createElement('div'), document.createElement('div')];
+cols.forEach(c => { c.className = 'gallery-col'; grid.appendChild(c); });
+
+PHOTOS.forEach((src, i) => {
+  const fig = document.createElement('figure');
+  fig.className = 'gallery-item';
+  const img = document.createElement('img');
+  img.src = '/olympiacontractor/images/' + src;
+  img.alt = '';
+  img.loading = 'lazy';
+  fig.appendChild(img);
+  fig.addEventListener('click', () => openLightbox('/olympiacontractor/images/' + src));
+  cols[i % 3].appendChild(fig);
+});
+
+if ('IntersectionObserver' in window){
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.gallery-item').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.gallery-item').forEach(el => el.classList.add('in-view'));
+}
+
+function openLightbox(src){
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e){
+  if (e && e.target && e.target.id !== 'lightbox' && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox({target:{id:'lightbox'}}); });
+
+// Mobile nav
+var toggle = document.querySelector('[data-menu-toggle]');
+var links = document.querySelector('[data-nav-links]');
+if (toggle && links) {
+  toggle.addEventListener('click', function () {
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.textContent = open ? 'Close' : 'Menu';
+  });
+}
+</script>
+</body>
+</html>
