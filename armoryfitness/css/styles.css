@@ -112,8 +112,9 @@ a.arrow-link:hover::after { transform: translateX(4px); }
 .nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 22px var(--gutter);
+  padding: 28px clamp(28px, 4vw, 72px);
   display: flex; align-items: center; justify-content: space-between;
+  gap: clamp(28px, 4vw, 56px);
   transition: background .5s var(--ease), backdrop-filter .5s var(--ease), padding .5s var(--ease), border-color .5s var(--ease);
   border-bottom: 1px solid transparent;
   mix-blend-mode: normal;
@@ -123,26 +124,34 @@ a.arrow-link:hover::after { transform: translateX(4px); }
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-bottom-color: var(--graphite);
-  padding: 14px var(--gutter);
+  padding: 18px clamp(28px, 4vw, 72px);
 }
 .nav__brand {
-  font-family: var(--serif); font-size: 22px; letter-spacing: .28em;
+  font-family: var(--serif); font-size: 22px; letter-spacing: .26em;
   text-transform: uppercase; font-weight: 400; color: var(--bone);
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 18px;
+  flex-shrink: 0;
 }
 .nav__brand .mark {
-  width: 28px; height: 28px;
+  width: 30px; height: 30px;
   border: 1px solid var(--brass);
   display: grid; place-items: center;
   font-size: 11px; letter-spacing: 0; color: var(--brass);
   transform: rotate(45deg);
+  flex-shrink: 0;
 }
 .nav__brand .mark span { transform: rotate(-45deg); display: block; font-weight: 600; }
-.nav__links { display: flex; align-items: center; gap: 36px; list-style: none; margin: 0; padding: 0; }
+.nav__links {
+  display: flex; align-items: center;
+  gap: clamp(28px, 2.6vw, 44px);
+  list-style: none; margin: 0; padding: 0;
+  flex-wrap: nowrap;
+}
 .nav__links a {
-  font-size: 11px; letter-spacing: .24em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
   font-weight: 500; color: var(--bone);
-  position: relative; padding: 4px 0;
+  position: relative; padding: 6px 0;
+  white-space: nowrap;
   transition: color .3s var(--ease);
 }
 .nav__links a::after {
@@ -152,7 +161,15 @@ a.arrow-link:hover::after { transform: translateX(4px); }
 }
 .nav__links a:hover { color: var(--brass); }
 .nav__links a:hover::after { width: 100%; }
-.nav__cta { padding: 14px 26px; font-size: 11px; }
+.nav__cta {
+  padding: 14px 28px; font-size: 11px;
+  flex-shrink: 0; margin-left: 8px;
+}
+
+@media (max-width: 1180px){
+  .nav__links{ gap: 22px; }
+  .nav__brand{ letter-spacing: .22em; font-size: 20px; }
+}
 
 .nav__toggle {
   display: none;
