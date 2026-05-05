@@ -37,7 +37,7 @@ const TOP_METRO_SET = new Set(TOP_US_METRO_SLUGS);
 // PRIORITY TIER ASSIGNMENT
 // =============================================================
 const urls = [];
-const TARGET = 50000;
+const TARGET = 49000;
 const seen = new Set();
 function add(u) { if (!seen.has(u) && urls.length < TARGET) { seen.add(u); urls.push(u); } }
 
