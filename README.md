@@ -77,3 +77,4 @@ Then in GitHub Pages:
 - The contact form currently uses a `mailto:` action for static compatibility.
 - Replace `hello@blackboxadvancements.com` with the final business inbox if needed.
 - If you want a real submission endpoint later, connect the form to Formspree, Basin, a Cloudflare Worker, or another static-friendly form handler.
+
