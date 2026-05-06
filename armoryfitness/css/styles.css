@@ -12,9 +12,9 @@
   --fog:      #8a8a93;
   --bone:     #f2efe7;
   --paper:    #e6e1d4;
-  --brass:    #b8985a;
-  --brass-lo: #8c7343;
-  --ember:    #b83a2a;
+  --brass:    #B8333C;  /* Armory red — primary accent */
+  --brass-lo: #8B252E;  /* Armory red darker */
+  --ember:    #A23138;  /* deep crimson — from logo */
 
   /* Type */
   --serif: "Fraunces", "Cormorant Garamond", "Times New Roman", serif;
