@@ -774,3 +774,77 @@ section { padding: clamp(80px, 12vh, 160px) 0; }
   transition: color .2s;
 }
 .footer__credit a:hover{ color: #F5C97A; border-bottom-color: #F5C97A; }
+
+/* ========================= CONTACT FORM (footer) ========================= */
+.contact-form {
+  background: var(--ink);
+  border-top: 1px solid var(--graphite);
+  padding: clamp(56px, 8vw, 96px) var(--gutter);
+}
+.contact-form__inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.contact-form__inner h2 {
+  font-size: clamp(28px, 3.5vw, 48px);
+  color: var(--bone);
+  margin: 0 0 12px;
+}
+.contact-form__sub {
+  color: var(--paper);
+  font-size: 15px;
+  margin: 0 0 32px;
+  max-width: 540px;
+}
+.cform { display: grid; gap: 18px; margin-top: 28px; }
+.cform__row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 640px) { .cform__row { grid-template-columns: 1fr; } }
+.cform label { display: flex; flex-direction: column; gap: 8px; }
+.cform label span {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--fog);
+  font-weight: 500;
+}
+.cform input,
+.cform textarea {
+  background: var(--carbon);
+  border: 1px solid var(--steel);
+  color: var(--bone);
+  font-family: var(--sans);
+  font-size: 15px;
+  padding: 14px 16px;
+  border-radius: 2px;
+  transition: border-color .25s var(--ease), background .25s var(--ease);
+  font-weight: 300;
+}
+.cform input:focus,
+.cform textarea:focus {
+  outline: none;
+  border-color: var(--brass);
+  background: var(--graphite);
+}
+.cform textarea { resize: vertical; min-height: 110px; font-family: var(--sans); }
+.cform__full { width: 100%; }
+.cform button[type="submit"] {
+  background: var(--brass);
+  color: var(--bone);
+  border: 1px solid var(--brass);
+  margin-top: 8px;
+  justify-self: start;
+  cursor: pointer;
+}
+.cform button[type="submit"]:hover {
+  background: var(--brass-lo);
+  border-color: var(--brass-lo);
+}
+
+/* Nav contact button (sits next to Join) */
+.nav__contact {
+  margin-right: 12px;
+}
+@media (max-width: 900px) {
+  .nav__contact { display: none; } /* hide on mobile to save nav space */
+}
