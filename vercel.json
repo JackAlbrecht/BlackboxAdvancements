@@ -11,6 +11,7 @@
   ],
   "redirects": [
     { "source": "/jekkcards", "destination": "/jekkcards/", "permanent": true },
+      { "source": "/mumms", "destination": "/mumms/", "permanent": true },
     { "source": "/srsroofing/residential-roofing", "destination": "/srsroofing/services/residential-roofing/", "permanent": true },
     { "source": "/srsroofing/commercial-roofing", "destination": "/srsroofing/services/commercial-roofing/", "permanent": true },
     { "source": "/srsroofing/roof-repair-service", "destination": "/srsroofing/services/roof-repair-service/", "permanent": true },
