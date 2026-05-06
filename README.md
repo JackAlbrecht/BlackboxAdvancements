@@ -48,7 +48,7 @@ It covers:
 
 1. Create a GitHub repo.
 2. Push this folder to the `main` branch.
-3. In GitHub, go to **Settings → Pages**.
+3. In GitHub, go to **Settings â Pages**.
 4. Set the source to **Deploy from a branch**.
 5. Choose **main** and **/(root)**.
 6. Save.
@@ -57,13 +57,13 @@ GitHub Pages will serve the static files automatically.
 
 ## Connect the custom domain in Namecheap
 
-Add these records in **Namecheap → Domain List → Manage → Advanced DNS**:
+Add these records in **Namecheap â Domain List â Manage â Advanced DNS**:
 
-- `@` → A → `185.199.108.153`
-- `@` → A → `185.199.109.153`
-- `@` → A → `185.199.110.153`
-- `@` → A → `185.199.111.153`
-- `www` → CNAME → `<your-github-username>.github.io`
+- `@` â A â `185.199.108.153`
+- `@` â A â `185.199.109.153`
+- `@` â A â `185.199.110.153`
+- `@` â A â `185.199.111.153`
+- `www` â CNAME â `<your-github-username>.github.io`
 
 Then in GitHub Pages:
 
@@ -78,4 +78,4 @@ Then in GitHub Pages:
 - Replace `hello@blackboxadvancements.com` with the final business inbox if needed.
 - If you want a real submission endpoint later, connect the form to Formspree, Basin, a Cloudflare Worker, or another static-friendly form handler.
 
-
+<!-- mumms site added -->
