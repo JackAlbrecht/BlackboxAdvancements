@@ -5,44 +5,160 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/sentry", "destination": "/sentry.html" },
-    { "source": "/r6leaderboard", "destination": "/r6leaderboard.html" },
-    { "source": "/wallawallaair/:path*", "destination": "/wallawallaair" }
+    {
+      "source": "/sentry",
+      "destination": "/sentry.html"
+    },
+    {
+      "source": "/r6leaderboard",
+      "destination": "/r6leaderboard.html"
+    },
+    {
+      "source": "/wallawallaair/:path*",
+      "destination": "/wallawallaair"
+    }
   ],
   "redirects": [
-    { "source": "/jekkcards", "destination": "/jekkcards/", "permanent": true },
-    { "source": "/srsroofing/residential-roofing", "destination": "/srsroofing/services/residential-roofing/", "permanent": true },
-    { "source": "/srsroofing/commercial-roofing", "destination": "/srsroofing/services/commercial-roofing/", "permanent": true },
-    { "source": "/srsroofing/roof-repair-service", "destination": "/srsroofing/services/roof-repair-service/", "permanent": true },
-    { "source": "/srsroofing/roof-care", "destination": "/srsroofing/services/roof-care/", "permanent": true },
-    { "source": "/srsroofing/roof-maintenance", "destination": "/srsroofing/services/roof-care/", "permanent": true },
-    { "source": "/srsroofing/about-us", "destination": "/srsroofing/about/", "permanent": true },
-    { "source": "/srsroofing/loctions", "destination": "/srsroofing/locations/", "permanent": true },
-    { "source": "/srsroofing/schedule-call", "destination": "/srsroofing/contact/", "permanent": true },
-    { "source": "/srsroofing/bellinghamwa", "destination": "/srsroofing/locations/bellingham/", "permanent": true },
-    { "source": "/srsroofing/mountvernonwa", "destination": "/srsroofing/locations/mount-vernon/", "permanent": true },
-    { "source": "/srsroofing/oakharborwa", "destination": "/srsroofing/locations/oak-harbor/", "permanent": true },
-    { "source": "/srsroofing/snohomishwa", "destination": "/srsroofing/locations/snohomish/", "permanent": true },
-    { "source": "/srsroofing/olympiawa", "destination": "/srsroofing/locations/olympia/", "permanent": true },
-    { "source": "/srsroofing/tricitieswa", "destination": "/srsroofing/locations/tri-cities/", "permanent": true },
-    { "source": "/srsroofing/bremertonwa", "destination": "/srsroofing/locations/bremerton/", "permanent": true },
-    { "source": "/srsroofing/yakimawa", "destination": "/srsroofing/locations/yakima/", "permanent": true },
-    { "source": "/srsroofing/spokanewa", "destination": "/srsroofing/locations/spokane/", "permanent": true },
-    { "source": "/srsroofing/vancouverwa", "destination": "/srsroofing/locations/vancouver/", "permanent": true },
-    { "source": "/srsroofing/gigharborwa", "destination": "/srsroofing/locations/gig-harbor/", "permanent": true },
-    { "source": "/srsroofing/clevelandoh", "destination": "/srsroofing/locations/", "permanent": true },
-    { "source": "/srsroofing/cincinnatioh", "destination": "/srsroofing/locations/", "permanent": true },
-    { "source": "/srsroofing/copy-of-mount-vernon-2", "destination": "/srsroofing/locations/mount-vernon/", "permanent": true },
-    { "source": "/srsroofing/copy-of-cincinnati-oh", "destination": "/srsroofing/locations/", "permanent": true },
-    { "source": "/srsroofing/post/:slug", "destination": "/srsroofing/blog/:slug/", "permanent": true }
+    {
+      "source": "/jekkcards",
+      "destination": "/jekkcards/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/residential-roofing",
+      "destination": "/srsroofing/services/residential-roofing/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/commercial-roofing",
+      "destination": "/srsroofing/services/commercial-roofing/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/roof-repair-service",
+      "destination": "/srsroofing/services/roof-repair-service/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/roof-care",
+      "destination": "/srsroofing/services/roof-care/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/roof-maintenance",
+      "destination": "/srsroofing/services/roof-care/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/about-us",
+      "destination": "/srsroofing/about/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/loctions",
+      "destination": "/srsroofing/locations/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/schedule-call",
+      "destination": "/srsroofing/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/bellinghamwa",
+      "destination": "/srsroofing/locations/bellingham/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/mountvernonwa",
+      "destination": "/srsroofing/locations/mount-vernon/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/oakharborwa",
+      "destination": "/srsroofing/locations/oak-harbor/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/snohomishwa",
+      "destination": "/srsroofing/locations/snohomish/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/olympiawa",
+      "destination": "/srsroofing/locations/olympia/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/tricitieswa",
+      "destination": "/srsroofing/locations/tri-cities/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/bremertonwa",
+      "destination": "/srsroofing/locations/bremerton/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/yakimawa",
+      "destination": "/srsroofing/locations/yakima/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/spokanewa",
+      "destination": "/srsroofing/locations/spokane/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/vancouverwa",
+      "destination": "/srsroofing/locations/vancouver/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/gigharborwa",
+      "destination": "/srsroofing/locations/gig-harbor/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/clevelandoh",
+      "destination": "/srsroofing/locations/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/cincinnatioh",
+      "destination": "/srsroofing/locations/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/copy-of-mount-vernon-2",
+      "destination": "/srsroofing/locations/mount-vernon/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/copy-of-cincinnati-oh",
+      "destination": "/srsroofing/locations/",
+      "permanent": true
+    },
+    {
+      "source": "/srsroofing/post/:slug",
+      "destination": "/srsroofing/blog/:slug/",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/assets/SentryInstaller.hta",
       "headers": [
-        { "key": "Content-Type", "value": "application/hta" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"SentryInstaller.hta\"" }
+        {
+          "key": "Content-Type",
+          "value": "application/hta"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"SentryInstaller.hta\""
+        }
       ]
     }
-  ]
+  ],
+  "_lastDeploy": "2026-05-06T21:51:55.454Z"
 }
