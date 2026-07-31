@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LN Electrical LLC — Electrician in Renton & Greater Seattle, WA</title>
+<meta name="description" content="LN Electrical LLC — licensed, bonded & insured electrical contractor serving Renton and Greater Seattle. New construction, multifamily, panel upgrades, EV chargers, lighting & service calls. Free estimates: (206) 578-8118.">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html.js .reveal:not(.vis){opacity:0;transform:translateY(28px)}
+:root{
+  --ink:#0f1526; --navy:#141f3d; --navy2:#1b2a55;
+  --paper:#ffffff; --bg:#f6f7fb; --line:#e7eaf2;
+  --yellow:#ffd02e; --amber:#e88b00; --amber2:#f5a300;
+  --muted:#5b6478; --radius:18px;
+  --shadow:0 10px 30px rgba(15,21,38,.08);
+  --shadow-lg:0 24px 60px rgba(15,21,38,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;line-height:1.12;letter-spacing:-.02em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--amber);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.eyebrow::before{content:"";width:26px;height:3px;background:var(--amber);border-radius:2px}
+.h2{font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:800}
+.h2 .pop{color:var(--navy2);background:linear-gradient(120deg,var(--amber) 0%,#ffb400 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--muted);max-width:640px;margin-top:14px;font-size:1.02rem}
+
+/* promo bar */
+.promo{background:linear-gradient(90deg,#0f1526,#1b2a55 60%,#0f1526);color:#fff;font-size:.85rem;padding:9px 0}
+.promo .wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.promo b{color:var(--yellow)}
+.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);padding:3px 12px;border-radius:999px;font-weight:600;font-size:.78rem}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow)}
+
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:box-shadow .3s,border-color .3s}
+header.scrolled{border-color:var(--line);box-shadow:0 6px 24px rgba(15,21,38,.07)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{width:46px;height:46px;border-radius:50%;box-shadow:0 0 0 3px var(--yellow)}
+.brand .bt{line-height:1.15}
+.brand .bt strong{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.06rem;display:block;letter-spacing:-.01em}
+.brand .bt span{font-size:.72rem;color:var(--muted);font-weight:600}
+.navlinks{display:flex;gap:6px;align-items:center}
+.navlinks a{font-weight:600;font-size:.93rem;padding:9px 14px;border-radius:999px;transition:background .25s,color .25s}
+.navlinks a:hover{background:var(--bg)}
+.callbtn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fff;font-weight:700;font-size:.95rem;padding:12px 22px;border-radius:999px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}
+.callbtn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);background:var(--navy2)}
+.callbtn .bolt{color:var(--yellow)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2.5px;background:var(--ink);margin:5px 0;border-radius:2px;transition:.3s}
+.mobilemenu{display:none;position:fixed;inset:74px 0 auto 0;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg);padding:14px 22px 22px;z-index:59}
+.mobilemenu a{display:block;padding:13px 8px;font-weight:600;border-bottom:1px solid var(--line)}
+.mobilemenu a:last-child{border:0}
+.mobilemenu.open{display:block;animation:drop .3s ease}
+@keyframes drop{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+
+/* hero */
+.hero{position:relative;background:
+  radial-gradient(900px 420px at 85% -10%, rgba(255,208,46,.16), transparent 60%),
+  radial-gradient(700px 380px at -10% 30%, rgba(27,42,85,.07), transparent 60%),
+  var(--paper);
+  padding:64px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.35rem);font-weight:800}
+.hero h1 .y{color:var(--amber)}
+.hero p.lead{color:var(--muted);font-size:1.07rem;margin:20px 0 28px;max-width:540px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;padding:15px 28px;border-radius:999px;font-size:1rem;cursor:pointer;border:0;transition:transform .25s,box-shadow .25s,background .25s}
+.btn.primary{background:var(--yellow);color:var(--ink);box-shadow:0 12px 30px rgba(255,190,0,.35)}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(255,190,0,.45)}
+.btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink);box-shadow:var(--shadow)}
+.btn.ghost:hover{transform:translateY(-2px);border-color:#d6dbe8}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+.trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.trust .t{display:flex;gap:11px;align-items:flex-start}
+.trust .ic{width:38px;height:38px;border-radius:12px;background:#fff7dd;display:grid;place-items:center;font-size:1.05rem;flex:0 0 auto}
+.trust b{display:block;font-size:.92rem}
+.trust span{font-size:.8rem;color:var(--muted)}
+.heroimg{position:relative}
+.heroimg .main{border-radius:26px;box-shadow:var(--shadow-lg);width:100%;height:520px;object-fit:cover;object-position:center}
+.float{position:absolute;background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);padding:13px 18px;display:flex;gap:11px;align-items:center;animation:bob 5s ease-in-out infinite}
+.float .fi{width:36px;height:36px;border-radius:11px;background:var(--yellow);display:grid;place-items:center;font-size:1rem}
+.float b{font-size:.86rem;display:block;line-height:1.2}
+.float span{font-size:.74rem;color:var(--muted)}
+.float.f1{top:26px;left:-28px}
+.float.f2{bottom:34px;right:-20px;animation-delay:2.5s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* marquee */
+.marquee{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:20px 0;white-space:nowrap}
+.mtrack{display:inline-flex;gap:0;animation:scrollx 36s linear infinite}
+.marquee:hover .mtrack{animation-play-state:paused}
+.mtrack span{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.5rem;color:var(--navy2);padding:0 18px}
+.mtrack span.dot{color:var(--amber)}
+@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+section{padding:86px 0}
+section.tight{padding:60px 0}
+
+/* services */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:#f0e3b8}
+.card .ic{width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#fff3c4,#ffe289);display:grid;place-items:center;font-size:1.45rem;margin-bottom:18px;transition:transform .3s}
+.card:hover .ic{transform:scale(1.08) rotate(-4deg)}
+.card h3{font-size:1.13rem;margin-bottom:9px}
+.card p{color:var(--muted);font-size:.93rem}
+.card .more{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.88rem;color:var(--amber);margin-top:15px}
+.card .more .arr{transition:transform .25s}
+.card:hover .more .arr{transform:translateX(4px)}
+
+/* photo strip */
+.strip{overflow:hidden;padding:10px 0 6px}
+.strack{display:flex;gap:18px;animation:scrollx 46s linear infinite;width:max-content}
+.strip:hover .strack{animation-play-state:paused}
+.shot{position:relative;flex:0 0 auto;width:250px;height:320px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.shot:hover img{transform:scale(1.06)}
+.shot .lbl{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.94);border-radius:999px;padding:6px 14px;font-size:.78rem;font-weight:700;box-shadow:var(--shadow)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);position:relative;transition:transform .3s,box-shadow .3s}
+.step:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.step .num{position:absolute;top:22px;right:24px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.7rem;color:#e9ecf5}
+.step .ic{width:46px;height:46px;border-radius:13px;background:#fff7dd;display:grid;place-items:center;font-size:1.2rem;margin-bottom:16px}
+.step h3{font-size:1.08rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.92rem}
+
+/* estimator */
+#estimator{background:
+  radial-gradient(800px 400px at 110% 0%, rgba(255,208,46,.12), transparent 55%),
+  var(--bg)}
+.estwrap{display:grid;grid-template-columns:1fr;gap:0;margin-top:44px}
+.estcard{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);padding:38px;max-width:980px;margin:0 auto;width:100%}
+.svc-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.tile{border:1.5px solid var(--line);border-radius:15px;padding:16px 14px;text-align:center;cursor:pointer;transition:border-color .25s,background .25s,transform .25s;background:#fff;font-family:'Inter'}
+.tile .em{font-size:1.5rem;display:block;margin-bottom:7px}
+.tile b{font-size:.86rem;font-weight:700;display:block;line-height:1.25}
+.tile:hover{transform:translateY(-3px);border-color:#e8d89a}
+.tile.active{border-color:var(--amber2);background:#fffaea;box-shadow:0 8px 22px rgba(245,163,0,.18)}
+.est-opts{margin-top:26px;display:grid;gap:18px}
+.opt label{font-weight:700;font-size:.9rem;display:block;margin-bottom:8px}
+.opt select,.opt input[type=number]{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:'Inter';background:#fff;transition:border-color .25s}
+.opt select:focus,.opt input:focus{outline:none;border-color:var(--amber2)}
+.opt input[type=range]{width:100%;accent-color:var(--amber2);height:34px}
+.rangeval{font-weight:800;color:var(--navy2)}
+.est-out{margin-top:28px;background:linear-gradient(120deg,var(--ink),var(--navy2));border-radius:18px;padding:28px 30px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.est-out .lab{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#aab4d0;font-weight:700}
+.est-out .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--yellow)}
+.est-out .enote{font-size:.78rem;color:#aab4d0;max-width:290px}
+.est-out .btn{background:var(--yellow);color:var(--ink);padding:13px 24px;font-size:.93rem}
+.est-disclaimer{margin-top:14px;font-size:.78rem;color:var(--muted);text-align:center}
+
+/* projects */
+.projgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.proj{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);height:340px;cursor:default}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform .55s}
+.proj:hover img{transform:scale(1.07)}
+.proj .ov{position:absolute;inset:auto 0 0 0;background:linear-gradient(transparent,rgba(10,14,28,.88));color:#fff;padding:46px 20px 18px}
+.proj .ov b{font-family:'Plus Jakarta Sans';font-size:1rem;display:block}
+.proj .ov span{font-size:.8rem;color:#c6cde2}
+.proj.tall{grid-row:span 2;height:auto;min-height:700px}
+
+/* why + stats */
+.why .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.whyimg{position:relative}
+.whyimg img{border-radius:24px;box-shadow:var(--shadow-lg);height:560px;width:100%;object-fit:cover}
+.whyimg .badge{position:absolute;bottom:-20px;left:-20px;background:var(--yellow);border-radius:18px;padding:18px 24px;box-shadow:var(--shadow-lg);font-family:'Plus Jakarta Sans';font-weight:800;line-height:1.2}
+.whyimg .badge small{display:block;font-family:'Inter';font-weight:600;font-size:.76rem;margin-top:3px;opacity:.75}
+.wlist{margin-top:26px;display:grid;gap:16px}
+.wl{display:flex;gap:14px}
+.wl .ic{width:42px;height:42px;border-radius:13px;background:#fff7dd;display:grid;place-items:center;font-size:1.1rem;flex:0 0 auto}
+.wl b{display:block;font-size:.98rem}
+.wl p{color:var(--muted);font-size:.88rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 20px;text-align:center;box-shadow:var(--shadow)}
+.stat .n{font-family:'Plus Jakarta Sans';font-weight:800;font-size:2rem;color:var(--navy2)}
+.stat .n em{color:var(--amber);font-style:normal}
+.stat > span{font-size:.82rem;color:var(--muted);font-weight:600}
+.stat .n span{font-size:inherit;color:inherit;font-weight:inherit}
+
+/* field notes */
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:16px;padding:26px;box-shadow:var(--shadow);font-size:.95rem;transition:transform .3s}
+.note:hover{transform:translateY(-5px)}
+.note p{color:#333c52}
+.note .src{margin-top:16px;display:flex;align-items:center;gap:10px}
+.note .src img{width:34px;height:34px;border-radius:50%}
+.note .src b{font-size:.84rem;display:block}
+.note .src span{font-size:.74rem;color:var(--muted)}
+
+/* CTA band */
+.cta{background:linear-gradient(120deg,#0f1526 0%,#1b2a55 70%,#22346b 100%);color:#fff;text-align:center;padding:90px 0;position:relative;overflow:hidden}
+.cta::before{content:"⚡";position:absolute;font-size:20rem;opacity:.05;left:-40px;top:-60px;transform:rotate(-15deg)}
+.cta h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800}
+.cta h2 .y{color:var(--yellow)}
+.cta p{color:#aab4d0;max-width:560px;margin:18px auto 32px}
+.cta .cta-row{justify-content:center}
+.cta .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
+.cta .btn.ghost:hover{border-color:rgba(255,255,255,.5)}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.cinfo .block{display:flex;gap:15px;margin-top:24px}
+.cinfo .ic{width:46px;height:46px;border-radius:14px;background:#fff7dd;display:grid;place-items:center;font-size:1.15rem;flex:0 0 auto}
+.cinfo b{display:block;font-size:.98rem}
+.cinfo a.big{font-family:'Plus Jakarta Sans';font-weight:800;font-size:1.25rem;color:var(--navy2)}
+.cinfo span{color:var(--muted);font-size:.88rem}
+.socials{display:flex;gap:10px;margin-top:28px}
+.socials a{width:44px;height:44px;border-radius:13px;border:1.5px solid var(--line);display:grid;place-items:center;font-weight:800;font-size:.85rem;transition:all .25s}
+.socials a:hover{background:var(--ink);color:var(--yellow);border-color:var(--ink);transform:translateY(-3px)}
+.form{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);padding:36px}
+.form h3{font-size:1.3rem;margin-bottom:6px}
+.form .fsub{color:var(--muted);font-size:.88rem;margin-bottom:24px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.fgroup{margin-bottom:14px}
+.fgroup label,.frow label{font-weight:700;font-size:.83rem;display:block;margin-bottom:6px}
+.fgroup input,.fgroup select,.fgroup textarea,.frow input,.frow select{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:'Inter';background:#fff;transition:border-color .25s,box-shadow .25s}
+.fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus,.frow input:focus,.frow select:focus{outline:none;border-color:var(--amber2);box-shadow:0 0 0 4px rgba(245,163,0,.12)}
+.fgroup textarea{resize:vertical;min-height:110px}
+.form .btn{width:100%;justify-content:center;margin-top:8px}
+.formmsg{display:none;margin-top:16px;padding:14px 18px;border-radius:12px;font-size:.9rem;font-weight:600}
+.formmsg.ok{display:block;background:#e9f9ef;color:#12703a;border:1px solid #bfeccf}
+.formmsg.err{display:block;background:#fdeeee;color:#a02a2a;border:1px solid #f3c9c9}
+
+/* footer */
+footer{background:var(--ink);color:#aab4d0;padding:56px 0 30px;font-size:.9rem}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer h4{color:#fff;font-size:.95rem;margin-bottom:14px}
+footer a{display:block;padding:4px 0;transition:color .25s}
+footer a:hover{color:var(--yellow)}
+footer .fb{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+footer .fb img{width:42px;height:42px;border-radius:50%;box-shadow:0 0 0 2px var(--yellow)}
+footer .fb strong{color:#fff;font-family:'Plus Jakarta Sans'}
+.copy{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:24px;font-size:.8rem}
+
+/* reveal animations */
+.reveal{transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* responsive */
+@media(max-width:1020px){
+  .hero .wrap{grid-template-columns:1fr;gap:44px}
+  .heroimg .main{height:420px}
+  .float.f1{left:8px}.float.f2{right:8px}
+  .grid3,.steps,.projgrid,.notes{grid-template-columns:repeat(2,1fr)}
+  .proj.tall{grid-row:auto;min-height:340px}
+  .why .wgrid,.contact .wrap{grid-template-columns:1fr;gap:44px}
+  .whyimg img{height:420px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .svc-tiles{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:680px){
+  .navlinks{display:none}
+  .burger{display:block}
+  .callbtn .ctxt{display:none}
+  .callbtn{padding:12px 16px}
+  .grid3,.steps,.projgrid,.notes{grid-template-columns:1fr}
+  .svc-tiles{grid-template-columns:repeat(2,1fr)}
+  .estcard{padding:26px 20px}
+  .frow{grid-template-columns:1fr}
+  footer .cols{grid-template-columns:1fr}
+  .est-out{flex-direction:column;align-items:flex-start}
+  section{padding:64px 0}
+  .hero{padding:44px 0 60px}
+  .heroimg .main{height:340px}
+  .float{padding:10px 14px}
+  .trust{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="promo">
+  <div class="wrap">
+    <span><b>⚡ Licensed, Bonded & Insured</b> Electrical Contractor — Serving Renton & Greater Seattle</span>
+    <span class="chip"><span class="dot"></span> Free Estimates</span>
+    <span class="chip"><span class="dot"></span> Se Habla Español</span>
+  </div>
+</div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="logo.jpg" alt="LN Electrical logo">
+      <span class="bt"><strong>LN ELECTRICAL</strong><span>Commercial & Residential · Renton, WA</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#estimator">Estimator</a>
+      <a href="#projects">Projects</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="callbtn" href="tel:+12065788118"><span class="bolt">⚡</span><span class="ctxt">(206) 578-8118</span><span class="ctxt" style="display:none">Call</span></a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobilemenu" id="mmenu">
+  <a href="#services">Services</a>
+  <a href="#estimator">Instant Estimator</a>
+  <a href="#projects">Projects</a>
+  <a href="#why">Why Us</a>
+  <a href="#contact">Get a Quote</a>
+  <a href="tel:+12065788118">📞 (206) 578-8118</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="reveal vis">
+      <div class="eyebrow">Renton · Seattle · King County</div>
+      <h1>Powering the Puget Sound — <span class="y">done right,</span> from rough-in to final.</h1>
+      <p class="lead">LN Electrical is a licensed, bonded & insured electrical contractor for residential and commercial projects — new construction, multifamily, panel & service upgrades, EV chargers, lighting, and everything in between.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#estimator">Get an Instant Estimate <span class="arr">→</span></a>
+        <a class="btn ghost" href="tel:+12065788118">📞 (206) 578-8118</a>
+      </div>
+      <div class="trust">
+        <div class="t"><div class="ic">🛡️</div><div><b>Licensed, Bonded & Insured</b><span>WA electrical contractor</span></div></div>
+        <div class="t"><div class="ic">🏗️</div><div><b>New Construction & Multifamily</b><span>Single-family to 9+ unit projects</span></div></div>
+        <div class="t"><div class="ic">⚡</div><div><b>Utility Coordination</b><span>Seattle City Light standards & paperwork, handled</span></div></div>
+      </div>
+    </div>
+    <div class="heroimg reveal vis d2">
+      <img class="main" src="panel-action.jpg" alt="LN Electrical technician installing a multi-meter service panel">
+      <div class="float f1"><div class="fi">✅</div><div><b>Rough-in to Final</b><span>Inspections passed, no corners cut</span></div></div>
+      <div class="float f2"><div class="fi">🔌</div><div><b>Service & Meters</b><span>Panels, feeders & underground service</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mtrack">
+    <span>Renton</span><span class="dot">·</span><span>Seattle</span><span class="dot">·</span><span>Bellevue</span><span class="dot">·</span><span>Kent</span><span class="dot">·</span><span>New Construction · Panels · EV Chargers · Lighting</span><span class="dot">·</span><span>Tukwila</span><span class="dot">·</span><span>Newcastle</span><span class="dot">·</span><span>Issaquah</span><span class="dot">·</span>
+    <span>Renton</span><span class="dot">·</span><span>Seattle</span><span class="dot">·</span><span>Bellevue</span><span class="dot">·</span><span>Kent</span><span class="dot">·</span><span>New Construction · Panels · EV Chargers · Lighting</span><span class="dot">·</span><span>Tukwila</span><span class="dot">·</span><span>Newcastle</span><span class="dot">·</span><span>Issaquah</span><span class="dot">·</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Our Services</div>
+    <h2 class="h2">From new builds to service calls —<br><span class="pop">we keep our neighbors powered.</span></h2></div>
+    <div class="grid3">
+      <div class="card reveal"><div class="ic">🏗️</div><h3>New Construction & Multifamily</h3><p>Complete electrical for single-family builds, townhomes and multi-unit projects — load calcs, feeders, rough-in through final inspection.</p><span class="more">Ballpark it <span class="arr">→</span></span></div>
+      <div class="card reveal d1"><div class="ic">🔋</div><h3>Panel & Service Upgrades</h3><p>Panel change-outs, 200A service upgrades, meter stacks and underground services — including utility company coordination.</p><span class="more">Ballpark it <span class="arr">→</span></span></div>
+      <div class="card reveal d2"><div class="ic">🚗</div><h3>EV Charger Installation</h3><p>Level 2 home and commercial charger installs, sized to your panel with clean, code-compliant wiring runs.</p><span class="more">Ballpark it <span class="arr">→</span></span></div>
+      <div class="card reveal"><div class="ic">💡</div><h3>Lighting Design & Retrofits</h3><p>Recessed lighting, fixture upgrades and commercial lighting retrofits that transform how your space looks and works.</p><span class="more">Ballpark it <span class="arr">→</span></span></div>
+      <div class="card reveal d1"><div class="ic">🏠</div><h3>Remodels & Additions</h3><p>Kitchen, bath and whole-home remodel wiring — circuits, subpanels and finish work coordinated with your GC or design team.</p><span class="more">Ballpark it <span class="arr">→</span></span></div>
+      <div class="card reveal d2"><div class="ic">🔧</div><h3>Troubleshooting & Service</h3><p>Dead circuits, flickering lights, failed breakers — fast, honest diagnosis and repair for homes and businesses.</p><span class="more">Ballpark it <span class="arr">→</span></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="strack">
+    <div class="shot"><img src="panel-duo.jpg" alt=""><span class="lbl">Meter stack install</span></div>
+    <div class="shot"><img src="building.jpg" alt=""><span class="lbl">Multifamily new build</span></div>
+    <div class="shot"><img src="finished-entry.jpg" alt=""><span class="lbl">Completed townhomes</span></div>
+    <div class="shot"><img src="crew-trench.jpg" alt=""><span class="lbl">Underground service</span></div>
+    <div class="shot"><img src="skylight.jpg" alt=""><span class="lbl">Commercial lighting</span></div>
+    <div class="shot"><img src="meters.jpg" alt=""><span class="lbl">Multi-meter service</span></div>
+    <div class="shot"><img src="riser.jpg" alt=""><span class="lbl">Service riser</span></div>
+    <div class="shot"><img src="vault.jpg" alt=""><span class="lbl">Utility vault & trenching</span></div>
+    <div class="shot"><img src="panel-duo.jpg" alt=""><span class="lbl">Meter stack install</span></div>
+    <div class="shot"><img src="building.jpg" alt=""><span class="lbl">Multifamily new build</span></div>
+    <div class="shot"><img src="finished-entry.jpg" alt=""><span class="lbl">Completed townhomes</span></div>
+    <div class="shot"><img src="crew-trench.jpg" alt=""><span class="lbl">Underground service</span></div>
+    <div class="shot"><img src="skylight.jpg" alt=""><span class="lbl">Commercial lighting</span></div>
+    <div class="shot"><img src="meters.jpg" alt=""><span class="lbl">Multi-meter service</span></div>
+    <div class="shot"><img src="riser.jpg" alt=""><span class="lbl">Service riser</span></div>
+    <div class="shot"><img src="vault.jpg" alt=""><span class="lbl">Utility vault & trenching</span></div>
+  </div>
+</div>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">How It Works</div>
+    <h2 class="h2">Simple. <span class="pop">Transparent.</span></h2></div>
+    <div class="steps">
+      <div class="step reveal"><span class="num">01</span><div class="ic">📞</div><h3>Reach Out</h3><p>Call, text or send the quote form — tell us about your project, big or small. We service both residential and commercial properties.</p></div>
+      <div class="step reveal d1"><span class="num">02</span><div class="ic">📋</div><h3>Walkthrough & Quote</h3><p>We visit the site, talk through your goals and give you a clear, honest quote — no surprises, no padding.</p></div>
+      <div class="step reveal d2"><span class="num">03</span><div class="ic">⚡</div><h3>Install & Inspect</h3><p>Clean installs built to code, coordinated inspections, and a job site left tidier than we found it.</p></div>
+    </div>
+  </div>
+</section>
+<section id="estimator">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
+      <div class="eyebrow" style="justify-content:center">Instant Ballpark Estimator</div>
+      <h2 class="h2">What would your project cost?<br><span class="pop">Get a ballpark in 10 seconds.</span></h2>
+      <p class="sub" style="margin-left:auto;margin-right:auto">Pick a service, answer a couple of questions, and see a typical Seattle-area price range. Your exact quote is always free.</p>
+    </div>
+    <div class="estwrap reveal d1">
+      <div class="estcard">
+        <div class="svc-tiles" id="svcTiles">
+          <button class="tile active" data-svc="panel"><span class="em">🔋</span><b>Panel / Service Upgrade</b></button>
+          <button class="tile" data-svc="ev"><span class="em">🚗</span><b>EV Charger</b></button>
+          <button class="tile" data-svc="lighting"><span class="em">💡</span><b>Lighting</b></button>
+          <button class="tile" data-svc="remodel"><span class="em">🏠</span><b>Remodel / Addition</b></button>
+          <button class="tile" data-svc="newcon"><span class="em">🏗️</span><b>New Construction</b></button>
+          <button class="tile" data-svc="service"><span class="em">🔧</span><b>Troubleshooting</b></button>
+        </div>
+        <div class="est-opts" id="estOpts"></div>
+        <div class="est-out">
+          <div>
+            <div class="lab">Typical Range</div>
+            <div class="num" id="estNum">$3,200 – $5,800</div>
+            <div class="enote" id="estNote">Ballpark for the greater Seattle area — final pricing after a free walkthrough.</div>
+          </div>
+          <button class="btn" id="estSend">Send Me This Quote <span class="arr">→</span></button>
+        </div>
+        <p class="est-disclaimer">Ranges are ballpark figures for typical projects in the Renton / Seattle area. Every property is different — your written quote from LN Electrical is always free and always exact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Recent Work</div>
+    <h2 class="h2">Real projects. <span class="pop">Straight from our job sites.</span></h2>
+    <p class="sub">Follow along on Instagram <a href="https://www.instagram.com/ln_electrical/" target="_blank" rel="noopener" style="font-weight:700;color:var(--amber)">@ln_electrical</a> — everything below is our own work.</p></div>
+    <div class="projgrid">
+      <div class="proj tall reveal"><img src="finished-entry.jpg" alt="Completed townhome project"><div class="ov"><b>9 Units + 3 Live/Work — Complete ⚡</b><span>Full electrical, rough-in through final — Seattle</span></div></div>
+      <div class="proj reveal d1"><img src="building.jpg" alt="Multifamily new construction"><div class="ov"><b>Multifamily New Construction</b><span>Feeders & permanent power locked in early</span></div></div>
+      <div class="proj reveal d2"><img src="panel-duo.jpg" alt="Meter stack installation"><div class="ov"><b>Multi-Meter Service Install</b><span>Meter stacks, panels & service gear</span></div></div>
+      <div class="proj reveal d1"><img src="crew-trench.jpg" alt="Underground service work"><div class="ov"><b>Underground Service</b><span>600A 120/240V single-phase — utility coordinated</span></div></div>
+      <div class="proj reveal d2"><img src="skylight.jpg" alt="Commercial lighting project"><div class="ov"><b>Commercial Lighting</b><span>Retail build-out — Delridge, West Seattle</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why" style="background:var(--bg)">
+  <div class="wrap wgrid">
+    <div class="whyimg reveal">
+      <img src="conduits.jpg" alt="LN Electrical underground conduit work">
+      <div class="badge">Licensed · Bonded<br>· Insured<small>WA Electrical Contractor</small></div>
+    </div>
+    <div class="reveal d1">
+      <div class="eyebrow">Why LN Electrical</div>
+      <h2 class="h2">The crew GCs call back.<br><span class="pop">The electrician neighbors recommend.</span></h2>
+      <div class="wlist">
+        <div class="wl"><div class="ic">🧾</div><div><b>Permits, inspections & utility paperwork — handled</b><p>Don't want to deal with the utility company's standards and paperwork? We've got you covered from start to finish, including Seattle City Light coordination.</p></div></div>
+        <div class="wl"><div class="ic">📐</div><div><b>Planned like a big job, priced like a local</b><p>Load calcs, vault placement and meter coordination checked before steel goes in the ground — so nothing gets redone twice.</p></div></div>
+        <div class="wl"><div class="ic">🧹</div><div><b>Clean sites, on-time schedules</b><p>We pass inspections the first time and leave job sites tidy. Ask the builders we work with.</p></div></div>
+        <div class="wl"><div class="ic">🗣️</div><div><b>English & Spanish — same great service</b><p>Se habla español. Clear communication with owners, GCs and crews in both languages.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><div class="n"><span data-count="227">0</span><em>+</em></div><span>Projects shared on our Instagram</span></div>
+      <div class="stat"><div class="n"><span data-count="9">0</span><em> units</em></div><span>Latest multifamily project completed</span></div>
+      <div class="stat"><div class="n"><span data-count="600">0</span><em>A</em></div><span>Underground services we install</span></div>
+      <div class="stat"><div class="n"><span data-count="100">0</span><em>%</em></div><span>Licensed, bonded & insured</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">From the Job Site</div>
+    <h2 class="h2">In our own words — <span class="pop">no corners cut.</span></h2></div>
+    <div class="notes">
+      <div class="note reveal"><p>"We just passed rough-in inspection on 3 of our 9-unit site — and we don't cut corners. 3 units down, 6 to go 💪"</p><div class="src"><img src="logo.jpg" alt=""><div><b>LN Electrical</b><span>via Instagram @ln_electrical</span></div></div></div>
+      <div class="note reveal d1"><p>"One of my goals as an EC is to lock in permanent power early in the build to avoid delays later ⚡"</p><div class="src"><img src="logo.jpg" alt=""><div><b>LN Electrical</b><span>via Instagram @ln_electrical</span></div></div></div>
+      <div class="note reveal d2"><p>"Don't want to deal with SCL's complicated standards and paperwork? We've got you covered from start to finish."</p><div class="src"><img src="logo.jpg" alt=""><div><b>LN Electrical</b><span>via Instagram @ln_electrical</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="reveal">Ready to power your next project?<br><span class="y">Get your free quote today.</span></h2>
+    <p class="reveal d1">From a single service call to a full multifamily build — we'll give you a straight answer and an honest number.</p>
+    <div class="cta-row reveal d2">
+      <a class="btn primary" href="#contact">Request a Free Quote <span class="arr">→</span></a>
+      <a class="btn ghost" href="tel:+12065788118">📞 (206) 578-8118</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="cinfo reveal">
+      <div class="eyebrow">Contact Us</div>
+      <h2 class="h2">Let's talk about<br><span class="pop">your project.</span></h2>
+      <div class="block"><div class="ic">📞</div><div><b>Call or Text</b><a class="big" href="tel:+12065788118">(206) 578-8118</a></div></div>
+      <div class="block"><div class="ic">✉️</div><div><b>Email</b><a class="big" style="font-size:1.02rem" href="mailto:Lnelectrical.wa@gmail.com">Lnelectrical.wa@gmail.com</a></div></div>
+      <div class="block"><div class="ic">📍</div><div><b>Service Area</b><span>Renton · Seattle · Bellevue · Kent · Newcastle · Tukwila · Issaquah & surrounding King County</span></div></div>
+      <div class="block"><div class="ic">🛡️</div><div><b>LN ELECTRICAL LLC</b><span>Licensed · Bonded · Insured — Washington</span></div></div>
+      <div class="socials">
+        <a href="https://www.instagram.com/ln_electrical/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/p/LN-Electrical-100089629689213/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <form class="form reveal d1" id="quoteForm">
+      <h3>Request a Free Quote</h3>
+      <p class="fsub">Tell us a little about the project — we'll get back to you fast.</p>
+      <div class="frow">
+        <div><label>Name *</label><input type="text" name="name" required placeholder="Your name"></div>
+        <div><label>Phone *</label><input type="tel" name="phone" required placeholder="(206) 555-0123"></div>
+      </div>
+      <div class="frow">
+        <div><label>Email</label><input type="email" name="email" placeholder="you@email.com"></div>
+        <div><label>City</label><input type="text" name="city" placeholder="Renton, Seattle…"></div>
+      </div>
+      <div class="fgroup"><label>Service Needed</label>
+        <select name="service">
+          <option>Panel / Service Upgrade</option>
+          <option>EV Charger Installation</option>
+          <option>Lighting</option>
+          <option>Remodel / Addition</option>
+          <option>New Construction / Multifamily</option>
+          <option>Troubleshooting / Service Call</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fgroup"><label>Project Details</label><textarea name="message" id="formMessage" placeholder="What are you looking to get done?"></textarea></div>
+      <button class="btn primary" type="submit" id="formBtn">Send Quote Request <span class="arr">→</span></button>
+      <div class="formmsg" id="formMsg"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="fb"><img src="logo.jpg" alt="LN Electrical logo"><strong>LN ELECTRICAL LLC</strong></div>
+        <p>Commercial & residential electrical contractor serving Renton and the greater Seattle area. Licensed, bonded & insured. Se habla español.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#services">New Construction & Multifamily</a>
+        <a href="#services">Panel & Service Upgrades</a>
+        <a href="#services">EV Chargers</a>
+        <a href="#services">Lighting</a>
+        <a href="#services">Troubleshooting & Service</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+12065788118">📞 (206) 578-8118</a>
+        <a href="mailto:Lnelectrical.wa@gmail.com">✉️ Lnelectrical.wa@gmail.com</a>
+        <a href="https://www.instagram.com/ln_electrical/" target="_blank" rel="noopener">Instagram — @ln_electrical</a>
+        <a href="https://www.facebook.com/p/LN-Electrical-100089629689213/" target="_blank" rel="noopener">Facebook — LN Electrical</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 LN Electrical LLC. All rights reserved.</span>
+      <span>Licensed · Bonded · Insured — Washington State</span>
+    </div>
+  </div>
+</footer>
+<script>
+/* ---------- header / mobile menu ---------- */
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10),{passive:true});
+const burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+burger.addEventListener('click',()=>mmenu.classList.toggle('open'));
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+
+/* ---------- reveal on scroll ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- animated counters ---------- */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,target=+el.dataset.count,dur=1400,t0=performance.now();
+  const tick=t=>{const p=Math.min((t-t0)/dur,1);el.textContent=Math.round(target*(1-Math.pow(1-p,3))).toLocaleString();if(p<1)requestAnimationFrame(tick)};
+  requestAnimationFrame(tick);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ---------- estimator ---------- */
+const CONFIGS={
+  panel:{opts:[
+    {key:'scope',label:'What do you need?',type:'select',choices:[
+      ['Panel change-out (like-for-like)',[1800,3200]],
+      ['Upgrade to 200A service',[3200,5800]],
+      ['New meter stack / multi-unit service',[6000,15000]],
+      ['Underground service (utility coordinated)',[8000,18000]]]},
+    {key:'extra',label:'Utility company coordination needed (SCL / PSE)?',type:'select',choices:[['No / not sure',[0,0]],['Yes — handle permits & paperwork for me',[500,1500]]]}
+  ],note:'Includes permit & inspection coordination. Final bid after a free site walkthrough.'},
+  ev:{opts:[
+    {key:'scope',label:'Charger location vs. your panel',type:'select',choices:[
+      ['Garage — close to panel',[750,1400]],
+      ['Longer wiring run needed',[1200,2600]]]},
+    {key:'extra',label:'Panel capacity',type:'select',choices:[['Panel has room',[0,0]],['Might need a panel upgrade',[3200,5800]]]}
+  ],note:'Level 2 (240V) charger installs, sized to your panel and vehicle.'},
+  lighting:{opts:[
+    {key:'scope',label:'Type of lighting work',type:'select',choices:[
+      ['Recessed lighting (per fixture)',[180,320]],
+      ['Fixture replacements (per fixture)',[120,250]],
+      ['Commercial lighting retrofit (per fixture)',[150,350]]]},
+    {key:'qty',label:'How many fixtures?',type:'range',min:1,max:30,val:6}
+  ],note:'Per-fixture ranges multiplied by your count. Design help included.'},
+  remodel:{opts:[
+    {key:'scope',label:'Scope',type:'select',choices:[
+      ['Kitchen or bath remodel wiring',[6,12,'sqft']],
+      ['Whole-home / addition wiring',[5,9,'sqft']]]},
+    {key:'qty',label:'Approximate square footage',type:'range',min:100,max:3000,val:400,step:50}
+  ],note:'Priced per square foot of remodeled space, including circuits & finish work.'},
+  newcon:{opts:[
+    {key:'scope',label:'Project type',type:'select',choices:[
+      ['Single-family new build (per sqft)',[5.5,8.5,'sqft']],
+      ['Townhome / multifamily (per unit)',[4500,7500,'unit']]]},
+    {key:'qty',label:'Square feet — or units for multifamily',type:'range',min:1,max:6000,val:2200,step:1}
+  ],note:'Rough-in through final, load calcs, feeders & inspection coordination included.'},
+  service:{opts:[
+    {key:'scope',label:'What\'s going on?',type:'select',choices:[
+      ['Diagnostic visit (first hour)',[180,350]],
+      ['Typical repair (diagnosis + fix)',[250,900]],
+      ['Small install (outlet, switch, fan…)',[200,600]]]}
+  ],note:'Most service calls are diagnosed on the first visit.'}
+};
+let curSvc='panel';
+const optsEl=document.getElementById('estOpts'),numEl=document.getElementById('estNum'),noteEl=document.getElementById('estNote');
+const fmt=n=>'$'+Math.round(n).toLocaleString();
+let lastLo=0,lastHi=0;
+function renderOpts(){
+  const c=CONFIGS[curSvc];optsEl.innerHTML='';
+  c.opts.forEach(o=>{
+    const d=document.createElement('div');d.className='opt';
+    if(o.type==='select'){
+      d.innerHTML='<label>'+o.label+'</label><select data-key="'+o.key+'">'+o.choices.map((ch,i)=>'<option value="'+i+'">'+ch[0]+'</option>').join('')+'</select>';
+    }else{
+      d.innerHTML='<label>'+o.label+' — <span class="rangeval" id="rv_'+o.key+'">'+o.val.toLocaleString()+'</span></label><input type="range" data-key="'+o.key+'" min="'+o.min+'" max="'+o.max+'" step="'+(o.step||1)+'" value="'+o.val+'">';
+    }
+    optsEl.appendChild(d);
+  });
+  optsEl.querySelectorAll('select,input').forEach(el=>el.addEventListener('input',calc));
+  noteEl.textContent=c.note;calc();
+}
+function calc(){
+  const c=CONFIGS[curSvc];let lo=0,hi=0,perUnit=null,qty=1;
+  c.opts.forEach(o=>{
+    const el=optsEl.querySelector('[data-key="'+o.key+'"]');
+    if(o.type==='select'){
+      const ch=o.choices[+el.value];
+      if(ch[1].length>2){perUnit=[ch[1][0],ch[1][1]]}else{lo+=ch[1][0];hi+=ch[1][1]}
+    }else{
+      qty=+el.value;const rv=document.getElementById('rv_'+o.key);if(rv)rv.textContent=(+el.value).toLocaleString();
+    }
+  });
+  if(curSvc==='lighting'){const ch=CONFIGS.lighting.opts[0].choices[+optsEl.querySelector('[data-key="scope"]').value];lo=ch[1][0]*qty;hi=ch[1][1]*qty}
+  else if(perUnit){lo=perUnit[0]*qty;hi=perUnit[1]*qty}
+  else if(c.opts.some(o=>o.type==='range')){lo*=qty;hi*=qty}
+  animNum(lo,hi);
+}
+function animNum(lo,hi){
+  const t0=performance.now(),dur=500,fl=lastLo,fh=lastHi;
+  const tick=t=>{const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+    numEl.textContent=fmt(fl+(lo-fl)*e)+' – '+fmt(fh+(hi-fh)*e);
+    if(p<1)requestAnimationFrame(tick);else{lastLo=lo;lastHi=hi}};
+  requestAnimationFrame(tick);
+}
+document.querySelectorAll('#svcTiles .tile').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('#svcTiles .tile').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');curSvc=t.dataset.svc;renderOpts();
+}));
+document.querySelectorAll('.card .more').forEach((m,i)=>{
+  const map=['newcon','panel','ev','lighting','remodel','service'];
+  m.style.cursor='pointer';
+  m.addEventListener('click',()=>{
+    document.getElementById('estimator').scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>{const t=document.querySelector('[data-svc="'+map[i]+'"]');if(t)t.click()},450);
+  });
+});
+document.getElementById('estSend').addEventListener('click',()=>{
+  const c=CONFIGS[curSvc];
+  const scopeSel=optsEl.querySelector('[data-key="scope"]');
+  const scopeTxt=c.opts[0].choices[+scopeSel.value][0];
+  const svcNames={panel:'Panel / Service Upgrade',ev:'EV Charger Installation',lighting:'Lighting',remodel:'Remodel / Addition',newcon:'New Construction / Multifamily',service:'Troubleshooting / Service Call'};
+  const sel=document.querySelector('select[name="service"]');
+  sel.value=svcNames[curSvc]||'Other';
+  document.getElementById('formMessage').value='Online estimator ballpark: '+numEl.textContent+' — '+scopeTxt+'. Please contact me with an exact quote.';
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+});
+renderOpts();
+
+/* ---------- quote form (FormSubmit AJAX) ---------- */
+const form=document.getElementById('quoteForm'),formMsg=document.getElementById('formMsg'),formBtn=document.getElementById('formBtn');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  formBtn.disabled=true;formBtn.innerHTML='Sending…';
+  const data=Object.fromEntries(new FormData(form).entries());
+  data._subject='New quote request — LN Electrical website';
+  data._template='table';data._captcha='false';
+  try{
+    const r=await fetch('https://formsubmit.co/ajax/gabriel@blackboxadvancements.com',{
+      method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(data)});
+    if(!r.ok)throw 0;
+    formMsg.className='formmsg ok';
+    formMsg.textContent='✅ Got it! Your quote request is in — we\'ll get back to you within one business day.';
+    form.reset();
+  }catch(err){
+    formMsg.className='formmsg err';
+    formMsg.innerHTML='Something went wrong sending the form — please call or text us at <a href="tel:+12065788118" style="font-weight:700">(206) 578-8118</a>.';
+  }
+  formBtn.disabled=false;formBtn.innerHTML='Send Quote Request <span class="arr">→</span>';
+});
+</script>
+</body>
+</html>
